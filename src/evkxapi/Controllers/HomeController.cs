@@ -3,6 +3,7 @@
 namespace evdb.Controllers
 {
     [Route("/")]
+    [Route("/evsearch")]
     public class HomeController : Controller
     {
         [HttpGet]

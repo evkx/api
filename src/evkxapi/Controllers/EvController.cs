@@ -1,6 +1,7 @@
 ﻿using evdb.models.Models;
 using evdb.Models;
 using evdb.Services;
+using evkx.models.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -28,10 +29,12 @@ namespace evdb.Controllers
             return result;
         }
 
-        [HttpGet("/api/brands")]
-        public async Task<List<string>> Brands()
+        [HttpGet("/api/searchoptions")]
+        public async Task<EvSearchOptions> SearchOptions()
         {
-            return await _evService.GetBrands();
+            EvSearchOptions searchOptions = new EvSearchOptions();
+            searchOptions.Brands = await _evService.GetBrands();
+            return searchOptions;
         }
     }
 }

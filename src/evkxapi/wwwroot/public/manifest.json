@@ -1,0 +1,18 @@
+{
+  "src/assets/Car.svg": {
+    "file": "assets/Car-67700d55.svg",
+    "src": "src/assets/Car.svg"
+  },
+  "entrypoint.css": {
+    "file": "assets/entrypoint-ba00ad61.css",
+    "src": "entrypoint.css"
+  },
+  "entrypoint.js": {
+    "file": "assets/entrypoint-e41763f0.js",
+    "src": "entrypoint.js",
+    "isEntry": true,
+    "css": [
+      "assets/entrypoint-ba00ad61.css"
+    ]
+  }
+}
