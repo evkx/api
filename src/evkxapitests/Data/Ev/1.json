@@ -1,0 +1,145 @@
+{
+  "Brand": {
+    "Name": "Audi"
+  },
+  "ModelInfo": {
+    "Name": "e-tron 55",
+    "ModelYear": "2022",
+    "SaleStart": "01.05.2021"
+  },
+   "DriverAssistance": {
+    "NightVision": {
+      "Available": true,
+      "Optional": true,
+      "FeatureName": "Night Vision Assist",
+      "OptionId": "9R1"
+    },
+    "CruiseControl": {
+      "Available": true,
+      "Optional": true,
+      "FeatureName": "Cruise control",
+      "OptionId": "8TC"
+    },
+    "AdaptiveCruiseControl": {
+      "Available": true,
+      "Optional": true,
+      "FeatureName": "Adaptive cruise control",
+      "OptionId": "8TC"
+    },
+    "AutonomousDriving": {
+      "Available": true,
+      "Optional": true,
+      "FeatureName": "Adaptive cruise assist",
+      "OptionId": "PCC"
+    }
+  },
+  "Drivetrain": {
+    "Battery": {
+      "GrossCapacitykWh": 95,
+      "NetCapacitykWh": 86.5,
+      "Modules": "36",
+      "CellPerModule": "12",
+      "CellArchitecture": "436s4p",
+      "CellInfo": {
+        "CellProducer": "Samsung SDI",
+        "CellType": "Prismatic",
+        "CellChemistry": "NCM",
+        "CellCapacityAh": "60"
+      }
+    },
+    "Suspension": [
+      {
+        "Name": "Adaptive Air Suspension",
+        "MaxGroundClearanceMM": 248,
+        "MinGroundClearanceMM": 152,
+        "AdaptiveSuspension": true,
+        "SuspensionTypeFront": "Air Suspension",
+        "SuspensionTypeRear": "Air Suspension",
+        "Standard": true
+      },
+      {
+        "Name": "Adaptive Air Suspension Sport",
+        "MaxGroundClearanceMM": 248,
+        "MinGroundClearanceMM": 152,
+        "AdaptiveSuspension": true,
+        "SuspensionTypeFront": "Air Suspension",
+        "SuspensionTypeRear": "Air Suspension",
+        "Standard": true
+      }
+    ],
+    "Performance": {
+      "PowerKw": 265,
+      "PowerKwBoost": 300,
+      "TopSpeed": 200,
+      "BasicTrimWltpRange": 441,
+      "BasicTrimWltpConsumption": 21.6,
+      "BasicTrimWltpConsumptionReal": 19.0
+    },
+    "Charging": {
+      "Chargeports": [
+        {
+          "Location": "Front left",
+          "Type": "CCS",
+          "IsStandard": true,
+          "Markets": "Europe"
+        },
+        {
+          "Location": "Front right",
+          "Type": "Type 2",
+          "IsStandard": false,
+          "Markets": "Europe"
+        }
+      ]
+    },
+    "Motors": [
+      {
+        "Location": "Front axle",
+        "Type": "ASM",
+        "Power": "135KW",
+        "Torque": "247NM",
+        "Model": "APA250",
+        "Mount": "Axially paralell (APA)"
+      },
+      {
+        "Location": "Rear axle",
+        "Type": "ASM",
+        "Power": "135KW",
+        "Torque": "247NM",
+        "Model": "APA250",
+        "Mount": "Coaxial (AKA/ATA)"
+      }
+    ]
+  },
+  "Exterior": {
+    "PaintColors": [
+      {
+        "Color": "Grey",
+        "Name": "Daytona Grey",
+        "Metallic": true,
+        "ColorId": "6Y"
+      }
+    ],
+    "WheelOptions": [
+      {
+        "TireDimension":"255/50",
+        "WheelSize": 19
+      }
+    ]
+  },
+  "Interior": {
+    "Seatoptions": [
+      {
+        "Name": "Standard seats",
+        "Standard": true,
+        "Materials": [
+          {
+            "Name": "Fabric",
+            "AnimalFree": true,
+            "Color": "Grey"
+          }
+        ]
+
+      }
+    ]
+  }
+}

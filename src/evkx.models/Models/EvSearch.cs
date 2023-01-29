@@ -1,0 +1,26 @@
+﻿using evdb.models.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace evdb.models.Models
+{
+    public class EvSearch
+    {
+        public int? MinimumWltpRange { get; set; } 
+
+        public int? MinimumGrossBattery { get; set; }
+
+        public bool? AllWheelDrive { get; set; }
+
+        public List<string>? Brand { get; set; }
+
+        public bool? NightVision { get; set; }
+
+        public SortOrder? SortOrder { get; set; }
+
+        public List<EvBodyType>? EvType { get; set; }
+
+        public List<string>? Brands { get; set; }
+    }
+}

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "evdb", "evdb.csproj", "{8D5291F2-87B3-4402-ADFC-B7B78167B129}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "evdbtests", "..\evdbtests\evdbtests.csproj", "{79F48EEC-CE41-4A8A-91F9-C65D56EEBC82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "evdb.models", "..\evdb.models\evdb.models.csproj", "{E8418E9F-5B9A-48BE-899C-8C91A0F19D20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "evdb.sitegenerator", "..\evdb.sitegenerator\evdb.sitegenerator.csproj", "{0C3E95C6-B1E3-4339-A98F-2B728E9F9D82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaCloudPusher", "..\MediaCloudPusher\MediaCloudPusher.csproj", "{20C909FF-C8D4-4C8D-B276-5CC00B6D5D6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvSpecCloudPusher", "..\EvSpecCloudPusher\EvSpecCloudPusher.csproj", "{02F5B7AC-D95B-41A8-A160-BBC10122BA77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D5291F2-87B3-4402-ADFC-B7B78167B129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5291F2-87B3-4402-ADFC-B7B78167B129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5291F2-87B3-4402-ADFC-B7B78167B129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5291F2-87B3-4402-ADFC-B7B78167B129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79F48EEC-CE41-4A8A-91F9-C65D56EEBC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79F48EEC-CE41-4A8A-91F9-C65D56EEBC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79F48EEC-CE41-4A8A-91F9-C65D56EEBC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79F48EEC-CE41-4A8A-91F9-C65D56EEBC82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8418E9F-5B9A-48BE-899C-8C91A0F19D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8418E9F-5B9A-48BE-899C-8C91A0F19D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8418E9F-5B9A-48BE-899C-8C91A0F19D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8418E9F-5B9A-48BE-899C-8C91A0F19D20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C3E95C6-B1E3-4339-A98F-2B728E9F9D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C3E95C6-B1E3-4339-A98F-2B728E9F9D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C3E95C6-B1E3-4339-A98F-2B728E9F9D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C3E95C6-B1E3-4339-A98F-2B728E9F9D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C909FF-C8D4-4C8D-B276-5CC00B6D5D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C909FF-C8D4-4C8D-B276-5CC00B6D5D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C909FF-C8D4-4C8D-B276-5CC00B6D5D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C909FF-C8D4-4C8D-B276-5CC00B6D5D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02F5B7AC-D95B-41A8-A160-BBC10122BA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F5B7AC-D95B-41A8-A160-BBC10122BA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F5B7AC-D95B-41A8-A160-BBC10122BA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F5B7AC-D95B-41A8-A160-BBC10122BA77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5255BC54-919D-48A8-93CD-A5469097FEC4}
+	EndGlobalSection
+EndGlobal
