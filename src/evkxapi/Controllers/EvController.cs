@@ -2,6 +2,7 @@
 using evdb.Models;
 using evdb.Services;
 using evkx.models.Models;
+using Microsoft.ApplicationInsights.WindowsServer;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -34,6 +35,7 @@ namespace evdb.Controllers
         {
             EvSearchOptions searchOptions = new EvSearchOptions();
             searchOptions.Brands = await _evService.GetBrands();
+            searchOptions.BodyTypes = await _evService.GetBodyTypes();
             return searchOptions;
         }
     }

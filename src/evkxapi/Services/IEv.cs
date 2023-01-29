@@ -10,5 +10,8 @@ namespace evdb.Services
         public Task<EvSearchResult> Search(EvSearch search);
 
         public Task<List<string>> GetBrands();
+
+
+        public Task<List<string>> GetBodyTypes();
     }
 }

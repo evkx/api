@@ -107,6 +107,38 @@ namespace evdb.Services
             return brands;
         }
 
+        public async Task<List<string>> GetBodyTypes()
+        {
+            List<string> evTypes;
+            string cacheKey = "evtypes";
+
+            if (!_memoryCache.TryGetValue(cacheKey, out evTypes))
+            {
+                List<EV> evs = await GetAllEv();
+                evTypes = new List<string>();
+
+                foreach (EV ev in evs)
+                {
+                    if (ev?.ModelInfo?.BodyType != null && !evTypes.Exists(e => e.Equals(ev.ModelInfo.BodyType.ToString())))
+                    {
+                        evTypes.Add(ev.ModelInfo.BodyType.ToString());
+                    }
+                }
+
+                List<string> sortedBodyTypes = evTypes.OrderBy(e => e).ToList();
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+               .SetPriority(CacheItemPriority.High)
+               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+
+                // Disable caching unil we figure ou how to handle K6 tests
+                _memoryCache.Set(cacheKey, sortedBodyTypes, cacheEntryOptions);
+                return sortedBodyTypes;
+            }
+
+            return evTypes;
+        }
+
         private async Task<List<EV>> GetAllEv()
         {
             List<EV> evs = new List<EV>();

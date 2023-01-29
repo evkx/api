@@ -9,5 +9,7 @@ namespace evkx.models.Models
         public List<string>? Brands { get; set; }
 
         public List<string>? SeatConfiguration { get; set; }
+
+        public List<string>? BodyTypes { get; set; }
     }
 }
