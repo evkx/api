@@ -11,7 +11,8 @@ namespace evdb.Services
 
         public Task<List<string>> GetBrands();
 
-
         public Task<List<string>> GetBodyTypes();
+
+        public Task<List<string>> GetSeatConfiguration();
     }
 }

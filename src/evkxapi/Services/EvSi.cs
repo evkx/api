@@ -25,17 +25,11 @@ namespace evdb.Services
 
         public async Task<EvSearchResult> Search(EvSearch search)
         {
-
             List<EV> evs = await GetAllEv();           
-
             EvSearchResult evSearchResult = new EvSearchResult();
-
             evSearchResult.Evs = new List<EvSimple>();
-
             evs = EvFilter.Filter(evs, search);
-
             evs = EvSorter.Sort(evs, search);
-
             foreach (EV ev in evs)
             {
                 evSearchResult.Evs.Add(MapToSearchResult(ev, search.SortOrder));
@@ -137,6 +131,45 @@ namespace evdb.Services
             }
 
             return evTypes;
+        }
+
+        public async Task<List<string>> GetSeatConfiguration()
+        {
+            List<string> seatConfiguration;
+            string cacheKey = "seatconfiguration";
+
+            if (!_memoryCache.TryGetValue(cacheKey, out seatConfiguration))
+            {
+                List<EV> evs = await GetAllEv();
+                seatConfiguration = new List<string>();
+
+                foreach (EV ev in evs)
+                {
+                    if (ev?.Interior?.SeatLayout != null && ev.Interior.SeatLayout.Any())
+                    {
+                        foreach(SeatLayout layout in ev.Interior.SeatLayout)
+                        {
+                            if(layout.NumberOfSeats.HasValue && !seatConfiguration.Exists(s=> s.Equals(layout.NumberOfSeats.Value.ToString())))
+                            { 
+                                seatConfiguration.Add(layout.NumberOfSeats.Value.ToString());
+                            }
+                        }
+
+                    }
+                }
+
+                List<string> sortedSeatConfig = seatConfiguration.OrderBy(e => e).ToList();
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+               .SetPriority(CacheItemPriority.High)
+               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+
+                // Disable caching unil we figure ou how to handle K6 tests
+                _memoryCache.Set(cacheKey, sortedSeatConfig, cacheEntryOptions);
+                return sortedSeatConfig;
+            }
+
+            return seatConfiguration;
         }
 
         private async Task<List<EV>> GetAllEv()

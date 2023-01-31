@@ -43,6 +43,18 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if(searchFilter.SeatConfiguration != null && searchFilter.SeatConfiguration.Any())
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (string config in searchFilter.SeatConfiguration)
+                {
+                    tempList.AddRange(evlist.Where(ev => ev.Interior != null && ev.Interior.SeatLayout != null && ev.Interior.SeatLayout.FirstOrDefault(s=> s.NumberOfSeats != null && s.NumberOfSeats.ToString().Equals(config)) != null).ToList());
+                }
+
+                evlist = tempList;
+            }
+
             return evlist;
         }
     }

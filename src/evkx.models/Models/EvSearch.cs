@@ -22,5 +22,17 @@ namespace evdb.models.Models
         public List<EvBodyType>? EvType { get; set; }
 
         public List<string>? Brands { get; set; }
+
+        public List<string>? SeatConfiguration { get; set; }
+
+
+        public bool? SeatMassageFirstRow { get; set; }
+
+        public bool? SeatVentilationFirstRow { get; set; }
+
+        public bool? SeatMassageSecondRow { get; set; }
+
+        public bool? SeatVentilationSecondRow { get; set; }
+
     }
 }
