@@ -65,6 +65,11 @@ namespace evdb.Services
                 evSimple.SortValue = ev.NetBatterySizeStandardBattery().ToString();
                 evSimple.SortParameter = "kWh";
             }
+            else
+            {
+                evSimple.SortValue = String.Empty;
+                evSimple.SortParameter = String.Empty;
+            }
             return evSimple;
         }
 
