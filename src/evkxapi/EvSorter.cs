@@ -28,6 +28,10 @@ namespace evdb
             {
                 evList = evList.OrderBy(ev => ev.WltpConsumptionBasicTrim()).ToList();
             }
+            else
+            {
+                evList = evList.OrderBy(ev => ev.GetFullName()).ToList();
+            }
 
             return evList;
         }
