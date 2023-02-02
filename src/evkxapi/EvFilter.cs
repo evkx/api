@@ -55,6 +55,29 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if (searchFilter.NightVision != null && searchFilter.NightVision.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.NightVision != null && ev.DriverAssistance.NightVision.Available.HasValue && ev.DriverAssistance?.NightVision?.Available.Value == true).ToList());
+                evlist = tempList;
+            }
+
+            if (searchFilter.AdaptiveSuspension != null && searchFilter.AdaptiveSuspension.Value)
+            {
+                List<EV> tempList = new List<EV>();
+                tempList.AddRange(evlist.Where(ev => ev.Drivetrain.Suspension.Where(ev2 => ev2.AdaptiveSuspension?.Available.Value == true) != null).ToList());
+                evlist = tempList;
+            }
+
+            if (searchFilter.AirSuspension != null && searchFilter.AirSuspension.Value)
+            {
+                List<EV> tempList = new List<EV>();
+                tempList.AddRange(evlist.Where(ev => ev.Drivetrain.Suspension.Where(ev2 => ev2.SuspensionTypeRear != null && ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null).ToList());
+                evlist = tempList;
+            }
+
+
             return evlist;
         }
     }

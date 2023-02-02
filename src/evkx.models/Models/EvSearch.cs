@@ -17,6 +17,10 @@ namespace evdb.models.Models
 
         public bool? NightVision { get; set; }
 
+        public bool? AdaptiveSuspension { get; set; }
+
+        public bool? AirSuspension { get; set; }
+
         public SortOrder? SortOrder { get; set; }
 
         public List<EvBodyType>? EvType { get; set; }
