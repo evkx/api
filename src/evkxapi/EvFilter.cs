@@ -1,6 +1,6 @@
 ﻿using evdb.models.Enums;
-using evdb.models.Models;
 using evdb.Models;
+using evkx.models.Models.Search;
 
 namespace evdb
 {

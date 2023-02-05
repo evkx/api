@@ -1,5 +1,5 @@
-﻿using evdb.models.Models;
-using evdb.Models;
+﻿using evdb.Models;
+using evkx.models.Models.Search;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,6 +45,16 @@ namespace evdb.Services
         }
 
         public Task<List<string>> GetBrands()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<string>> GetBodyTypes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<string>> GetSeatConfiguration()
         {
             throw new NotImplementedException();
         }

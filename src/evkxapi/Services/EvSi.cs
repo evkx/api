@@ -1,6 +1,7 @@
 ﻿using evdb.models.Enums;
 using evdb.models.Models;
 using evdb.Models;
+using evkx.models.Models.Search;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging.Abstractions;
 
@@ -45,6 +46,18 @@ namespace evdb.Services
             {
                 Name = ev.GetFullName(),
             };
+
+            if(ev.Drivetrain?.Performance != null && ev.Drivetrain.Performance.Count > 0)
+            {
+                foreach(var performance in ev.Drivetrain.Performance)
+                {
+                  if(evSimple?.MaxPowerKw == null || evSimple.MaxPowerKw < performance.PowerKw)
+                    {
+                        evSimple.MaxPowerKw = performance.PowerKw;
+                    }
+                }
+
+            }
 
             if (sortOrder == null)
             {

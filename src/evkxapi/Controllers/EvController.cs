@@ -1,7 +1,6 @@
-﻿using evdb.models.Models;
-using evdb.Models;
+﻿using evdb.Models;
 using evdb.Services;
-using evkx.models.Models;
+using evkx.models.Models.Search;
 using Microsoft.ApplicationInsights.WindowsServer;
 using Microsoft.AspNetCore.Mvc;
 

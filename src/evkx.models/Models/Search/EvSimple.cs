@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace evdb.models.Models
+namespace evkx.models.Models.Search
 {
     public class EvSimple
     {
@@ -16,6 +16,8 @@ namespace evdb.models.Models
 
         public int TopSpeedKph { get; set; }
 
-        public int MaxPowerKw { get; set; }
+        public int? MaxPowerKw { get; set; }
+
+        public List<BatterySR>? Battery {get; set; }
     }
 }

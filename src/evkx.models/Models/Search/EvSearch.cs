@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace evdb.models.Models
+namespace evkx.models.Models.Search
 {
     public class EvSearch
     {
-        public int? MinimumWltpRange { get; set; } 
+        public int? MinimumWltpRange { get; set; }
 
         public int? MinimumGrossBattery { get; set; }
 

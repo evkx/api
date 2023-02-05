@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace evkx.models.Models
+namespace evkx.models.Models.Search
 {
     public class EvSearchOptions
     {

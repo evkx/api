@@ -8,8 +8,8 @@ using Altinn.App.IntegrationTests;
 
 using App.IntegrationTests.Utils;
 using evdb.Controllers;
-using evdb.models.Models;
 using evdb.Models;
+using evkx.models.Models.Search;
 using Newtonsoft.Json;
 using Xunit;
 

@@ -1,5 +1,5 @@
-﻿using evdb.models.Models;
-using evdb.Models;
+﻿using evdb.Models;
+using evkx.models.Models.Search;
 
 namespace evdb.Services
 {
