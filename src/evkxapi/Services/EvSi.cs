@@ -51,9 +51,14 @@ namespace evdb.Services
             {
                 foreach(var performance in ev.Drivetrain.Performance)
                 {
-                  if(evSimple?.MaxPowerKw == null || evSimple.MaxPowerKw < performance.PowerKw)
+                    if (evSimple?.MaxPowerKw == null || evSimple.MaxPowerKw < performance.PowerKw)
                     {
                         evSimple.MaxPowerKw = performance.PowerKw;
+                    }
+
+                    if (evSimple.TopSpeedKph == null || evSimple.TopSpeedKph < performance.TopSpeed)
+                    {
+                        evSimple.TopSpeedKph = performance.TopSpeed;
                     }
                 }
 

@@ -14,7 +14,7 @@ namespace evkx.models.Models.Search
 
         public string? InfoUri { get; set; }
 
-        public int TopSpeedKph { get; set; }
+        public int? TopSpeedKph { get; set; }
 
         public int? MaxPowerKw { get; set; }
 
