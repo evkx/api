@@ -60,6 +60,9 @@
   },
   "evsearch":{
     "title" : "Elbilsøk",
-    "searchresult": "Matchende elbiler"
+    "searchresult": "Matchende elbiler",
+    "specifications": "Specifications",
+    "maxpower": "Max power ",
+    "topspeed": "Top speed "
   }
 }
