@@ -21,5 +21,14 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "WltpBasicConsumption")]
         WltpBasicConsumption = 5,
+
+        [EnumMember(Value = "PowerDesc")]
+        PowerDesc = 6,
+
+        [EnumMember(Value = "TopSpeedDesc")]
+        TopSpeedDesc = 7,
+
+        [EnumMember(Value = "MaxDCCharging")]
+        MaxDCCharging = 8,
     }
 }

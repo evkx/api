@@ -28,6 +28,14 @@ namespace evdb
             {
                 evList = evList.OrderBy(ev => ev.WltpConsumptionBasicTrim()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.TopSpeedDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.TopSpeed()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.PowerDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.PowerDesc()).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();

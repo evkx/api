@@ -78,6 +78,16 @@ namespace evdb.Services
                 evSimple.SortValue = ev.WltpConsumptionBasicTrim().ToString();
                 evSimple.SortParameter = "kWh/100km";
             }
+            else if (sortOrder.Equals(SortOrder.TopSpeedDesc))
+            {
+                evSimple.SortValue = ev.TopSpeed().ToString();
+                evSimple.SortParameter = "kp/h";
+            }
+            else if (sortOrder.Equals(SortOrder.PowerDesc))
+            {
+                evSimple.SortValue = ev.Power().ToString();
+                evSimple.SortParameter = "kW";
+            }
             else if (sortOrder.Equals(SortOrder.NetBattery) || sortOrder.Equals(SortOrder.NetBatteryDesc))
             {
                 evSimple.SortValue = ev.NetBatterySizeStandardBattery().ToString();

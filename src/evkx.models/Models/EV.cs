@@ -172,6 +172,60 @@ namespace evdb.Models
             return wltpConsumption;
         }
 
+        public int? Power()
+        {
+            int power = 0;
+
+            if(Drivetrain?.Performance != null)
+            {
+                foreach(var performance in Drivetrain.Performance)
+                {
+                    if(performance.PowerKw.HasValue && performance.PowerKw.Value > power)
+                    {
+                        power = performance.PowerKw.Value;
+                    }
+                }
+            }
+
+            return power;
+        }
+
+        public int? TopSpeed()
+        {
+            int topSpeed = 0;
+
+            if (Drivetrain?.Performance != null)
+            {
+                foreach (var performance in Drivetrain.Performance)
+                {
+                    if (performance.TopSpeed.HasValue && performance.TopSpeed.Value > topSpeed)
+                    {
+                        topSpeed = performance.TopSpeed.Value;
+                    }
+                }
+            }
+
+            return topSpeed;
+        }
+
+        public double? MaxDCCharging()
+        {
+            double maxDCCharging = 0;
+
+            if (Drivetrain?.Battery != null)
+            {
+                foreach(Battery bat in Drivetrain.Battery)
+                {
+                    if (bat.MaxDCChargeSpeed.HasValue)
+                    {
+                        maxDCCharging = bat.MaxDCChargeSpeed.Value;
+                    }
+                }
+            }
+
+            return maxDCCharging;
+        }
+
 
         public string? GetVariantId()
         {
