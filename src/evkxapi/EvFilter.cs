@@ -1,4 +1,5 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
 using evdb.Models;
 using evkx.models.Models.Search;
 
@@ -75,6 +76,41 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                 tempList.AddRange(evlist.Where(ev => ev.Drivetrain.Suspension.Where(ev2 => ev2.SuspensionTypeRear != null && ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null).ToList());
                 evlist = tempList;
+            }
+
+            if (searchFilter.InstrumentCluster != null && searchFilter.InstrumentCluster.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach(EV ev in evlist)
+                {
+                    if(ev.UIAndControls?.ScreenLayout != null)
+                    {
+                        foreach(ScreenLayout screenLayout in ev.UIAndControls.ScreenLayout)
+                        {
+
+                            if (screenLayout.Screens.Any())
+                            {
+                                foreach(Screen screen in screenLayout.Screens)
+                                {
+                                    if(screen.Location != null && screen.Location.Equals(ScreenLocation.BehindSteeringWheelInDash))
+                                    {
+                                        tempList.Add(ev);
+                                    }
+                                }
+
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+                evlist = tempList;
+
+
             }
 
 

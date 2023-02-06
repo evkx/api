@@ -38,5 +38,7 @@ namespace evkx.models.Models.Search
 
         public bool? SeatVentilationSecondRow { get; set; }
 
+        public bool? InstrumentCluster { get; set; }
+
     }
 }
