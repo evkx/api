@@ -34,7 +34,11 @@ namespace evdb
             }
             else if (evSearch.SortOrder.Equals(SortOrder.PowerDesc))
             {
-                evList = evList.OrderByDescending(ev => ev.PowerDesc()).ToList();
+                evList = evList.OrderByDescending(ev => ev.Power()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.MaxDCCharging))
+            {
+                evList = evList.OrderByDescending(ev => ev.MaxDCCharging()).ToList();
             }
             else
             {

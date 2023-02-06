@@ -88,6 +88,11 @@ namespace evdb.Services
                 evSimple.SortValue = ev.Power().ToString();
                 evSimple.SortParameter = "kW";
             }
+            else if (sortOrder.Equals(SortOrder.MaxDCCharging))
+            {
+                evSimple.SortValue = ev.MaxDCCharging().ToString();
+                evSimple.SortParameter = "kW";
+            }
             else if (sortOrder.Equals(SortOrder.NetBattery) || sortOrder.Equals(SortOrder.NetBatteryDesc))
             {
                 evSimple.SortValue = ev.NetBatterySizeStandardBattery().ToString();
