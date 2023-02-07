@@ -89,7 +89,7 @@ namespace evdb
                         foreach(ScreenLayout screenLayout in ev.UIAndControls.ScreenLayout)
                         {
 
-                            if (screenLayout.Screens.Any())
+                            if (screenLayout.Screens != null && screenLayout.Screens.Any())
                             {
                                 foreach(Screen screen in screenLayout.Screens)
                                 {
@@ -100,19 +100,57 @@ namespace evdb
                                 }
 
                             }
-
                         }
-
-
                     }
-
                 }
 
                 evlist = tempList;
-
-
             }
 
+            if (searchFilter.HeadUpDisplay != null && searchFilter.HeadUpDisplay.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.UIAndControls?.HeadUpDisplay != null && ev.UIAndControls.HeadUpDisplay.Available != null && ev.UIAndControls.HeadUpDisplay.Available.Value)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
+                evlist = tempList;
+            }
+
+            if (searchFilter.AndroidAuto != null && searchFilter.AndroidAuto.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Infotainment != null && ev.Infotainment.AndroidAutoSupport?.Available != null && ev.Infotainment.AndroidAutoSupport.Available.Value)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
+                evlist = tempList;
+            }
+
+            if (searchFilter.AppleCarPlay != null && searchFilter.AppleCarPlay.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Infotainment != null && ev.Infotainment.AppleCarPlaySupport?.Available != null && ev.Infotainment.AppleCarPlaySupport.Available.Value)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
+                evlist = tempList;
+            }
 
             return evlist;
         }

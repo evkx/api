@@ -30,5 +30,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "MaxDCCharging")]
         MaxDCCharging = 8,
+
+        [EnumMember(Value = "NominalVoltage")]
+        NominalVoltage = 9,
     }
 }

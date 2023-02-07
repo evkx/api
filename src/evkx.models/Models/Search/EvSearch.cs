@@ -29,7 +29,6 @@ namespace evkx.models.Models.Search
 
         public List<string>? SeatConfiguration { get; set; }
 
-
         public bool? SeatMassageFirstRow { get; set; }
 
         public bool? SeatVentilationFirstRow { get; set; }
@@ -39,6 +38,12 @@ namespace evkx.models.Models.Search
         public bool? SeatVentilationSecondRow { get; set; }
 
         public bool? InstrumentCluster { get; set; }
+
+        public bool? HeadUpDisplay { get; set; }
+
+        public bool? AppleCarPlay { get; set; }
+
+        public bool? AndroidAuto { get; set; }
 
     }
 }
