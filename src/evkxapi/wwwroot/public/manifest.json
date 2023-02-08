@@ -8,7 +8,7 @@
     "src": "entrypoint.css"
   },
   "entrypoint.js": {
-    "file": "assets/entrypoint-55a8acc9.js",
+    "file": "assets/entrypoint-5be2d001.js",
     "src": "entrypoint.js",
     "isEntry": true,
     "css": [
