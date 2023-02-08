@@ -45,5 +45,7 @@ namespace evkx.models.Models.Search
 
         public bool? AndroidAuto { get; set; }
 
+        public List<string>? Colors { get; set; }
+
     }
 }

@@ -11,5 +11,7 @@ namespace evkx.models.Models.Search
         public List<string>? SeatConfiguration { get; set; }
 
         public List<string>? BodyTypes { get; set; }
+
+        public List<string>? Colors { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace evdb.Services
         public Task<List<string>> GetBodyTypes();
 
         public Task<List<string>> GetSeatConfiguration();
+
+        public Task<List<string>> GetColors();
     }
 }

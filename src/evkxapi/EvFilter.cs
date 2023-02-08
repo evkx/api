@@ -56,6 +56,18 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if (searchFilter.Colors != null && searchFilter.Colors.Any())
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (string color in searchFilter.Colors)
+                {
+                    tempList.AddRange(evlist.Where(ev => ev.Exterior != null && ev.Exterior.PaintColors != null && ev.Exterior.PaintColors.FirstOrDefault(s => s.Color != null && s.Color.Equals(color)) != null).ToList());
+                }
+
+                evlist = tempList;
+            }
+
             if (searchFilter.NightVision != null && searchFilter.NightVision.Value)
             {
                 List<EV> tempList = new List<EV>();

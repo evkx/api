@@ -36,6 +36,7 @@ namespace evdb.Controllers
             searchOptions.Brands = await _evService.GetBrands();
             searchOptions.BodyTypes = await _evService.GetBodyTypes();
             searchOptions.SeatConfiguration = await _evService.GetSeatConfiguration();
+            searchOptions.Colors = await _evService.GetColors();
             return searchOptions;
         }
     }

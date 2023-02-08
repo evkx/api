@@ -210,6 +210,45 @@ namespace evdb.Services
             return seatConfiguration;
         }
 
+        public async Task<List<string>> GetColors()
+        {
+            List<string> colors;
+            string cacheKey = "evcolors";
+
+            if (!_memoryCache.TryGetValue(cacheKey, out colors))
+            {
+                List<EV> evs = await GetAllEv();
+                colors = new List<string>();
+
+                foreach (EV ev in evs)
+                {
+                    if (ev?.Exterior?.PaintColors != null && ev.Exterior.PaintColors.Any())
+                    {
+                        foreach (PaintColor color in ev.Exterior.PaintColors)
+                        {
+                            if (!string.IsNullOrEmpty(color.Color) && !colors.Exists(s=> s.Equals(color.Color)))
+                            {
+                                colors.Add(color.Color);
+                            }
+                        }
+
+                    }
+                }
+
+                List<string> sortedColors = colors.OrderBy(e => e).ToList();
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+               .SetPriority(CacheItemPriority.High)
+               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+
+                // Disable caching unil we figure ou how to handle K6 tests
+                _memoryCache.Set(cacheKey, sortedColors, cacheEntryOptions);
+                return sortedColors;
+            }
+
+            return colors;
+        }
+
         private async Task<List<EV>> GetAllEv()
         {
             List<EV> evs = new List<EV>();
@@ -230,6 +269,7 @@ namespace evdb.Services
 
             return evs;
         }
-  
+
+
     }
 }

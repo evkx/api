@@ -4,15 +4,15 @@
     "src": "src/assets/Car.svg"
   },
   "entrypoint.css": {
-    "file": "assets/entrypoint-76cb1845.css",
+    "file": "assets/entrypoint-ba00ad61.css",
     "src": "entrypoint.css"
   },
   "entrypoint.js": {
-    "file": "assets/entrypoint-5e975067.js",
+    "file": "assets/entrypoint-55a8acc9.js",
     "src": "entrypoint.js",
     "isEntry": true,
     "css": [
-      "assets/entrypoint-76cb1845.css"
+      "assets/entrypoint-ba00ad61.css"
     ]
   }
 }
