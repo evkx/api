@@ -3,7 +3,6 @@ using evdb.models.Models;
 using evdb.Models;
 using evkx.models.Models.Search;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace evdb.Services
 {
@@ -45,6 +44,7 @@ namespace evdb.Services
             EvSimple evSimple = new EvSimple()
             {
                 Name = ev.GetFullName(),
+                InfoUri = "https://evkx.net" + ev.GetEvPath() ,
             };
 
             if(ev.Drivetrain?.Performance != null && ev.Drivetrain.Performance.Count > 0)
@@ -60,6 +60,15 @@ namespace evdb.Services
                     {
                         evSimple.TopSpeedKph = performance.TopSpeed;
                     }
+
+                    if (evSimple.ZeroTo100 == null || evSimple.ZeroTo100 > performance.ZeroToHundredKph)
+                    {
+                        evSimple.ZeroTo100 = performance.ZeroToHundredKph;
+                        if(performance.ZeroToHundredKphBoost != null && performance.ZeroToHundredKphBoost > evSimple.ZeroTo100)
+                        {
+                            evSimple.ZeroTo100 = performance.ZeroToHundredKphBoost;
+                        }
+                    }
                 }
 
             }
@@ -70,33 +79,43 @@ namespace evdb.Services
             }
             else if (sortOrder.Equals(SortOrder.RangeMinimumWltp))
             {
-                evSimple.SortValue = ev.MinimumWltpRangeBasicTrim().ToString();
+                evSimple.SortValue = " - " + ev.MinimumWltpRangeBasicTrim().ToString();
                 evSimple.SortParameter = "km";
             }
             else if (sortOrder.Equals(SortOrder.WltpBasicConsumption))
             {
-                evSimple.SortValue = ev.WltpConsumptionBasicTrim().ToString();
+                evSimple.SortValue = " - " + ev.WltpConsumptionBasicTrim().ToString();
                 evSimple.SortParameter = "kWh/100km";
             }
             else if (sortOrder.Equals(SortOrder.TopSpeedDesc))
             {
-                evSimple.SortValue = ev.TopSpeed().ToString();
+                evSimple.SortValue = " - " + ev.TopSpeed().ToString();
                 evSimple.SortParameter = "kp/h";
             }
             else if (sortOrder.Equals(SortOrder.PowerDesc))
             {
-                evSimple.SortValue = ev.Power().ToString();
+                evSimple.SortValue = " - " + ev.Power().ToString();
                 evSimple.SortParameter = "kW";
             }
             else if (sortOrder.Equals(SortOrder.MaxDCCharging))
             {
-                evSimple.SortValue = ev.MaxDCCharging().ToString();
+                evSimple.SortValue = " - " + ev.MaxDCCharging().ToString();
                 evSimple.SortParameter = "kW";
             }
             else if (sortOrder.Equals(SortOrder.NetBattery) || sortOrder.Equals(SortOrder.NetBatteryDesc))
             {
-                evSimple.SortValue = ev.NetBatterySizeStandardBattery().ToString();
+                evSimple.SortValue = " - " + ev.NetBatterySizeStandardBattery().ToString();
                 evSimple.SortParameter = "kWh";
+            }
+            else if (sortOrder.Equals(SortOrder.ZeroTo100))
+            {
+                evSimple.SortValue = " - " + ev.GetZeroTo100().ToString();
+                evSimple.SortParameter = "s";
+            }
+            else if (sortOrder.Equals(SortOrder.NominalVoltage))
+            {
+                evSimple.SortValue = "";
+                evSimple.SortParameter = "Volt";
             }
             else
             {

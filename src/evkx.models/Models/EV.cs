@@ -74,6 +74,28 @@ namespace evdb.Models
 
             return ModelInfo?.Name;
         }
+
+        public double? GetZeroTo100()
+        {
+            double zeroto100 = 1000;
+
+           if(Drivetrain?.Performance != null && Drivetrain.Performance.Any())
+            {
+                foreach(Performance performance in Drivetrain.Performance)
+                {
+                    if(performance.ZeroToHundredKphBoost.HasValue && performance.ZeroToHundredKphBoost.Value < zeroto100)
+                    {
+                        zeroto100 = performance.ZeroToHundredKphBoost.Value;
+                    }
+                    else if(performance.ZeroToHundredKph.HasValue && performance.ZeroToHundredKph.Value < zeroto100)
+                    {
+                        zeroto100 = performance.ZeroToHundredKph.Value;
+                    }
+                }
+            }
+
+            return zeroto100;
+        }
         
 
         public decimal? GetBasicTrimWltpConsumptionReal(int? rangeIndex = null)

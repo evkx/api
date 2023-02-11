@@ -33,5 +33,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "NominalVoltage")]
         NominalVoltage = 9,
+
+        [EnumMember(Value = "ZeroTo100")]
+        ZeroTo100 = 10,
     }
 }

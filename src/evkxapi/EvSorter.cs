@@ -40,6 +40,10 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.MaxDCCharging()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.ZeroTo100))
+            {
+                evList = evList.OrderBy(ev => ev.GetZeroTo100()).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();

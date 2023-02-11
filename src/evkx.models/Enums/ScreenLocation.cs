@@ -42,5 +42,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "OnTopOfSteeringWheelColumn")]
         OnTopOfSteeringWheelColumn = 11,
+
+        [EnumMember(Value = "RearCenterConsole")]
+        RearCenterConsole = 12,
     }
 }

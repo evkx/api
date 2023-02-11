@@ -18,6 +18,8 @@ namespace evkx.models.Models.Search
 
         public int? MaxPowerKw { get; set; }
 
+        public double? ZeroTo100 { get; set; }
+
         public List<BatterySR>? Battery {get; set; }
     }
 }
