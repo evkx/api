@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0.405-alpine3.16 AS build
 
-COPY src/evkxapi ./evkxapi
+COPY src/ ./evkxapi
 WORKDIR evkxapi/
 
 RUN dotnet build evkxapi.csproj -c Release -o /app_output
