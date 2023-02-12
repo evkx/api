@@ -16,7 +16,7 @@ namespace evdb.Controllers
             {
                 string unitTestFolder = Path.GetDirectoryName(new Uri(typeof(HomeController).Assembly.Location).LocalPath);
 
-                string resourceFolder = Path.Combine(unitTestFolder, "..", "..", "..");
+                string resourceFolder = Path.Combine(unitTestFolder, "..", "..");
 
                 string[] files = Directory.GetFiles(resourceFolder, "*.*", SearchOption.AllDirectories);
 
