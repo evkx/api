@@ -12,29 +12,35 @@ namespace evdb.Controllers
 
             string cssFile = "test.css";
             string jsFile = "test.js";
-            
-            string unitTestFolder = Path.GetDirectoryName(new Uri(typeof(HomeController).Assembly.Location).LocalPath);
-
-            string resourceFolder = Path.Combine(unitTestFolder, "..", "..", "..", "wwwroot", "public", "assets");
-
-            string[] files = Directory.GetFiles(resourceFolder);
-
-            foreach(string file in files)
+            try
             {
-                if(file.EndsWith(".css"))
+                string unitTestFolder = Path.GetDirectoryName(new Uri(typeof(HomeController).Assembly.Location).LocalPath);
+
+                string resourceFolder = Path.Combine(unitTestFolder, "..", "..", "..", "wwwroot", "public", "assets");
+
+                string[] files = Directory.GetFiles(resourceFolder);
+
+                foreach (string file in files)
                 {
-                  cssFile = Path.GetFileName(file);
+                    if (file.EndsWith(".css"))
+                    {
+                        cssFile = Path.GetFileName(file);
+                    }
+
+                    if (file.EndsWith(".js"))
+                    {
+                        jsFile = Path.GetFileName(file);
+                    }
                 }
 
-                if (file.EndsWith(".js"))
-                {
-                    jsFile = Path.GetFileName(file);
-                }
+                ViewBag.CssFile = cssFile;
+                ViewBag.JsFile = jsFile;
+                return View(ViewBag);
             }
-
-            ViewBag.CssFile = cssFile;
-            ViewBag.JsFile = jsFile;
-            return View(ViewBag);
+            catch(Exception ex)
+            {
+                return Content(ex.ToString());
+            }
         }
     }
 }
