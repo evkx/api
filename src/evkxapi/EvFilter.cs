@@ -59,10 +59,17 @@ namespace evdb
             if (searchFilter.Colors != null && searchFilter.Colors.Any())
             {
                 List<EV> tempList = new List<EV>();
-
-                foreach (string color in searchFilter.Colors)
+                foreach(EV ev in evlist)
                 {
-                    tempList.AddRange(evlist.Where(ev => ev.Exterior != null && ev.Exterior.PaintColors != null && ev.Exterior.PaintColors.FirstOrDefault(s => s.Color != null && s.Color.Equals(color)) != null).ToList());
+
+                    foreach (string color in searchFilter.Colors)
+                    {
+                        if(ev.Exterior != null && ev.Exterior.PaintColors != null && ev.Exterior.PaintColors.FirstOrDefault(s => s.Color != null && s.Color.Equals(color)) != null)
+                        {
+                            tempList.Add(ev);
+                            break;
+                        }
+                    }
                 }
 
                 evlist = tempList;

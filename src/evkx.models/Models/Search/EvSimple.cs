@@ -20,6 +20,12 @@ namespace evkx.models.Models.Search
 
         public double? ZeroTo100 { get; set; }
 
+        public decimal? NetBattery { get; set; }
+
+        public decimal? WltpConsumption { get; set; }
+
+        public decimal? WltpRange { get; set;  }
+
         public List<BatterySR>? Battery {get; set; }
     }
 }

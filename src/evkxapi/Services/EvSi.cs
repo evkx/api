@@ -73,6 +73,10 @@ namespace evdb.Services
 
             }
 
+            evSimple.NetBattery = ev.NetBatterySizeStandardBattery();
+            evSimple.WltpConsumption = decimal.Round(ev.GetBasicTrimWltpConsumptionReal().Value, 2, MidpointRounding.AwayFromZero);
+            evSimple.WltpRange = ev.MinimumWltpRangeBasicTrim();
+
             if (sortOrder == null)
             {
 
