@@ -153,7 +153,7 @@ namespace evdb.Services
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                .SetPriority(CacheItemPriority.High)
-               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+               .SetAbsoluteExpiration(new TimeSpan(5, 0, 0, 0));
 
                 // Disable caching unil we figure ou how to handle K6 tests
                 _memoryCache.Set(cacheKey, sortedBrands, cacheEntryOptions);
@@ -185,7 +185,7 @@ namespace evdb.Services
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                .SetPriority(CacheItemPriority.High)
-               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+               .SetAbsoluteExpiration(new TimeSpan(5, 0, 0, 0));
 
                 // Disable caching unil we figure ou how to handle K6 tests
                 _memoryCache.Set(cacheKey, sortedBodyTypes, cacheEntryOptions);
@@ -224,7 +224,7 @@ namespace evdb.Services
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                .SetPriority(CacheItemPriority.High)
-               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+               .SetAbsoluteExpiration(new TimeSpan(5, 0, 0, 0));
 
                 // Disable caching unil we figure ou how to handle K6 tests
                 _memoryCache.Set(cacheKey, sortedSeatConfig, cacheEntryOptions);
@@ -263,7 +263,7 @@ namespace evdb.Services
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                .SetPriority(CacheItemPriority.High)
-               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+               .SetAbsoluteExpiration(new TimeSpan(5, 0, 0, 0));
 
                 // Disable caching unil we figure ou how to handle K6 tests
                 _memoryCache.Set(cacheKey, sortedColors, cacheEntryOptions);
@@ -285,7 +285,7 @@ namespace evdb.Services
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                .SetPriority(CacheItemPriority.High)
-               .SetAbsoluteExpiration(new TimeSpan(0, 5, 0, 0));
+               .SetAbsoluteExpiration(new TimeSpan(5, 0, 0, 0));
 
                 // Disable caching unil we figure ou how to handle K6 tests
                 _memoryCache.Set(cacheKey, evs, cacheEntryOptions);
