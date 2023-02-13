@@ -35,6 +35,7 @@ namespace evdb.Services
                 evSearchResult.Evs.Add(MapToSearchResult(ev, search.SortOrder));
             }
 
+            evSearchResult.Count = evSearchResult.Evs.Count();
             return evSearchResult;
         }
 
@@ -83,37 +84,37 @@ namespace evdb.Services
             }
             else if (sortOrder.Equals(SortOrder.RangeMinimumWltp))
             {
-                evSimple.SortValue = " - " + ev.MinimumWltpRangeBasicTrim().ToString();
+                evSimple.SortValue = ev.MinimumWltpRangeBasicTrim().ToString();
                 evSimple.SortParameter = "km";
             }
             else if (sortOrder.Equals(SortOrder.WltpBasicConsumption))
             {
-                evSimple.SortValue = " - " + ev.WltpConsumptionBasicTrim().ToString();
+                evSimple.SortValue = ev.WltpConsumptionBasicTrim().ToString();
                 evSimple.SortParameter = "kWh/100km";
             }
             else if (sortOrder.Equals(SortOrder.TopSpeedDesc))
             {
-                evSimple.SortValue = " - " + ev.TopSpeed().ToString();
+                evSimple.SortValue = ev.TopSpeed().ToString();
                 evSimple.SortParameter = "kp/h";
             }
             else if (sortOrder.Equals(SortOrder.PowerDesc))
             {
-                evSimple.SortValue = " - " + ev.Power().ToString();
+                evSimple.SortValue = ev.Power().ToString();
                 evSimple.SortParameter = "kW";
             }
             else if (sortOrder.Equals(SortOrder.MaxDCCharging))
             {
-                evSimple.SortValue = " - " + ev.MaxDCCharging().ToString();
+                evSimple.SortValue = ev.MaxDCCharging().ToString();
                 evSimple.SortParameter = "kW";
             }
             else if (sortOrder.Equals(SortOrder.NetBattery) || sortOrder.Equals(SortOrder.NetBatteryDesc))
             {
-                evSimple.SortValue = " - " + ev.NetBatterySizeStandardBattery().ToString();
+                evSimple.SortValue = ev.NetBatterySizeStandardBattery().ToString();
                 evSimple.SortParameter = "kWh";
             }
             else if (sortOrder.Equals(SortOrder.ZeroTo100))
             {
-                evSimple.SortValue = " - " + ev.GetZeroTo100().ToString();
+                evSimple.SortValue =ev.GetZeroTo100().ToString();
                 evSimple.SortParameter = "s";
             }
             else if (sortOrder.Equals(SortOrder.NominalVoltage))
