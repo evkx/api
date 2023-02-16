@@ -46,6 +46,7 @@ namespace evdb.Services
             {
                 Name = ev.GetFullName(),
                 InfoUri = "https://evkx.net" + ev.GetEvPath() ,
+                ThumbUri = "https://media.evkx.net/multimedia" + ev.GetEvPath()+ "main_1_xst.jpg"
             };
 
             if(ev.Drivetrain?.Performance != null && ev.Drivetrain.Performance.Count > 0)
