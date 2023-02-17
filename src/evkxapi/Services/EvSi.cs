@@ -123,6 +123,41 @@ namespace evdb.Services
                 evSimple.SortValue = "";
                 evSimple.SortParameter = "Volt";
             }
+            else if (sortOrder.Equals(SortOrder.DrivingTime1000kmChallenge))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.DriveTime1000kmChallenge.Value, 1).ToString();
+                evSimple.SortParameter = "Minutes";
+            }
+            else if (sortOrder.Equals(SortOrder.AverageSpeed1000kmChallengeDesc))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.AverageSpeed1000kmChallenge.Value, 2).ToString();
+                evSimple.SortParameter = "km/h";
+            }
+            else if (sortOrder.Equals(SortOrder.AverageChargingSpeedDesc))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.AverageChargingSpeed.Value, 2).ToString();
+                evSimple.SortParameter = "kW";
+            }
+            else if (sortOrder.Equals(SortOrder.AverageChargingSpeed10100Desc))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.AverageChargingSpeed10100.Value, 2).ToString();
+                evSimple.SortParameter = "kW";
+            }
+            else if (sortOrder.Equals(SortOrder.AverageChargingSpeed1080Desc))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.AverageChargingSpeed1080.Value, 2).ToString();
+                evSimple.SortParameter = "kW";
+            }
+            else if (sortOrder.Equals(SortOrder.TravelSpeed120kmhDesc))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.TravelSpeed120kmh.Value, 2).ToString();
+                evSimple.SortParameter = "km/h";
+            }
+            else if (sortOrder.Equals(SortOrder.TravelSpeedWltpDesc))
+            {
+                evSimple.SortValue = Math.Round(ev.EvCalculations.TravelSpeedWltp.Value, 2).ToString();
+                evSimple.SortParameter = "km/h";
+            }
             else
             {
                 evSimple.SortValue = String.Empty;

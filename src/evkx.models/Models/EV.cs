@@ -48,6 +48,8 @@ namespace evdb.Models
 
         public List<EvReview>? Reviews { get; set; }
 
+        public EvCalculations? EvCalculations { get; set; }
+        
         public string GetFullName()
         {
             if(!string.IsNullOrEmpty(ModelInfo?.Variant))
@@ -153,6 +155,20 @@ namespace evdb.Models
             return (battery.NetCapacitykWh / (decimal)range.TopTrimWltpRange)*100;
         }
 
+
+        public decimal? GetConsumption120()
+        {
+            if(Drivetrain?.RangeAndConsumption != null && Drivetrain.RangeAndConsumption.Any())
+            {
+
+                if (Drivetrain.RangeAndConsumption[0].BasicTrim120KmhConsumption.HasValue)
+                {
+                    return Drivetrain.RangeAndConsumption[0].BasicTrim120KmhConsumption.Value;
+                }
+            }
+
+            return null;
+        }
 
         public int? MinimumWltpRangeBasicTrim()
         {

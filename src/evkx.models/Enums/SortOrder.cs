@@ -36,5 +36,26 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "ZeroTo100")]
         ZeroTo100 = 10,
+
+        [EnumMember(Value = "DrivingTime1000kmChallenge")]
+        DrivingTime1000kmChallenge = 11,
+
+        [EnumMember(Value = "AverageSpeed1000kmChallengeDesc")]
+        AverageSpeed1000kmChallengeDesc = 12,
+
+        [EnumMember(Value = "TravelSpeedWltpDesc")]
+        TravelSpeedWltpDesc = 13,
+
+        [EnumMember(Value = "TravelSpeed120kmhDesc")]
+        TravelSpeed120kmhDesc = 14,
+
+        [EnumMember(Value = "AverageChargingSpeedDesc")]
+        AverageChargingSpeedDesc = 15,
+
+        [EnumMember(Value = "AverageChargingSpeed10100Desc")]
+        AverageChargingSpeed10100Desc = 16,
+
+        [EnumMember(Value = "AverageChargingSpeed1080Desc")]
+        AverageChargingSpeed1080Desc = 17,
     }
 }

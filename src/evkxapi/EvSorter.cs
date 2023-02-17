@@ -44,6 +44,38 @@ namespace evdb
             {
                 evList = evList.OrderBy(ev => ev.GetZeroTo100()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.ZeroTo100))
+            {
+                evList = evList.OrderBy(ev => ev.GetZeroTo100()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.AverageChargingSpeed10100Desc))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.AverageChargingSpeed10100).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.AverageChargingSpeed1080Desc))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.AverageChargingSpeed1080).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.AverageChargingSpeedDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.AverageChargingSpeed).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.AverageSpeed1000kmChallengeDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.AverageSpeed1000kmChallenge).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingTime1000kmChallenge))
+            {
+                evList = evList.OrderBy(ev => ev.EvCalculations.DriveTime1000kmChallenge).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.TravelSpeed120kmhDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.TravelSpeed120kmh).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.TravelSpeedWltpDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.TravelSpeedWltp).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();
