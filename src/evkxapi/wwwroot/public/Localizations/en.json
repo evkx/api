@@ -11,6 +11,15 @@
     "topspeed": "Top speed ",
     "sortorder": "Sort order",
     "brandfilter": "Brand filter",
-    "loading": "Loading"
+    "loading": "Loading",
+    "sortorderbrand": "Brand, model",
+    "sortorderrange":"WLTP range minimum trim",
+    "sortordernetsize":"Usable battery small -> large",
+    "sortordernetsizedesc":"Usable battery large -> small",
+    "specnetbattery": "Usable battery",
+    "specwltpconsumption": "WLTP consumption",
+    "specwltprange": "WLTP range base trim",
+    "specificationshiglihts": "Higlights of model specifications",
+    "zeroto100": "0-100km/h"
   }
 }
