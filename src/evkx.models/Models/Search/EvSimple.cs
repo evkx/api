@@ -29,5 +29,9 @@ namespace evkx.models.Models.Search
         public decimal? WltpRange { get; set;  }
 
         public List<BatterySR>? Battery {get; set; }
+
+        public decimal? MaxDcChargingSpeed { get; set; }
+
+        public decimal? AverageDcChargingSpeed { get; set; }
     }
 }
