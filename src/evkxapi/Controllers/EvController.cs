@@ -39,5 +39,13 @@ namespace evdb.Controllers
             searchOptions.Colors = await _evService.GetColors();
             return searchOptions;
         }
+
+        [HttpGet("/api/cc")]
+        public ActionResult ClearCache()
+        {
+           _evService.ClearCache();
+
+            return Ok();
+        }
     }
 }

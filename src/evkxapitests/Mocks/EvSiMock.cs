@@ -58,5 +58,15 @@ namespace evdb.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<string>> GetColors()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ClearCache()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
