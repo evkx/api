@@ -3,6 +3,7 @@ using evdb.models.Models;
 using evdb.Models;
 using evkx.models.Models.Search;
 using Microsoft.Extensions.Caching.Memory;
+using static System.Net.WebRequestMethods;
 
 namespace evdb.Services
 {
@@ -44,11 +45,22 @@ namespace evdb.Services
 
         private EvSimple MapToSearchResult(EV ev, SortOrder? sortOrder)
         {
+            string thumbUri = "https://media.evkx.net/multimedia/nopic.jpg";
+
+            if(ev.ModelPictures.Any())
+            {
+                CloudMedia? media = ev.ModelPictures.FirstOrDefault(p => p.ExternalUrl != null && p.ExternalUrl.Contains("main_1"));
+                if(media != null && media.ExternalUrl != null)
+                {
+                    thumbUri = media.ExternalUrl.Replace("main_1", "main_1_xst");
+                }
+            }
+
             EvSimple evSimple = new EvSimple()
             {
                 Name = ev.GetFullName(),
                 InfoUri = "https://evkx.net" + ev.GetEvPath() ,
-                ThumbUri = "https://media.evkx.net/multimedia" + ev.GetEvPath()+ "main_1_xst.jpg"
+                ThumbUri = thumbUri
             };
 
             if(ev.Drivetrain?.Performance != null && ev.Drivetrain.Performance.Count > 0)
