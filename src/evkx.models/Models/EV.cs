@@ -49,6 +49,8 @@ namespace evdb.Models
         public List<EvReview>? Reviews { get; set; }
 
         public EvCalculations? EvCalculations { get; set; }
+
+        public List<CloudMedia> ModelPictures { get; set; }
         
         public string GetFullName()
         {

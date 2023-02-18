@@ -17,6 +17,8 @@ namespace evdb.Models
 
         public string? ExternalUrl { get; set; }
 
+        public bool? HasXSmallThumb { get; set; }
+
         public bool? HasSmallThumb { get; set; }
 
         public bool? HasMediumThumb { get; set; }
