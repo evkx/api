@@ -151,7 +151,7 @@ namespace evdb.Services
                 {
                     if (ev.EvCalculations != null && ev.EvCalculations.DriveTime1000kmChallenge.HasValue)
                     {
-                        evSimple.SortValue = Math.Round(ev.EvCalculations.DriveTime1000kmChallenge.Value, 1).ToString();
+                        evSimple.SortValue = Math.Round(ev.EvCalculations.DriveTime1000kmChallenge.Value, 0).ToString();
                         evSimple.SortParameter = "Minutes";
                     }
                     else
