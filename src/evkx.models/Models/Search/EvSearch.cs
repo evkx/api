@@ -13,6 +13,10 @@ namespace evkx.models.Models.Search
 
         public bool? AllWheelDrive { get; set; }
 
+        public bool? FWD { get; set; }
+
+        public bool? RWD { get; set; }
+
         public List<string>? Brand { get; set; }
 
         public bool? NightVision { get; set; }
@@ -46,6 +50,8 @@ namespace evkx.models.Models.Search
         public bool? AndroidAuto { get; set; }
 
         public List<string>? Colors { get; set; }
+
+        public bool? RearAxleSteering { get; set; }
 
     }
 }

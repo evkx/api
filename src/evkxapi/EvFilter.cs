@@ -22,9 +22,42 @@ namespace evdb
                 evlist = tempList;
             }
 
-            if(searchFilter.AllWheelDrive.HasValue && searchFilter.AllWheelDrive.Value)
+            if(searchFilter.AllWheelDrive.HasValue && searchFilter.AllWheelDrive.Value
+               || searchFilter.FWD.HasValue && searchFilter.FWD.Value
+               || searchFilter.RWD.HasValue && searchFilter.RWD.Value)
             {
-                evlist = evlist.Where(ev=> ev.Drivetrain != null && ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontAndRearAxle)).ToList();
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.DriveSetup != null)
+                    {
+                        DriveSetup driveSetup = ev.Drivetrain.DriveSetup.Value;
+                        if (searchFilter.FWD.HasValue && searchFilter.FWD.Value && driveSetup.Equals(DriveSetup.OneMotorFrontAxle))
+                        {
+                            templist.Add(ev);
+                        }
+
+                        if (searchFilter.RWD.HasValue && searchFilter.RWD.Value && driveSetup.Equals(DriveSetup.OneMotorRearAxle))
+                        {
+                            templist.Add(ev);
+                        }
+
+                        if (searchFilter.AllWheelDrive.HasValue && searchFilter.AllWheelDrive.Value
+                            && (driveSetup.Equals(DriveSetup.OneMotorFrontTwoMotorsRearAxle) || driveSetup.Equals(DriveSetup.OneMotorFrontAndRearAxle)))
+                        {
+                            templist.Add(ev);
+                        }
+                    }
+                }
+
+                evlist = templist;
+            }
+
+            if(searchFilter.RearAxleSteering.HasValue && searchFilter.RearAxleSteering.Value)
+            {
+                evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.RearWheelSteering != null
+                && ev.Drivetrain.RearWheelSteering.Available.HasValue && ev.Drivetrain.RearWheelSteering.Available.Value).ToList();
             }
 
             if(searchFilter.MinimumWltpRange.HasValue)
@@ -93,7 +126,14 @@ namespace evdb
             if (searchFilter.AirSuspension != null && searchFilter.AirSuspension.Value)
             {
                 List<EV> tempList = new List<EV>();
-                tempList.AddRange(evlist.Where(ev => ev.Drivetrain.Suspension.Where(ev2 => ev2.SuspensionTypeRear != null && ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null).ToList());
+                foreach(EV ev in evlist)
+                {
+                    if(ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+              
                 evlist = tempList;
             }
 
