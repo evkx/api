@@ -119,7 +119,14 @@ namespace evdb
             if (searchFilter.AdaptiveSuspension != null && searchFilter.AdaptiveSuspension.Value)
             {
                 List<EV> tempList = new List<EV>();
-                tempList.AddRange(evlist.Where(ev => ev.Drivetrain.Suspension.Where(ev2 => ev2.AdaptiveSuspension?.Available.Value == true) != null).ToList());
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.AdaptiveSuspension != null && ev2.AdaptiveSuspension.Available.HasValue && ev2.AdaptiveSuspension.Available.Value) != null)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
                 evlist = tempList;
             }
 
