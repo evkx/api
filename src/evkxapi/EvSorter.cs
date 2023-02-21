@@ -72,9 +72,25 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.EvCalculations.TravelSpeed120kmh).ToList();
             }
-            else if (evSearch.SortOrder.Equals(SortOrder.TravelSpeedWltpDesc))
+            else if (evSearch.SortOrder.Equals(SortOrder.TrunkSizeDesc))
             {
-                evList = evList.OrderByDescending(ev => ev.EvCalculations.TravelSpeedWltp).ToList();
+                evList = evList.OrderByDescending(ev => ev.TrunkSize()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.MaxTrunkSizeDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.MaxTrunkSize()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.MaxLoadDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.MaxLoadKg()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.MaxTrailerSizeDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.MaxTrailerSize()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.NominalVoltage))
+            {
+                evList = evList.OrderByDescending(ev => ev.MaxNominalVoltage()).ToList();
             }
             else
             {

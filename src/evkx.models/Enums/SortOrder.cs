@@ -57,5 +57,17 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "AverageChargingSpeed1080Desc")]
         AverageChargingSpeed1080Desc = 17,
+
+        [EnumMember(Value = "TrunkSizeDesc")]
+        TrunkSizeDesc = 18,
+
+        [EnumMember(Value = "MaxTrunkSizeDesc")]
+        MaxTrunkSizeDesc = 19,
+
+        [EnumMember(Value = "MaxTrailerSizeDesc")]
+        MaxTrailerSizeDesc = 20,
+
+        [EnumMember(Value = "MaxLoadDesc")]
+        MaxLoadDesc = 21,
     }
 }

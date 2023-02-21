@@ -266,6 +266,68 @@ namespace evdb.Models
             return maxDCCharging;
         }
 
+        public int TrunkSize()
+        {
+            int size = 0;
+            if(TransportCapabilities != null && TransportCapabilities.CargoCapacityLiter.HasValue)
+            {
+                size = TransportCapabilities.CargoCapacityLiter.Value;
+            }
+
+            return size;
+        }
+
+        public int MaxTrunkSize()
+        {
+            int size = 0;
+            if (TransportCapabilities != null && TransportCapabilities.CargoCapacitySeatDownLiter.HasValue)
+            {
+                size = TransportCapabilities.CargoCapacitySeatDownLiter.Value;
+            }
+
+            return size;
+        }
+
+        public int MaxTrailerSize()
+        {
+            int size = 0;
+            if (TransportCapabilities != null && TransportCapabilities.TrailerSizeBrakedKg.HasValue)
+            {
+                size = TransportCapabilities.TrailerSizeBrakedKg.Value;
+            }
+
+            return size;
+        }
+
+
+        public int MaxLoadKg()
+        {
+            int size = 0;
+            if (TransportCapabilities != null && TransportCapabilities.MaxVehicleWeightKg.HasValue && TransportCapabilities.WeightUnladenDINKg.HasValue)
+            {
+                size = TransportCapabilities.MaxVehicleWeightKg.Value - TransportCapabilities.WeightUnladenDINKg.Value;
+            }
+
+            return size;
+        }
+
+        public decimal MaxNominalVoltage()
+        {
+            decimal voltage = 0;
+            if (Drivetrain?.Battery != null && Drivetrain.Battery.Count > 0)
+            {
+                foreach(Battery battery in Drivetrain.Battery)
+                {
+                    if(battery.NominalVoltage.HasValue && battery.NominalVoltage.Value > voltage)
+                    {
+                        voltage = battery.NominalVoltage.Value;
+                    }
+                }
+            }
+
+            return voltage;
+        }
+
 
         public string? GetVariantId()
         {

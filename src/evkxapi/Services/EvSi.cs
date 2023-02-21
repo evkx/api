@@ -142,11 +142,6 @@ namespace evdb.Services
                     evSimple.SortValue = ev.GetZeroTo100().ToString();
                     evSimple.SortParameter = "s";
                 }
-                else if (sortOrder.Equals(SortOrder.NominalVoltage))
-                {
-                    evSimple.SortValue = "";
-                    evSimple.SortParameter = "Volt";
-                }
                 else if (sortOrder.Equals(SortOrder.DrivingTime1000kmChallenge))
                 {
                     if (ev.EvCalculations != null && ev.EvCalculations.DriveTime1000kmChallenge.HasValue)
@@ -220,6 +215,71 @@ namespace evdb.Services
                     {
                         evSimple.SortValue = Math.Round(ev.EvCalculations.TravelSpeed120kmh.Value, 2).ToString();
                         evSimple.SortParameter = "km/h";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.TrunkSizeDesc))
+                {
+                    if (ev.TrunkSize()!= 0)
+                    {
+                        evSimple.SortValue = ev.TrunkSize().ToString();
+                        evSimple.SortParameter = "liter";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.MaxTrunkSizeDesc))
+                {
+                    if (ev.MaxTrunkSize() != 0)
+                    {
+                        evSimple.SortValue = ev.MaxTrunkSize().ToString();
+                        evSimple.SortParameter = "liter";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.MaxLoadDesc))
+                {
+                    if (ev.MaxLoadKg() != 0)
+                    {
+                        evSimple.SortValue = ev.MaxLoadKg().ToString();
+                        evSimple.SortParameter = "kg";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.MaxTrailerSizeDesc))
+                {
+                    if (ev.MaxTrailerSize() != 0)
+                    {
+                        evSimple.SortValue = ev.MaxTrailerSize().ToString();
+                        evSimple.SortParameter = "kg";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.NominalVoltage))
+                {
+                    if (ev.MaxNominalVoltage() != 0)
+                    {
+                        evSimple.SortValue = ev.MaxNominalVoltage().ToString();
+                        evSimple.SortParameter = "Volt";
                     }
                     else
                     {
