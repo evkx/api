@@ -1,4 +1,5 @@
 ﻿using evdb.models.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -351,5 +352,63 @@ namespace evdb.Models
             return removeInvalidChars.Replace(fileName, replacement).Replace(" ", "_").Replace("+", "plus");
         }
 
+        public int MaxGroundClearance()
+        {
+            int maxGroundClearance = 0;
+
+            if(Drivetrain?.Suspension != null && Drivetrain.Suspension.Any())
+            {
+                foreach(var d in Drivetrain.Suspension)
+                {
+                    if(d.MaxGroundClearanceMM.HasValue && d.MaxGroundClearanceMM.Value > maxGroundClearance)
+                    {
+                        maxGroundClearance = d.MaxGroundClearanceMM.Value;
+                    }
+                }
+
+            }
+
+            return maxGroundClearance;
+        }
+
+        public int MinGroundClearance()
+        {
+            int minGroundClearance = 1337;
+
+            if (Drivetrain?.Suspension != null && Drivetrain.Suspension.Any())
+            {
+                foreach (var d in Drivetrain.Suspension)
+                {
+                    if (d.MinGroundClearanceMM.HasValue && d.MinGroundClearanceMM.Value < minGroundClearance)
+                    {
+                        minGroundClearance = d.MinGroundClearanceMM.Value;
+                    }
+                }
+
+            }
+
+            return minGroundClearance;
+        }
+
+        public int SuspensionAdjustment()
+        {
+            int heightAdjustment = 0;
+
+            if (Drivetrain?.Suspension != null && Drivetrain.Suspension.Any())
+            {
+                foreach (var d in Drivetrain.Suspension)
+                {
+                    if (d.MinGroundClearanceMM.HasValue && d.MaxGroundClearanceMM.HasValue)
+                    {
+                        if((d.MaxGroundClearanceMM.Value - d.MinGroundClearanceMM.Value) > heightAdjustment)
+
+                        heightAdjustment = d.MaxGroundClearanceMM.Value - d.MinGroundClearanceMM.Value;
+                    }
+                }
+
+            }
+
+            return heightAdjustment;
+        }
     }
 }

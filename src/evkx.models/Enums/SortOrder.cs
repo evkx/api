@@ -69,5 +69,14 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "MaxLoadDesc")]
         MaxLoadDesc = 21,
+
+        [EnumMember(Value = "MaxGroundClearanceDesc")]
+        MaxGroundClearanceDesc = 22,
+
+        [EnumMember(Value = "MinGroundClearance")]
+        MinGroundClearance = 23,
+
+        [EnumMember(Value = "SuspensionHeightAdjustment")]
+        SuspensionHeightAdjustment = 24,
     }
 }

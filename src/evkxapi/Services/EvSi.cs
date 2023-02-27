@@ -287,6 +287,38 @@ namespace evdb.Services
                         evSimple.SortParameter = String.Empty;
                     }
                 }
+                else if (sortOrder.Equals(SortOrder.MaxGroundClearanceDesc))
+                {
+                    if (ev.MaxGroundClearance() != 0)
+                    {
+                        evSimple.SortValue = ev.MaxGroundClearance().ToString();
+                        evSimple.SortParameter = "mm";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.MinGroundClearance))
+                {
+                    if (ev.MinGroundClearance() != 1337)
+                    {
+                        evSimple.SortValue = ev.MinGroundClearance().ToString();
+                        evSimple.SortParameter = "mm";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.SuspensionHeightAdjustment))
+                {
+                  evSimple.SortValue = ev.SuspensionAdjustment().ToString();
+                  evSimple.SortParameter = "mm";
+                  
+                }
                 else if (sortOrder.Equals(SortOrder.TravelSpeedWltpDesc))
                 {
                     evSimple.SortValue = Math.Round(ev.EvCalculations.TravelSpeedWltp.Value, 2).ToString();

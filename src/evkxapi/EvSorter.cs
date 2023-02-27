@@ -92,6 +92,18 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.MaxNominalVoltage()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.MaxGroundClearanceDesc))
+            {
+                evList = evList.OrderByDescending(ev => ev.MaxGroundClearance()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.MinGroundClearance))
+            {
+                evList = evList.OrderBy(ev => ev.MinGroundClearance()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.SuspensionHeightAdjustment))
+            {
+                evList = evList.OrderByDescending(ev => ev.SuspensionAdjustment()).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();
