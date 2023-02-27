@@ -34,6 +34,7 @@ namespace evdb.Services
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                 }
              }
 

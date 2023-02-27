@@ -34,6 +34,7 @@ namespace evdb.Models
             TrafficSignRecognition = new EVFeature();
             EfficiencyAssist = new EVFeature();
             DrivingAutomation = new List<DrivingAutomation>();
+            FrontParkingSensors = new EVFeature();
         }
 
         public EVFeature? NightVision { get; set; }
