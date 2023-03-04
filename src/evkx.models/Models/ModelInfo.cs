@@ -34,6 +34,12 @@ namespace evdb.Models
 
         public string? PriceSegment { get; set; }
 
+        public string? Platform { get; set; }
+
+        public bool? EvOnlyPlatform { get; set; }
+        
+        public bool? EvOnlyConstruction { get; set; }
+
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public EvBodyType? BodyType { get; set; }
 

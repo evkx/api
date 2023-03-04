@@ -15,6 +15,18 @@ namespace evdb.Models
             Brakes.Add(new models.Models.Brakes());
             Battery = new List<Battery>();
             Battery.Add(new Models.Battery());
+            AllWheelDrive = new EVFeature();
+            Suspension = new List<Suspension>();
+            Suspension.Add(new Models.Suspension());
+            Performance = new List<Performance>();
+            Performance.Add(new Models.Performance());
+            RearWheelSteering = new EVFeature();
+            DriveSetup = models.Enums.DriveSetup.NotSet;
+            Regen = new Regen();
+            RangeAndConsumption = new List<RangeAndConsumption>();
+            RangeAndConsumption.Add(new models.Models.RangeAndConsumption());
+            DynamicSteering = new EVFeature();
+            TorqueVectoring = new EVFeature();
         }
 
         public string? Platform { get; set; }
@@ -32,9 +44,9 @@ namespace evdb.Models
 
         public EVFeature? RearWheelSteering { get; set; }
 
-        public EVFeature? FourWheelSteering { get; set; }
-
         public EVFeature? AllWheelDrive { get; set; }
+
+        public EVFeature? TorqueVectoring { get; set; }
 
         public List<Suspension>? Suspension { get; set; }
 
@@ -47,6 +59,8 @@ namespace evdb.Models
         public Regen? Regen { get; set; }
 
         public Transmission? Transmission { get; set; }
+
+        public List<DriveMode> DriveModes { get; set; }
 
     }
 }

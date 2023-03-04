@@ -45,5 +45,12 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "RearCenterConsole")]
         RearCenterConsole = 12,
+
+        [EnumMember(Value = "BehindSteeringWheelCenterOfSharedFrameTopOfDash")]
+        BehindSteeringWheelCenterOfSharedFrameTopOfDash = 13,
+
+        [EnumMember(Value = "LeftSideOfSharedFrameTopOfDash")]
+        LeftSideOfSharedFrameTopOfDash = 14,
+
     }
 }

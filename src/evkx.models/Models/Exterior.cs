@@ -10,7 +10,7 @@ namespace evdb.Models
             PaintColors = new List<PaintColor>();
             PaintColors.Add(new PaintColor());
             WheelOptions = new List<Wheel>();
-            WheelOptions.Add(new Wheel());
+            WheelOptions.Add(new Wheel() { Name = new Dictionary<string, string>()});
             Styling = new List<StylingOption>();
             Doors = new List<Door>();
             Doors.Add(new Door());

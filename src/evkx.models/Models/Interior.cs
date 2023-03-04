@@ -9,8 +9,11 @@ namespace evdb.Models
         {
             FirstRowSeats = new List<Seatoption>();
             FirstRowSeats.Add(new Seatoption());
+            SecondRowSeats = new List<Seatoption>();
+            SecondRowSeats.Add(new Seatoption());
             Hvac = new HVAC();
-
+            SeatLayout = new List<SeatLayout>();
+            SeatLayout.Add(new models.Models.SeatLayout());
         }
 
         public string? ConfigOptions { get; set; }
