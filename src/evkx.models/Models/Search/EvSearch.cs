@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace evkx.models.Models.Search
 {
@@ -25,6 +26,8 @@ namespace evkx.models.Models.Search
 
         public bool? AirSuspension { get; set; }
 
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public SortOrder? SortOrder { get; set; }
 
         public List<EvBodyType>? EvType { get; set; }
