@@ -47,13 +47,20 @@ namespace evdb.Services
         {
             string thumbUri = "https://media.evkx.net/multimedia/nopic.jpg";
 
-            if(ev.ModelPictures.Any())
+            try
             {
-                CloudMedia? media = ev.ModelPictures.FirstOrDefault(p => p.ExternalUrl != null && p.ExternalUrl.Contains("main_1"));
-                if(media != null && media.ExternalUrl != null)
+                if (ev.ModelPictures.Any())
                 {
-                    thumbUri = media.ExternalUrl.Replace("main_1", "main_1_xst");
+                    CloudMedia? media = ev.ModelPictures.FirstOrDefault(p => p.ExternalUrl != null && p.ExternalUrl.Contains("main_1"));
+                    if (media != null && media.ExternalUrl != null)
+                    {
+                        thumbUri = media.ExternalUrl.Replace("main_1", "main_1_xst");
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
             EvSimple evSimple = new EvSimple()
@@ -63,30 +70,37 @@ namespace evdb.Services
                 ThumbUri = thumbUri
             };
 
-            if(ev.Drivetrain?.Performance != null && ev.Drivetrain.Performance.Count > 0)
+            try
             {
-                foreach(var performance in ev.Drivetrain.Performance)
+                if (ev.Drivetrain?.Performance != null && ev.Drivetrain.Performance.Count > 0)
                 {
-                    if (evSimple?.MaxPowerKw == null || evSimple.MaxPowerKw < performance.PowerKw)
+                    foreach (var performance in ev.Drivetrain.Performance)
                     {
-                        evSimple.MaxPowerKw = performance.PowerKw;
-                    }
-
-                    if (evSimple.TopSpeedKph == null || evSimple.TopSpeedKph < performance.TopSpeed)
-                    {
-                        evSimple.TopSpeedKph = performance.TopSpeed;
-                    }
-
-                    if (evSimple.ZeroTo100 == null || evSimple.ZeroTo100 > performance.ZeroToHundredKph)
-                    {
-                        evSimple.ZeroTo100 = performance.ZeroToHundredKph;
-                        if(performance.ZeroToHundredKphBoost != null && performance.ZeroToHundredKphBoost > evSimple.ZeroTo100)
+                        if (evSimple?.MaxPowerKw == null || evSimple.MaxPowerKw < performance.PowerKw)
                         {
-                            evSimple.ZeroTo100 = performance.ZeroToHundredKphBoost;
+                            evSimple.MaxPowerKw = performance.PowerKw;
+                        }
+
+                        if (evSimple.TopSpeedKph == null || evSimple.TopSpeedKph < performance.TopSpeed)
+                        {
+                            evSimple.TopSpeedKph = performance.TopSpeed;
+                        }
+
+                        if (evSimple.ZeroTo100 == null || evSimple.ZeroTo100 > performance.ZeroToHundredKph)
+                        {
+                            evSimple.ZeroTo100 = performance.ZeroToHundredKph;
+                            if (performance.ZeroToHundredKphBoost != null && performance.ZeroToHundredKphBoost > evSimple.ZeroTo100)
+                            {
+                                evSimple.ZeroTo100 = performance.ZeroToHundredKphBoost;
+                            }
                         }
                     }
-                }
 
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
             evSimple.NetBattery = ev.NetBatterySizeStandardBattery();
