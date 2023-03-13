@@ -2,9 +2,9 @@
 
 namespace evdb.Models
 {
-    public class SeatMaterial
+    public class HeadlinerDesign
     {
-        public string? Name { get; set; }
+        public Dictionary<string,string>? Name { get; set; }
 
         public bool? AnimalFree { get; set; }
 
@@ -13,7 +13,5 @@ namespace evdb.Models
         public string? Material { get; set; }
 
         public string? OptionId { get; set; }
-
-        public List<string>? SeatOption { get; set; }
     }
 }

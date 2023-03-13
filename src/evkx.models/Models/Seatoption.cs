@@ -17,8 +17,6 @@ namespace evdb.Models
             SeatHeating = new EVFeature();
             MemoryDriverSeat = new EVFeature();
             MemoryPassangerSeat = new EVFeature();
-            Materials = new List<SeatMaterial>();
-            Materials.Add(new SeatMaterial());
             IntegratedHeadrest = new EVFeature();
             HeightAdjustableHeadrest = new EVFeature();
             LengthAdjustableHeadrest = new EVFeature();
@@ -58,8 +56,6 @@ namespace evdb.Models
         public EVFeature? MemoryDriverSeat { get; set; }
 
         public EVFeature? MemoryPassangerSeat { get; set; }
-
-        public List<SeatMaterial>? Materials { get; set; } 
 
         public EVFeature? IntegratedHeadrest { get; set; }
 

@@ -14,6 +14,8 @@ namespace evdb.Models
             Hvac = new HVAC();
             SeatLayout = new List<SeatLayout>();
             SeatLayout.Add(new models.Models.SeatLayout());
+            InteriorDesigns = new List<InteriorDesign>();
+            InteriorDesigns.Add(new models.Models.InteriorDesign());    
         }
 
         public string? ConfigOptions { get; set; }
@@ -29,6 +31,8 @@ namespace evdb.Models
         public List<SeatLayout>? SeatLayout { get; set; }
 
         public List<SteeringWheel>? SteeringWheels { get; set; }
+
+        public List<InteriorDesign>? InteriorDesigns { get; set; }
 
         public HVAC? Hvac { get; set; }
     }
