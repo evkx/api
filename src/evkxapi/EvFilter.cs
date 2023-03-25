@@ -152,6 +152,20 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if (searchFilter.AutoSteer != null && searchFilter.AutoSteer.Value)
+            {
+                List<EV> tempList = new List<EV>();
+                foreach (EV ev in evlist)
+                {
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutoSteer != null && evs.AutoSteer.Available != null && evs.AutoSteer.Available.Value) != null)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
+                evlist = tempList;
+            }
+
             if (searchFilter.AutomaticParking != null && searchFilter.AutomaticParking.Value)
             {
                 List<EV> tempList = new List<EV>();
