@@ -30,11 +30,12 @@ namespace evdb.Models
             TemperatureWarning = new EVFeature();   
             CrossTrafficAssist = new EVFeature();
             SpeedLimiter = new EVFeature(); 
-            CollisionAvoidance = new EVFeature();   
+            AutomaticEmergencySteering = new EVFeature();   
             TrafficSignRecognition = new EVFeature();
             EfficiencyAssist = new EVFeature();
             DrivingAutomation = new List<DrivingAutomation>();
             FrontParkingSensors = new EVFeature();
+            ExitWarning = new EVFeature();
         }
 
         public EVFeature? NightVision { get; set; }
@@ -58,6 +59,8 @@ namespace evdb.Models
         public EVFeature? SideParkingSensors { get; set; }
 
         public EVFeature? SideAssist { get; set; }
+
+        public EVFeature? ExitWarning { get; set; }
 
         public EVFeature? HillDescentAssist { get; set; }
 
@@ -83,7 +86,7 @@ namespace evdb.Models
 
         public EVFeature? SpeedLimiter { get; set; }
 
-        public EVFeature? CollisionAvoidance { get; set; }
+        public EVFeature? AutomaticEmergencySteering { get; set; }
 
         public EVFeature? TrafficSignRecognition { get; set; }
 

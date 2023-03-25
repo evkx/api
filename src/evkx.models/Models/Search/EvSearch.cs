@@ -56,5 +56,27 @@ namespace evkx.models.Models.Search
 
         public bool? RearAxleSteering { get; set; }
 
+        public bool? AdaptiveCruiseControl { get; set; }
+
+        public bool? AutoSteer { get; set; }
+
+        public bool? AutomaticParking { get; set; }
+
+        public bool? BlindSpotMonitoring { get; set; }
+
+        public bool? AutomatedLaneChange { get; set; }
+
+        public bool? DriverDrowsinessDetection { get; set; }
+
+        public bool? DriverMonitoringSystem { get; set; }
+
+        public bool? RearCrossTrafficAlert { get; set; }
+
+        public bool? ExitWarning { get; set; }
+
+        public bool? TrafficSignRecognition { get; set; }
+
+        public bool? EfficiencyAssist { get; set; }
+
     }
 }

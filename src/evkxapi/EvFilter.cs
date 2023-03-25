@@ -116,6 +116,56 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if (searchFilter.BlindSpotMonitoring != null && searchFilter.BlindSpotMonitoring.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.SideAssist != null && ev.DriverAssistance.SideAssist.Available.HasValue && ev.DriverAssistance?.SideAssist.Available.Value == true).ToList());
+                evlist = tempList;
+            }
+
+            if (searchFilter.RearCrossTrafficAlert != null && searchFilter.RearCrossTrafficAlert.Value)
+            {
+                List<EV> tempList = new List<EV>();
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.RearCrossTrafficAlert != null && ev.DriverAssistance.RearCrossTrafficAlert.Available.HasValue && ev.DriverAssistance?.RearCrossTrafficAlert?.Available.Value == true).ToList());
+                evlist = tempList;
+            }
+
+            if (searchFilter.ExitWarning != null && searchFilter.ExitWarning.Value)
+            {
+                List<EV> tempList = new List<EV>();
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.ExitWarning != null && ev.DriverAssistance.ExitWarning.Available.HasValue && ev.DriverAssistance?.ExitWarning?.Available.Value == true).ToList());
+                evlist = tempList;
+            }
+
+            if (searchFilter.AdaptiveCruiseControl != null && searchFilter.AdaptiveCruiseControl.Value)
+            {
+                List<EV> tempList = new List<EV>();
+               foreach(EV ev in evlist)
+                {
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AdaptiveCruiseControl != null && evs.AdaptiveCruiseControl.Available != null && evs.AdaptiveCruiseControl.Available.Value) != null)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
+                evlist = tempList;
+            }
+
+            if (searchFilter.AutomaticParking != null && searchFilter.AutomaticParking.Value)
+            {
+                List<EV> tempList = new List<EV>();
+                foreach (EV ev in evlist)
+                {
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutomaticParallelParking != null && evs.AutomaticParallelParking.Available != null && evs.AutomaticParallelParking.Available.Value) != null)
+                    {
+                        tempList.Add(ev);
+                    }
+                }
+
+                evlist = tempList;
+            }
+
             if (searchFilter.AdaptiveSuspension != null && searchFilter.AdaptiveSuspension.Value)
             {
                 List<EV> tempList = new List<EV>();

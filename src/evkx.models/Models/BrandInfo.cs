@@ -14,6 +14,8 @@ namespace evdb.models.Models
 
         public string? PressPage { get; set; }
 
+        public string? BrandImage { get; set; }
+
         public Dictionary<string,string>? Description { get; set; }
 
         public Dictionary<string, string>? Intro { get; set; }
