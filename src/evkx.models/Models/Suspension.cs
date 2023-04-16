@@ -36,6 +36,12 @@ namespace evdb.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SuspensionType? SuspensionTypeRear { get; set; }
 
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public SuspensionConstruction? SuspensionConstructionFront { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public SuspensionConstruction? SuspensionConstructionRear { get; set; }
+
         public string? OptionId { get; set; }
 
         public bool? Standard { get; set; }
