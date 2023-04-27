@@ -23,5 +23,8 @@ namespace evdb.Models
         public string? Layout { get; set; }
 
         public bool? Optional { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ScreenCategory? ScreenCategory { get; set; }
     }
 }

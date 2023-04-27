@@ -52,5 +52,8 @@ namespace evdb.models.Enums
         [EnumMember(Value = "LeftSideOfSharedFrameTopOfDash")]
         LeftSideOfSharedFrameTopOfDash = 14,
 
+        [EnumMember(Value = "PassengerSideOnDash")]
+        PassengerSideOnDash = 15,
+
     }
 }

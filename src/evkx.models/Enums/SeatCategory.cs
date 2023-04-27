@@ -28,8 +28,10 @@ namespace evdb.models.Enums
         [EnumMember(Value = "TwoPlusOneIntegratedSeatBench")]
         TwoPlusOneIntegratedSeatBench = 6,
 
-
         [EnumMember(Value = "ExecutivePlusTwoSeatBench")]
         ExecutivePlusTwoSeatBench = 7,
+
+        [EnumMember(Value = "TwinExecutive")]
+        TwinExecutive = 8,
     }
 }

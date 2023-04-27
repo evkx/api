@@ -57,7 +57,7 @@ namespace evdb
             if(searchFilter.RearAxleSteering.HasValue && searchFilter.RearAxleSteering.Value)
             {
                 evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.RearWheelSteering != null
-                && ev.Drivetrain.RearWheelSteering.Available.HasValue && ev.Drivetrain.RearWheelSteering.Available.Value).ToList();
+                && ev.Drivetrain.RearWheelSteering.Available()).ToList();
             }
 
             if(searchFilter.MinimumWltpRange.HasValue)
@@ -112,7 +112,7 @@ namespace evdb
             {
                 List<EV> tempList = new List<EV>();
 
-                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.NightVision != null && ev.DriverAssistance.NightVision.Available.HasValue && ev.DriverAssistance?.NightVision?.Available.Value == true).ToList());
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.NightVision != null && ev.DriverAssistance.NightVision.Available()).ToList());
                 evlist = tempList;
             }
 
@@ -120,21 +120,21 @@ namespace evdb
             {
                 List<EV> tempList = new List<EV>();
 
-                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.SideAssist != null && ev.DriverAssistance.SideAssist.Available.HasValue && ev.DriverAssistance?.SideAssist.Available.Value == true).ToList());
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.SideAssist != null && ev.DriverAssistance.SideAssist.Available()).ToList());
                 evlist = tempList;
             }
 
             if (searchFilter.RearCrossTrafficAlert != null && searchFilter.RearCrossTrafficAlert.Value)
             {
                 List<EV> tempList = new List<EV>();
-                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.RearCrossTrafficAlert != null && ev.DriverAssistance.RearCrossTrafficAlert.Available.HasValue && ev.DriverAssistance?.RearCrossTrafficAlert?.Available.Value == true).ToList());
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.RearCrossTrafficAlert != null && ev.DriverAssistance.RearCrossTrafficAlert.Available()).ToList());
                 evlist = tempList;
             }
 
             if (searchFilter.ExitWarning != null && searchFilter.ExitWarning.Value)
             {
                 List<EV> tempList = new List<EV>();
-                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.ExitWarning != null && ev.DriverAssistance.ExitWarning.Available.HasValue && ev.DriverAssistance?.ExitWarning?.Available.Value == true).ToList());
+                tempList.AddRange(evlist.Where(ev => ev.DriverAssistance?.ExitWarning != null && ev.DriverAssistance.ExitWarning.Available()).ToList());
                 evlist = tempList;
             }
 
@@ -143,7 +143,7 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                foreach(EV ev in evlist)
                 {
-                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AdaptiveCruiseControl != null && evs.AdaptiveCruiseControl.Available != null && evs.AdaptiveCruiseControl.Available.Value) != null)
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AdaptiveCruiseControl != null && evs.AdaptiveCruiseControl.Available()) != null)
                     {
                         tempList.Add(ev);
                     }
@@ -157,7 +157,7 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutoSteer != null && evs.AutoSteer.Available != null && evs.AutoSteer.Available.Value) != null)
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutoSteer != null && evs.AutoSteer.Available()) != null)
                     {
                         tempList.Add(ev);
                     }
@@ -171,7 +171,7 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutomaticParallelParking != null && evs.AutomaticParallelParking.Available != null && evs.AutomaticParallelParking.Available.Value) != null)
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutomaticParallelParking != null && evs.AutomaticParallelParking.Available()) != null)
                     {
                         tempList.Add(ev);
                     }
@@ -185,7 +185,7 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.AdaptiveSuspension != null && ev2.AdaptiveSuspension.Available.HasValue && ev2.AdaptiveSuspension.Available.Value) != null)
+                    if (ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.AdaptiveSuspension != null && ev2.AdaptiveSuspension.Available()) != null)
                     {
                         tempList.Add(ev);
                     }
@@ -243,7 +243,7 @@ namespace evdb
 
                 foreach (EV ev in evlist)
                 {
-                    if (ev.UIAndControls?.HeadUpDisplay != null && ev.UIAndControls.HeadUpDisplay.Available != null && ev.UIAndControls.HeadUpDisplay.Available.Value)
+                    if (ev.UIAndControls?.HeadUpDisplay != null && ev.UIAndControls.HeadUpDisplay.Available != null && ev.UIAndControls.HeadUpDisplay.Available())
                     {
                         tempList.Add(ev);
                     }
@@ -258,7 +258,7 @@ namespace evdb
 
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Infotainment != null && ev.Infotainment.AndroidAutoSupport?.Available != null && ev.Infotainment.AndroidAutoSupport.Available.Value)
+                    if (ev.Infotainment != null && ev.Infotainment.AndroidAutoSupport != null && ev.Infotainment.AndroidAutoSupport.Available())
                     {
                         tempList.Add(ev);
                     }
@@ -273,7 +273,7 @@ namespace evdb
 
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Infotainment != null && ev.Infotainment.AppleCarPlaySupport?.Available != null && ev.Infotainment.AppleCarPlaySupport.Available.Value)
+                    if (ev.Infotainment != null && ev.Infotainment.AppleCarPlaySupport != null && ev.Infotainment.AppleCarPlaySupport.Available())
                     {
                         tempList.Add(ev);
                     }

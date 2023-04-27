@@ -13,7 +13,7 @@ namespace evdb.models.Enums
         [EnumMember(Value = "Multilink")]
         Multilink = 2,
 
-        [EnumMember(Value = "DoubleWishbone")]
+        [EnumMember(Value = "DoubleWishbone")] 
         DoubleWishbone = 3,
 
         [EnumMember(Value = "Leaf")]
