@@ -43,6 +43,12 @@ namespace evdb.Models
 
         public string? SeatSplit { get; set; }
 
+        public EVFeature? ForeAndAftAdjustment { get; set; }
+
+        public EVFeature? HeightAdjustment { get; set; }
+
+        public EVFeature? SeatCushionAngleAdjustment { get; set; }
+
         public EVFeature? ElectricAdjustment { get; set; }
 
         public EVFeature? ElectricLumbarAdjustment { get; set; }
