@@ -24,5 +24,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Tail")]
         Tail = 5,
+
+        [EnumMember(Value = "Hood")]
+        Hood = 6,
     }
 }

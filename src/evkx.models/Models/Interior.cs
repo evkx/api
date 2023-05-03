@@ -1,5 +1,7 @@
-﻿using evdb.models.Models;
+﻿using evdb.models.Enums;
+using evdb.models.Models;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {

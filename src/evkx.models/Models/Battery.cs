@@ -36,7 +36,7 @@ namespace evdb.Models
 
         public string? CellPerModule { get; set; }
  
-        public string? CellArchitecture { get; set; }
+        public string? PackConfiguration { get; set; }
 
         public CellInfo? CellInfo { get; set; }
 
