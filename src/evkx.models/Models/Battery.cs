@@ -14,6 +14,9 @@ namespace evdb.Models
                 ChargeCurve.Add(chargeSpeed);
             }
             CellInfo = new CellInfo();
+            ManualTriggerHeating = new EVFeature();
+            Heating = new EVFeature();
+            HeatingWhenNavigateToCharger = new EVFeature();
         }
 
         /// <summary>
