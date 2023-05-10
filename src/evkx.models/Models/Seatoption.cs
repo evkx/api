@@ -31,6 +31,9 @@ namespace evdb.Models
             LegSupportPassenger = new EVFeature();
             Foldable = new EVFeature();
             ElectricFoldable = new EVFeature();
+            ForeAndAftAdjustment = new EVFeature();
+            SeatCushionAngleAdjustment = new EVFeature();
+            HeightAdjustment = new EVFeature();
         }
 
         public bool? Standard { get; set; }

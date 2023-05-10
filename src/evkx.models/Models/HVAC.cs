@@ -13,6 +13,8 @@ namespace evdb.models.Models
             ClimateControlSystems.Add(new ClimateControlSystem());
             Heatpump = new EVFeature();
             Preclimatisation = new EVFeature();
+            PetMode = new EVFeature();
+            CampMode = new EVFeature();
         }
 
         public List<ClimateControlSystem>? ClimateControlSystems { get; set; }
@@ -20,5 +22,9 @@ namespace evdb.models.Models
         public EVFeature? Heatpump { get; set; }
 
         public EVFeature? Preclimatisation { get; set; }
+
+        public EVFeature? PetMode { get; set; }
+
+        public EVFeature? CampMode { get; set; }
     }
 }
