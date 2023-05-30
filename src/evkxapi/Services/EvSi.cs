@@ -104,7 +104,11 @@ namespace evdb.Services
             }
 
             evSimple.NetBattery = ev.NetBatterySizeStandardBattery();
-            evSimple.WltpConsumption = decimal.Round(ev.GetBasicTrimWltpConsumptionReal().Value, 2, MidpointRounding.AwayFromZero);
+
+            if (ev.GetTopTrimWltpConsumptionReal() != null)
+            {
+                evSimple.WltpConsumption = decimal.Round(ev.GetBasicTrimWltpConsumptionReal().Value, 2, MidpointRounding.AwayFromZero);
+            }
             evSimple.WltpRange = ev.MinimumWltpRangeBasicTrim();
             if (ev.EvCalculations != null && ev.EvCalculations.AverageChargingSpeed.HasValue)
             {
