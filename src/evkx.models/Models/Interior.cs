@@ -37,5 +37,8 @@ namespace evdb.Models
         public List<InteriorDesign>? InteriorDesigns { get; set; }
 
         public HVAC? Hvac { get; set; }
+
+        public ConsoleDesign? ConsoleDesign { get; set; }
+
     }
 }

@@ -42,5 +42,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "TrunkLid")]
         TrunkLid = 12,
+
+        [EnumMember(Value = "SplitTailgate")]
+        SplitTailgate = 13,
     }
 }

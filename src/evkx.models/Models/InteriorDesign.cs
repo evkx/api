@@ -1,4 +1,5 @@
-﻿using evdb.Models;
+﻿using evdb.models.Enums;
+using evdb.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,6 @@ namespace evdb.models.Models
         public List<SeatMaterial>? SeatMaterials { get; set; }
 
         public List<HeadlinerDesign>? HeadlinerDesigns { get; set; }
+
     }
 }
