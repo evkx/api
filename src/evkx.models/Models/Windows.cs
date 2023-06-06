@@ -7,6 +7,16 @@ namespace evdb.models.Models
 {
     public class Windows
     {
+        public Windows()
+        {
+            TintedFromBPillar = new EVFeature();
+            DoubleGlazedWindshield = new EVFeature();
+            DoubleGlazedFirstRow = new EVFeature(); 
+            DoubleGlazedSecondRow = new EVFeature();
+            HeatedWindshield = new EVFeature();
+            HeatedRearWindow = new EVFeature();
+        }
+
         public EVFeature? TintedFromBPillar { get; set; }
 
         public EVFeature? DoubleGlazedWindshield { get; set; }

@@ -14,6 +14,8 @@ namespace evdb.Models
             ModelInfo = new ModelInfo();
             Brand = new Brand();
             Dimensions =  new Dimensions();
+            Reviews = new List<EvReview>();
+            Reviews.Add(new EvReview());
         }
 
 

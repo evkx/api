@@ -13,7 +13,11 @@ namespace evdb.Models
             WheelOptions.Add(new Wheel() { Name = new Dictionary<string, string>()});
             Styling = new List<StylingOption>();
             Doors = new List<Door>();
-            Doors.Add(new Door());
+            Doors.Add(new Door() { Location = models.Enums.DoorLocation.FrontLeft, KickSensor = new EVFeature(), PoweredOpenClose = new EVFeature(), SoftClose = new EVFeature(), Type = models.Enums.DoorType.Standard });
+            Doors.Add(new Door() { Location = models.Enums.DoorLocation.FrontRight, KickSensor = new EVFeature(), PoweredOpenClose = new EVFeature(), SoftClose = new EVFeature(), Type = models.Enums.DoorType.Standard });
+            Doors.Add(new Door() { Location = models.Enums.DoorLocation.RearLeft, KickSensor = new EVFeature(), PoweredOpenClose = new EVFeature(), SoftClose = new EVFeature(), Type = models.Enums.DoorType.Standard });
+            Doors.Add(new Door() { Location = models.Enums.DoorLocation.RearRight, KickSensor = new EVFeature(), PoweredOpenClose = new EVFeature(), SoftClose = new EVFeature(), Type = models.Enums.DoorType.Standard });
+            Doors.Add(new Door() { Location = models.Enums.DoorLocation.Tail, KickSensor = new EVFeature(), PoweredOpenClose = new EVFeature(), SoftClose = new EVFeature(), Type = models.Enums.DoorType.NotSet }) ;
             Windows = new Windows();
         }
 

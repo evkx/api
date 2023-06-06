@@ -8,6 +8,13 @@ namespace evdb.models.Models
 {
     public class InteriorDesign
     {
+
+        public InteriorDesign()
+        {
+            SeatMaterials = new List<SeatMaterial>();
+            SeatMaterials.Add(new SeatMaterial());
+        }
+
         public bool? Standard { get; set; }
 
         public Dictionary<string,string>? Name { get; set; }

@@ -8,6 +8,12 @@ namespace evdb.models.Models
 {
     public class ScreenLayout
     {
+        public ScreenLayout()
+        {
+            Screens = new List<Screen>();
+            Screens.Add(new Screen());
+        }
+
         public ScreenLocation? ScreenIntegration { get; set; } 
 
         public List<Screen>? Screens { get; set; }

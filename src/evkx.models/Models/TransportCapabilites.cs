@@ -38,5 +38,13 @@ namespace evdb.models.Models
 
         public int? CargoCapacityThirdRowSeatDownLiter { get; set; }
 
+        public decimal? BedVolumeLiter { get; set; }
+
+        public decimal? BedLength { get; set; }
+
+        public decimal? BedWidth { get; set; }
+
+        public decimal? BedMaxWeight { get; set; }
+
     }
 }

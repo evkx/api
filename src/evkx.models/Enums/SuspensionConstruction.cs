@@ -18,5 +18,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Leaf")]
         Leaf = 4,
+
+        [EnumMember(Value = "TorsionBeam")]
+        TorsionBeam = 5,
     }
 }
