@@ -78,5 +78,14 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "SuspensionHeightAdjustment")]
         SuspensionHeightAdjustment = 24,
+
+        [EnumMember(Value = "Length")]
+        Length = 25,
+
+        [EnumMember(Value = "Wheelbase")]
+        Wheelbase = 26,
+
+        [EnumMember(Value = "WeightUnladenDINKg")]
+        WeightUnladenDINKg = 27,
     }
 }

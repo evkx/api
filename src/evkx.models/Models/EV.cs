@@ -412,5 +412,39 @@ namespace evdb.Models
 
             return heightAdjustment;
         }
+
+        public decimal Length()
+        {
+            decimal length = 0;
+            if(Dimensions != null && Dimensions.Length.HasValue)
+            {
+                length = Dimensions.Length.Value;
+            }
+
+            return length;
+        }
+
+        public decimal Wheelbase()
+        {
+            decimal wheelbase = 0;
+            if (Dimensions != null && Dimensions.Wheelbase.HasValue)
+            {
+                wheelbase = Dimensions.Wheelbase.Value;
+            }
+
+            return wheelbase;
+        }
+
+        public int WeightUnladenDINKg()
+        {
+            int weightUnladenDINKg = 0;
+            if (TransportCapabilities != null && TransportCapabilities.WeightUnladenDINKg.HasValue)
+            {
+                weightUnladenDINKg = TransportCapabilities.WeightUnladenDINKg.Value;
+            }
+
+            return weightUnladenDINKg;
+        }
+
     }
 }

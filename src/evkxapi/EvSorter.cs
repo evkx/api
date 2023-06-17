@@ -104,6 +104,18 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.SuspensionAdjustment()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.Length))
+            {
+                evList = evList.OrderByDescending(ev => ev.Length()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.Wheelbase))
+            {
+                evList = evList.OrderByDescending(ev => ev.Wheelbase()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.WeightUnladenDINKg))
+            {
+                evList = evList.OrderByDescending(ev => ev.WeightUnladenDINKg()).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();

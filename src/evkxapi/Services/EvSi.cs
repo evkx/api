@@ -318,6 +318,45 @@ namespace evdb.Services
                         evSimple.SortParameter = String.Empty;
                     }
                 }
+                else if (sortOrder.Equals(SortOrder.Length))
+                {
+                    if (ev.Length() != 0)
+                    {
+                        evSimple.SortValue = ev.Length().ToString();
+                        evSimple.SortParameter = "mm";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.Wheelbase))
+                {
+                    if (ev.Wheelbase() != 0)
+                    {
+                        evSimple.SortValue = ev.Wheelbase().ToString();
+                        evSimple.SortParameter = "mm";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
+                else if (sortOrder.Equals(SortOrder.WeightUnladenDINKg))
+                {
+                    if (ev.WeightUnladenDINKg() != 0)
+                    {
+                        evSimple.SortValue = ev.WeightUnladenDINKg().ToString();
+                        evSimple.SortParameter = "kg";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = String.Empty;
+                    }
+                }
                 else if (sortOrder.Equals(SortOrder.MinGroundClearance))
                 {
                     if (ev.MinGroundClearance() != 1337)
@@ -352,6 +391,10 @@ namespace evdb.Services
             {
                 evSimple.SortValue = "Error";
                 evSimple.SortParameter = ex.ToString();
+            }
+            if(!string.IsNullOrEmpty(evSimple.SortValue))
+            {
+                evSimple.SortValue = "(" + evSimple.SortValue + ")";
             }
             return evSimple;
         }
