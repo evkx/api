@@ -78,5 +78,11 @@ namespace evkx.models.Models.Search
 
         public bool? EfficiencyAssist { get; set; }
 
+        public bool? LfpChemistry { get; set; }
+
+        public bool? BatteryHeatingNavigation { get; set; }
+
+        public bool? BatteryHeatingManual { get; set; }
+
     }
 }

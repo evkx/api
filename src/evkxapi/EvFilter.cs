@@ -282,6 +282,78 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if(searchFilter.LfpChemistry != null && searchFilter.LfpChemistry.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if(ev.Drivetrain?.Battery != null)
+                    {
+                        foreach(Battery bat in ev.Drivetrain.Battery)
+                        {
+                            if(bat.CellInfo?.CellChemistry != null && bat.CellInfo.CellChemistry.ToLower().Contains("lfp"))
+                            {
+                                tempList.Add(ev);
+                                break;
+                            }
+
+                        }
+                    }
+
+                  
+                }
+
+                evlist = tempList;
+            }
+
+
+            if (searchFilter.BatteryHeatingManual != null && searchFilter.BatteryHeatingManual.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.Battery != null)
+                    {
+                        foreach (Battery bat in ev.Drivetrain.Battery)
+                        {
+                            if(bat.ManualTriggerHeating != null && bat.ManualTriggerHeating.Available())
+                            {
+                                tempList.Add(ev);
+                                break;
+                            }
+
+                        }
+                    }
+                }
+
+                evlist = tempList;
+            }
+
+            if (searchFilter.BatteryHeatingNavigation != null && searchFilter.BatteryHeatingNavigation.Value)
+            {
+                List<EV> tempList = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.Battery != null)
+                    {
+                        foreach (Battery bat in ev.Drivetrain.Battery)
+                        {
+                            if (bat.HeatingWhenNavigateToCharger != null && bat.HeatingWhenNavigateToCharger.Available())
+                            {
+                                tempList.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                evlist = tempList;
+            }
+
+
             return evlist;
         }
     }
