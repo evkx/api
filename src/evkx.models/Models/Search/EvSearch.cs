@@ -84,5 +84,18 @@ namespace evkx.models.Models.Search
 
         public bool? BatteryHeatingManual { get; set; }
 
+        public bool? FirstRowSeatsHeating { get; set; }
+
+        public bool? FirstRowSeatsVentilation { get; set; }
+
+        public bool? FirstRowSeatsMassage { get; set; }
+
+        public bool? SecondRowSeatsHeating { get; set; }
+
+        public bool? SecondRowSeatsVentilation { get; set; }
+
+        public bool? SecondRowSeatsMassage { get; set; }
+
+
     }
 }

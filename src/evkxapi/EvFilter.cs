@@ -2,6 +2,7 @@
 using evdb.models.Models;
 using evdb.Models;
 using evkx.models.Models.Search;
+using System.Linq.Expressions;
 
 namespace evdb
 {
@@ -353,6 +354,135 @@ namespace evdb
                 evlist = tempList;
             }
 
+            if(searchFilter.FirstRowSeatsHeating != null && searchFilter.FirstRowSeatsHeating.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach(EV ev in evlist)
+                {
+                    if (ev.Interior?.FirstRowSeats != null)
+                    {
+                        foreach(Seatoption seat in ev.Interior.FirstRowSeats)
+                        { 
+                            if(seat.SeatHeating != null && seat.SeatHeating.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                evlist = templist;
+            }
+
+            if (searchFilter.FirstRowSeatsVentilation != null && searchFilter.FirstRowSeatsVentilation.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.FirstRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.FirstRowSeats)
+                        {
+                            if (seat.Ventilation != null && seat.Ventilation.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                evlist = templist;
+            }
+
+            if (searchFilter.FirstRowSeatsMassage != null && searchFilter.FirstRowSeatsMassage.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.FirstRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.FirstRowSeats)
+                        {
+                            if (seat.Massage != null && seat.Massage.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+                evlist = templist;
+            }
+
+            if (searchFilter.SecondRowSeatsHeating != null && searchFilter.SecondRowSeatsHeating.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.SecondRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.SecondRowSeats)
+                        {
+                            if (seat.SeatHeating != null && seat.SeatHeating.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                evlist = templist;
+            }
+
+            if (searchFilter.SecondRowSeatsVentilation != null && searchFilter.SecondRowSeatsVentilation.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.SecondRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.SecondRowSeats)
+                        {
+                            if (seat.Ventilation != null && seat.Ventilation.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                evlist = templist;
+            }
+
+            if (searchFilter.SecondRowSeatsMassage != null && searchFilter.SecondRowSeatsMassage.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.SecondRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.SecondRowSeats)
+                        {
+                            if (seat.Massage != null && seat.Massage.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+                evlist = templist;
+            }
 
             return evlist;
         }
