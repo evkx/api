@@ -48,5 +48,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "FabricLeatherette")]
         FabricLeatherette = 13,
+
+        [EnumMember(Value = "WoolLeatherette")]
+        WoolLeatherette = 14,
     }
 }
