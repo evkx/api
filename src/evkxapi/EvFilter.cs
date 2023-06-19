@@ -419,6 +419,27 @@ namespace evdb
                 evlist = templist;
             }
 
+            if (searchFilter.FirstRowAdjustableThighSupport != null && searchFilter.FirstRowAdjustableThighSupport.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.FirstRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.FirstRowSeats)
+                        {
+                            if (seat.AdjustableThighSupport != null && seat.AdjustableThighSupport.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+                evlist = templist;
+            }
+
             if (searchFilter.SecondRowSeatsHeating != null && searchFilter.SecondRowSeatsHeating.Value)
             {
                 List<EV> templist = new List<EV>();
@@ -474,6 +495,49 @@ namespace evdb
                         foreach (Seatoption seat in ev.Interior.SecondRowSeats)
                         {
                             if (seat.Massage != null && seat.Massage.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+                evlist = templist;
+            }
+
+            if (searchFilter.SecondRowRecline != null && searchFilter.SecondRowRecline.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.SecondRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.SecondRowSeats)
+                        {
+                            if (seat.ReclineAdjustment != null && seat.ReclineAdjustment.Available())
+                            {
+                                templist.Add(ev);
+                                break;
+                            }
+                        }
+                    }
+                }
+                evlist = templist;
+            }
+
+            if (searchFilter.SecondRowExecutiveSeat != null && searchFilter.SecondRowExecutiveSeat.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Interior?.SecondRowSeats != null)
+                    {
+                        foreach (Seatoption seat in ev.Interior.SecondRowSeats)
+                        {
+                            if (seat.SeatCategory != null && 
+                                (seat.SeatCategory.Equals(SeatCategory.ExecutivePlusTwoSeatBench) || seat.SeatCategory.Equals(SeatCategory.TwinExecutive)))
                             {
                                 templist.Add(ev);
                                 break;

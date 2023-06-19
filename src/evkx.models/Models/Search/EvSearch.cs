@@ -90,11 +90,17 @@ namespace evkx.models.Models.Search
 
         public bool? FirstRowSeatsMassage { get; set; }
 
+        public bool? FirstRowAdjustableThighSupport { get; set; }
+
         public bool? SecondRowSeatsHeating { get; set; }
 
         public bool? SecondRowSeatsVentilation { get; set; }
 
         public bool? SecondRowSeatsMassage { get; set; }
+
+        public bool? SecondRowRecline { get; set; }
+
+        public bool? SecondRowExecutiveSeat { get; set; }
 
 
     }
