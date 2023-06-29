@@ -45,5 +45,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "SplitTailgate")]
         SplitTailgate = 13,
+
+        [EnumMember(Value = "SuicideGullwing")]
+        SuicideGullwing = 14,
     }
 }
