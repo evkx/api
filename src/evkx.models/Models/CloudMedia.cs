@@ -61,5 +61,32 @@ namespace evdb.Models
 
             return null;
         }
+
+        public int GetMediumHeight()
+        {
+            if (Height.HasValue && Width.HasValue)
+            {
+                return (int)((double)(1200 / Width.Value) * (double)Height.Value);
+            }
+            return default;
+        }
+
+        public int GetSmallHeight()
+        {
+            if (Height.HasValue && Width.HasValue)
+            {
+                return (int)((double)(800 / Width.Value) * (double)Height.Value);
+            }
+            return default;
+        }
+
+        public int GetXSmallHeight()
+        {
+            if (Height.HasValue && Width.HasValue)
+            {
+                return (int)((double)(400 / Width.Value) * (double)Height.Value);
+            }
+            return default;
+        }
     }
 }

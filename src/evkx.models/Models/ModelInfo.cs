@@ -1,4 +1,7 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace evdb.Models
@@ -8,25 +11,13 @@ namespace evdb.Models
         public ModelInfo()
         {
             Name = null;
-            VinPattern = null;
-            SaleStart = null;
-            ModelYear = null;
-            ProductionStart = null;
             Variant = null;
             CarSegment = null;
             PriceSegment = null;
             BodyType = null;
         }
 
-        public string? Name { get; set; }    
-
-        public string? VinPattern { get; set; } 
-
-        public string? SaleStart { get; set; }
-
-        public string? ModelYear { get; set; }
-
-        public string? ProductionStart { get; set; }
+        public string? Name { get; set; }
 
         public string? Variant { get; set; }
 
@@ -37,11 +28,26 @@ namespace evdb.Models
         public string? Platform { get; set; }
 
         public bool? EvOnlyPlatform { get; set; }
-        
+
         public bool? EvOnlyConstruction { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public EvBodyType? BodyType { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ModelStatus? ModelStatus { get; set; }
+
+        public DateTime? WorldPremiere { get; set; }
+
+        public DateTime? DeliveryStart { get; set; }
+
+        public List<Availability>? Availability {get; set; }
+
+        public List<Pricing>? Pricing { get; set; }
+
+        public List<EvModelReference>? Alternatives { get; set; }
+
+        public List<EvModelReference>? ReplacedBy { get; set; }
 
     }
 }

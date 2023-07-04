@@ -1,16 +1,20 @@
-﻿namespace evdb.Models
+﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace evdb.Models
 {
     public class Chargeport
     {
-        public string? Location { get; set; }
-
-        public string? Type { get; set; }
-
         public bool? IsStandard { get; set; }
 
-        public string? Market { get; set; }
-
         public string? OptionId { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public ChargePortLocation? ChargePortLocation { get; set; }
+
+        public List<ChargePortVariant>? ChargePortVariant { get; set; }
 
     }
 }

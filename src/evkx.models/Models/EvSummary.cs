@@ -24,6 +24,10 @@ namespace evdb.models.Models
 
         public string? ImagePath { get; set; }
 
+        public int? ImageWidth { get; set; }
+
+        public int? ImageHeight { get; set; }
+
         public bool? HasMediumThumb { get; set; }
 
         public bool? HasSmallThumb { get; set; }
@@ -68,6 +72,33 @@ namespace evdb.models.Models
             }
 
             return null;
+        }
+
+        public int GetMediumHeight()
+        {
+            if (ImageHeight.HasValue && ImageWidth.HasValue)
+            {
+                return (int)((double)((double)1200 / (double)ImageWidth.Value) * (double)ImageHeight.Value);
+            }
+            return default;
+        }
+
+        public int GetSmallHeight()
+        {
+            if (ImageHeight.HasValue && ImageWidth.HasValue)
+            {
+                return (int)((double)((double)800 / (double)ImageWidth.Value) * (double)ImageHeight.Value);
+            }
+            return default;
+        }
+
+        public int GetXSmallHeight()
+        {
+            if (ImageHeight.HasValue && ImageWidth.HasValue)
+            {
+                return (int)((double)((double)400 / (double) ImageWidth.Value) * (double)ImageHeight.Value);
+            }
+            return default;
         }
     }
 }
