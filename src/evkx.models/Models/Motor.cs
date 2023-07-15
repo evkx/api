@@ -11,7 +11,7 @@ namespace evdb.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public MotorType? Type { get; set; }
 
-        public string? Power { get; set; }
+        public int? Power { get; set; }
 
         public int? PeakPower { get; set; }
 

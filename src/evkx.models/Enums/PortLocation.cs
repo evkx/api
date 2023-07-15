@@ -54,5 +54,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "ThirdRowArmRest")]
         ThirdRowArmRest = 16,
+
+        [EnumMember(Value = "BelowSecondRowSeat")]
+        BelowSecondRowSeat = 17,
     }
 }
