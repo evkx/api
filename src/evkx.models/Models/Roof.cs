@@ -1,18 +1,17 @@
-﻿namespace evdb.Models
+﻿using evdb.models.Enums;
+using System.Text.Json.Serialization;
+
+namespace evdb.Models
 {
     public class Roof
     {
         public string? Material { get; set; }
 
-        public bool? PanoramicRoof { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public PanoramicRoofType? PanoramicRoofType { get; set; }
 
-        public string? TypePanoramicRoof { get; set; }
-
-        public bool? PanoramicRoofCanBeOpened { get; set; }
-
-        public bool? CoverPanoramicRoof { get; set; }  
-
-        public string? TypeCoverPanroamicRoof { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public PanoramicRoofShadeType? PanoramicRoofShadeType { get; set; }
 
         public bool? Standard { get; set; }
 

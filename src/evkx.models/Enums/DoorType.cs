@@ -48,5 +48,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "SuicideGullwing")]
         SuicideGullwing = 14,
+
+        [EnumMember(Value = "StandardGullwing")]
+        StandardGullwing = 15,
     }
 }
