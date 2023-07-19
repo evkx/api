@@ -52,6 +52,26 @@ namespace evdb.Models
             return null;
         }
 
+        public string? GetXSThumbExternalUrl()
+        {
+            string extension = Path.GetExtension(RepoPath);
+            if (ExternalUrl != null)
+            {
+                if (HasXSmallThumb != null && HasXSmallThumb.Value)
+                {
+                    return ExternalUrl.Replace(extension, "_xst" + extension);
+                }
+                else if (HasMediumThumb != null && HasMediumThumb.Value)
+                {
+                    return ExternalUrl.Replace(extension, "_mt" + extension);
+                }
+
+                return ExternalUrl;
+            }
+
+            return null;
+        }
+
         public string? GetDescription(string language)
         {
             if (Description != null && Description.ContainsKey(language))
@@ -66,7 +86,8 @@ namespace evdb.Models
         {
             if (Height.HasValue && Width.HasValue)
             {
-                return (int)((double)(1200 / Width.Value) * (double)Height.Value);
+                int height = (int)((double)(1200 / (double) Width.Value) * (double)Height.Value);
+                return height;
             }
             return default;
         }
@@ -75,7 +96,8 @@ namespace evdb.Models
         {
             if (Height.HasValue && Width.HasValue)
             {
-                return (int)((double)(800 / Width.Value) * (double)Height.Value);
+                int height = (int)((double)(800 / (double)Width.Value) * (double)Height.Value);
+                return height;
             }
             return default;
         }
@@ -85,6 +107,15 @@ namespace evdb.Models
             if (Height.HasValue && Width.HasValue)
             {
                 return (int)((double)(400 / Width.Value) * (double)Height.Value);
+            }
+            return default;
+        }
+
+        public int GetXXSmallHeight()
+        {
+            if (Height.HasValue && Width.HasValue)
+            {
+                return (int)((double)(200 / Width.Value) * (double)Height.Value);
             }
             return default;
         }

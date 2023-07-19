@@ -39,6 +39,8 @@ namespace evdb.Models
 
         public string? Thumb { get; set; }
 
+        public int? ThumbHeight { get; set; }
+
         public List<string> Variants { get; set; }
     }
 }
