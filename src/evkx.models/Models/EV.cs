@@ -161,6 +161,62 @@ namespace evdb.Models
         }
 
 
+        public decimal? GetBasicTrimEpaConsumptionReal(int? rangeIndex = null)
+        {
+            if (Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
+            {
+                return null;
+            }
+
+            Battery? battery = Drivetrain?.Battery?.FirstOrDefault();
+
+            if (rangeIndex != null && rangeIndex.Value != 0)
+            {
+                if (Drivetrain.Battery.Count > (rangeIndex + 1))
+                {
+                    battery = Drivetrain.Battery[rangeIndex.Value];
+                }
+            }
+
+            RangeAndConsumption? range = Drivetrain?.RangeAndConsumption?.FirstOrDefault();
+
+            if (battery?.NetCapacitykWh == null || range?.BasicTrimEpaRange == null)
+            {
+                return null;
+            }
+
+            return ( (decimal)range.BasicTrimEpaRange) / battery.NetCapacitykWh ;
+
+        }
+
+        public decimal? GetTopTrimEpaConsumptionReal(int? rangeIndex = null)
+        {
+            if (Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
+            {
+                return null;
+            }
+
+
+            Battery? battery = Drivetrain?.Battery?.First();
+            RangeAndConsumption? range = Drivetrain?.RangeAndConsumption?.FirstOrDefault();
+
+            if (rangeIndex != null && rangeIndex.Value != 0)
+            {
+                if (Drivetrain.Battery.Count > (rangeIndex + 1))
+                {
+                    battery = Drivetrain.Battery[rangeIndex.Value];
+                }
+            }
+
+            if (battery?.NetCapacitykWh == null || range?.TopTrimEpaRange == null)
+            {
+                return null;
+            }
+
+            return ((decimal)range.TopTrimEpaRange) / battery.NetCapacitykWh;
+        }
+
+
         public decimal? GetConsumption120()
         {
             if(Drivetrain?.RangeAndConsumption != null && Drivetrain.RangeAndConsumption.Any())

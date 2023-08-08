@@ -21,6 +21,8 @@ namespace evdb.Models
 
         public string? Variant { get; set; }
 
+        public bool? Ignore { get; set; }
+
         public string? CarSegment { get; set; }
 
         public string? PriceSegment { get; set; }

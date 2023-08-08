@@ -1,6 +1,5 @@
-﻿using System;
+﻿using evdb.models.Enums;
 using System.Collections.Generic;
-using System.Text;
 
 namespace evdb.models.Models
 {
@@ -16,5 +15,8 @@ namespace evdb.models.Models
 
         public bool? RegenPaddles { get; set; }
 
+        public OnePedalStoppingMode? OnePedalStoppingMode { get; set; }
+
+        public List<string>? LiftOfRegenLevels { get; set; }
     }
 }
