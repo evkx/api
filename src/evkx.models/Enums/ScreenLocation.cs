@@ -55,5 +55,8 @@ namespace evdb.models.Enums
         [EnumMember(Value = "PassengerSideOnDash")]
         PassengerSideOnDash = 15,
 
+        [EnumMember(Value = "BehindSteeringWheelToCenterOnDash")]
+        BehindSteeringWheelToCenterOnDash = 16,
+
     }
 }

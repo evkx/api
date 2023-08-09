@@ -24,5 +24,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "HVACControl")]
         HVACControl = 5,
+
+        [EnumMember(Value = "DriverInformationAndInfotainment")]
+        DriverInformationAndInfotainment = 6,
     }
 }
