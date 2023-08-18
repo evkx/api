@@ -87,5 +87,42 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "WeightUnladenDINKg")]
         WeightUnladenDINKg = 27,
+
+        [EnumMember(Value = "EnergyCharged10Percent10Min")]
+        EnergyCharged10Percent10Min = 28,
+
+        [EnumMember(Value = "EnergyCharged10Percent15Min")]
+        EnergyCharged10Percent15Min = 29,
+
+        [EnumMember(Value = "EnergyCharged10Percent20Min")]
+        EnergyCharged10Percent20Min = 30,
+
+        [EnumMember(Value = "EnergyCharged10Percent30Min")]
+        EnergyCharged10Percent30Min = 31,
+
+        [EnumMember(Value = "DrivingDistance120kmhCharged10Percent10Min")]
+        DrivingDistance120kmhCharged10Percent10Min = 32,
+
+        [EnumMember(Value = "DrivingDistance120kmhCharged10Percent15Min")]
+        DrivingDistance120kmhCharged10Percent15Min = 33,
+
+        [EnumMember(Value = "DrivingDistance120kmhCharged10Percent20Min")]
+        DrivingDistance120kmhCharged10Percent20Min = 34,
+
+        [EnumMember(Value = "DrivingDistance120kmhCharged10Percent30Min")]
+        DrivingDistance120kmhCharged10Percent30Min = 35,
+
+        [EnumMember(Value = "DrivingDistanceWltpCharged10Percent10Min")]
+        DrivingDistanceWltpCharged10Percent10Min = 36,
+
+        [EnumMember(Value = "DrivingDistanceWltpCharged10Percent15Min")]
+        DrivingDistanceWltpCharged10Percent15Min = 37,
+
+        [EnumMember(Value = "DrivingDistanceWltpCharged10Percent20Min")]
+        DrivingDistanceWltpCharged10Percent20Min = 38,
+
+        [EnumMember(Value = "DrivingDistanceWltpCharged10Percent30Min")]
+        DrivingDistanceWltpCharged10Percent30Min = 39,
+
     }
 }

@@ -392,7 +392,7 @@ namespace evdb.Models
         {
             string variantId = Brand.Name + " " + GetVariantName();
 
-            return removeInvalidChars.Replace(variantId, "_").Replace(" ", "_").Replace("+", "plus");
+            return removeInvalidChars.Replace(variantId, "_").Replace(" ", "_").Replace("+", "plus").Replace("#", "hash");
         }
 
         public string GetEvPath()
@@ -407,7 +407,7 @@ namespace evdb.Models
                 return null;
             }
 
-            return removeInvalidChars.Replace(fileName, replacement).Replace(" ", "_").Replace("+", "plus");
+            return removeInvalidChars.Replace(fileName, replacement).Replace(" ", "_").Replace("+", "plus").Replace("#", "hash");
         }
 
         public int MaxGroundClearance()

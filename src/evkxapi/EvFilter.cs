@@ -548,6 +548,134 @@ namespace evdb
                 evlist = templist;
             }
 
+            if(searchFilter.ChargePortFront.HasValue || searchFilter.ChargePortFrontLeft.HasValue || searchFilter.ChargePortFrontRight.HasValue 
+                || searchFilter.ChargePortRearLeft.HasValue || searchFilter.ChargePortRearRight.HasValue)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if (searchFilter.ChargePortFront.HasValue && searchFilter.ChargePortFront.Value)
+                    {
+                        if (ev.Drivetrain?.Charging?.Chargeports != null)
+                        {
+                            bool isMatch = false;
+
+                            foreach (Chargeport chargport in ev.Drivetrain.Charging.Chargeports)
+                            {
+                                if (chargport.ChargePortLocation.HasValue && chargport.ChargePortLocation.Equals(ChargePortLocation.Front))
+                                {
+                                    isMatch = true;
+                                    templist.Add(ev);
+                                    break;
+                                }
+
+                            }
+                            if (isMatch)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (searchFilter.ChargePortFrontLeft.HasValue && searchFilter.ChargePortFrontLeft.Value)
+                    {
+                        if (ev.Drivetrain?.Charging?.Chargeports != null)
+                        {
+                            bool isMatch = false;
+
+                            foreach (Chargeport chargport in ev.Drivetrain.Charging.Chargeports)
+                            {
+                                if (chargport.ChargePortLocation.HasValue && (chargport.ChargePortLocation.Equals(ChargePortLocation.LeftFrontCorner) || chargport.ChargePortLocation.Equals(ChargePortLocation.LeftFrontSide)))
+                                {
+                                    isMatch = true;
+                                    templist.Add(ev);
+                                    break;
+                                }
+
+                            }
+                            if (isMatch)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (searchFilter.ChargePortFrontRight.HasValue && searchFilter.ChargePortFrontRight.Value)
+                    {
+                        if (ev.Drivetrain?.Charging?.Chargeports != null)
+                        {
+                            bool isMatch = false;
+
+                            foreach (Chargeport chargport in ev.Drivetrain.Charging.Chargeports)
+                            {
+                                if (chargport.ChargePortLocation.HasValue && (chargport.ChargePortLocation.Equals(ChargePortLocation.RightFrontCorner) || chargport.ChargePortLocation.Equals(ChargePortLocation.RightFrontSide)))
+                                {
+                                    isMatch = true;
+                                    templist.Add(ev);
+                                    break;
+                                }
+
+                            }
+                            if (isMatch)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (searchFilter.ChargePortRearLeft.HasValue && searchFilter.ChargePortRearLeft.Value)
+                    {
+                        if (ev.Drivetrain?.Charging?.Chargeports != null)
+                        {
+                            bool isMatch = false;
+
+                            foreach (Chargeport chargport in ev.Drivetrain.Charging.Chargeports)
+                            {
+                                if (chargport.ChargePortLocation.HasValue && (chargport.ChargePortLocation.Equals(ChargePortLocation.LeftRearCorner) || chargport.ChargePortLocation.Equals(ChargePortLocation.LeftRearSide)))
+                                {
+                                    isMatch = true;
+                                    templist.Add(ev);
+                                    break;
+                                }
+
+                            }
+                            if (isMatch)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (searchFilter.ChargePortRearRight.HasValue && searchFilter.ChargePortRearRight.Value)
+                    {
+                        if (ev.Drivetrain?.Charging?.Chargeports != null)
+                        {
+                            bool isMatch = false;
+
+                            foreach (Chargeport chargport in ev.Drivetrain.Charging.Chargeports)
+                            {
+                                if (chargport.ChargePortLocation.HasValue && (chargport.ChargePortLocation.Equals(ChargePortLocation.RightRearCorner) || chargport.ChargePortLocation.Equals(ChargePortLocation.RightRearSide)))
+                                {
+                                    isMatch = true;
+                                    templist.Add(ev);
+                                    break;
+                                }
+
+                            }
+                            if (isMatch)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                }
+
+                evlist = templist;
+            }
+
+
             return evlist;
         }
     }

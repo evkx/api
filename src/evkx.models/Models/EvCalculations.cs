@@ -22,5 +22,15 @@ namespace evdb.models.Models
 
         public decimal? AverageSpeed1000kmChallenge { get; set; }
 
+        public decimal? EnergyChargedFrom10Percent10minutes { get; set; }
+        
+        public decimal? EnergyChargedFrom10Percent15Minutes { get; set; }
+        
+        public decimal? EnergyChargedFrom10Percent20minutes { get; set; }
+
+        public decimal? EnergyChargedFrom10Percent25minutes { get; set; }
+
+        public decimal? EnergyChargedFrom10Percent30minutes { get; set; }
+
     }
 }

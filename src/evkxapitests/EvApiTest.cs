@@ -43,7 +43,7 @@ namespace evdbtests
             string responseContent = await response.Content.ReadAsStringAsync();
             EvSearchResult? ev = System.Text.Json.JsonSerializer.Deserialize<EvSearchResult>(responseContent, new System.Text.Json.JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) as EvSearchResult;
 
-            Assert.Equal(61, ev.Evs.Count());
+            Assert.Equal(143, ev.Evs.Count());
 
         }
 
@@ -89,7 +89,29 @@ namespace evdbtests
             string responseContent = await response.Content.ReadAsStringAsync();
             EvSearchResult? ev = System.Text.Json.JsonSerializer.Deserialize<EvSearchResult>(responseContent, new System.Text.Json.JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) as EvSearchResult;
 
-            Assert.Equal(1, ev.Evs.Count());
+            Assert.Equal(4, ev.Evs.Count());
+
+        }
+
+        [Fact]
+        public async Task Search_ChargePortRearLeft()
+        {
+            HttpClient client = SetupUtil.GetTestClient(_factory);
+
+            EvSearch search = new EvSearch();
+            search.ChargePortRearLeft = true;
+            string requestUri = "/api/Ev/";
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(search), Encoding.UTF8, "application/json")
+            };
+
+            HttpResponseMessage response = await client.SendAsync(httpRequestMessage);
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            EvSearchResult? ev = System.Text.Json.JsonSerializer.Deserialize<EvSearchResult>(responseContent, new System.Text.Json.JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) as EvSearchResult;
+
+            Assert.Equal(46, ev.Evs.Count());
 
         }
     }
