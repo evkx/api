@@ -102,6 +102,8 @@ namespace evkx.models.Models.Search
 
         public bool? SecondRowExecutiveSeat { get; set; }
 
+        public bool? ChargePortFront { get; set; }
+
         public bool? ChargePortFrontLeft { get; set; }
 
         public bool? ChargePortFrontRight { get; set; } 
@@ -109,9 +111,6 @@ namespace evkx.models.Models.Search
         public bool? ChargePortRearLeft { get; set; }   
 
         public bool? ChargePortRearRight { get; set; }
-
-        public bool? ChargePortFront { get; set; }
-
 
     }
 }

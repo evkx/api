@@ -548,8 +548,11 @@ namespace evdb
                 evlist = templist;
             }
 
-            if(searchFilter.ChargePortFront.HasValue || searchFilter.ChargePortFrontLeft.HasValue || searchFilter.ChargePortFrontRight.HasValue 
-                || searchFilter.ChargePortRearLeft.HasValue || searchFilter.ChargePortRearRight.HasValue)
+            if((searchFilter.ChargePortFront.HasValue && searchFilter.ChargePortFront.Value) 
+                || (searchFilter.ChargePortFrontLeft.HasValue && searchFilter.ChargePortFrontLeft.Value) 
+                || (searchFilter.ChargePortFrontRight.HasValue && searchFilter.ChargePortFrontRight.Value)
+                || (searchFilter.ChargePortRearLeft.HasValue && searchFilter.ChargePortRearLeft.Value) 
+                || (searchFilter.ChargePortRearRight.HasValue && searchFilter.ChargePortRearRight.Value))
             {
                 List<EV> templist = new List<EV>();
 
