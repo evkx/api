@@ -116,6 +116,71 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.WeightUnladenDINKg()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.WeightUnladenDINKg))
+            {
+                evList = evList.OrderByDescending(ev => ev.WeightUnladenDINKg()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.EnergyCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent10minutes).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.EnergyCharged10Percent15Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent15Minutes).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.EnergyCharged10Percent20Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent20minutes).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.EnergyCharged10Percent25Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent25minutes).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.EnergyCharged10Percent30Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent30minutes).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent10minutes/ev.GetBasicTrimWltpConsumptionReal()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent15Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent15Minutes / ev.GetBasicTrimWltpConsumptionReal()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent20Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent20minutes / ev.GetBasicTrimWltpConsumptionReal()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent25Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent25minutes / ev.GetBasicTrimWltpConsumptionReal()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent30Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent30minutes / ev.GetBasicTrimWltpConsumptionReal()).ToList();
+            }
+
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent10minutes / ev.GetConsumption120()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent15Minutes / ev.GetConsumption120()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent20minutes / ev.GetConsumption120()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent25minutes / ev.GetConsumption120()).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            {
+                evList = evList.OrderByDescending(ev => ev.EvCalculations.EnergyChargedFrom10Percent30minutes / ev.GetConsumption120()).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();

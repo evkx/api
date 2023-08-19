@@ -114,5 +114,27 @@ namespace evdbtests
             Assert.Equal(46, ev.Evs.Count());
 
         }
+
+        [Fact]
+        public async Task Search_WltpRange30MinCharging()
+        {
+            HttpClient client = SetupUtil.GetTestClient(_factory);
+
+            EvSearch search = new EvSearch();
+            search.SortOrder = evdb.models.Enums.SortOrder.DrivingDistanceWltpCharged10Percent30Min;
+            string requestUri = "/api/Ev/";
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(search), Encoding.UTF8, "application/json")
+            };
+
+            HttpResponseMessage response = await client.SendAsync(httpRequestMessage);
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            EvSearchResult? ev = System.Text.Json.JsonSerializer.Deserialize<EvSearchResult>(responseContent, new System.Text.Json.JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) as EvSearchResult;
+
+            Assert.Equal(198, ev.Evs.Count());
+
+        }
     }
 }

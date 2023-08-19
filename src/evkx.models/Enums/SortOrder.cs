@@ -97,32 +97,41 @@ namespace evdb.models.Enums
         [EnumMember(Value = "EnergyCharged10Percent20Min")]
         EnergyCharged10Percent20Min = 30,
 
+        [EnumMember(Value = "EnergyCharged10Percent25Min")]
+        EnergyCharged10Percent25Min = 31,
+
         [EnumMember(Value = "EnergyCharged10Percent30Min")]
-        EnergyCharged10Percent30Min = 31,
+        EnergyCharged10Percent30Min = 32,
 
         [EnumMember(Value = "DrivingDistance120kmhCharged10Percent10Min")]
-        DrivingDistance120kmhCharged10Percent10Min = 32,
+        DrivingDistance120kmhCharged10Percent10Min = 33,
 
         [EnumMember(Value = "DrivingDistance120kmhCharged10Percent15Min")]
-        DrivingDistance120kmhCharged10Percent15Min = 33,
+        DrivingDistance120kmhCharged10Percent15Min = 34,
 
         [EnumMember(Value = "DrivingDistance120kmhCharged10Percent20Min")]
-        DrivingDistance120kmhCharged10Percent20Min = 34,
+        DrivingDistance120kmhCharged10Percent20Min = 35,
+
+        [EnumMember(Value = "DrivingDistance120kmhCharged10Percent25Min")]
+        DrivingDistance120kmhCharged10Percent25Min = 36,
 
         [EnumMember(Value = "DrivingDistance120kmhCharged10Percent30Min")]
-        DrivingDistance120kmhCharged10Percent30Min = 35,
+        DrivingDistance120kmhCharged10Percent30Min = 38,
 
         [EnumMember(Value = "DrivingDistanceWltpCharged10Percent10Min")]
-        DrivingDistanceWltpCharged10Percent10Min = 36,
+        DrivingDistanceWltpCharged10Percent10Min = 37,
 
         [EnumMember(Value = "DrivingDistanceWltpCharged10Percent15Min")]
-        DrivingDistanceWltpCharged10Percent15Min = 37,
+        DrivingDistanceWltpCharged10Percent15Min = 38,
 
         [EnumMember(Value = "DrivingDistanceWltpCharged10Percent20Min")]
-        DrivingDistanceWltpCharged10Percent20Min = 38,
+        DrivingDistanceWltpCharged10Percent20Min = 39,
+
+        [EnumMember(Value = "DrivingDistanceWltpCharged10Percent25Min")]
+        DrivingDistanceWltpCharged10Percent25Min = 40,
 
         [EnumMember(Value = "DrivingDistanceWltpCharged10Percent30Min")]
-        DrivingDistanceWltpCharged10Percent30Min = 39,
+        DrivingDistanceWltpCharged10Percent30Min = 41,
 
     }
 }

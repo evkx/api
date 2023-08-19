@@ -381,6 +381,81 @@ namespace evdb.Services
                     evSimple.SortValue = Math.Round(ev.EvCalculations.TravelSpeedWltp.Value, 2).ToString();
                     evSimple.SortParameter = "km/h";
                 }
+                else if (sortOrder.Equals(SortOrder.EnergyCharged10Percent10Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent10minutes.Value, 2).ToString();
+                    evSimple.SortParameter = "kWh";
+                }
+                else if (sortOrder.Equals(SortOrder.EnergyCharged10Percent15Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent15Minutes.Value, 2).ToString();
+                    evSimple.SortParameter = "kWh";
+                }
+                else if (sortOrder.Equals(SortOrder.EnergyCharged10Percent20Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent20minutes.Value, 2).ToString();
+                    evSimple.SortParameter = "kWh";
+                }
+                else if (sortOrder.Equals(SortOrder.EnergyCharged10Percent25Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent25minutes.Value, 2).ToString();
+                    evSimple.SortParameter = "kWh";
+                }
+                else if (sortOrder.Equals(SortOrder.EnergyCharged10Percent30Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent30minutes.Value, 2).ToString();
+                    evSimple.SortParameter = "kWh";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent10Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent10minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value*100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent15Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent15Minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value*100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent20Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent20minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent25Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent25minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent30Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent30minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent10minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent15Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent15Minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent20Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent20minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent25Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent25minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
+                else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent30Min))
+                {
+                    evSimple.SortValue = Math.Round(ev.EvCalculations.EnergyChargedFrom10Percent30minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
+                    evSimple.SortParameter = "km";
+                }
                 else
                 {
                     evSimple.SortValue = String.Empty;
@@ -391,6 +466,10 @@ namespace evdb.Services
             {
                 evSimple.SortValue = "Error";
                 evSimple.SortParameter = ex.ToString();
+
+                // Disabled in test
+                evSimple.SortValue = "N/A";
+                evSimple.SortParameter = string.Empty;
             }
             if(!string.IsNullOrEmpty(evSimple.SortValue))
             {
