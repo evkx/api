@@ -12,10 +12,10 @@ namespace evdb
        public static List<EV> Filter(List<EV> evlist, EvSearch searchFilter)
         {
 
-            if(searchFilter?.Brands != null && searchFilter.Brands.Any())
+            if (searchFilter?.Brands != null && searchFilter.Brands.Any())
             {
                 List<EV> tempList = new List<EV>();
-                foreach(string brand in searchFilter.Brands)
+                foreach (string brand in searchFilter.Brands)
                 {
                     tempList.AddRange(evlist.Where(ev => ev.Brand != null && ev.Brand.Name != null && ev.Brand.Name.Equals(brand)));
                 }
@@ -23,7 +23,7 @@ namespace evdb
                 evlist = tempList;
             }
 
-            if(searchFilter.AllWheelDrive.HasValue && searchFilter.AllWheelDrive.Value
+            if (searchFilter.AllWheelDrive.HasValue && searchFilter.AllWheelDrive.Value
                || searchFilter.FWD.HasValue && searchFilter.FWD.Value
                || searchFilter.RWD.HasValue && searchFilter.RWD.Value)
             {
@@ -55,22 +55,22 @@ namespace evdb
                 evlist = templist;
             }
 
-            if(searchFilter.RearAxleSteering.HasValue && searchFilter.RearAxleSteering.Value)
+            if (searchFilter.RearAxleSteering.HasValue && searchFilter.RearAxleSteering.Value)
             {
                 evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.RearWheelSteering != null
                 && ev.Drivetrain.RearWheelSteering.Available()).ToList();
             }
 
-            if(searchFilter.MinimumWltpRange.HasValue)
+            if (searchFilter.MinimumWltpRange.HasValue)
             {
                 evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.RangeAndConsumption != null && ev.Drivetrain.RangeAndConsumption != null && ev.Drivetrain.RangeAndConsumption.Exists(r => r.BasicTrimWltpRange > searchFilter.MinimumWltpRange.Value)).ToList();
             }
 
-            if(searchFilter.EvType != null && searchFilter.EvType.Any())
+            if (searchFilter.EvType != null && searchFilter.EvType.Any())
             {
                 List<EV> tempList = new List<EV>();
 
-                foreach(EvBodyType evtype in searchFilter.EvType)
+                foreach (EvBodyType evtype in searchFilter.EvType)
                 {
                     tempList.AddRange(evlist.Where(ev => ev.ModelInfo != null && ev.ModelInfo.BodyType != null && ev.ModelInfo.BodyType.Equals(evtype)).ToList());
                 }
@@ -78,13 +78,13 @@ namespace evdb
                 evlist = tempList;
             }
 
-            if(searchFilter.SeatConfiguration != null && searchFilter.SeatConfiguration.Any())
+            if (searchFilter.SeatConfiguration != null && searchFilter.SeatConfiguration.Any())
             {
                 List<EV> tempList = new List<EV>();
 
                 foreach (string config in searchFilter.SeatConfiguration)
                 {
-                    tempList.AddRange(evlist.Where(ev => ev.Interior != null && ev.Interior.SeatLayout != null && ev.Interior.SeatLayout.FirstOrDefault(s=> s.NumberOfSeats != null && s.NumberOfSeats.ToString().Equals(config)) != null).ToList());
+                    tempList.AddRange(evlist.Where(ev => ev.Interior != null && ev.Interior.SeatLayout != null && ev.Interior.SeatLayout.FirstOrDefault(s => s.NumberOfSeats != null && s.NumberOfSeats.ToString().Equals(config)) != null).ToList());
                 }
 
                 evlist = tempList;
@@ -93,12 +93,12 @@ namespace evdb
             if (searchFilter.Colors != null && searchFilter.Colors.Any())
             {
                 List<EV> tempList = new List<EV>();
-                foreach(EV ev in evlist)
+                foreach (EV ev in evlist)
                 {
 
                     foreach (string color in searchFilter.Colors)
                     {
-                        if(ev.Exterior != null && ev.Exterior.PaintColors != null && ev.Exterior.PaintColors.FirstOrDefault(s => s.Color != null && s.Color.Equals(color)) != null)
+                        if (ev.Exterior != null && ev.Exterior.PaintColors != null && ev.Exterior.PaintColors.FirstOrDefault(s => s.Color != null && s.Color.Equals(color)) != null)
                         {
                             tempList.Add(ev);
                             break;
@@ -142,7 +142,7 @@ namespace evdb
             if (searchFilter.AdaptiveCruiseControl != null && searchFilter.AdaptiveCruiseControl.Value)
             {
                 List<EV> tempList = new List<EV>();
-               foreach(EV ev in evlist)
+                foreach (EV ev in evlist)
                 {
                     if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AdaptiveCruiseControl != null && evs.AdaptiveCruiseControl.Available()) != null)
                     {
@@ -198,14 +198,14 @@ namespace evdb
             if (searchFilter.AirSuspension != null && searchFilter.AirSuspension.Value)
             {
                 List<EV> tempList = new List<EV>();
-                foreach(EV ev in evlist)
+                foreach (EV ev in evlist)
                 {
-                    if(ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null)
+                    if (ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null)
                     {
                         tempList.Add(ev);
                     }
                 }
-              
+
                 evlist = tempList;
             }
 
@@ -213,18 +213,18 @@ namespace evdb
             {
                 List<EV> tempList = new List<EV>();
 
-                foreach(EV ev in evlist)
+                foreach (EV ev in evlist)
                 {
-                    if(ev.UIAndControls?.ScreenLayout != null)
+                    if (ev.UIAndControls?.ScreenLayout != null)
                     {
-                        foreach(ScreenLayout screenLayout in ev.UIAndControls.ScreenLayout)
+                        foreach (ScreenLayout screenLayout in ev.UIAndControls.ScreenLayout)
                         {
 
                             if (screenLayout.Screens != null && screenLayout.Screens.Any())
                             {
-                                foreach(Screen screen in screenLayout.Screens)
+                                foreach (Screen screen in screenLayout.Screens)
                                 {
-                                    if(screen.Location != null && screen.Location.Equals(ScreenLocation.BehindSteeringWheelInDash))
+                                    if (screen.Location != null && screen.Location.Equals(ScreenLocation.BehindSteeringWheelInDash))
                                     {
                                         tempList.Add(ev);
                                     }
@@ -283,17 +283,17 @@ namespace evdb
                 evlist = tempList;
             }
 
-            if(searchFilter.LfpChemistry != null && searchFilter.LfpChemistry.Value)
+            if (searchFilter.LfpChemistry != null && searchFilter.LfpChemistry.Value)
             {
                 List<EV> tempList = new List<EV>();
 
                 foreach (EV ev in evlist)
                 {
-                    if(ev.Drivetrain?.Battery != null)
+                    if (ev.Drivetrain?.Battery != null)
                     {
-                        foreach(Battery bat in ev.Drivetrain.Battery)
+                        foreach (Battery bat in ev.Drivetrain.Battery)
                         {
-                            if(bat.CellInfo?.CellChemistry != null && bat.CellInfo.CellChemistry.ToLower().Contains("lfp"))
+                            if (bat.CellInfo?.CellChemistry != null && bat.CellInfo.CellChemistry.ToLower().Contains("lfp"))
                             {
                                 tempList.Add(ev);
                                 break;
@@ -302,7 +302,7 @@ namespace evdb
                         }
                     }
 
-                  
+
                 }
 
                 evlist = tempList;
@@ -319,7 +319,7 @@ namespace evdb
                     {
                         foreach (Battery bat in ev.Drivetrain.Battery)
                         {
-                            if(bat.ManualTriggerHeating != null && bat.ManualTriggerHeating.Available())
+                            if (bat.ManualTriggerHeating != null && bat.ManualTriggerHeating.Available())
                             {
                                 tempList.Add(ev);
                                 break;
@@ -354,17 +354,17 @@ namespace evdb
                 evlist = tempList;
             }
 
-            if(searchFilter.FirstRowSeatsHeating != null && searchFilter.FirstRowSeatsHeating.Value)
+            if (searchFilter.FirstRowSeatsHeating != null && searchFilter.FirstRowSeatsHeating.Value)
             {
                 List<EV> templist = new List<EV>();
 
-                foreach(EV ev in evlist)
+                foreach (EV ev in evlist)
                 {
                     if (ev.Interior?.FirstRowSeats != null)
                     {
-                        foreach(Seatoption seat in ev.Interior.FirstRowSeats)
-                        { 
-                            if(seat.SeatHeating != null && seat.SeatHeating.Available())
+                        foreach (Seatoption seat in ev.Interior.FirstRowSeats)
+                        {
+                            if (seat.SeatHeating != null && seat.SeatHeating.Available())
                             {
                                 templist.Add(ev);
                                 break;
@@ -536,7 +536,7 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.SecondRowSeats)
                         {
-                            if (seat.SeatCategory != null && 
+                            if (seat.SeatCategory != null &&
                                 (seat.SeatCategory.Equals(SeatCategory.ExecutivePlusTwoSeatBench) || seat.SeatCategory.Equals(SeatCategory.TwinExecutive)))
                             {
                                 templist.Add(ev);
@@ -547,11 +547,21 @@ namespace evdb
                 }
                 evlist = templist;
             }
+            evlist = FilterChargePort(evlist, searchFilter);
+            evlist = FilterRegen(evlist, searchFilter);
 
-            if((searchFilter.ChargePortFront.HasValue && searchFilter.ChargePortFront.Value) 
-                || (searchFilter.ChargePortFrontLeft.HasValue && searchFilter.ChargePortFrontLeft.Value) 
+            return evlist;
+        }
+
+        /// <summary>
+        /// Filter for chargeport
+        /// </summary>
+        private static List<EV> FilterChargePort(List<EV> evlist, EvSearch searchFilter)
+        {
+            if ((searchFilter.ChargePortFront.HasValue && searchFilter.ChargePortFront.Value)
+                || (searchFilter.ChargePortFrontLeft.HasValue && searchFilter.ChargePortFrontLeft.Value)
                 || (searchFilter.ChargePortFrontRight.HasValue && searchFilter.ChargePortFrontRight.Value)
-                || (searchFilter.ChargePortRearLeft.HasValue && searchFilter.ChargePortRearLeft.Value) 
+                || (searchFilter.ChargePortRearLeft.HasValue && searchFilter.ChargePortRearLeft.Value)
                 || (searchFilter.ChargePortRearRight.HasValue && searchFilter.ChargePortRearRight.Value))
             {
                 List<EV> templist = new List<EV>();
@@ -678,6 +688,110 @@ namespace evdb
                 evlist = templist;
             }
 
+            return evlist;
+        }
+
+        /// <summary>
+        /// Filter for regen options
+        /// </summary>
+        private static List<EV> FilterRegen(List<EV> evlist, EvSearch searchFilter)
+        {
+            if (searchFilter.LiftOfRegen.HasValue && searchFilter.LiftOfRegen.Value || searchFilter.LiftOfRegenWithHoldMode.HasValue && searchFilter.LiftOfRegenWithHoldMode.Value)
+            {
+                List<EV> templist = new List<EV>();
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.OnePedalDriving.HasValue && ev.Drivetrain.Regen.OnePedalDriving.Value)
+                    {
+                        if ((!searchFilter.LiftOfRegenWithHoldMode.HasValue || !searchFilter.LiftOfRegenWithHoldMode.Value) && (!searchFilter.LiftOfRegenLevels.HasValue || !searchFilter.LiftOfRegenLevels.Value))
+                        {
+                            templist.Add(ev);
+                        }
+                        else if ((searchFilter.LiftOfRegenWithHoldMode.HasValue && searchFilter.LiftOfRegenWithHoldMode.Value) && (searchFilter.LiftOfRegenLevels.HasValue && searchFilter.LiftOfRegenLevels.Value))
+                        {
+                            if (ev.Drivetrain.Regen.LiftOfRegenLevels != null && ev.Drivetrain.Regen.LiftOfRegenLevels.Count > 1
+                                && ev.Drivetrain.Regen.OnePedalStoppingMode.HasValue &&
+                                (ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.HoldRollCreep)
+                                || ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.Hold)
+                                  || ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.HoldRoll)))
+                            {
+                                templist.Add(ev);
+                            }
+
+                        }
+                        else if (searchFilter.LiftOfRegenLevels.HasValue && searchFilter.LiftOfRegenLevels.Value)
+                        {
+                            if (ev.Drivetrain.Regen.LiftOfRegenLevels != null && ev.Drivetrain.Regen.LiftOfRegenLevels.Count > 1)
+                            {
+                                templist.Add(ev);
+                            }
+
+                        }
+                        else if ((searchFilter.LiftOfRegenWithHoldMode.HasValue && searchFilter.LiftOfRegenWithHoldMode.Value))
+                        {
+                            if (ev.Drivetrain.Regen.OnePedalStoppingMode.HasValue &&
+                                (ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.HoldRollCreep)
+                                || ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.Hold)
+                                  || ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.HoldRoll)))
+                            {
+                                templist.Add(ev);
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+                evlist = templist;
+
+            }
+
+
+            if (searchFilter.AdaptiveRegen.HasValue && searchFilter.AdaptiveRegen.Value)
+            {
+                List<EV> templist = new List<EV>();
+                foreach (EV ev in evlist)
+                {
+
+                    if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.AdaptiveRegen.HasValue && ev.Drivetrain.Regen.AdaptiveRegen.Value)
+                    {
+                        templist.Add(ev);
+                    }
+
+                }
+
+                evlist = templist;
+            }
+
+            if (searchFilter.Coasting.HasValue && searchFilter.Coasting.Value)
+            {
+                List<EV> templist = new List<EV>();
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.Coasting.HasValue && ev.Drivetrain.Regen.Coasting.Value)
+                    {
+                        templist.Add(ev);
+                    }
+                }
+
+                evlist = templist;
+            }
+
+            if (searchFilter.Coasting.HasValue && searchFilter.Coasting.Value)
+            {
+                List<EV> templist = new List<EV>();
+                foreach (EV ev in evlist)
+                {
+                    if (ev.Drivetrain?.Brakes != null && ev.Drivetrain.Brakes.Exists(r => r.BlendedBrakes.HasValue && r.BlendedBrakes.Value))
+                    {
+                        templist.Add(ev);
+                    }
+                }
+
+                evlist = templist;
+            }
 
             return evlist;
         }

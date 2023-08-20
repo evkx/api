@@ -112,5 +112,17 @@ namespace evkx.models.Models.Search
 
         public bool? ChargePortRearRight { get; set; }
 
+        public bool? LiftOfRegen { get; set; }
+
+        public bool? LiftOfRegenWithHoldMode { get; set; }
+
+        public bool? BlendedBrakes { get; set; }
+
+        public bool? AdaptiveRegen { get; set; }
+
+        public bool? LiftOfRegenLevels { get; set; }
+
+        public bool? Coasting { get; set; }
+
     }
 }
