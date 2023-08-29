@@ -22,8 +22,8 @@ namespace evdb.Models
         private static readonly Regex removeInvalidChars = new Regex($"[{Regex.Escape(new string(Path.GetInvalidFileNameChars()))}]",
    RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
+        public Guid? Id { get; set; }
 
-        public int Id { get; set; }
 
         public Brand? Brand { get; set; }
 

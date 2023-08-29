@@ -55,6 +55,12 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "MPV")]
         MPV = 13,
+
+        [EnumMember(Value = "SuperCar")]
+        SuperCar = 14,
+
+        [EnumMember(Value = "HyperCar")]
+        HyperCar = 15,
     }
 }
 

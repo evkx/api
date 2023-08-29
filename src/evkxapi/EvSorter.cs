@@ -165,19 +165,19 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.Calculations[0].EnergyChargedFrom10Percent10minutes / ev.GetConsumption120()).ToList();
             }
-            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent15Min))
             {
                 evList = evList.OrderByDescending(ev => ev.Calculations[0].EnergyChargedFrom10Percent15Minutes / ev.GetConsumption120()).ToList();
             }
-            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent20Min))
             {
                 evList = evList.OrderByDescending(ev => ev.Calculations[0].EnergyChargedFrom10Percent20minutes / ev.GetConsumption120()).ToList();
             }
-            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent25Min))
             {
                 evList = evList.OrderByDescending(ev => ev.Calculations[0].EnergyChargedFrom10Percent25minutes / ev.GetConsumption120()).ToList();
             }
-            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
+            else if (evSearch.SortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent30Min))
             {
                 evList = evList.OrderByDescending(ev => ev.Calculations[0].EnergyChargedFrom10Percent30minutes / ev.GetConsumption120()).ToList();
             }
