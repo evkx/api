@@ -1,5 +1,6 @@
 ﻿@using evdb.Models;
 @using evdb.models.Enums;
+@using evdb.models.Models;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -219,6 +220,30 @@
                     <td scope="col">@ev.TransportCapabilities.MaxVehicleWeightKg kg</td>
                 }
             </tr>
+            <tr>
+                <th scope="row">Max Roof load</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                   @if(ev.TransportCapabilities.MaxRoofLoadKg.HasValue)
+                   {
+                        @ev.TransportCapabilities.MaxRoofLoadKg  <span>kg</span>
+                   }
+                   </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Max weight braked trailer</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.TransportCapabilities.TrailerSizeBrakedKg.HasValue)
+                        {
+                            @ev.TransportCapabilities.TrailerSizeBrakedKg  <span>kg</span>
+                        }
+                    </td>
+                }
+            </tr>
 
             <tr class="table-secondary">
                 <th scope="row">ADAS</th>
@@ -376,17 +401,114 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                        @ev.NetBatterySizeStandardBattery() kWh
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.NetCapacitykWh <span>kWh</span>
+                                spacer = " / ";
+                            }
+                        }
                     </td>
                 }
             </tr>
 
             <tr>
-                <th scope="row">Available battery size</th>
+                <th scope="row">Cell chemistry</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                        @ev.NetBatterySizeStandardBattery()
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.CellInfo.CellChemistry
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">Charging</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Max DC Charging</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.MaxDCChargeSpeed <span>kW</span>
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Average DC Charging 0-100%</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                       @foreach(EvCalculations evsc in ev.Calculations)
+                        {
+                            string spacer = "";
+                            @if (evsc.AverageChargingSpeed.HasValue)
+                            {
+                                @spacer
+                                @Decimal.Round(evsc.AverageChargingSpeed.Value,1) <span>kW</span>
+                                spacer = " / ";
+                            }
+                        }
+
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Average DC Charging 10-100%</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @foreach (EvCalculations evsc in ev.Calculations)
+                        {
+                            string spacer = "";
+                            @if (evsc.AverageChargingSpeed10100.HasValue)
+                            {
+                                @spacer
+                                @Decimal.Round(evsc.AverageChargingSpeed10100.Value,1) <span>kW</span>
+                                spacer = " / ";
+                            }
+                        }
+
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Average DC Charging 10-0%</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @foreach (EvCalculations evsc in ev.Calculations)
+                        {
+                            string spacer = "";
+                            @if (evsc.AverageChargingSpeed1080.HasValue)
+                            {
+                                @spacer
+                                @Decimal.Round(evsc.AverageChargingSpeed1080.Value,1) <span>kW</span>
+                                spacer = " / ";
+                            }
+                        }
+
                     </td>
                 }
             </tr>
