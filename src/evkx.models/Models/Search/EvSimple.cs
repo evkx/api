@@ -6,6 +6,8 @@ namespace evkx.models.Models.Search
 {
     public class EvSimple
     {
+        public string? EvId { get; set; }
+
         public string? Name { get; set; }
 
         public string? SortParameter { get; set; }

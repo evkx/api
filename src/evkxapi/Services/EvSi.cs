@@ -66,8 +66,9 @@ namespace evdb.Services
             EvSimple evSimple = new EvSimple()
             {
                 Name = ev.GetFullName(),
-                InfoUri = "https://evkx.net" + ev.GetEvPath() ,
-                ThumbUri = thumbUri
+                InfoUri = "https://evkx.net" + ev.GetEvPath(),
+                ThumbUri = thumbUri,
+                EvId = ev.Id.ToString().Substring(28),
             };
 
             try
@@ -621,7 +622,7 @@ namespace evdb.Services
             return colors;
         }
 
-        private async Task<List<EV>> GetAllEv()
+        public async Task<List<EV>> GetAllEv()
         {
             List<EV> evs = new List<EV>();
 

@@ -16,6 +16,9 @@ namespace evdb.Services
         public Task<List<string>> GetSeatConfiguration();
 
         public Task<List<string>> GetColors();
+
+        public Task<List<EV>> GetAllEv();
+
         public void ClearCache();
     }
 }
