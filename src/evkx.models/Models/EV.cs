@@ -64,7 +64,12 @@ namespace evdb.Models
                     return Brand?.SubBrand + " " + ModelInfo?.Variant;
                 }
 
-                return Brand?.Name + " " + ModelInfo?.Variant;
+                if(string.IsNullOrEmpty(ModelInfo.LegacyVersion))
+                {
+                    return Brand?.Name + " " + ModelInfo?.Variant;
+                }
+
+                return Brand?.Name + " " + ModelInfo?.Variant + $" ({ModelInfo.LegacyVersion})";
             }
 
             return Brand?.Name + " " + ModelInfo?.Name;
@@ -75,6 +80,10 @@ namespace evdb.Models
         {
             if (!string.IsNullOrEmpty(ModelInfo?.Variant))
             {
+                if (!string.IsNullOrEmpty(ModelInfo.LegacyVersion))
+                {
+                    return ModelInfo.Variant + " " + ModelInfo.LegacyVersion;
+                }
 
                 return ModelInfo.Variant;
             }
@@ -397,6 +406,11 @@ namespace evdb.Models
 
         public string GetEvPath()
         {
+            if(!string.IsNullOrEmpty(ModelInfo.LegacyVersion))
+            {
+                return ("/models/" + SanitizedFileName(Brand?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Variant) + "_" + SanitizedFileName(ModelInfo?.LegacyVersion) + "/").ToLower();
+            }
+
             return ("/models/" + SanitizedFileName(Brand?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Name.ToLower()) +"/" + SanitizedFileName(ModelInfo?.Variant)+ "/").ToLower();
         }
 

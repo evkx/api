@@ -21,6 +21,9 @@ namespace evdb.Models
 
         public string? Variant { get; set; }
 
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? LegacyVersion { get; set; }
+
         public bool? Ignore { get; set; }
 
         public string? CarSegment { get; set; }

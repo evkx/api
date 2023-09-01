@@ -90,6 +90,14 @@
                     }
                 }
             </tr>
+            <tr>
+                <th scope="row">WLTP Basic trim range</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">@ev.MinimumWltpRangeBasicTrim() km</td>
+                }
+            </tr>
+
              <tr class="table-secondary">
                 <th scope="row">Performance</th>
                 @foreach (EV ev in Model.Models)
@@ -397,6 +405,23 @@
                 }
             </tr>
             <tr>
+                <th scope="row">Gross battery size</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.GrossCapacitykWh <span>kWh</span>
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
                 <th scope="row">Available battery size</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -460,14 +485,17 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                       @foreach(EvCalculations evsc in ev.Calculations)
-                        {
+                       @{
                             string spacer = "";
-                            @if (evsc.AverageChargingSpeed.HasValue)
+                            foreach(EvCalculations evsc in ev.Calculations)
                             {
-                                @spacer
-                                @Decimal.Round(evsc.AverageChargingSpeed.Value,1) <span>kW</span>
-                                spacer = " / ";
+                           
+                                @if (evsc.AverageChargingSpeed.HasValue)
+                                {
+                                    @spacer
+                                    @Decimal.Round(evsc.AverageChargingSpeed.Value,1) <span>kW</span>
+                                    spacer = " / ";
+                                }
                             }
                         }
 
@@ -479,14 +507,17 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                        @foreach (EvCalculations evsc in ev.Calculations)
-                        {
+                        @{
                             string spacer = "";
-                            @if (evsc.AverageChargingSpeed10100.HasValue)
+                            foreach (EvCalculations evsc in ev.Calculations)
                             {
-                                @spacer
-                                @Decimal.Round(evsc.AverageChargingSpeed10100.Value,1) <span>kW</span>
-                                spacer = " / ";
+                           
+                                @if (evsc.AverageChargingSpeed10100.HasValue)
+                                {
+                                    @spacer
+                                    @Decimal.Round(evsc.AverageChargingSpeed10100.Value,1) <span>kW</span>
+                                    spacer = " / ";
+                                }
                             }
                         }
 
@@ -498,17 +529,19 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                        @foreach (EvCalculations evsc in ev.Calculations)
-                        {
+                        @{
                             string spacer = "";
-                            @if (evsc.AverageChargingSpeed1080.HasValue)
+                            foreach (EvCalculations evsc in ev.Calculations)
                             {
-                                @spacer
-                                @Decimal.Round(evsc.AverageChargingSpeed1080.Value,1) <span>kW</span>
-                                spacer = " / ";
+                      
+                                @if (evsc.AverageChargingSpeed1080.HasValue)
+                                {
+                                    @spacer
+                                    @Decimal.Round(evsc.AverageChargingSpeed1080.Value,1) <span>kW</span>
+                                    spacer = " / ";
+                                }
                             }
                         }
-
                     </td>
                 }
             </tr>

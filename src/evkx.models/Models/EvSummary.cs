@@ -6,6 +6,8 @@ namespace evdb.models.Models
 {
     public class EvSummary
     {
+        public Guid? Id { get; set; }
+
         public string? EvId { get; set; }
 
         public string? Brand { get; set; }
