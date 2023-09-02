@@ -11,10 +11,11 @@
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <title>Compare models EVKX.net</title>
 </head>
 <body>
+    <img src="https://evkx.net/images/evkxlogo_s.png" />
     <table class="table">
         <thead>
             <tr>
@@ -245,6 +246,224 @@
                             }
                         }
                     </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">Drivetrain</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Drive</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    if(ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontAxle))
+                    {
+                        <td scope="col">FWD</td>
+                    }
+                    else if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorRearAxle))
+                    {
+                        <td scope="col">RWD</td>
+                    }
+                    else if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontAndRearAxle)
+                    || ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontTwoMotorsRearAxle)
+                    || ev.Drivetrain.DriveSetup.Equals(DriveSetup.TwoMotorsFrontAndRearAxle))
+                    {
+                        <td scope="col">AWD</td>
+                    }
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">Motor setup</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontAxle))
+                    {
+                        <td scope="col">One motor front axle</td>
+                    }
+                    else if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorRearAxle))
+                    {
+                        <td scope="col">One motor rear axle</td>
+                    }
+                    else if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontAndRearAxle))
+                    {
+                        <td scope="col">One motor front and rear axle</td>
+                    }
+                     else if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.OneMotorFrontTwoMotorsRearAxle))
+                    {
+                        <td scope="col">One motor front and two motors rear axle</td>
+                    }
+                    else if (ev.Drivetrain.DriveSetup.Equals(DriveSetup.TwoMotorsFrontAndRearAxle))
+                    {
+                        <td scope="col">Two motors front and rear axle</td>
+                    }
+                }
+            </tr>
+            <tr>
+                <th scope="row">Motor technology</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    bool pmsm = false;
+                    bool asm = false;
+                    bool wrsm = false;
+                    foreach(Motor motor in ev.Drivetrain.Motors)
+                    {
+                    
+                        if(motor.Type.Equals(MotorType.ASM))
+                        {
+                            asm = true;
+                        }
+                        else if (motor.Type.Equals(MotorType.PMSM))
+                        {
+                            pmsm = true;
+                        }
+                        else if (motor.Type.Equals(MotorType.WRSM))
+                        {
+                            wrsm = true;
+                        }
+                    }
+
+                    if(pmsm && asm)
+                    {
+                        <td scope="col">ASM front and PMSM rear</td>
+                    }
+                    else if(wrsm)
+                    {
+                        <td scope="col">WRSM</td>
+                    }
+                    else if (asm)
+                    {
+                        <td scope="col">ASM</td>
+                    }
+                    else if (pmsm)
+                    {
+                        <td scope="col">PSMS</td>
+                    }
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">Suspension</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Suspension options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">@ev.Drivetrain.Suspension.Count()
+                    
+                        @{
+                            string spiltvalue = string.Empty;
+                            if(ev.Drivetrain.Suspension.Count() > 1)
+                            {
+                                foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                                {
+                                    @spiltvalue
+                                    <span>( @suspension.Name )</span>
+                                    spiltvalue = " / ";
+                                }
+                                
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Adaptive damping front</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+                    
+                    @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                    {
+                        @spiltvalue
+                        RenderEvFeature(suspension.AdjustableDampingFront);
+                        spiltvalue = " / ";
+                        }
+                    </td>
+           
+                }
+            </tr>
+            <tr>
+                <th scope="row">Adaptive damping rear</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            RenderEvFeature(suspension.AdjustableDampingRear);
+                            spiltvalue = " / ";
+                        }
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">Adjustable height front</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            RenderEvFeature(suspension.AdjustableHeightFront);
+                            spiltvalue = " / ";
+                        }
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">Ground clearance</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string splitvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @splitvalue
+                            if (suspension.MinGroundClearanceMM != suspension.MaxGroundClearanceMM)
+                            {
+                                @suspension.MinGroundClearanceMM <span>-</span> @suspension.MaxGroundClearanceMM <span>mm</span>
+                            }
+                            else
+                            {
+                                @suspension.MinGroundClearanceMM <span>mm</span>
+                            }
+                            splitvalue = " / ";
+                        }
+                    </td>
+
+                }
+            </tr>
+
+            <tr>
+                <th scope="row">Adjustable height rear</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            RenderEvFeature(suspension.AdjustableHeightRear);
+                            spiltvalue = " / ";
+                        }
+                    </td>
+
                 }
             </tr>
             <tr class="table-secondary">
@@ -595,7 +814,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Average DC Charging 10-0%</th>
+                <th scope="row">Average DC Charging 10-80%</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
