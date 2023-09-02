@@ -1,6 +1,7 @@
 ﻿@using evdb.Models;
 @using evdb.models.Enums;
 @using evdb.models.Models;
+@using evkxapi.Helpers;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -71,30 +72,91 @@
                 }
             </tr>
             <tr>
-                <th scope="row">WLTP Basic trim range</th>
+                <th scope="row">WLTP range</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.MinimumWltpRangeBasicTrim() km</td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">WLTP Basic trim consumption</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    if (ev.GetBasicTrimWltpConsumptionReal() != null)
+                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
                     {
-                        <td scope="col">@Decimal.Round(ev.GetBasicTrimWltpConsumptionReal().Value,2) kWh/100km</td>
-                    }
-                    else{
+
+                        if (range.BasicTrimWltpRange != null && range.TopTrimWltpRange != null && range.BasicTrimWltpRange != range.TopTrimWltpRange)
+                        {
+                            <td scope="col">@range.BasicTrimWltpRange - @range.TopTrimWltpRange km (@Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimWltpRange).Value,0) - @Decimal.Round(EvConversion.ToMilesFromKph(range.TopTrimWltpRange).Value,0) miles)</td>
+                        }
+                        else if (range.BasicTrimWltpRange != null && range.TopTrimWltpRange != null && range.BasicTrimWltpRange == range.TopTrimWltpRange)
+                        {
+                            <td scope="col">@range.BasicTrimWltpRange km  (@Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimWltpRange).Value,0) miles)</td>
+                        }
+                        else
+                        {
                             <td scope="col"></td>
+                        }
+                    }
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">WLTP consumption</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                    {
+                        if (range.BasicTrimRealWltpConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimRealWltpConsumption != range.TopTrimRealWltpConsumption)
+                        {
+                            <td scope="col">@Decimal.Round(range.BasicTrimRealWltpConsumption.Value,2) - @Decimal.Round(range.TopTrimRealWltpConsumption.Value,2) kWh/100km (@Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimRealWltpConsumption.Value).Value,1) - @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.TopTrimRealWltpConsumption.Value).Value,1) mi/kWh) </td>
+                        }
+                        else if (range.BasicTrimRealWltpConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimRealWltpConsumption == range.TopTrimRealWltpConsumption)
+                        {
+                            <td scope="col">@Decimal.Round(range.BasicTrimRealWltpConsumption.Value,2) kWh/100km (@Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimRealWltpConsumption.Value).Value,1) mi/kWh)</td>
+                        }
+                        else
+                        {
+                            <td scope="col"></td>
+                        }
                     }
                 }
             </tr>
             <tr>
-                <th scope="row">WLTP Basic trim range</th>
+                <th scope="row">EPA range</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.MinimumWltpRangeBasicTrim() km</td>
+                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                    {
+
+                        if (range.BasicTrimEpaRange != null && range.TopTrimEpaRange != null && range.BasicTrimEpaRange != range.TopTrimEpaRange)
+                        {
+                            <td scope="col">@range.BasicTrimEpaRange - @range.TopTrimEpaRange miles  (@Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimWltpRange).Value,0) - @Decimal.Round(EvConversion.ToKmFromMiles(range.TopTrimWltpRange).Value,0) km) </td>
+                        }
+                        else if (range.BasicTrimEpaRange != null && range.TopTrimEpaRange != null && range.BasicTrimEpaRange == range.TopTrimEpaRange)
+                        {
+                            <td scope="col">@range.BasicTrimEpaRange miles (@Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimEpaRange).Value,0) km)</td>
+                        }
+                        else
+                        {
+                            <td scope="col"></td>
+                        }
+                    }
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">EPA consumption</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                    {
+                        if (range.BasicTrimEpaRealConsumption != null && range.TopTrimEpaRealConsumption != null && range.BasicTrimEpaRealConsumption != range.TopTrimEpaRealConsumption)
+                        {
+                            <td scope="col">@Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2) - @Decimal.Round(range.TopTrimEpaRealConsumption.Value,2) kWh/100km</td>
+                        }
+                        else if (range.BasicTrimEpaRealConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimEpaRealConsumption == range.TopTrimEpaRealConsumption)
+                        {
+                            <td scope="col">@Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimEpaRealConsumption.Value).Value,1) mi/kWh  (@Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2) kWh/100km)</td>
+                        }
+                        else
+                        {
+                            <td scope="col"></td>
+                        }
+                    }
                 }
             </tr>
 
@@ -133,6 +195,10 @@
                             {
                                 @spacer
                                 @perf.PowerKw <span>kW</span>
+                                if (perf.PowerKwBoost != null)
+                                {
+                                    <span>(@perf.PowerKwBoost Kw with boost)</span>
+                                }
                                 spacer = " / ";
                             }
                         }
@@ -150,6 +216,10 @@
                             {
                                 @spacer
                                 @perf.TorqueNm <span>Nm</span>
+                                if (perf.TorqueNmBoost != null)
+                                {
+                                    <span>(@perf.TorqueNmBoost Nm with boost)</span>
+                                }
                                 spacer = " / ";
                             }
                         }
