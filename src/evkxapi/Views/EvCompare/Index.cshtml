@@ -1025,7 +1025,77 @@
                     </td>
                 }
             </tr>
+            <tr class="table-secondary">
+                <th scope="row">UI </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Head Up Display</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.UIAndControls.HeadUpDisplay);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Voice Control</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.UIAndControls.VoiceControl);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Gesture Control</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.UIAndControls.GestureControl);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Driver display</th>
+                @{
 
+                    foreach (EV ev in Model.Models)
+                    {
+                        List<Screen> driverScreens = new List<Screen>();
+                        foreach (ScreenLayout screenLayout in ev.UIAndControls.ScreenLayout)
+                        {
+                            foreach (Screen screen in screenLayout.Screens)
+                            {
+                                if (screen.ScreenCategory.Equals(ScreenCategory.DriverInformation))
+                                {
+                                    driverScreens.Add(screen);
+                                }
+                            }
+                        }
+
+                        if(driverScreens.Count > 0)
+                        {
+                            <td scope="col">
+                             @Html.Raw("Yes")
+                            </td>
+                           
+                        }
+                    }
+
+                    
+
+                }
+            </tr>
             <tr class="table-secondary">
                 <th scope="row">Driver Assist Systems</th>
                 @foreach (EV ev in Model.Models)
