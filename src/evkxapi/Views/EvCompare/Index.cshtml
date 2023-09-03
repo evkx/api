@@ -706,6 +706,37 @@
                     </td>
                 }
             </tr>
+            <tr>
+                <th scope="row">Trunk capacity</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.TransportCapabilities.CargoCapacityLiter.HasValue)
+                        {
+                            @ev.TransportCapabilities.CargoCapacityLiter  @Html.Raw(" liter")
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Trunk capacity seat down</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.TransportCapabilities.CargoCapacitySeatDownLiter.HasValue)
+                        {
+                            @ev.TransportCapabilities.CargoCapacitySeatDownLiter  @Html.Raw(" liter")
+                        }
+
+                        @if (ev.TransportCapabilities.CargoCapacityThirdRowSeatDownLiter.HasValue)
+                        {
+                            @Html.Raw("(")
+                            @ev.TransportCapabilities.CargoCapacityThirdRowSeatDownLiter  
+                            @Html.Raw(" liter with third row down)")
+                        }
+                    </td>
+                }
+            </tr>
 
             <tr class="table-secondary">
                 <th scope="row">ADAS</th>
