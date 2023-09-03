@@ -384,6 +384,294 @@
                 }
             </tr>
             <tr class="table-secondary">
+                <th scope="row">Brakes & Regen</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Front brake type</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if(brake.FrontBrakeType.Equals(BrakeType.FixedCaliperDisc))
+                                {
+                                    @Html.Raw("Disc brakes, fixed caliper")    
+                                }
+                                else if(brake.FrontBrakeType.Equals(BrakeType.FloatingCaliperDisc))
+                                {
+                                    @Html.Raw("Disc brakes, floating caliper")
+                                }
+                                else if (brake.FrontBrakeType.Equals(BrakeType.Drum))
+                                {
+                                    @Html.Raw("Drum brake")
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Rear brake type</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if (brake.RearBrakeType.Equals(BrakeType.FixedCaliperDisc))
+                                {
+                                    @Html.Raw("Disc brakes, fixed caliper")
+                                }
+                                else if (brake.RearBrakeType.Equals(BrakeType.FloatingCaliperDisc))
+                                {
+                                    @Html.Raw("Disc brakes, floating caliper")
+                                }
+                                else if (brake.RearBrakeType.Equals(BrakeType.Drum))
+                                {
+                                    @Html.Raw("Drum brake")
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Front Disc diameter</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if (brake.FrontBrakeDiscDiameter != null)
+                                {
+                                    @brake.FrontBrakeDiscDiameter
+                                    @Html.Raw("mm")
+                                    
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Rear Disc diameter</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if (brake.RearBrakeDiscDiameter != null)
+                                {
+                                    @brake.RearBrakeDiscDiameter
+                                    @Html.Raw("mm")
+
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Front disc type</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if (brake.FrontBrakeDiscType.Equals(BrakeDiscType.Ceramic))
+                                {
+                                    @Html.Raw("Ceramic")
+                                }
+                                else if (brake.FrontBrakeDiscType.Equals(BrakeDiscType.CastIron))
+                                {
+                                    @Html.Raw("Cast Iron")
+                                }
+                                else if (brake.FrontBrakeDiscType.Equals(BrakeDiscType.TungstenCarbidCoating))
+                                {
+                                    @Html.Raw("Carbid")
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Rear disc type</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if (brake.RearBrakeDiscType.Equals(BrakeDiscType.Ceramic))
+                                {
+                                    @Html.Raw("Ceramic")
+                                }
+                                else if (brake.RearBrakeDiscType.Equals(BrakeDiscType.CastIron))
+                                {
+                                    @Html.Raw("Cast Iron")
+                                }
+                                else if (brake.RearBrakeDiscType.Equals(BrakeDiscType.TungstenCarbidCoating))
+                                {
+                                    @Html.Raw("Carbid")
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Blended brakes (regen on brake pedal)</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool blendedBrake = false;
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                if (brake.BlendedBrakes.HasValue && brake.BlendedBrakes.Value)
+                                {
+                                    blendedBrake = true;
+                                }
+                            }
+                            if (blendedBrake)
+                            {
+                                @Html.Raw("Standard")
+                            }
+                            else
+                            {
+                                @Html.Raw("Not available")
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Lift-up-regen (one-pedal-driving)</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Drivetrain.Regen != null && ev.Drivetrain.Regen.OnePedalDriving.HasValue && ev.Drivetrain.Regen.OnePedalDriving.Value)
+                            {
+                                @Html.Raw("Yes")
+                            }
+                            else
+                            {
+                                @Html.Raw("No")
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Lift-up-regen modes</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.OnePedalStoppingMode.HasValue && ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.Creep))
+                            {
+                                @Html.Raw("Creep")
+                            }
+                            else if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.OnePedalStoppingMode.HasValue && ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.Roll))
+                            {
+                                @Html.Raw("Roll")
+                            }
+                            else if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.OnePedalStoppingMode.HasValue && ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.Hold))
+                            {
+                                @Html.Raw("Hold")
+                            }
+                            else if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.OnePedalStoppingMode.HasValue && ev.Drivetrain.Regen.OnePedalStoppingMode.Equals(OnePedalStoppingMode.HoldRollCreep))
+                            {
+                                @Html.Raw("Hold, roll or creep")
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Lift-up-regen levels</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Drivetrain.Regen != null && ev.Drivetrain.Regen.LiftOfRegenLevels != null && ev.Drivetrain.Regen.LiftOfRegenLevels.Count > 1)
+                            {
+                                @Html.Raw(ev.Drivetrain.Regen.LiftOfRegenLevels.Count)
+                            }
+
+                            if (ev.Drivetrain.Regen != null && ev.Drivetrain.Regen.LiftOfRegenLevels != null && ev.Drivetrain.Regen.LiftOfRegenLevels.Count == 1)
+                            {
+                                @Html.Raw("Only one level")
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Coasting</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Drivetrain.Regen != null && ev.Drivetrain.Regen.Coasting.HasValue && ev.Drivetrain.Regen.Coasting.Value)
+                            {
+                                @Html.Raw("Yes")
+                            }
+                            else
+                            {
+                                @Html.Raw("No")
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Adaptive regen when coasting</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Drivetrain.Regen != null && ev.Drivetrain.Regen.AdaptiveRegen.HasValue && ev.Drivetrain.Regen.AdaptiveRegen.Value)
+                            {
+                                @Html.Raw("Yes")
+                            }
+                            else
+                            {
+                                @Html.Raw("No")
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
                 <th scope="row">Suspension</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -739,7 +1027,7 @@
             </tr>
 
             <tr class="table-secondary">
-                <th scope="row">ADAS</th>
+                <th scope="row">Driver Assist Systems</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
@@ -882,6 +1170,46 @@
                     </td>
                 }
             </tr>
+            <tr>
+            <th scope="row">Auto steer</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                    @if(ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count == 1)
+                    {
+                        EVFeature? eVFeature = ev.DriverAssistance.DrivingAutomation[0].AutoSteer;
+                        if(eVFeature != null)
+                        {
+                            RenderEvFeature(eVFeature);
+                        }
+                    }
+                    else if (ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count > 1)
+                    {
+                    
+                        if(ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.NotAvailable))
+                        && (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Optional))
+                        || ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Standard))))
+                        {
+                            @Html.Raw("Optional")
+                        }
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Optional))
+                        && ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Standard)))
+                        {
+                            @Html.Raw("Optional")
+
+                        }
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Optional)))
+                        {
+                            @Html.Raw("Optional")
+                        }
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Standard)))
+                        {
+                            @Html.Raw("Standard")
+                        }
+                    }
+                    </td>
+                 }
+            </tr>
             <tr class="table-secondary">
                 <th scope="row">Battery</th>
                 @foreach (EV ev in Model.Models)
@@ -949,7 +1277,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Max DC Charging</th>
+                <th scope="row">Max DC charging power</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -966,7 +1294,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Average DC Charging 0-100%</th>
+                <th scope="row">Average DC charging power 0-100%</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -988,7 +1316,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Average DC Charging 10-100%</th>
+                <th scope="row">Average DC charging power 10-100%</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1010,7 +1338,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Average DC Charging 10-80%</th>
+                <th scope="row">Average DC charging power 10-80%</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
