@@ -19,7 +19,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Model</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <th scope="col">@ev.Brand.Name @ev.ModelInfo.Variant</th>
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">Type</th>
+                <th scope="row"></th>
                 @foreach (EV ev in Model.Models)
                 {
                     if (ev.ModelPictures.Any())
@@ -76,22 +76,35 @@
                 <th scope="row">WLTP range</th>
                 @foreach (EV ev in Model.Models)
                 {
+                    <td scope="col">
+                    @{
+                    string splitvalue = string.Empty;
                     foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
                     {
-
                         if (range.BasicTrimWltpRange != null && range.TopTrimWltpRange != null && range.BasicTrimWltpRange != range.TopTrimWltpRange)
                         {
-                            <td scope="col">@range.BasicTrimWltpRange - @range.TopTrimWltpRange km (@Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimWltpRange).Value,0) - @Decimal.Round(EvConversion.ToMilesFromKph(range.TopTrimWltpRange).Value,0) miles)</td>
+                            @Html.Raw(splitvalue)
+                            @range.BasicTrimWltpRange 
+                            @Html.Raw("-") 
+                            @range.TopTrimWltpRange 
+                            @Html.Raw("km (")
+                            @Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimWltpRange).Value,0)
+                            @Html.Raw("-")  
+                            @Decimal.Round(EvConversion.ToMilesFromKph(range.TopTrimWltpRange).Value,0)
+                            @Html.Raw("miles)")
                         }
                         else if (range.BasicTrimWltpRange != null && range.TopTrimWltpRange != null && range.BasicTrimWltpRange == range.TopTrimWltpRange)
                         {
-                            <td scope="col">@range.BasicTrimWltpRange km  (@Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimWltpRange).Value,0) miles)</td>
-                        }
-                        else
-                        {
-                            <td scope="col"></td>
-                        }
+                            @range.BasicTrimWltpRange 
+                            @Html.Raw("km (")
+                            @Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimWltpRange).Value,0) 
+                                    @Html.Raw("miles)")
+                                }
+
+                                splitvalue = " / ";
+                            }
                     }
+                    </td>
 
                 }
             </tr>
@@ -99,43 +112,58 @@
                 <th scope="row">WLTP consumption</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                    <td scope="col">
+                    @foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
                     {
                         if (range.BasicTrimRealWltpConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimRealWltpConsumption != range.TopTrimRealWltpConsumption)
                         {
-                            <td scope="col">@Decimal.Round(range.BasicTrimRealWltpConsumption.Value,2) - @Decimal.Round(range.TopTrimRealWltpConsumption.Value,2) kWh/100km (@Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimRealWltpConsumption.Value).Value,1) - @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.TopTrimRealWltpConsumption.Value).Value,1) mi/kWh) </td>
+                                @Decimal.Round(range.BasicTrimRealWltpConsumption.Value,2)
+                                @Html.Raw("-")
+                                @Decimal.Round(range.TopTrimRealWltpConsumption.Value, 2) 
+                                @Html.Raw("kWh/100km (")
+                                @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimRealWltpConsumption.Value).Value, 1) 
+                                @Html.Raw("-")
+                                @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.TopTrimRealWltpConsumption.Value).Value, 1)
+                                @Html.Raw("mi/kWh )")
                         }
                         else if (range.BasicTrimRealWltpConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimRealWltpConsumption == range.TopTrimRealWltpConsumption)
                         {
-                            <td scope="col">@Decimal.Round(range.BasicTrimRealWltpConsumption.Value,2) kWh/100km (@Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimRealWltpConsumption.Value).Value,1) mi/kWh)</td>
-                        }
-                        else
-                        {
-                            <td scope="col"></td>
+                                @Decimal.Round(range.BasicTrimRealWltpConsumption.Value,2) @Html.Raw("kWh/100km")
+                                @Html.Raw("(");
+                                @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimRealWltpConsumption.Value).Value, 1) 
+                                @Html.Raw("mi/kWh )")
                         }
                     }
+                    </td>
                 }
             </tr>
             <tr>
                 <th scope="row">EPA range</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                    <td scope="col">
+                    @foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
                     {
-
                         if (range.BasicTrimEpaRange != null && range.TopTrimEpaRange != null && range.BasicTrimEpaRange != range.TopTrimEpaRange)
                         {
-                            <td scope="col">@range.BasicTrimEpaRange - @range.TopTrimEpaRange miles  (@Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimWltpRange).Value,0) - @Decimal.Round(EvConversion.ToKmFromMiles(range.TopTrimWltpRange).Value,0) km) </td>
+                            @range.BasicTrimEpaRange
+                            @Html.Raw("-")
+                            @range.TopTrimEpaRange
+                            @Html.Raw("miles (")
+                            @Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimWltpRange).Value,0)
+                            @Html.Raw("-")
+                            @Decimal.Round(EvConversion.ToKmFromMiles(range.TopTrimWltpRange).Value,0) 
+                            @Html.Raw("km)");
                         }
                         else if (range.BasicTrimEpaRange != null && range.TopTrimEpaRange != null && range.BasicTrimEpaRange == range.TopTrimEpaRange)
                         {
-                            <td scope="col">@range.BasicTrimEpaRange miles (@Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimEpaRange).Value,0) km)</td>
-                        }
-                        else
-                        {
-                            <td scope="col"></td>
+                            @range.BasicTrimEpaRange 
+                            @Html.Raw("miles (")
+                            @Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimEpaRange).Value,0)
+                            @Html.Raw("km)")
                         }
                     }
+                    </td>
 
                 }
             </tr>
@@ -143,21 +171,32 @@
                 <th scope="row">EPA consumption</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                    <td scope="col">
+                    @foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
                     {
                         if (range.BasicTrimEpaRealConsumption != null && range.TopTrimEpaRealConsumption != null && range.BasicTrimEpaRealConsumption != range.TopTrimEpaRealConsumption)
                         {
-                            <td scope="col">@Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2) - @Decimal.Round(range.TopTrimEpaRealConsumption.Value,2) kWh/100km</td>
+                            @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimEpaRealConsumption.Value).Value,1)
+                            @Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2)
+                            @Html.Raw("-")
+                            @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.TopTrimEpaRealConsumption.Value).Value,1)
+                            @Html.Raw("mi/kWh (")
+                            @Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2)
+                            @Html.Raw("-")
+                            @Decimal.Round(range.TopTrimEpaRealConsumption.Value,2)
+                            @Html.Raw("kWh/100km )")
+
                         }
                         else if (range.BasicTrimEpaRealConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimEpaRealConsumption == range.TopTrimEpaRealConsumption)
                         {
-                            <td scope="col">@Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimEpaRealConsumption.Value).Value,1) mi/kWh  (@Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2) kWh/100km)</td>
+                            @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimEpaRealConsumption.Value).Value,1) 
+                            @Html.Raw("mi/kWh  (")
+                            @Decimal.Round(range.BasicTrimEpaRealConsumption.Value,2) 
+                            @Html.Raw("kWh/100km)")
                         }
-                        else
-                        {
-                            <td scope="col"></td>
-                        }
+                       
                     }
+                    </td>
                 }
             </tr>
 
@@ -361,13 +400,15 @@
                             string spiltvalue = string.Empty;
                             if(ev.Drivetrain.Suspension.Count() > 1)
                             {
+                                @Html.Raw("(");
                                 foreach (Suspension suspension in ev.Drivetrain.Suspension)
                                 {
                                     @spiltvalue
-                                    <span>( @suspension.Name )</span>
+                                    @suspension.Name
                                     spiltvalue = " / ";
                                 }
-                                
+   
+                               @Html.Raw(")");
                             }
                         }
                     </td>
@@ -408,6 +449,129 @@
                 }
             </tr>
             <tr>
+                <th scope="row">Suspension type front</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            if(suspension.SuspensionConstructionFront == null)
+                            {
+                                
+                            }
+                            else if(suspension.SuspensionConstructionFront.Equals(SuspensionConstruction.MacPhersonStrut))
+                            {
+                                @Html.Raw("MacPherson Strut");
+                            }
+                            else if (suspension.SuspensionConstructionFront.Equals(SuspensionConstruction.DoubleWishbone))
+                            {
+                                @Html.Raw("Double Wishbone");
+                            }
+                            else if (suspension.SuspensionConstructionFront.Equals(SuspensionConstruction.Multilink))
+                            {
+                                @Html.Raw("Multilink");
+                            }
+
+                            spiltvalue = " / ";
+                        }
+                    </td>
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">Suspension type rear</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            if (suspension.SuspensionConstructionRear == null)
+                            {
+
+                            }
+                            else if (suspension.SuspensionConstructionRear.Equals(SuspensionConstruction.Leaf))
+                            {
+                                @Html.Raw("Leaf")
+                                ;
+                            }
+                            else if (suspension.SuspensionConstructionRear.Equals(SuspensionConstruction.Multilink))
+                            {
+                                @Html.Raw("Multilink")
+                                ;
+                            }
+
+                            spiltvalue = " / ";
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Spring type front</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            if (suspension.SuspensionTypeFront == null)
+                            {
+
+                            }
+                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.SteelSpringsWithOilDampers))
+                            {
+                                @Html.Raw("Steel springs")
+                                ;
+                            }
+                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.AirSuspension))
+                            {
+                                @Html.Raw("Air springs (air suspension)")
+                                ;
+                            }
+
+                            spiltvalue = " / ";
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Spring type rear</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            if (suspension.SuspensionTypeRear == null)
+                            {
+
+                            }
+                            else if (suspension.SuspensionTypeRear.Equals(SuspensionType.SteelSpringsWithOilDampers))
+                            {
+                                @Html.Raw("Steel springs")
+                                ;
+                            }
+                            else if (suspension.SuspensionTypeRear.Equals(SuspensionType.AirSuspension))
+                            {
+                                @Html.Raw("Air springs (air suspension)")
+                                ;
+                            }
+
+                            spiltvalue = " / ";
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
                 <th scope="row">Adjustable height front</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -418,6 +582,25 @@
                         {
                             @spiltvalue
                             RenderEvFeature(suspension.AdjustableHeightFront);
+                            spiltvalue = " / ";
+                        }
+                    </td>
+
+                }
+            </tr>
+            
+
+            <tr>
+                <th scope="row">Adjustable height rear</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    string spiltvalue = string.Empty;
+                    <td scope="col">
+
+                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
+                        {
+                            @spiltvalue
+                            RenderEvFeature(suspension.AdjustableHeightRear);
                             spiltvalue = " / ";
                         }
                     </td>
@@ -443,24 +626,6 @@
                                 @suspension.MinGroundClearanceMM <span>mm</span>
                             }
                             splitvalue = " / ";
-                        }
-                    </td>
-
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Adjustable height rear</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    string spiltvalue = string.Empty;
-                    <td scope="col">
-
-                        @foreach (Suspension suspension in ev.Drivetrain.Suspension)
-                        {
-                            @spiltvalue
-                            RenderEvFeature(suspension.AdjustableHeightRear);
-                            spiltvalue = " / ";
                         }
                     </td>
 
