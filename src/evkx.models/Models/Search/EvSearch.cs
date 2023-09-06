@@ -1,4 +1,5 @@
 ﻿using evdb.models.Enums;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,8 @@ namespace evkx.models.Models.Search
 {
     public class EvSearch
     {
-        public int? MinimumWltpRange { get; set; }
+        [ValidateNever]
+        public string? MinimumWltpRange { get; set; }
 
         public int? MinimumGrossBattery { get; set; }
 
@@ -123,6 +125,11 @@ namespace evkx.models.Models.Search
         public bool? LiftOfRegenLevels { get; set; }
 
         public bool? Coasting { get; set; }
+
+
+        public string? MinimumHp { get; set; }
+
+        public string? MinimumTrailerWeight { get; set; }
 
     }
 }

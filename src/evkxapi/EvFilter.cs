@@ -61,10 +61,23 @@ namespace evdb
                 && ev.Drivetrain.RearWheelSteering.Available()).ToList();
             }
 
-            if (searchFilter.MinimumWltpRange.HasValue)
+            if (!string.IsNullOrEmpty(searchFilter.MinimumWltpRange))
             {
-                evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.RangeAndConsumption != null && ev.Drivetrain.RangeAndConsumption != null && ev.Drivetrain.RangeAndConsumption.Exists(r => r.BasicTrimWltpRange > searchFilter.MinimumWltpRange.Value)).ToList();
+                evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.RangeAndConsumption != null && ev.Drivetrain.RangeAndConsumption != null && ev.Drivetrain.RangeAndConsumption.Exists(r => r.BasicTrimWltpRange >= Convert.ToInt32(searchFilter.MinimumWltpRange))).ToList();
             }
+
+
+            if (!string.IsNullOrEmpty(searchFilter.MinimumHp) && Decimal.TryParse(searchFilter.MinimumHp, out decimal minumumhp))
+            {
+                evlist = evlist.Where(ev => ev.Drivetrain != null && ev.Drivetrain.Performance != null && ev.Drivetrain.Performance.Exists(r => r.PowerKw >= Decimal.Multiply(minumumhp, (decimal)0.735499) || r.PowerKwBoost != null && r.PowerKwBoost >= Decimal.Multiply(minumumhp, (decimal)0.735499))).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(searchFilter.MinimumTrailerWeight))
+            {
+                evlist = evlist.Where(ev => ev.Drivetrain != null && ev.TransportCapabilities?.TrailerSizeBrakedKg != null && ev.TransportCapabilities.TrailerSizeBrakedKg.Value >= Convert.ToInt32(searchFilter.MinimumTrailerWeight)).ToList();
+            }
+
+
 
             if (searchFilter.EvType != null && searchFilter.EvType.Any())
             {

@@ -128,13 +128,28 @@ namespace evdb.Services
                 }
                 else if (sortOrder.Equals(SortOrder.RangeMinimumWltp))
                 {
-                    evSimple.SortValue = ev.MinimumWltpRangeBasicTrim().ToString();
-                    evSimple.SortParameter = "km";
+                    if (ev.MinimumWltpRangeBasicTrim().Value != 0)
+                    {
+                        evSimple.SortValue = ev.MinimumWltpRangeBasicTrim().ToString();
+                        evSimple.SortParameter = "km";
+                    }
+                    else
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = string.Empty;
+                    }
                 }
                 else if (sortOrder.Equals(SortOrder.WltpBasicConsumption))
                 {
-                    evSimple.SortValue = ev.WltpConsumptionBasicTrim().ToString();
-                    evSimple.SortParameter = "kWh/100km";
+                    if (ev.WltpConsumptionBasicTrim().Value != 0)
+                    {
+                        evSimple.SortValue = ev.WltpConsumptionBasicTrim().ToString();
+                        evSimple.SortParameter = "kWh/100km";
+                    }
+                    {
+                        evSimple.SortValue = "N/A";
+                        evSimple.SortParameter = string.Empty;
+                    }
                 }
                 else if (sortOrder.Equals(SortOrder.TopSpeedDesc))
                 {
@@ -472,10 +487,7 @@ namespace evdb.Services
                 evSimple.SortValue = "N/A";
                 evSimple.SortParameter = string.Empty;
             }
-            if(!string.IsNullOrEmpty(evSimple.SortValue))
-            {
-                evSimple.SortValue = "(" + evSimple.SortValue + ")";
-            }
+            
             return evSimple;
         }
 
