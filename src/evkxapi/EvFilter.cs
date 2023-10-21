@@ -12,6 +12,22 @@ namespace evdb
        public static List<EV> Filter(List<EV> evlist, EvSearch searchFilter)
         {
 
+            if (searchFilter?.IncludeDiscontinued == null || !searchFilter.IncludeDiscontinued.Value)
+            {
+                List<EV> templist = new List<EV>();
+
+                foreach (EV ev in evlist)
+                {
+                    if(ev.ModelInfo?.ModelStatus == null || !ev.ModelInfo.ModelStatus.Value.Equals(ModelStatus.Discontinued))
+                    {
+                        templist.Add(ev);   
+                    }
+                }
+
+                evlist = templist;
+            }
+
+
             if (searchFilter?.Brands != null && searchFilter.Brands.Any())
             {
                 List<EV> tempList = new List<EV>();

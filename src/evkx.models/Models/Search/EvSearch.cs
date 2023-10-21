@@ -126,6 +126,7 @@ namespace evkx.models.Models.Search
 
         public bool? Coasting { get; set; }
 
+        public bool? IncludeDiscontinued { get; set; }
 
         public string? MinimumHp { get; set; }
 

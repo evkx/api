@@ -61,6 +61,11 @@ namespace evdb.Services
             {
                 foreach (BlobItem blobItem in blobPage.Values)
                 {
+                    if(blobItem.Name.Equals("allmodels.json") || blobItem.Name.EndsWith("model.json") || blobItem.Name.Contains("brand.json"))
+                    {
+                        continue;
+                    }
+
                     specPaths.Add(blobItem.Name);
                 }
             }
