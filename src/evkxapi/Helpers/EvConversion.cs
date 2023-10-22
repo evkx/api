@@ -42,5 +42,16 @@ namespace evkxapi.Helpers
         }
 
 
+        public static decimal? ToHpFromKw(decimal? power)
+        {
+            if (power != null)
+            {
+                return Decimal.Round(Decimal.Multiply(power.Value, new decimal(1.3596216173)), 0);
+            }
+
+            return null;
+        }
+
+
     }
 }

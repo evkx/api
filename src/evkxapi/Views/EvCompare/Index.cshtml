@@ -37,7 +37,9 @@
                         if (media != null && media.ExternalUrl != null)
                         {
                             <td scope="col">
-                               <img src="@media.ExternalUrl.Replace("main_1", "main_1_xst")" class="img-thumbnail" alt="" width="200">
+                                <a href="https://evkx.net/@ev.GetEvPath()" target="_blank">
+                                    <img src="@media.ExternalUrl.Replace("main_1", "main_1_xst")" class="img-thumbnail" alt="" width="200">
+                               </a>
                             </td>
                         }
                     }
@@ -234,10 +236,12 @@
                             foreach (Performance perf in ev.Drivetrain.Performance)
                             {
                                 @spacer
-                                @perf.PowerKw <span>kW</span>
+                                @perf.PowerKw <span>kW / </span> @(EvConversion.ToHpFromKw(perf.PowerKw))
+
+                        <span>hp</span>
                                 if (perf.PowerKwBoost != null)
                                 {
-                                    <span>(@perf.PowerKwBoost Kw with boost)</span>
+                                    <span>(@perf.PowerKwBoost Kw / @(EvConversion.ToHpFromKw(perf.PowerKwBoost)) <span>hp</span>  with boost)</span>
                                 }
                                 spacer = " / ";
                             }
