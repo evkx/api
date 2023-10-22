@@ -59,7 +59,7 @@
                 {
                     if (ev.ModelInfo?.WorldPremiere != null)
                     {
-                        <td scope="col">@ev.ModelInfo.WorldPremiere</td>
+                        <td scope="col">@ev.ModelInfo.WorldPremiere.Value.ToLongDateString()</td>
                     }
                     else
                     {
@@ -136,6 +136,36 @@
                                 @Html.Raw("mi/kWh )")
                         }
                     }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">WLTP consumption including charging loss</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                        {
+                            if (range.BasicTrimWltpConsumption != null && range.TopTrimWltpConsumption != null && range.BasicTrimWltpConsumption != range.TopTrimWltpConsumption)
+                            {
+                                @Decimal.Round(range.BasicTrimWltpConsumption.Value,2)
+                                @Html.Raw("-")
+                                @Decimal.Round(range.TopTrimWltpConsumption.Value, 2)
+                                @Html.Raw("kWh/100km (")
+                                @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimWltpConsumption.Value).Value, 1)
+                                @Html.Raw("-")
+                                @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.TopTrimWltpConsumption.Value).Value, 1)
+                                @Html.Raw("mi/kWh )")
+                            }
+                            else if (range.BasicTrimWltpConsumption != null && range.TopTrimWltpConsumption != null && range.BasicTrimWltpConsumption == range.TopTrimWltpConsumption)
+                            {
+                                @Decimal.Round(range.BasicTrimWltpConsumption.Value,2) @Html.Raw("kWh/100km")
+                                @Html.Raw("(")
+                                ;
+                                @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimWltpConsumption.Value).Value, 1)
+                                @Html.Raw("mi/kWh )")
+                            }
+                        }
                     </td>
                 }
             </tr>
@@ -1116,6 +1146,86 @@
 
                 }
             </tr>
+            <tr>
+                <th scope="row">Infotainment screen</th>
+                @{
+
+                    foreach (EV ev in Model.Models)
+                    {
+                        List<Screen> infotainmentScreens = new List<Screen>();
+                        foreach (ScreenLayout screenLayout in ev.UIAndControls.ScreenLayout)
+                        {
+                            foreach (Screen screen in screenLayout.Screens)
+                            {
+                                if (screen.ScreenCategory.Equals(ScreenCategory.Infotainment))
+                                {
+                                    infotainmentScreens.Add(screen);
+                                }
+                            }
+                        }
+
+                        if (infotainmentScreens.Count > 0)
+                        {
+                            <td scope="col">
+                                @Html.Raw("Yes")
+                                @if (infotainmentScreens.Count > 1)
+                                {
+                                    @Html.Raw("("+ infotainmentScreens.Count + " options)")
+                                }
+
+
+                                @foreach (Screen driverScreen in infotainmentScreens)
+                                {
+                                    @driverScreen.ScreenSize @Html.Raw("\"")
+                                }
+                            </td>
+
+                        }
+                        else
+                        {
+                            <td scope="col">
+                                No
+                            </td>
+                        }
+                    }
+
+
+
+                }
+            </tr>
+            <tr>
+                <th scope="row">In car navigation</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.Infotainment.InCarNavigation);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Apple Car Play</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.Infotainment.AppleCarPlaySupport);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Android Auto</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.Infotainment.AndroidAutoSupport);
+                        }
+                    </td>
+                }
+            </tr>
             <tr class="table-secondary">
                 <th scope="row">Driver Assist Systems</th>
                 @foreach (EV ev in Model.Models)
@@ -1190,6 +1300,17 @@
                     <td scope="col">
                         @{
                             RenderEvFeature(ev.DriverAssistance.ElectronicStabilityControl);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Blind Spot monitoring <a href="https://evkx.net/technology/driverassistance/blindspotmonitoring/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.SideAssist);
                         }
                     </td>
                 }
@@ -1654,6 +1775,104 @@
                     </td>
                 }
             </tr>
+            <tr>
+                <th scope="row">Ventilation second row seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                            {
+                                if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Standard))
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Optional))
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            if (seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Standard")
+                            }
+                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Optional")
+                            }
+                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Optional")
+                            }
+                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Not available")
+                            }
+
+                        }
+
+
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Massage second row seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                            {
+                                if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Standard))
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Optional))
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            if (seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Standard")
+                            }
+                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Optional")
+                            }
+                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Optional")
+                            }
+                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
+                            {
+                                @Html.Raw("Not available")
+                            }
+
+                        }
+
+
+                    </td>
+                }
+            </tr>
         </tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
@@ -1673,6 +1892,10 @@
             {
                 <span>Standard</span>
             }
+        }
+        else if(feature == null || feature.FeatureStatus.Equals(FeatureStatus.Unknown))
+        {
+            <span>?</span>
         }
         else
         {
