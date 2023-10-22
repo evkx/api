@@ -1234,7 +1234,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">ABS</th>
+                <th scope="row">ABS <a href="https://evkx.net/technology/driverassistance/antilockbrakingsystem/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1246,7 +1246,7 @@
             </tr>
 
             <tr>
-                <th scope="row">Automatic Emergency Braking</th>
+                <th scope="row">Automatic Emergency Braking <a href="https://evkx.net/technology/driverassistance/automaticemergencybraking/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1259,7 +1259,7 @@
             </tr>
 
             <tr>
-                <th scope="row">Automatic Emergency Steering</th>
+                <th scope="row">Automatic Emergency Steering <a href="https://evkx.net/technology/driverassistance/automaticemergencysteering/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1271,7 +1271,7 @@
             </tr>
 
             <tr>
-                <th scope="row">Cross Traffic Assist</th>
+                <th scope="row">Cross Traffic Assist <a href="https://evkx.net/technology/driverassistance/frontcrosstrafficassist/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1283,7 +1283,7 @@
             </tr>
 
             <tr>
-                <th scope="row">Drowsiness Alert</th>
+                <th scope="row">Drowsiness Alert <a href="https://evkx.net/technology/driverassistance/driverdrowsinessdetection/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1294,7 +1294,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Electronic Stability Control</th>
+                <th scope="row">Electronic Stability Control <a href="https://evkx.net/technology/driverassistance/electronicstabilitycontrol/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1316,7 +1316,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Exit Warning</th>
+                <th scope="row">Exit Warning <a href="https://evkx.net/technology/driverassistance/exitwarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1327,7 +1327,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Forward collision warning</th>
+                <th scope="row">Forward collision warning (FCW) <a href="https://evkx.net/technology/driverassistance/forwardcollisionwarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1338,7 +1338,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Lane Departure Warning</th>
+                <th scope="row">Lane Departure Warning (LDW) <a href="https://evkx.net/technology/driverassistance/lanedeparturewarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1349,7 +1349,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Lane Keeping</th>
+                <th scope="row">Lane Keeping Assist (LKA) <a href="https://evkx.net/technology/driverassistance/lanekeepingassist/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1371,7 +1371,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Night Vision</th>
+                <th scope="row">Night Vision <a href="https://evkx.net/technology/sensorsandcameras/infrared/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1382,7 +1382,7 @@
                 }
             </tr>
             <tr>
-            <th scope="row">Auto steer</th>
+                <th scope="row">Auto steer <a href="https://evkx.net/technology/driverassistance/autosteer/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1485,6 +1485,17 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Charge curve (click for full size)</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        <a href="https://evkx.net/@ev.GetEvPath()/chargingcurve/ " target="_blank">
+                        <img src="https://evkx.net/@ev.GetEvPath()/chargingcurve.svg" style="max-width: 250px" class="img-fluid">
+                        </a>
+                    </td>
                 }
             </tr>
             <tr>
