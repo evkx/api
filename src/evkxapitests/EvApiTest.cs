@@ -77,7 +77,7 @@ namespace evdbtests
             HttpClient client = SetupUtil.GetTestClient(_factory);
 
             EvSearch search = new EvSearch();
-            search.MinimumWltpRange = 782;
+            search.MinimumWltpRange = "782";
             string requestUri = "/api/Ev/";
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
             {
