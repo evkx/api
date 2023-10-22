@@ -67,6 +67,34 @@
                     }
                 }
             </tr>
+            <tr>
+                <th scope="row">Delivery start</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    if (ev.ModelInfo?.DeliveryStart != null)
+                    {
+                        <td scope="col">@ev.ModelInfo.DeliveryStart.Value.ToString("MMMM yyyy")</td>
+                    }
+                    else
+                    {
+                        <td scope="col"></td>
+                    }
+                }
+            </tr>
+            <tr>
+                <th scope="row">Model status</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    if (ev.ModelInfo?.ModelStatus != null)
+                    {
+                        <td scope="col">@ev.ModelInfo.ModelStatus.ToString()</td>
+                    }
+                    else
+                    {
+                        <td scope="col"></td>
+                    }
+                }
+            </tr>
             <tr class="table-secondary">
                 <th scope="row">Range And Consumption</th>
                 @foreach (EV ev in Model.Models)
@@ -401,19 +429,19 @@
 
                     if(pmsm && asm)
                     {
-                        <td scope="col">ASM front and PMSM rear</td>
+                        <td scope="col"><a href="https://evkx.net/technology/motors/asm/" target="_blank">ASM</a> front and <a href="https://evkx.net/technology/motors/pmsm/" target="_blank">PMSM</a> rear</td>
                     }
                     else if(wrsm)
                     {
-                        <td scope="col">WRSM</td>
+                        <td scope="col"><a href="https://evkx.net/technology/motors/wrsm/" target="_blank">WRSM</a></td>
                     }
                     else if (asm)
                     {
-                        <td scope="col">ASM</td>
+                        <td scope="col"><a href="https://evkx.net/technology/motors/asm/" target="_blank">ASM</a></td>
                     }
                     else if (pmsm)
                     {
-                        <td scope="col">PSMS</td>
+                        <td scope="col"><a href="https://evkx.net/technology/motors/pmsm/" target="_blank">PMSM</a></td>
                     }
                 }
             </tr>
@@ -625,7 +653,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Lift-up-regen modes</th>
+                <th scope="row">Lift-up-regen stopping modes</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1194,7 +1222,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">In car navigation</th>
+                <th scope="row">In car navigation <a href="https://evkx.net/technology/infotainment/navigation/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1205,7 +1233,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Apple Car Play</th>
+                <th scope="row">Apple Car Play <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1216,7 +1244,7 @@
                 }
             </tr>
             <tr>
-                <th scope="row">Android Auto</th>
+                <th scope="row">Android Auto <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1580,6 +1608,42 @@
                     </td>
                 }
             </tr>
+            <tr>
+                <th scope="row">Battery heating navigating to charger</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+
+                                @spacer
+                                RenderEvFeature(battery.HeatingWhenNavigateToCharger);
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Manual battery heating</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+
+                                @spacer
+                                RenderEvFeature(battery.ManualTriggerHeating);
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
             <tr class="table-secondary">
                 <th scope="row">Seats</th>
                 @foreach (EV ev in Model.Models)
@@ -1642,6 +1706,39 @@
                 }
             </tr>
             <tr>
+                <th scope="row">Heating front seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
+                            {
+                                if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Standard))
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Optional))
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+
+                        }
+                    </td>
+                }
+            </tr>
+
+            <tr>
                 <th scope="row">Adjustable thigh support</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1667,22 +1764,7 @@
                                 }
                             }
 
-                            if (seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Standard")
-                            }
-                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Not available")
-                            }
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
 
                         }
                     </td>
@@ -1714,22 +1796,7 @@
                                 }
                             }
 
-                            if(seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Standard")
-                            }
-                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Not available")
-                            }
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
 
                         }
 
@@ -1763,22 +1830,7 @@
                                 }
                             }
 
-                            if(seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Standard")
-                            }
-                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Not available")
-                            }
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
 
                         }
 
@@ -1786,6 +1838,39 @@
                     </td>
                 }
             </tr>
+            <tr>
+                <th scope="row">Heating second row</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                            {
+                                if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Standard))
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Optional))
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+
+                        }
+                    </td>
+                }
+            </tr>
+
             <tr>
                 <th scope="row">Ventilation second row seats</th>
                 @foreach (EV ev in Model.Models)
@@ -1812,22 +1897,7 @@
                                 }
                             }
 
-                            if (seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Standard")
-                            }
-                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Not available")
-                            }
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
 
                         }
 
@@ -1860,23 +1930,8 @@
                                     seatOptionWithoutFeature = true;
                                 }
                             }
-
-                            if (seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Standard")
-                            }
-                            else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if ((seatOptionWithFeature || seatOptionWithOptionalFeature) && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Optional")
-                            }
-                            else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
-                            {
-                                @Html.Raw("Not available")
-                            }
+                            
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
 
                         }
 
@@ -1911,6 +1966,38 @@
         else
         {
             <span>Not available</span>
+        }
+    }
+}
+
+
+@functions {
+    void RenderSeatFeature(bool seatOptionWithFeature, bool seatOptionWithOptionalFeature, bool seatOptionWithoutFeature)
+    {
+
+        if (seatOptionWithFeature && !seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
+        {
+            @Html.Raw("Standard")
+        }
+        else if (seatOptionWithFeature && seatOptionWithOptionalFeature && !seatOptionWithoutFeature)
+        {
+            @Html.Raw("Optional")
+        }
+        else if (seatOptionWithFeature && (seatOptionWithOptionalFeature || seatOptionWithoutFeature))
+        {
+            @Html.Raw("Optional")
+        }
+        else if (seatOptionWithOptionalFeature)
+        {
+            @Html.Raw("Optional")
+        }
+        else if (!seatOptionWithFeature && !seatOptionWithOptionalFeature && seatOptionWithoutFeature)
+        {
+            @Html.Raw("Not available")
+        }
+        else
+        {
+            @seatOptionWithFeature @seatOptionWithOptionalFeature @seatOptionWithoutFeature
         }
     }
 }
