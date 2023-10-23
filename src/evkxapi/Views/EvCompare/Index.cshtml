@@ -1255,6 +1255,58 @@
                 }
             </tr>
             <tr class="table-secondary">
+                <th scope="row">Lights</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">LED Matrix headlights <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+
+                            bool headlightsWithoutMatrix =false;
+                            bool headlightsWithMatrix = false;
+                            foreach (Headlight headlight in ev.Lights.Headlights)
+                            {
+                                if (headlight.LightTechnology.Equals(LightTechnology.LEDMatrix) || headlight.LightTechnology.Equals(LightTechnology.LEDDigitalMatrix)
+                                || headlight.LightTechnology.Equals(LightTechnology.LEDMatrixLaser))
+                                {
+                                    headlightsWithMatrix = true;
+                                }
+                                else
+                                {
+                                    headlightsWithoutMatrix = true;
+                                }
+
+                            }
+
+
+                            if(headlightsWithMatrix && !headlightsWithoutMatrix)
+                            {
+                                <span>Standard</span>
+                            }
+                            else if (headlightsWithMatrix && headlightsWithoutMatrix)
+                            {
+                                <span>Optional</span>
+                            }
+                            else
+                            {
+                                <span>Not available</span>
+                            }
+
+                      }
+                        
+                        
+
+                    </td>
+                }
+            </tr>
+
+            <tr class="table-secondary">
                 <th scope="row">Driver Assist Systems</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1936,6 +1988,64 @@
                         }
 
 
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">Exterior design</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Paint color options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Exterior?.PaintColors != null)
+                        {
+                            @ev.Exterior.PaintColors.Count()
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Wheel options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Exterior?.WheelOptions != null)
+                        {
+                            @ev.Exterior.WheelOptions.Count()
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <th scope="row">Wheel sizes (front/rear)</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Exterior?.WheelOptions != null)
+                        {
+                            List<string> sizes = new List<string>();
+                            foreach(Wheel wheel in ev.Exterior.WheelOptions)
+                            {
+                                string sizeKey = wheel.TireDimensionFront + "R" + wheel.WheelSize + " / " + wheel.TireDimensionRear + "R" + wheel.WheelSize;
+                                if (!sizes.Contains(sizeKey))
+                                {
+                                    sizes.Add(sizeKey);
+                                }
+                            }
+
+                            foreach(string size in sizes)
+                            {
+                                @size
+                                <br/>
+                            }
+                            
+                        }
                     </td>
                 }
             </tr>
