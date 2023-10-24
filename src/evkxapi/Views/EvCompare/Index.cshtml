@@ -1900,23 +1900,30 @@
                             bool seatOptionWithFeature = false;
                             bool seatOptionWithOptionalFeature = false;
 
-                            foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                            if(ev?.Interior?.SecondRowSeats != null)
                             {
-                                if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Standard))
+                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
                                 {
-                                    seatOptionWithFeature = true;
+                                    if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Standard))
+                                    {
+                                        seatOptionWithFeature = true;
+                                    }
+                                    else if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Optional))
+                                    {
+                                        seatOptionWithOptionalFeature = true;
+                                    }
+                                    else
+                                    {
+                                        seatOptionWithoutFeature = true;
+                                    }
                                 }
-                                else if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Optional))
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
-                            }
 
                             RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
 
                         }
                     </td>
@@ -1932,25 +1939,30 @@
                             bool seatOptionWithoutFeature = false;
                             bool seatOptionWithFeature = false;
                             bool seatOptionWithOptionalFeature = false;
-
-                            foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                            
+                            if(ev?.Interior?.SecondRowSeats != null)
                             {
-                                if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Standard))
+                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
                                 {
-                                    seatOptionWithFeature = true;
+                                    if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Standard))
+                                    {
+                                        seatOptionWithFeature = true;
+                                    }
+                                    else if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Optional))
+                                    {
+                                        seatOptionWithOptionalFeature = true;
+                                    }
+                                    else
+                                    {
+                                        seatOptionWithoutFeature = true;
+                                    }
                                 }
-                                else if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Optional))
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
+                                RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
                             }
-
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-
+                            else
+                            {
+                                <span>N/A</span>
+                            }
                         }
 
 
@@ -1967,25 +1979,32 @@
                             bool seatOptionWithFeature = false;
                             bool seatOptionWithOptionalFeature = false;
 
-                            foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                            if (ev?.Interior?.SecondRowSeats != null)
                             {
-                                if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Standard))
+
+                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
                                 {
-                                    seatOptionWithFeature = true;
+                                    if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Standard))
+                                    {
+                                        seatOptionWithFeature = true;
+                                    }
+                                    else if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Optional))
+                                    {
+                                        seatOptionWithOptionalFeature = true;
+                                    }
+                                    else
+                                    {
+                                        seatOptionWithoutFeature = true;
+                                    }
                                 }
-                                else if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Optional))
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
-                            }
                             
                             RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-
-                        }
+                            }
+                            else
+                            {
+                            <span>N/A</span>
+                            }
+                            }
 
 
                     </td>
