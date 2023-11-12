@@ -66,7 +66,7 @@ namespace evdb.Services
             EvSimple evSimple = new EvSimple()
             {
                 Name = ev.GetFullName(),
-                InfoUri = "https://evkx.net" + ev.GetEvPath(),
+                InfoUri = ".." + ev.GetEvPath(),
                 ThumbUri = thumbUri,
                 EvId = ev.Id.ToString().Substring(28),
             };
