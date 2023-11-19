@@ -5,14 +5,21 @@ namespace evdb.Models
 {
     public class Charging
     {
+        public Charging() 
+        {
+
+            ManualTriggerHeating = new EVFeature();
+            HeatingWhenNavigateToCharger = new EVFeature();
+        }
+
         public List<Chargeport>? Chargeports { get; set; }
 
         public List<Charger>? OnBoardChargers { get; set; }
 
-        public int? Charge5To80SocInSeconds { get; set; }
-
-        public int? Charge20To80SocInSeconds { get; set; }
-
         public BatterySwap? BatterySwap { get; set; }
+
+        public EVFeature? ManualTriggerHeating { get; set; }
+
+        public EVFeature? HeatingWhenNavigateToCharger { get; set; }
     }
 }

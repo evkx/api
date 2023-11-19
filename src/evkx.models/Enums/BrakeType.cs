@@ -2,7 +2,7 @@
 
 namespace evdb.models.Enums
 {
-    public enum BrakeType: int
+    public enum BrakeType : int
     {
         [EnumMember(Value = "NotSet")]
         NotSet = 0,

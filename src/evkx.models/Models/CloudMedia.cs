@@ -115,7 +115,7 @@ namespace evdb.Models
         {
             if (Height.HasValue && Width.HasValue)
             {
-                return (int)((double)(200 / Width.Value) * (double)Height.Value);
+                return (int)((double)((double) 200 / (double) Width.Value) * (double)Height.Value);
             }
             return default;
         }

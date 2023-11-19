@@ -12,6 +12,8 @@ namespace evdb.models.Models
 
         public decimal? AverageChargingSpeed1080 { get; set; }
 
+        public decimal? AverageChargingSpeed1090 { get; set; }
+
         public decimal? TravelSpeed120kmh { get; set; }
 
         public decimal? TravelSpeed90kmh { get; set; }

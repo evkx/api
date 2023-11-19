@@ -68,5 +68,10 @@ namespace evdb.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<EV>> GetAllEv()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

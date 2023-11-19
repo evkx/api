@@ -54,5 +54,7 @@ namespace evdb.Models
 
         public List<EvModelReference>? ReplacedBy { get; set; }
 
+        public List<EvModelReference>? Replaces { get; set; }
+
     }
 }

@@ -20,8 +20,6 @@ namespace evdb.Models
 
         public string? Resolution { get; set; }
 
-        public string? Layout { get; set; }
-
         public bool? Optional { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]

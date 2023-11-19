@@ -414,6 +414,16 @@ namespace evdb.Models
             return ("/models/" + SanitizedFileName(Brand?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Name.ToLower()) +"/" + SanitizedFileName(ModelInfo?.Variant)+ "/").ToLower();
         }
 
+        public string GetRelativeVariantPath()
+        {
+            if (!string.IsNullOrEmpty(ModelInfo.LegacyVersion))
+            {
+                return (SanitizedFileName(ModelInfo?.Variant) + "_" + SanitizedFileName(ModelInfo?.LegacyVersion) + "/").ToLower();
+            }
+
+            return (SanitizedFileName(ModelInfo?.Variant) + "/").ToLower();
+        }
+
         public string SanitizedFileName(string? fileName, string replacement = "_")
         {
             if (fileName == null)

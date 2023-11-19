@@ -20,9 +20,6 @@ namespace evdb.Models
                 ChargeCurve.Add(chargeSpeed);
             }
             CellInfo = new CellInfo();
-            ManualTriggerHeating = new EVFeature();
-            Heating = new EVFeature();
-            HeatingWhenNavigateToCharger = new EVFeature();
         }
 
         /// <summary>
@@ -56,12 +53,6 @@ namespace evdb.Models
         public List<ChargeSpeed>? ChargeCurve { get; set; }
 
         public double? MaxDCChargeSpeed { get; set; }
-
-        public EVFeature? Heating { get; set; }
-
-        public EVFeature? ManualTriggerHeating { get; set; }
-
-        public EVFeature? HeatingWhenNavigateToCharger { get; set; }
 
         public decimal? GetBufferSize()
         {
