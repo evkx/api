@@ -34,5 +34,9 @@ namespace evdb.models.Models
 
         public decimal? EnergyChargedFrom10Percent30minutes { get; set; }
 
+        public decimal? AverageCRating { get; set; }
+
+        public decimal? MaxCRating { get; set; }
+
     }
 }

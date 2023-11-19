@@ -392,6 +392,16 @@ namespace evdb.Services
                   evSimple.SortParameter = "mm";
                   
                 }
+                else if (sortOrder.Equals(SortOrder.MaxCRating))
+                {
+                    evSimple.SortValue = Math.Round(ev.Calculations.OrderByDescending(ev2 => ev2.MaxCRating).ToList()[0].MaxCRating.Value, 2).ToString();
+                    evSimple.SortParameter = "";
+                }
+                else if (sortOrder.Equals(SortOrder.AverageCRating))
+                {
+                    evSimple.SortValue = Math.Round(ev.Calculations.OrderByDescending(ev2 => ev2.AverageCRating).ToList()[0].AverageCRating.Value, 2).ToString();
+                    evSimple.SortParameter = "";
+                }
                 else if (sortOrder.Equals(SortOrder.TravelSpeedWltpDesc))
                 {
                     evSimple.SortValue = Math.Round(ev.Calculations[0].TravelSpeedWltp.Value, 2).ToString();

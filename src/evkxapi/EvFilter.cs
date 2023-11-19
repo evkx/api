@@ -344,16 +344,12 @@ namespace evdb
 
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Drivetrain?.Battery != null)
+                    if (ev.Drivetrain?.Charging != null)
                     {
-                        foreach (Battery bat in ev.Drivetrain.Battery)
+                        if (ev.Drivetrain?.Charging.ManualTriggerHeating != null && ev.Drivetrain.Charging.ManualTriggerHeating.Available())
                         {
-                            if (bat.ManualTriggerHeating != null && bat.ManualTriggerHeating.Available())
-                            {
-                                tempList.Add(ev);
-                                break;
-                            }
-
+                            tempList.Add(ev);
+                            break;
                         }
                     }
                 }
@@ -367,16 +363,14 @@ namespace evdb
 
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Drivetrain?.Battery != null)
+                    if (ev.Drivetrain?.Charging != null)
                     {
-                        foreach (Battery bat in ev.Drivetrain.Battery)
+                        if (ev.Drivetrain?.Charging.HeatingWhenNavigateToCharger != null && ev.Drivetrain.Charging.HeatingWhenNavigateToCharger.Available())
                         {
-                            if (bat.HeatingWhenNavigateToCharger != null && bat.HeatingWhenNavigateToCharger.Available())
-                            {
-                                tempList.Add(ev);
-                                break;
-                            }
+                            tempList.Add(ev);
+                            break;
                         }
+                        
                     }
                 }
 

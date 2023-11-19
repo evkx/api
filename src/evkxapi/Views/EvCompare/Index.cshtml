@@ -1666,14 +1666,7 @@
                 {
                     <td scope="col">
                         @{
-                            string spacer = "";
-                            foreach (Battery battery in ev.Drivetrain.Battery)
-                            {
-
-                                @spacer
-                                RenderEvFeature(battery.HeatingWhenNavigateToCharger);
-                                spacer = " / ";
-                            }
+                           RenderEvFeature(ev.Drivetrain?.Charging?.HeatingWhenNavigateToCharger);
                         }
                     </td>
                 }
@@ -1684,15 +1677,8 @@
                 {
                     <td scope="col">
                         @{
-                            string spacer = "";
-                            foreach (Battery battery in ev.Drivetrain.Battery)
-                            {
-
-                                @spacer
-                                RenderEvFeature(battery.ManualTriggerHeating);
-                                spacer = " / ";
-                            }
-                        }
+                                RenderEvFeature(ev.Drivetrain?.Charging?.ManualTriggerHeating);
+                         }
                     </td>
                 }
             </tr>
@@ -2075,7 +2061,7 @@
 </html>
 
 @functions {
-    void RenderEvFeature(EVFeature feature)
+    void RenderEvFeature(EVFeature? feature)
     {
         if(feature != null && feature.Available())
         {

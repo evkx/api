@@ -181,6 +181,14 @@ namespace evdb
             {
                 evList = evList.OrderByDescending(ev => ev.Calculations[0].EnergyChargedFrom10Percent30minutes / ev.GetConsumption120()).ToList();
             }
+            else if (evSearch.SortOrder.Equals(SortOrder.MaxCRating))
+            {
+                evList = evList.OrderByDescending(ev => ev.Calculations.OrderByDescending(ev2 => ev2.MaxCRating).ToList()[0].MaxCRating).ToList();
+            }
+            else if (evSearch.SortOrder.Equals(SortOrder.AverageCRating))
+            {
+                evList = evList.OrderByDescending(ev => ev.Calculations.OrderByDescending(ev2 => ev2.AverageCRating).ToList()[0].AverageCRating).ToList();
+            }
             else
             {
                 evList = evList.OrderBy(ev => ev.GetFullName()).ToList();

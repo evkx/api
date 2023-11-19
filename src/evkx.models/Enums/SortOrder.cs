@@ -133,5 +133,11 @@ namespace evdb.models.Enums
         [EnumMember(Value = "DrivingDistanceWltpCharged10Percent30Min")]
         DrivingDistanceWltpCharged10Percent30Min = 41,
 
+        [EnumMember(Value = "MaxCRating")]
+        MaxCRating = 42,
+
+        [EnumMember(Value = "AverageCRating")]
+        AverageCRating = 43,
+
     }
 }
