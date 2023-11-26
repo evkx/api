@@ -349,7 +349,6 @@ namespace evdb
                         if (ev.Drivetrain?.Charging.ManualTriggerHeating != null && ev.Drivetrain.Charging.ManualTriggerHeating.Available())
                         {
                             tempList.Add(ev);
-                            break;
                         }
                     }
                 }
@@ -368,9 +367,7 @@ namespace evdb
                         if (ev.Drivetrain?.Charging.HeatingWhenNavigateToCharger != null && ev.Drivetrain.Charging.HeatingWhenNavigateToCharger.Available())
                         {
                             tempList.Add(ev);
-                            break;
                         }
-                        
                     }
                 }
 
