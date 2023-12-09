@@ -1020,6 +1020,20 @@
                     <td scope="col">@ev.Dimensions.WidhtIncludingMirrors mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.WidhtIncludingMirrors, 1)")</td>
                 }
             </tr>
+            <tr>
+                <th scope="row">Wheelbase</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">@ev.Dimensions.Wheelbase mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.Wheelbase, 1)")</td>
+                }
+            </tr>
+           <tr>
+                <th scope="row">Turning circle</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">@ev.Dimensions.TurningCircle mm (@EvConversion.ToInchFromMeter(ev.Dimensions.TurningCircle, 1)")</td>
+                }
+            </tr>
 
             <tr>
                 <th scope="row">Curb Weight</th>
