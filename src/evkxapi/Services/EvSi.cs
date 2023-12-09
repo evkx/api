@@ -2,7 +2,9 @@
 using evdb.models.Models;
 using evdb.Models;
 using evkx.models.Models.Search;
+using evkxapi.Helpers;
 using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json.Linq;
 using static System.Net.WebRequestMethods;
 
 namespace evdb.Services
@@ -90,7 +92,7 @@ namespace evdb.Services
                         if (evSimple.ZeroTo100 == null || evSimple.ZeroTo100 > performance.ZeroToHundredKph)
                         {
                             evSimple.ZeroTo100 = performance.ZeroToHundredKph;
-                            if (performance.ZeroToHundredKphBoost != null && performance.ZeroToHundredKphBoost > evSimple.ZeroTo100)
+                            if (performance.ZeroToHundredKphBoost != null && performance.ZeroToHundredKphBoost < evSimple.ZeroTo100)
                             {
                                 evSimple.ZeroTo100 = performance.ZeroToHundredKphBoost;
                             }
@@ -130,8 +132,8 @@ namespace evdb.Services
                 {
                     if (ev.MinimumWltpRangeBasicTrim().Value != 0)
                     {
-                        evSimple.SortValue = ev.MinimumWltpRangeBasicTrim().ToString();
-                        evSimple.SortParameter = "km";
+                        evSimple.SortValue = ev.MinimumWltpRangeBasicTrim().ToString() + " km (" + EvConversion.ToMilesFromKph(ev.MinimumWltpRangeBasicTrim(),0) + " mi)";
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
@@ -153,13 +155,13 @@ namespace evdb.Services
                 }
                 else if (sortOrder.Equals(SortOrder.TopSpeedDesc))
                 {
-                    evSimple.SortValue = ev.TopSpeed().ToString();
-                    evSimple.SortParameter = "kp/h";
+                    evSimple.SortValue = ev.TopSpeed().ToString() + " kph (" + EvConversion.ToMilesFromKph(ev.TopSpeed(),0) + " mph)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.PowerDesc))
                 {
-                    evSimple.SortValue = ev.Power().ToString();
-                    evSimple.SortParameter = "kW";
+                    evSimple.SortValue = $"{ev.Power().ToString()} kW ({EvConversion.ToHpFromKw(ev.Power(),0)} HP / {EvConversion.ToBHpFromKw(ev.Power(), 0)} BHP )";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.MaxDCCharging))
                 {
@@ -194,7 +196,8 @@ namespace evdb.Services
                 {
                     if (ev.Calculations[0] != null && ev.Calculations[0].AverageSpeed1000kmChallenge.HasValue)
                     {
-                        evSimple.SortValue = Math.Round(ev.Calculations[0].AverageSpeed1000kmChallenge.Value, 2).ToString();
+                        decimal value = Math.Round(ev.Calculations[0].AverageSpeed1000kmChallenge.Value, 2);
+                        evSimple.SortValue = $"{value} kph ({EvConversion.ToMilesFromKph(value)} mph)";
                         evSimple.SortParameter = "km/h";
                     }
                     else
@@ -260,21 +263,21 @@ namespace evdb.Services
                 {
                     if (ev.TrunkSize()!= 0)
                     {
-                        evSimple.SortValue = ev.TrunkSize().ToString();
-                        evSimple.SortParameter = "liter";
+                        evSimple.SortValue = $"{ev.TrunkSize().ToString()} liters ({EvConversion.ToCuFeetFromLiters(ev.TrunkSize())} cu ft)";
+                        evSimple.SortParameter = String.Empty;
                     }
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.MaxTrunkSizeDesc))
                 {
                     if (ev.MaxTrunkSize() != 0)
                     {
-                        evSimple.SortValue = ev.MaxTrunkSize().ToString();
-                        evSimple.SortParameter = "liter";
+                        evSimple.SortValue = $"{ev.MaxTrunkSize().ToString()} liters ({EvConversion.ToCuFeetFromLiters(ev.MaxTrunkSize())} cu ft)"; 
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
@@ -286,8 +289,8 @@ namespace evdb.Services
                 {
                     if (ev.MaxLoadKg() != 0)
                     {
-                        evSimple.SortValue = ev.MaxLoadKg().ToString();
-                        evSimple.SortParameter = "kg";
+                        evSimple.SortValue = $"{ev.MaxLoadKg().ToString()} kg ({EvConversion.ToLbsFromKg(ev.MaxLoadKg(),1)} lbs)";
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
@@ -299,8 +302,8 @@ namespace evdb.Services
                 {
                     if (ev.MaxTrailerSize() != 0)
                     {
-                        evSimple.SortValue = ev.MaxTrailerSize().ToString();
-                        evSimple.SortParameter = "kg";
+                        evSimple.SortValue = $"{ev.MaxTrailerSize().ToString()} kg ({EvConversion.ToLbsFromKg(ev.MaxTrailerSize(), 1)} lbs)";
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
@@ -318,79 +321,79 @@ namespace evdb.Services
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.MaxGroundClearanceDesc))
                 {
                     if (ev.MaxGroundClearance() != 0)
                     {
-                        evSimple.SortValue = ev.MaxGroundClearance().ToString();
-                        evSimple.SortParameter = "mm";
+                        evSimple.SortValue = $"{ev.MaxGroundClearance().ToString()} mm ({EvConversion.ToInchFromMillimeter(ev.MaxGroundClearance(),2)}\")";
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.Length))
                 {
                     if (ev.Length() != 0)
                     {
-                        evSimple.SortValue = ev.Length().ToString();
-                        evSimple.SortParameter = "mm";
+                        evSimple.SortValue = $"{ev.Length().ToString()} mm ({EvConversion.ToInchFromMillimeter(ev.Length(), 1)}\")";
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.Wheelbase))
                 {
                     if (ev.Wheelbase() != 0)
                     {
-                        evSimple.SortValue = ev.Wheelbase().ToString();
-                        evSimple.SortParameter = "mm";
+                        evSimple.SortValue = $"{ev.Wheelbase().ToString()} mm ({EvConversion.ToInchFromMillimeter(ev.Wheelbase(), 1)}\")"; 
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.WeightUnladenDINKg))
                 {
                     if (ev.WeightUnladenDINKg() != 0)
                     {
-                        evSimple.SortValue = ev.WeightUnladenDINKg().ToString();
-                        evSimple.SortParameter = "kg";
+                        evSimple.SortValue = $"{ev.WeightUnladenDINKg().ToString()} kg ({EvConversion.ToLbsFromKg(ev.WeightUnladenDINKg(), 1)}\" lbs)";  
+
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.MinGroundClearance))
                 {
                     if (ev.MinGroundClearance() != 1337)
                     {
-                        evSimple.SortValue = ev.MinGroundClearance().ToString();
-                        evSimple.SortParameter = "mm";
+                        evSimple.SortValue = $"{ev.MinGroundClearance().ToString()} mm ({EvConversion.ToInchFromMillimeter(ev.MinGroundClearance(), 2)}\")";
+                        evSimple.SortParameter = string.Empty;
                     }
                     else
                     {
                         evSimple.SortValue = "N/A";
-                        evSimple.SortParameter = String.Empty;
+                        evSimple.SortParameter = string.Empty;
                     }
                 }
                 else if (sortOrder.Equals(SortOrder.SuspensionHeightAdjustment))
                 {
-                  evSimple.SortValue = ev.SuspensionAdjustment().ToString();
-                  evSimple.SortParameter = "mm";
-                  
+                  evSimple.SortValue = $"{ev.SuspensionAdjustment().ToString()} mm ({EvConversion.ToInchFromMillimeter(ev.SuspensionAdjustment(), 1)}\")";  
+                  evSimple.SortParameter = string.Empty;  
                 }
                 else if (sortOrder.Equals(SortOrder.MaxCRating))
                 {
@@ -434,53 +437,63 @@ namespace evdb.Services
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent10Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent10minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value*100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent10minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent15Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent15Minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value*100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent15Minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent20Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent20minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent20minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent25Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent25minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent25minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistanceWltpCharged10Percent30Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent30minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent30minutes.Value / ev.GetBasicTrimWltpConsumptionReal().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent10Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent10minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent10minutes.Value / ev.GetConsumption120().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent15Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent15Minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent15Minutes.Value / ev.GetConsumption120().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent20Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent20minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent20minutes.Value / ev.GetConsumption120().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value,0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent25Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent25minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent25minutes.Value / ev.GetConsumption120().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else if (sortOrder.Equals(SortOrder.DrivingDistance120kmhCharged10Percent30Min))
                 {
-                    evSimple.SortValue = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent30minutes.Value / ev.GetConsumption120().Value * 100, 2).ToString();
-                    evSimple.SortParameter = "km";
+                    decimal value = Math.Round(ev.Calculations[0].EnergyChargedFrom10Percent30minutes.Value / ev.GetConsumption120().Value * 100, 2);
+                    evSimple.SortValue = $"{value} km ({EvConversion.ToMilesFromKph(value, 0)} mi)";
+                    evSimple.SortParameter = string.Empty;
                 }
                 else
                 {

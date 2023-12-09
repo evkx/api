@@ -276,9 +276,11 @@
                             string spacer = "";
                             foreach(Performance perf in ev.Drivetrain.Performance)
                             {
+                             
                                 @spacer
-                                @perf.TopSpeed <span>km/h</span>
+                                @Html.Raw($"{perf.TopSpeed} kph ({EvConversion.ToMilesFromKph(perf.TopSpeed,0)} mph)")
                                 spacer = " / ";
+                                
                             }
                         }
                     </td>
@@ -294,12 +296,10 @@
                             foreach (Performance perf in ev.Drivetrain.Performance)
                             {
                                 @spacer
-                                @perf.PowerKw <span>kW / </span> @(EvConversion.ToHpFromKw(perf.PowerKw))
-
-                        <span>hp</span>
+                                @Html.Raw($"{perf.PowerKw} kW ({EvConversion.ToHpFromKw(perf.PowerKw)} hp / {EvConversion.ToBHpFromKw(perf.PowerKw)} bhp)")
                                 if (perf.PowerKwBoost != null)
                                 {
-                                    <span>(@perf.PowerKwBoost Kw / @(EvConversion.ToHpFromKw(perf.PowerKwBoost)) <span>hp</span>  with boost)</span>
+                                    @Html.Raw($"({perf.PowerKwBoost} kW ({EvConversion.ToHpFromKw(perf.PowerKwBoost)} hp / {EvConversion.ToBHpFromKw(perf.PowerKwBoost)} bhp) with boost)")
                                 }
                                 spacer = " / ";
                             }
@@ -316,13 +316,16 @@
                             string spacer = "";
                             foreach (Performance perf in ev.Drivetrain.Performance)
                             {
+                        
                                 @spacer
-                                @perf.TorqueNm <span>Nm</span>
+                                @Html.Raw($"{perf.TorqueNm} nm ({EvConversion.ToFootPoundsFromNm(perf.TorqueNm)} ft-lb)")
                                 if (perf.TorqueNmBoost != null)
                                 {
-                                    <span>(@perf.TorqueNmBoost Nm with boost)</span>
+                                    @Html.Raw($"({perf.TorqueNmBoost}({EvConversion.ToFootPoundsFromNm(perf.TorqueNmBoost)} ft-lb) with boost")
                                 }
+                        
                                 spacer = " / ";
+                               
                             }
                         }
                     </td>
@@ -969,11 +972,11 @@
                             @splitvalue
                             if (suspension.MinGroundClearanceMM != suspension.MaxGroundClearanceMM)
                             {
-                                @suspension.MinGroundClearanceMM <span>-</span> @suspension.MaxGroundClearanceMM <span>mm</span>
+                                @Html.Raw($"{suspension.MinGroundClearanceMM} - {suspension.MaxGroundClearanceMM} mm ({EvConversion.ToInchFromMillimeter(suspension.MinGroundClearanceMM,2)}\" - {EvConversion.ToInchFromMillimeter(suspension.MaxGroundClearanceMM, 0)}\")")
                             }
                             else
                             {
-                                @suspension.MinGroundClearanceMM <span>mm</span>
+                                @Html.Raw($"{suspension.MinGroundClearanceMM} mm ({EvConversion.ToInchFromMillimeter(suspension.MinGroundClearanceMM, 2)}\")")
                             }
                             splitvalue = " / ";
                         }
@@ -992,7 +995,7 @@
                 <th scope="row">Length</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.Length mm</td>
+                    <td scope="col">@ev.Dimensions.Length mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.Length, 1)")</td>
                 }
             </tr>
 
@@ -1000,21 +1003,21 @@
                 <th scope="row">Height</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.Height mm</td>
+                    <td scope="col">@ev.Dimensions.Height mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.Height, 1)")</td>
                 }
             </tr>
             <tr>
                 <th scope="row">Width excluding mirrors</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.WidthExcludingMirrors mm</td>
+                    <td scope="col">@ev.Dimensions.WidthExcludingMirrors mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.WidthExcludingMirrors,1)") </td>
                 }
             </tr>
             <tr>
                 <th scope="row">Width including mirrors</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.WidhtIncludingMirrors mm</td>
+                    <td scope="col">@ev.Dimensions.WidhtIncludingMirrors mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.WidhtIncludingMirrors, 1)")</td>
                 }
             </tr>
 
@@ -1022,14 +1025,14 @@
                 <th scope="row">Curb Weight</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.TransportCapabilities.WeightUnladenDINKg kg</td>
+                    <td scope="col">@ev.TransportCapabilities.WeightUnladenDINKg kg (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.WeightUnladenDINKg, 1) lbs)</td>
                 }
             </tr>
             <tr>
                 <th scope="row">Max Weight</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.TransportCapabilities.MaxVehicleWeightKg kg</td>
+                    <td scope="col">@ev.TransportCapabilities.MaxVehicleWeightKg kg (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.MaxVehicleWeightKg, 1) lbs)</td>
                 }
             </tr>
             <tr>
@@ -1039,7 +1042,10 @@
                     <td scope="col">
                    @if(ev.TransportCapabilities.MaxRoofLoadKg.HasValue)
                    {
-                        @ev.TransportCapabilities.MaxRoofLoadKg  <span>kg</span>
+                            <span>
+                            @ev.TransportCapabilities.MaxRoofLoadKg  kg
+                            (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.MaxRoofLoadKg, 1) lbs)
+                            </span>
                    }
                    </td>
                 }
@@ -1051,7 +1057,10 @@
                     <td scope="col">
                         @if (ev.TransportCapabilities.TrailerSizeBrakedKg.HasValue)
                         {
-                            @ev.TransportCapabilities.TrailerSizeBrakedKg  <span>kg</span>
+                            <span>
+                                @ev.TransportCapabilities.TrailerSizeBrakedKg  kg
+                                (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.TrailerSizeBrakedKg, 1) lbs)
+                            </span>
                         }
                     </td>
                 }
@@ -1063,7 +1072,7 @@
                     <td scope="col">
                         @if (ev.TransportCapabilities.CargoCapacityLiter.HasValue)
                         {
-                            @ev.TransportCapabilities.CargoCapacityLiter  @Html.Raw(" liter")
+                            @Html.Raw($"{ev.TransportCapabilities.CargoCapacityLiter} liter ({EvConversion.ToCuFeetFromLiters(ev.TransportCapabilities.CargoCapacityLiter)} cu-ft) ")
                         }
                     </td>
                 }
@@ -1075,14 +1084,14 @@
                     <td scope="col">
                         @if (ev.TransportCapabilities.CargoCapacitySeatDownLiter.HasValue)
                         {
-                            @ev.TransportCapabilities.CargoCapacitySeatDownLiter  @Html.Raw(" liter")
+                            @Html.Raw($"{ev.TransportCapabilities.CargoCapacitySeatDownLiter} liter ({EvConversion.ToCuFeetFromLiters(ev.TransportCapabilities.CargoCapacitySeatDownLiter)} cu-ft) ")
+
+    
                         }
 
                         @if (ev.TransportCapabilities.CargoCapacityThirdRowSeatDownLiter.HasValue)
                         {
-                            @Html.Raw("(")
-                            @ev.TransportCapabilities.CargoCapacityThirdRowSeatDownLiter  
-                            @Html.Raw(" liter with third row down)")
+                            @Html.Raw($"({ev.TransportCapabilities.CargoCapacityThirdRowSeatDownLiter} liter /{EvConversion.ToCuFeetFromLiters(ev.TransportCapabilities.CargoCapacityThirdRowSeatDownLiter)} cu-ft with third row down)")
                         }
                     </td>
                 }
