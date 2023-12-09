@@ -7,14 +7,19 @@ namespace evdb.models.Enums
         [EnumMember(Value = "NotSet")]
         NotSet = 0,
 
-        [EnumMember(Value = "SteelSprings")]
-        SteelSprings = 1,
+        [EnumMember(Value = "MacPhersonStrut")]
+        MacPhersonStrut = 1,
 
-        [EnumMember(Value = "AirSuspension")]
-        AirSuspension = 2,
+        [EnumMember(Value = "Multilink")]
+        Multilink = 2,
 
-        [EnumMember(Value = "SteelSpringsWithOilDampers")]
-        SteelSpringsWithOilDampers = 3,
+        [EnumMember(Value = "DoubleWishbone")] 
+        DoubleWishbone = 3,
 
+        [EnumMember(Value = "Leaf")]
+        Leaf = 4,
+
+        [EnumMember(Value = "TorsionBeam")]
+        TorsionBeam = 5,
     }
 }

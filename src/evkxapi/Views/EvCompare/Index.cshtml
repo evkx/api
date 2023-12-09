@@ -808,19 +808,19 @@
                         @foreach (Suspension suspension in ev.Drivetrain.Suspension)
                         {
                             @spiltvalue
-                            if(suspension.SuspensionConstructionFront == null)
+                            if(suspension.SuspensionTypeFront == null)
                             {
                                 
                             }
-                            else if(suspension.SuspensionConstructionFront.Equals(SuspensionConstruction.MacPhersonStrut))
+                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.MacPhersonStrut))
                             {
                                 @Html.Raw("MacPherson Strut");
                             }
-                            else if (suspension.SuspensionConstructionFront.Equals(SuspensionConstruction.DoubleWishbone))
+                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.DoubleWishbone))
                             {
                                 @Html.Raw("Double Wishbone");
                             }
-                            else if (suspension.SuspensionConstructionFront.Equals(SuspensionConstruction.Multilink))
+                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.Multilink))
                             {
                                 @Html.Raw("Multilink");
                             }
@@ -841,16 +841,16 @@
                         @foreach (Suspension suspension in ev.Drivetrain.Suspension)
                         {
                             @spiltvalue
-                            if (suspension.SuspensionConstructionRear == null)
+                            if (suspension.SuspensionTypeRear == null)
                             {
 
                             }
-                            else if (suspension.SuspensionConstructionRear.Equals(SuspensionConstruction.Leaf))
+                            else if (suspension.SuspensionTypeRear.Equals(SuspensionType.Leaf))
                             {
                                 @Html.Raw("Leaf")
                                 ;
                             }
-                            else if (suspension.SuspensionConstructionRear.Equals(SuspensionConstruction.Multilink))
+                            else if (suspension.SuspensionTypeRear.Equals(SuspensionType.Multilink))
                             {
                                 @Html.Raw("Multilink")
                                 ;
@@ -871,16 +871,16 @@
                         @foreach (Suspension suspension in ev.Drivetrain.Suspension)
                         {
                             @spiltvalue
-                            if (suspension.SuspensionTypeFront == null)
+                            if (suspension.SpringTypeFront == null)
                             {
 
                             }
-                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.SteelSpringsWithOilDampers))
+                            else if (suspension.SpringTypeFront.Equals(SpringType.Coil))
                             {
                                 @Html.Raw("Steel springs")
                                 ;
                             }
-                            else if (suspension.SuspensionTypeFront.Equals(SuspensionType.AirSuspension))
+                            else if (suspension.SpringTypeFront.Equals(SpringType.Coil))
                             {
                                 @Html.Raw("Air springs (air suspension)")
                                 ;
@@ -901,16 +901,16 @@
                         @foreach (Suspension suspension in ev.Drivetrain.Suspension)
                         {
                             @spiltvalue
-                            if (suspension.SuspensionTypeRear == null)
+                            if (suspension.SpringTypeRear == null)
                             {
 
                             }
-                            else if (suspension.SuspensionTypeRear.Equals(SuspensionType.SteelSpringsWithOilDampers))
+                            else if (suspension.SpringTypeRear.Equals(SpringType.Coil))
                             {
                                 @Html.Raw("Steel springs")
                                 ;
                             }
-                            else if (suspension.SuspensionTypeRear.Equals(SuspensionType.AirSuspension))
+                            else if (suspension.SpringTypeRear.Equals(SpringType.Air))
                             {
                                 @Html.Raw("Air springs (air suspension)")
                                 ;

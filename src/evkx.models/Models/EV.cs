@@ -334,9 +334,9 @@ namespace evdb.Models
             return maxDCCharging;
         }
 
-        public int TrunkSize()
+        public decimal TrunkSize()
         {
-            int size = 0;
+            decimal size = 0;
             if(TransportCapabilities != null && TransportCapabilities.CargoCapacityLiter.HasValue)
             {
                 size = TransportCapabilities.CargoCapacityLiter.Value;
@@ -345,9 +345,9 @@ namespace evdb.Models
             return size;
         }
 
-        public int MaxTrunkSize()
+        public decimal MaxTrunkSize()
         {
-            int size = 0;
+            decimal size = 0;
             if (TransportCapabilities != null && TransportCapabilities.CargoCapacitySeatDownLiter.HasValue)
             {
                 size = TransportCapabilities.CargoCapacitySeatDownLiter.Value;
@@ -356,9 +356,9 @@ namespace evdb.Models
             return size;
         }
 
-        public int MaxTrailerSize()
+        public decimal MaxTrailerSize()
         {
-            int size = 0;
+            decimal size = 0;
             if (TransportCapabilities != null && TransportCapabilities.TrailerSizeBrakedKg.HasValue)
             {
                 size = TransportCapabilities.TrailerSizeBrakedKg.Value;
@@ -368,9 +368,9 @@ namespace evdb.Models
         }
 
 
-        public int MaxLoadKg()
+        public decimal MaxLoadKg()
         {
-            int size = 0;
+            decimal size = 0;
             if (TransportCapabilities != null && TransportCapabilities.MaxVehicleWeightKg.HasValue && TransportCapabilities.WeightUnladenDINKg.HasValue)
             {
                 size = TransportCapabilities.MaxVehicleWeightKg.Value - TransportCapabilities.WeightUnladenDINKg.Value;
@@ -515,9 +515,9 @@ namespace evdb.Models
             return wheelbase;
         }
 
-        public int WeightUnladenDINKg()
+        public decimal WeightUnladenDINKg()
         {
-            int weightUnladenDINKg = 0;
+            decimal weightUnladenDINKg = 0;
             if (TransportCapabilities != null && TransportCapabilities.WeightUnladenDINKg.HasValue)
             {
                 weightUnladenDINKg = TransportCapabilities.WeightUnladenDINKg.Value;

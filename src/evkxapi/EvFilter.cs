@@ -229,7 +229,7 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.SuspensionTypeRear.Equals(SuspensionType.AirSuspension)) != null)
+                    if (ev.Drivetrain?.Suspension != null && ev.Drivetrain.Suspension.FirstOrDefault(ev2 => ev2.SpringTypeRear.Equals(SpringType.Air)) != null)
                     {
                         tempList.Add(ev);
                     }

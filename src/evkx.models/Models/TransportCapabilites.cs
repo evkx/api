@@ -12,31 +12,31 @@ namespace evdb.models.Models
             Towbar = new EVFeature();
         }
 
-        public int? WeightUnladenDINKg { get; set; }
+        public decimal? WeightUnladenDINKg { get; set; }
 
-        public int? MaxVehicleWeightKg { get; set; }
+        public decimal? MaxVehicleWeightKg { get; set; }
 
         public bool? Frunk { get; set; }
 
-        public int? FrunkSizeLiter { get; set; }
+        public decimal? FrunkSizeLiter { get; set; }
 
         public bool? RoofCargo { get; set; }
 
-        public int? MaxRoofLoadKg { get; set; }
+        public decimal? MaxRoofLoadKg { get; set; }
 
         public EVFeature? Towbar { get; set; }
 
-        public int? TrailerSizeBrakedKg { get; set; }
+        public decimal? TrailerSizeBrakedKg { get; set; }
 
-        public int? TrailerSizeUnBrakedKg { get; set; }
+        public decimal? TrailerSizeUnBrakedKg { get; set; }
         
-        public int? MaxTowbarDownloadKg { get; set; }
+        public decimal? MaxTowbarDownloadKg { get; set; }
 
-        public int? CargoCapacityLiter { get; set; }
+        public decimal? CargoCapacityLiter { get; set; }
 
-        public int? CargoCapacitySeatDownLiter { get; set; }
+        public decimal? CargoCapacitySeatDownLiter { get; set; }
 
-        public int? CargoCapacityThirdRowSeatDownLiter { get; set; }
+        public decimal? CargoCapacityThirdRowSeatDownLiter { get; set; }
 
         public decimal? BedVolumeLiter { get; set; }
 
@@ -46,5 +46,15 @@ namespace evdb.models.Models
 
         public decimal? BedMaxWeight { get; set; }
 
+
+        public decimal? GetMaxLoad()
+        {
+            if(WeightUnladenDINKg != null && MaxVehicleWeightKg != null)
+            {
+                return decimal.Subtract(MaxVehicleWeightKg.Value, WeightUnladenDINKg.Value);
+            }
+
+            return null;
+        }
     }
 }

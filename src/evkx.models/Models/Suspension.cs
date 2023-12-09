@@ -31,16 +31,22 @@ namespace evdb.Models
         public EVFeature? AdjustableHeightRear { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
+        public SpringType? SpringTypeFront { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public SpringType? SpringTypeRear { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public DamperType? DamperTypeFront { get;set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public DamperType? DamperTypeRear { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public SuspensionType? SuspensionTypeFront { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SuspensionType? SuspensionTypeRear { get; set; }
-
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public SuspensionConstruction? SuspensionConstructionFront { get; set; }
-
-        [JsonConverter(typeof(JsonStringEnumConverter))]
-        public SuspensionConstruction? SuspensionConstructionRear { get; set; }
 
         public string? OptionId { get; set; }
 
