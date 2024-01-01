@@ -123,7 +123,7 @@
                             @Decimal.Round(EvConversion.ToMilesFromKph(range.TopTrimWltpRange).Value,0)
                             @Html.Raw("miles)")
                         }
-                        else if (range.BasicTrimWltpRange != null && range.TopTrimWltpRange != null && range.BasicTrimWltpRange == range.TopTrimWltpRange)
+                                else if (range.BasicTrimWltpRange != null && range.BasicTrimWltpRange.HasValue && range.TopTrimWltpRange != null && range.BasicTrimWltpRange == range.TopTrimWltpRange)
                         {
                             @range.BasicTrimWltpRange 
                             @Html.Raw("km (")
@@ -132,7 +132,7 @@
                                 }
 
                                 splitvalue = " / ";
-                            }
+                       }
                     }
                     </td>
 
@@ -210,9 +210,9 @@
                             @Html.Raw("-")
                             @range.TopTrimEpaRange
                             @Html.Raw("miles (")
-                            @Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimWltpRange).Value,0)
+                            @Decimal.Round(EvConversion.ToKmFromMiles(range.BasicTrimEpaRange).Value, 0)
                             @Html.Raw("-")
-                            @Decimal.Round(EvConversion.ToKmFromMiles(range.TopTrimWltpRange).Value,0) 
+                            @Decimal.Round(EvConversion.ToKmFromMiles(range.TopTrimEpaRange).Value,0) 
                             @Html.Raw("km)");
                         }
                         else if (range.BasicTrimEpaRange != null && range.TopTrimEpaRange != null && range.BasicTrimEpaRange == range.TopTrimEpaRange)
@@ -247,7 +247,7 @@
                             @Html.Raw("kWh/100km )")
 
                         }
-                        else if (range.BasicTrimEpaRealConsumption != null && range.TopTrimRealWltpConsumption != null && range.BasicTrimEpaRealConsumption == range.TopTrimEpaRealConsumption)
+                            else if (range.BasicTrimEpaRealConsumption != null && range.TopTrimEpaRealConsumption != null && range.BasicTrimEpaRealConsumption == range.TopTrimEpaRealConsumption)
                         {
                             @Decimal.Round(EvConversion.ToMiKwhFromKwh100km(range.BasicTrimEpaRealConsumption.Value).Value,1) 
                             @Html.Raw("mi/kWh  (")
@@ -881,12 +881,12 @@
                             else if (suspension.SpringTypeFront.Equals(SpringType.Coil))
                             {
                                 @Html.Raw("Steel springs")
-                                ;
+                                
                             }
-                            else if (suspension.SpringTypeFront.Equals(SpringType.Coil))
+                            else if (suspension.SpringTypeFront.Equals(SpringType.Air))
                             {
                                 @Html.Raw("Air springs (air suspension)")
-                                ;
+                                
                             }
 
                             spiltvalue = " / ";
@@ -1031,7 +1031,7 @@
                 <th scope="row">Turning circle</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.TurningCircle mm (@EvConversion.ToInchFromMeter(ev.Dimensions.TurningCircle, 1)")</td>
+                    <td scope="col">@ev.Dimensions.TurningCircle meter (@EvConversion.ToInchFromMeter(ev.Dimensions.TurningCircle, 1)")</td>
                 }
             </tr>
 
@@ -1110,6 +1110,50 @@
                     </td>
                 }
             </tr>
+            @if(Model.Models.Exists(r=> r.ModelInfo.BodyType.Equals(EvBodyType.PickupTruck)))
+            {
+
+            <tr>
+                <th scope="row">Bed capacity</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.TransportCapabilities.BedVolumeLiter.HasValue)
+                        {
+                           @Html.Raw($"{ev.TransportCapabilities.BedVolumeLiter} liter ({EvConversion.ToCuFeetFromLiters(ev.TransportCapabilities.BedVolumeLiter)} cu-ft) ")
+                        }
+                    </td>
+                }
+            </tr>
+
+                <tr>
+                    <th scope="row">Bed length</th>
+                    @foreach (EV ev in Model.Models)
+                    {
+                        <td scope="col">
+                            @if (ev.TransportCapabilities.BedLength.HasValue)
+                            {
+                                @Html.Raw($"{ev.TransportCapabilities.BedLength} mm ({EvConversion.ToInchFromMillimeter(ev.TransportCapabilities.BedLength)}\") ")
+                            }
+                        </td>
+                    }
+                </tr>
+
+                <tr>
+                    <th scope="row">Bed width</th>
+                    @foreach (EV ev in Model.Models)
+                    {
+                        <td scope="col">
+                            @if (ev.TransportCapabilities.BedWidth.HasValue)
+                            {
+                                @Html.Raw($"{ev.TransportCapabilities.BedWidth} liter ({EvConversion.ToInchFromMillimeter(ev.TransportCapabilities.BedWidth)}\" ) ")
+                            }
+                        </td>
+                    }
+                </tr>
+
+            }
+
             <tr class="table-secondary">
                 <th scope="row">UI </th>
                 @foreach (EV ev in Model.Models)

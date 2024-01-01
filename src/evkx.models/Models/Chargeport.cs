@@ -16,5 +16,7 @@ namespace evdb.Models
 
         public List<ChargePortVariant>? ChargePortVariant { get; set; }
 
+        public bool? V2L { get; set; }
+
     }
 }

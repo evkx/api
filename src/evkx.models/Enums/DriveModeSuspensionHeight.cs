@@ -22,12 +22,24 @@ namespace evdb.models.Enums
         High3 = 4,
 
         [EnumMember(Value = "Low1")]
-        Low1 = 2,
+        Low1 = 5,
 
         [EnumMember(Value = "Low2")]
-        Low2 = 3,
+        Low2 = 6,
 
         [EnumMember(Value = "Low3")]
-        Low3 = 4,
+        Low3 = 7,
+
+        [EnumMember(Value = "Adaptive")]
+        Adaptive = 8,
+
+        [EnumMember(Value = "Custom")]
+        Custom = 9,
+
+        [EnumMember(Value = "Lowest")]
+        Lowest = 10,
+
+        [EnumMember(Value = "Highest")]
+        Highest = 11,
     }
 }

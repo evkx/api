@@ -60,6 +60,8 @@ namespace evdb.Models
 
         public Transmission? Transmission { get; set; }
 
+        public EVFeature? SelectableDriveModes { get; set; }
+
         public List<DriveMode> DriveModes { get; set; }
 
     }

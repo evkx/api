@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using evdb.models.Enums;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
@@ -12,7 +14,6 @@ namespace evdb.Models
             ModelYear = null;
             ProductionStart = null;
             CarSegment = null;
-            PriceSegment = null;
         }
 
         public string? Brand { get; set; }
@@ -29,8 +30,6 @@ namespace evdb.Models
 
         public string? CarSegment { get; set; }
 
-        public string? PriceSegment { get; set; }
-
         public string? Platform { get; set; }
 
         public bool? EvOnlyPlatform { get; set; }
@@ -42,5 +41,10 @@ namespace evdb.Models
         public int? ThumbHeight { get; set; }
 
         public List<string> Variants { get; set; }
+
+        public List<EvBodyType>? BodyType { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public PriceCategory? PriceSegment { get; set; }
     }
 }

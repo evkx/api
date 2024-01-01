@@ -12,5 +12,8 @@ namespace evdb.models.Models
         public PortLocation? Location { get; set; }
 
         public bool? Optional { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public Region? Region { get; set; }
     }
 }

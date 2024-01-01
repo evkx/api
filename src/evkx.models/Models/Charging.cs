@@ -21,5 +21,11 @@ namespace evdb.Models
         public EVFeature? ManualTriggerHeating { get; set; }
 
         public EVFeature? HeatingWhenNavigateToCharger { get; set; }
+
+        public EVFeature? V2L { get; set; }
+
+        public decimal? V2LPower { get; set; }
+
+        public EVFeature? V2G { get; set; }
     }
 }

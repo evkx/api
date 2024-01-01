@@ -28,7 +28,8 @@ namespace evdb.Models
 
         public string? CarSegment { get; set; }
 
-        public string? PriceSegment { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public PriceCategory? PriceSegment { get; set; }
 
         public string? Platform { get; set; }
 

@@ -4,22 +4,22 @@ using System.Text.Json.Serialization;
 namespace evdb.models.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum DriveModeSuspensionMode : int
+    public enum DriveModeRegenMode : int
     {
         [EnumMember(Value = "NotSet")]
         NotSet = 0,
 
-        [EnumMember(Value = "Dynamic")]
-        Dynamic = 1,
+        [EnumMember(Value = "Strong")]
+        Strong = 1,
 
-        [EnumMember(Value = "Comfort")]
-        Comfort = 2,
+        [EnumMember(Value = "Medium")]
+        Medium = 2,
 
-        [EnumMember(Value = "Balanced")]
-        Balanced = 3,
+        [EnumMember(Value = "Low")]
+        Low = 3,
 
-        [EnumMember(Value = "Custom")]
-        Custom = 4,
+        [EnumMember(Value = "Off")]
+        Off = 4,
 
         [EnumMember(Value = "Adaptive")]
         Adaptive = 5,

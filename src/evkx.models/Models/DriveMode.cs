@@ -17,5 +17,7 @@ namespace evdb.models.Models
         public DriveModeSuspensionMode? SuspensionMode { get; set; }
 
         public DriveModeSuspensionHeight? SuspensionHeight { get; set;}
+
+        public DriveModeRegenMode? RegenMode { get; set; }
     }
 }

@@ -57,5 +57,14 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "BelowSecondRowSeat")]
         BelowSecondRowSeat = 17,
+
+        [EnumMember(Value = "Glowbox")]
+        Glowbox = 18,
+
+        [EnumMember(Value = "BedLeftSide")]
+        BedLeftSide = 19,
+
+        [EnumMember(Value = "BedRightSide")]
+        BedRightSide = 20,
     }
 }

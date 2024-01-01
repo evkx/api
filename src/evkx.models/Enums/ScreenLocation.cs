@@ -58,5 +58,14 @@ namespace evdb.models.Enums
         [EnumMember(Value = "BehindSteeringWheelToCenterOnDash")]
         BehindSteeringWheelToCenterOnDash = 16,
 
+        [EnumMember(Value = "SecondRowCenterConsole")]
+        SecondRowCenterConsole = 17,
+
+        [EnumMember(Value = "BehindFirstRowSeatsInRoof")]
+        BehindFirstRowSeatsInRoof = 18,
+
+        [EnumMember(Value = "BackOfFirstRowSeat")]
+        BackOfFirstRowSeat = 19,
+
     }
 }

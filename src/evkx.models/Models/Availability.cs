@@ -16,5 +16,7 @@ namespace evdb.models.Models
         public DateTime? SaleStart { get; set; }
 
         public DateTime? DeliveryStart { get; set;  }
+
+        public AvailableStatus? AvailableStatus { get; set; }   
     }
 }
