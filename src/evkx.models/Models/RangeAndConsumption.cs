@@ -39,6 +39,10 @@ namespace evdb.models.Models
 
         public decimal? TopTrimEpaRealConsumption { get; set; }
 
+        public int? BasicTrimCLTCRange { get; set; }
+
+        public decimal? BasicTrimCLTCRealConsumption { get; set; }
+
 
         public decimal? GetImperialBasicTrimEpaRealConsumption()
         {

@@ -226,6 +226,34 @@ namespace evdb.Models
         }
 
 
+        public decimal? GetBasicTrimCLTCConsumptionReal(int? rangeIndex = null)
+        {
+            if (Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
+            {
+                return null;
+            }
+
+            Battery? battery = Drivetrain?.Battery?.FirstOrDefault();
+
+            if (rangeIndex != null && rangeIndex.Value != 0)
+            {
+                if (Drivetrain.Battery.Count > (rangeIndex + 1))
+                {
+                    battery = Drivetrain.Battery[rangeIndex.Value];
+                }
+            }
+
+            RangeAndConsumption? range = Drivetrain?.RangeAndConsumption?.FirstOrDefault();
+
+            if (battery?.NetCapacitykWh == null || range?.BasicTrimCLTCRange == null)
+            {
+                return null;
+            }
+
+            return (battery.NetCapacitykWh / (decimal)range.BasicTrimCLTCRange) * 100;
+        }
+
+
         public decimal? GetConsumption120()
         {
             if(Drivetrain?.RangeAndConsumption != null && Drivetrain.RangeAndConsumption.Any())

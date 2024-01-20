@@ -51,5 +51,11 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "StandardGullwing")]
         StandardGullwing = 15,
+
+        [EnumMember(Value = "Scissor")]
+        Scissor = 16,
+
+        [EnumMember(Value = "Butterfly")]
+        Butterfly = 17,
     }
 }
