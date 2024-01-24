@@ -143,11 +143,12 @@ namespace evdb.Services
                 }
                 else if (sortOrder.Equals(SortOrder.WltpBasicConsumption))
                 {
-                    if (ev.WltpConsumptionBasicTrim().Value != 0)
+                    if (ev.WltpConsumptionBasicTrim().HasValue && ev.WltpConsumptionBasicTrim().Value != 0)
                     {
                         evSimple.SortValue = ev.WltpConsumptionBasicTrim().ToString();
                         evSimple.SortParameter = "kWh/100km";
                     }
+                    else
                     {
                         evSimple.SortValue = "N/A";
                         evSimple.SortParameter = string.Empty;
