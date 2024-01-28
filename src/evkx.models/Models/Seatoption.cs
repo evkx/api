@@ -48,33 +48,21 @@ namespace evdb.Models
 
         public EVFeature? ForeAndAftAdjustment { get; set; }
 
+        public EVFeature? ReclineAdjustment { get; set; }
+
         public EVFeature? HeightAdjustment { get; set; }
 
         public EVFeature? SeatCushionAngleAdjustment { get; set; }
 
-        public EVFeature? ElectricAdjustment { get; set; }
-
         public EVFeature? ElectricLumbarAdjustment { get; set; }
-
-        public EVFeature? Massage { get; set; }
-
-        public EVFeature? Ventilation { get; set; }
-
-        public EVFeature? SeatHeating { get; set; }
-
-        public EVFeature? MemoryDriverSeat { get; set; }
-
-        public EVFeature? MemoryPassangerSeat { get; set; }
-
-        public EVFeature? IntegratedHeadrest { get; set; }
 
         public EVFeature? HeightAdjustableHeadrest { get; set; }
 
         public EVFeature? LengthAdjustableHeadrest { get; set; }
 
-        public EVFeature? AdjustableThighSupport { get; set; }
+        public EVFeature? IntegratedHeadrest { get; set; }
 
-        public EVFeature? ReclineAdjustment { get; set; }
+        public EVFeature? AdjustableThighSupport { get; set; }
 
         public EVFeature? ElectricAdjustableThighSupport { get; set; }
 
@@ -82,6 +70,20 @@ namespace evdb.Models
 
         public EVFeature? AdjustableSideSupportBottom { get; set; }
 
+        public EVFeature? ElectricAdjustment { get; set; }
+
+        public EVFeature? ElectricAdjustmentPassenger { get; set; }
+
+        public EVFeature? MemoryDriverSeat { get; set; }
+
+        public EVFeature? MemoryPassangerSeat { get; set; }
+
+        public EVFeature? Massage { get; set; }
+
+        public EVFeature? Ventilation { get; set; }
+
+        public EVFeature? SeatHeating { get; set; }
+       
         public EVFeature? EasyAccessDriverSeat { get; set; }
 
         public EVFeature? EasyAccessPassenger { get; set; }

@@ -36,7 +36,10 @@ namespace evdb.Models
             DrivingAutomation = new List<DrivingAutomation>();
             FrontParkingSensors = new EVFeature();
             ExitWarning = new EVFeature();
+            SensorsAndCameras = new SensorsAndCameras();
         }
+
+        public SensorsAndCameras? SensorsAndCameras { get; set; }
 
         public EVFeature? NightVision { get; set; }
         
