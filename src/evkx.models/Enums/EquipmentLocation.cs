@@ -85,5 +85,11 @@ namespace evdb.models.Enums
         [EnumMember(Value = "RightBPillar")]
         RightBPillar = 25,
 
+        [EnumMember(Value = "CenterRoofOverWindshield")]
+        CenterRoofOverWindshield = 26,
+
+        [EnumMember(Value = "CenterRoofOverRearWindow")]
+        CenterRoofOverRearWindow = 27,
+
     }
 }

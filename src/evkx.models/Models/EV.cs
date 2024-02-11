@@ -554,5 +554,47 @@ namespace evdb.Models
             return weightUnladenDINKg;
         }
 
+        public string GetBatterySizeText()
+        {
+            if(Drivetrain?.Battery != null && Drivetrain.Battery.Count == 1 && Drivetrain.Battery[0].GrossCapacitykWh.HasValue)
+            {
+                return Drivetrain.Battery[0].GrossCapacitykWh + " kWh";
+            }
+
+            if(Drivetrain?.Battery != null && Drivetrain.Battery.Count > 1)
+            {
+                string batteryText = "" +
+                Drivetrain.Battery.OrderBy(b => b.GrossCapacitykWh.Value).First().GrossCapacitykWh.Value +
+                " - " +
+                Drivetrain.Battery.OrderByDescending(b => b.GrossCapacitykWh.Value).First().GrossCapacitykWh.Value +
+                " kWh";
+
+                return batteryText;
+            }
+
+            return string.Empty;
+        }
+
+        public string GetBatteryChargingSpeedText()
+        {
+            if (Drivetrain?.Battery != null && Drivetrain.Battery.Count == 1 && Drivetrain.Battery[0].GrossCapacitykWh.HasValue)
+            {
+                return Drivetrain.Battery[0].MaxDCChargeSpeed + " kW";
+            }
+
+            if (Drivetrain?.Battery != null && Drivetrain.Battery.Count > 1)
+            {
+                string batteryText = "" +
+                Drivetrain.Battery.OrderBy(b => b.MaxDCChargeSpeed.Value).First() .MaxDCChargeSpeed.Value +
+                " - " +
+                Drivetrain.Battery.OrderByDescending(b => b.MaxDCChargeSpeed.Value).First().MaxDCChargeSpeed.Value +
+                " kW";
+
+                return batteryText;
+            }
+
+            return string.Empty;
+        }
+
     }
 }

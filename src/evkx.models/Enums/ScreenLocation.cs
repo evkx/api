@@ -67,5 +67,8 @@ namespace evdb.models.Enums
         [EnumMember(Value = "BackOfFirstRowSeat")]
         BackOfFirstRowSeat = 19,
 
+        [EnumMember(Value = "CenterOfSharedFrameTopOfDash")]
+        CenterOfSharedFrameTopOfDash = 20,
+
     }
 }

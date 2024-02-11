@@ -23,5 +23,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "CameraRadarLidarUltrasonic")]
         CameraRadarLidarUltrasonic = 5,
+
+        [EnumMember(Value = "CameraLidarUltrasonic")]
+        CameraLidarUltrasonic = 6,
     }
 }
