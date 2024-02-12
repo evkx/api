@@ -21,5 +21,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "TorsionBeam")]
         TorsionBeam = 5,
+
+        [EnumMember(Value = "TrailingWishbone")]
+        TrailingWishbone = 6,
     }
 }
