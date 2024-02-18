@@ -26,5 +26,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "HoldCreep")]
         HoldCreep = 6,
+
+        [EnumMember(Value = "RollCreep")]
+        RollCreep = 7,
     }
 }
