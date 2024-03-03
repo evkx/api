@@ -1535,7 +1535,7 @@
                     <td scope="col">
                     @if(ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count == 1)
                     {
-                        EVFeature? eVFeature = ev.DriverAssistance.DrivingAutomation[0].AutoSteer;
+                        EVFeature? eVFeature = ev.DriverAssistance.DrivingAutomation[0].LaneCenteringAssist;
                         if(eVFeature != null)
                         {
                             RenderEvFeature(eVFeature);
@@ -1544,23 +1544,23 @@
                     else if (ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count > 1)
                     {
                     
-                        if(ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.NotAvailable))
-                        && (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Optional))
-                        || ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Standard))))
+                        if(ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.NotAvailable))
+                        && (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional))
+                        || ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard))))
                         {
                             @Html.Raw("Optional")
                         }
-                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Optional))
-                        && ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Standard)))
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional))
+                        && ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard)))
                         {
                             @Html.Raw("Optional")
 
                         }
-                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Optional)))
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional)))
                         {
                             @Html.Raw("Optional")
                         }
-                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.AutoSteer != null && d.AutoSteer.FeatureStatus.Equals(FeatureStatus.Standard)))
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard)))
                         {
                             @Html.Raw("Standard")
                         }

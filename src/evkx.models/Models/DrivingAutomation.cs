@@ -13,7 +13,7 @@ namespace evdb.models.Models
         {
             CruiseControl = new EVFeature();
             AdaptiveCruiseControl = new EVFeature();
-            AutoSteer = new EVFeature();
+            LaneCenteringAssist = new EVFeature();
             Summon = new EVFeature();
             AutomaticLaneChange = new EVFeature();
             FollowNavigation = new EVFeature();
@@ -33,7 +33,7 @@ namespace evdb.models.Models
 
         public EVFeature? AdaptiveCruiseControl { get; set; }
 
-        public EVFeature? AutoSteer { get; set; }
+        public EVFeature? LaneCenteringAssist { get; set; }
 
         public EVFeature? Summon { get; set; }
 
