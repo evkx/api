@@ -44,6 +44,26 @@ namespace evdb.Controllers
             return searchOptions;
         }
 
+        [HttpGet("/api/ev/list")]
+        public async Task<ActionResult<List<evkxapi.Models.EvSimple>>> ListEvs()
+        {
+            List<EV> evs = await _evService.GetAllEv();
+
+            List<evkxapi.Models.EvSimple> evsSimple = new List<evkxapi.Models.EvSimple>();    
+
+            foreach(EV ev in evs)
+            {
+                evsSimple.Add(new evkxapi.Models.EvSimple() { 
+                    EvId = ev.Id.ToString(),
+                     Brand = ev.Brand.Name,
+                        Model = ev.ModelInfo.Name,
+                    Variant = ev.ModelInfo.Variant
+                });
+            }
+           
+            return Ok(evsSimple);
+        }
+
 
         [HttpGet("/api/ev/{id}/batteries/")]
         public async Task<ActionResult<List<BatteryExternal>>> GetBatteries(string id)
