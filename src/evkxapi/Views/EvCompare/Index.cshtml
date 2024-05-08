@@ -1639,8 +1639,8 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                        <a href="https://evkx.net/@ev.GetEvPath()/chargingcurve/ " target="_blank">
-                        <img src="https://evkx.net/@ev.GetEvPath()/chargingcurve.svg" style="max-width: 250px" class="img-fluid">
+                        <a href="https://evkx.net/@Html.Raw(ev.GetEvPath())/chargingcurve/" target="_blank">
+                            <img src="https://evkx.net/images/@Html.Raw(ev.GetEvPath())/chargingcurve.svg" style="max-width: 250px" class="img-fluid">
                         </a>
                     </td>
                 }

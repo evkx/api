@@ -45,15 +45,15 @@ namespace evdb.Controllers
         }
 
         [HttpGet("/api/ev/list")]
-        public async Task<ActionResult<List<evkxapi.Models.EvSimple>>> ListEvs()
+        public async Task<ActionResult<List<evkxapi.Models.EvSimpleExternal>>> ListEvs()
         {
             List<EV> evs = await _evService.GetAllEv();
 
-            List<evkxapi.Models.EvSimple> evsSimple = new List<evkxapi.Models.EvSimple>();    
+            List<evkxapi.Models.EvSimpleExternal> evsSimple = new List<evkxapi.Models.EvSimpleExternal>();    
 
             foreach(EV ev in evs)
             {
-                evsSimple.Add(new evkxapi.Models.EvSimple() { 
+                evsSimple.Add(new evkxapi.Models.EvSimpleExternal() { 
                     EvId = ev.Id.ToString(),
                      Brand = ev.Brand.Name,
                         Model = ev.ModelInfo.Name,
@@ -87,6 +87,15 @@ namespace evdb.Controllers
            _evService.ClearCache();
 
             return Ok();
+        }
+
+
+        [HttpPost("/api/convertcurve")]
+        public ActionResult<List<ChargeSpeedExternal>> ConvertCurve([FromBody] string curves)
+        {
+            List<ChargeSpeedExternal> evs = new List<ChargeSpeedExternal>();
+
+            return Ok(evs);
         }
 
 

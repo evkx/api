@@ -1,6 +1,6 @@
 ﻿namespace evkxapi.Models
 {
-    public class EvSimple
+    public class EvSimpleExternal
     {
         public string? EvId { get; set; }
 
