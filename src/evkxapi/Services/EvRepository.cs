@@ -27,9 +27,13 @@ namespace evdb.Services
                 try
                 {
                     EV? evModel = await System.Text.Json.JsonSerializer.DeserializeAsync<EV>(specStream);
-                    if (evModel != null  && evModel.Brand?.Name != null  && evModel.ModelInfo?.Name != null && (evModel.ModelInfo.Ignore == null || !evModel.ModelInfo.Ignore.Value))
+                    if (evModel != null  && !string.IsNullOrWhiteSpace(evModel.Brand?.Name) && evModel.ModelInfo?.Name != null && (evModel.ModelInfo.Ignore == null || !evModel.ModelInfo.Ignore.Value))
                     {
                         evList.Add(evModel);
+                    }
+                    else
+                    {
+                        Console.WriteLine(specPath);
                     }
                 }
                 catch (Exception ex)
