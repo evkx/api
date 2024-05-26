@@ -8,16 +8,16 @@ namespace evdb.Models
 {
     public class ModelInfo
     {
-        public ModelInfo()
+        public ModelInfo(string name, string variant)
         {
-            Name = null;
-            Variant = null;
+            Name = name;
+            Variant = variant;
             CarSegment = null;
-            PriceSegment = null;
-            BodyType = null;
+            PriceSegment = PriceCategory.NotSet;
+            BodyType = EvBodyType.NotSet;
         }
 
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         public string? Variant { get; set; }
 
@@ -29,7 +29,7 @@ namespace evdb.Models
         public string? CarSegment { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public PriceCategory? PriceSegment { get; set; }
+        public PriceCategory PriceSegment { get; set; }
 
         public string? Platform { get; set; }
 
@@ -38,10 +38,13 @@ namespace evdb.Models
         public bool? EvOnlyConstruction { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public EvBodyType? BodyType { get; set; }
+        public EvBodyType BodyType { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ModelStatus? ModelStatus { get; set; }
+
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public SpecStatus? SpecStatus { get; set; } 
 
         public DateTime? WorldPremiere { get; set; }
 

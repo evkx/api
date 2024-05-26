@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace evdb.Models
 {
@@ -13,9 +9,9 @@ namespace evdb.Models
 
         public string? RepoPath { get; set; }
 
-        public string? CloudPath { get; set; }
+        public required string CloudPath { get; set; }
 
-        public string? ExternalUrl { get; set; }
+        public required string ExternalUrl { get; set; }
 
         public bool? HasXSmallThumb { get; set; }
 
@@ -27,15 +23,15 @@ namespace evdb.Models
 
         public Dictionary<string, string>? Description { get; set; }
 
-        public int? Width { get; set; }
+        public int Width { get; set; }
 
-        public int? Height { get; set; }
+        public int Height { get; set; }
 
 
-        public string? GetThumbExternalUrl()
+        public string GetThumbExternalUrl()
         {
-            string extension = Path.GetExtension(RepoPath);
-            if (ExternalUrl != null)
+            string? extension = Path.GetExtension(RepoPath);
+            if (extension != null)
             {
                 if(HasSmallThumb != null && HasSmallThumb.Value)
                 {
@@ -49,7 +45,7 @@ namespace evdb.Models
                 return ExternalUrl;
             }
 
-            return null;
+            return ExternalUrl;
         }
 
         public string? GetXSThumbExternalUrl()
@@ -84,40 +80,25 @@ namespace evdb.Models
 
         public int GetMediumHeight()
         {
-            if (Height.HasValue && Width.HasValue)
-            {
-                int height = (int)((double)(1200 / (double) Width.Value) * (double)Height.Value);
-                return height;
-            }
-            return default;
+           int height = (int)((double)(1200 / (double) Width) * (double)Height);
+           return height;
         }
 
         public int GetSmallHeight()
         {
-            if (Height.HasValue && Width.HasValue)
-            {
-                int height = (int)((double)(800 / (double)Width.Value) * (double)Height.Value);
-                return height;
-            }
-            return default;
+            int height = (int)((double)(800 / (double)Width) * (double)Height);
+            return height;
         }
 
         public int GetXSmallHeight()
         {
-            if (Height.HasValue && Width.HasValue)
-            {
-                return (int)((double)(400 / (double)Width.Value) * (double)Height.Value);
-            }
-            return default;
+             return (int)((double)(400 / (double)Width) * (double)Height);
         }
 
         public int GetXXSmallHeight()
         {
-            if (Height.HasValue && Width.HasValue)
-            {
-                return (int)((double)((double) 200 / (double) Width.Value) * (double)Height.Value);
-            }
-            return default;
+       
+            return (int)((double)((double) 200 / (double) Width) * (double)Height);
         }
     }
 }

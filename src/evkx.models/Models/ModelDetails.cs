@@ -6,19 +6,21 @@ namespace evdb.Models
 {
     public class ModelDetails
     {
-        public ModelDetails()
+        public ModelDetails(string brand, string name)
         {
-            Brand = null;
-            Name = null;
+            Brand = brand;
+            Name = name;
             SaleStart = null;
             ModelYear = null;
             ProductionStart = null;
             CarSegment = null;
+            Variants = new List<string>();
+            BodyType = new List<EvBodyType>();
         }
 
-        public string? Brand { get; set; }
+        public string Brand { get; set; }
 
-        public string? Name { get; set; }    
+        public string Name { get; set; }    
 
         public string? VinPattern { get; set; } 
 
@@ -42,7 +44,7 @@ namespace evdb.Models
 
         public List<string> Variants { get; set; }
 
-        public List<EvBodyType>? BodyType { get; set; }
+        public List<EvBodyType> BodyType { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public PriceCategory? PriceSegment { get; set; }

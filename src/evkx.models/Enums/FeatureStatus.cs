@@ -15,5 +15,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Standard")]
         Standard = 3,
+
+        [EnumMember(Value = "RequiresSoftwareUpdate")]
+        RequiresSoftwareUpdate = 4,
     }
 }

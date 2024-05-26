@@ -1,4 +1,5 @@
-﻿using evkx.models.Models.Search;
+﻿using evdb.models.Enums;
+using evkx.models.Models.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,10 @@ namespace evdb.Models
 
         public double? MaxDCChargeSpeed { get; set; }
 
+        public ChargingConfiguration? ChargingConfiguration { get; set; }
+        
+        public double? MaxDCChargeSpeedLowVoltage { get; set; }
+
         public decimal? GetBufferSize()
         {
             if (!NetCapacitykWh.HasValue || !GrossCapacitykWh.HasValue)
@@ -74,13 +79,8 @@ namespace evdb.Models
             return 100-(NetCapacitykWh.Value / GrossCapacitykWh.Value) * 100;
         }
 
-        public List<ChargeSpeed>? GetFullChargeCurve()
+        public List<ChargeSpeed> GetFullChargeCurve()
         {
-            if(ChargeCurve == null)
-            {
-                return null;
-            }
-
             if (_fullChargeCurve == null)
             {
                 List<ChargeSpeed> calculatedCurve = new List<ChargeSpeed>();
@@ -128,7 +128,10 @@ namespace evdb.Models
                 if (chargeSpeed.SOC == index)
                 {
                     fullCurve.Add(chargeSpeed);
-                    lastValidKwSpeed = chargeSpeed.SpeedKw.Value;
+                    if (chargeSpeed.SpeedKw != null)
+                    {
+                        lastValidKwSpeed = chargeSpeed.SpeedKw.Value;
+                    }
                     index++;
                 }
                 else

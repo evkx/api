@@ -8,6 +8,8 @@ namespace evdb.models.Models
     {
         public Guid? Id { get; set; }
 
+        public string? Md5Hash { get; set; }
+
         public string? EvId { get; set; }
 
         public string? Brand { get; set; }
@@ -38,8 +40,8 @@ namespace evdb.models.Models
 
         public string? GetMediumThumbExternalUrl()
         {
-            string extension = System.IO.Path.GetExtension(ImagePath);
-            if (ImagePath != null)
+            string? extension = System.IO.Path.GetExtension(ImagePath);
+            if (ImagePath != null  && extension != null)
             {
                 if (HasMediumThumb != null && HasMediumThumb.Value)
                 {

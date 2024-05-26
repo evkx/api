@@ -11,43 +11,53 @@ namespace evdb.Models
     {
         public EV()
         {
-            ModelInfo = new ModelInfo();
-            Brand = new Brand();
+            ModelInfo = new ModelInfo(string.Empty, string.Empty);
+            Brand = new Brand() { Name = string.Empty };
             Dimensions =  new Dimensions();
             Reviews = new List<EvReview>();
-            Reviews.Add(new EvReview());
+            Drivetrain = new Drivetrain();
+            Interior = new Interior();
+            Exterior = new Exterior();  
+            Lights = new Lights();  
+            Comfort = new Comfort();
+            TransportCapabilities = new TransportCapabilities();
+            ModelPictures = new List<CloudMedia>();
+            Infotainment = new Infotainment();
         }
 
 
         private static readonly Regex removeInvalidChars = new Regex($"[{Regex.Escape(new string(Path.GetInvalidFileNameChars()))}]",
    RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
+
+        private string? _md5Hash;
+
         public Guid? Id { get; set; }
 
 
-        public Brand? Brand { get; set; }
+        public Brand Brand { get; set; }
 
-        public ModelInfo? ModelInfo { get; set; }
+        public ModelInfo ModelInfo { get; set; }
 
-        public Dimensions? Dimensions { get; set; }
+        public Dimensions Dimensions { get; set; }
 
-        public TransportCapabilities? TransportCapabilities { get; set; }
+        public TransportCapabilities TransportCapabilities { get; set; }
 
-        public Drivetrain? Drivetrain { get; set; }
+        public Drivetrain Drivetrain { get; set; }
 
-        public Exterior? Exterior { get; set; }
+        public Exterior Exterior { get; set; }
 
         public DriverAssistance? DriverAssistance { get; set; }
 
         public UIAndControls? UIAndControls { get; set; }
 
-        public Interior? Interior { get; set; }
+        public Interior Interior { get; set; }
 
-        public Infotainment? Infotainment { get; set; }
+        public Infotainment Infotainment { get; set; }
 
-        public Comfort? Comfort { get; set; }
+        public Comfort Comfort { get; set; }
 
-        public Lights? Lights { get; set; }
+        public Lights Lights { get; set; }
 
         public List<EvReview>? Reviews { get; set; }
 
@@ -76,7 +86,7 @@ namespace evdb.Models
         }
 
 
-        public string? GetVariantName()
+        public string GetVariantName()
         {
             if (!string.IsNullOrEmpty(ModelInfo?.Variant))
             {
@@ -88,7 +98,7 @@ namespace evdb.Models
                 return ModelInfo.Variant;
             }
 
-            return ModelInfo?.Name;
+            return ModelInfo.Name;
         }
 
         public double? GetZeroTo100()
@@ -111,6 +121,17 @@ namespace evdb.Models
             }
 
             return zeroto100;
+        }
+
+        public void SetHash(string hash)
+        {
+            _md5Hash = hash;
+        }
+
+
+        public string GetHash()
+        {
+            return _md5Hash;
         }
         
 
@@ -144,13 +165,13 @@ namespace evdb.Models
 
         public decimal? GetTopTrimWltpConsumptionReal(int? rangeIndex = null)
         {
-            if (Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
+            if (Drivetrain.Battery == null || Drivetrain.Battery.Count == 0)
             {
                 return null;
             }
 
 
-            Battery? battery = Drivetrain?.Battery?.First();
+            Battery? battery = Drivetrain.Battery?.First();
             RangeAndConsumption? range = Drivetrain?.RangeAndConsumption?.FirstOrDefault();
 
             if (rangeIndex != null && rangeIndex.Value != 0)
@@ -172,12 +193,12 @@ namespace evdb.Models
 
         public decimal? GetBasicTrimEpaConsumptionReal(int? rangeIndex = null)
         {
-            if (Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
+            if (Drivetrain.Battery == null || Drivetrain.Battery.Count == 0)
             {
                 return null;
             }
 
-            Battery? battery = Drivetrain?.Battery?.FirstOrDefault();
+            Battery? battery = Drivetrain.Battery?.FirstOrDefault();
 
             if (rangeIndex != null && rangeIndex.Value != 0)
             {

@@ -21,5 +21,7 @@ namespace evdb.models.Models
         public Dictionary<string, string>? Intro { get; set; }
 
         public List<Weblink>? Weblinks { get; set; }
+
+        public List<string>? Modules { get; set; }
     }
 }
