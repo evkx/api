@@ -12,7 +12,7 @@ namespace evdb.models.Models
             Towbar = new EVFeature();
         }
 
-        public decimal? WeightUnladenDINKg { get; set; }
+        public decimal? CurbWeight { get; set; }
 
         public decimal? MaxVehicleWeightKg { get; set; }
 
@@ -49,9 +49,9 @@ namespace evdb.models.Models
 
         public decimal? GetMaxLoad()
         {
-            if(WeightUnladenDINKg != null && MaxVehicleWeightKg != null)
+            if(CurbWeight != null && MaxVehicleWeightKg != null)
             {
-                return decimal.Subtract(MaxVehicleWeightKg.Value, WeightUnladenDINKg.Value);
+                return decimal.Subtract(MaxVehicleWeightKg.Value, CurbWeight.Value);
             }
 
             return null;

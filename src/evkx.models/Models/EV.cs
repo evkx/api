@@ -420,9 +420,9 @@ namespace evdb.Models
         public decimal MaxLoadKg()
         {
             decimal size = 0;
-            if (TransportCapabilities != null && TransportCapabilities.MaxVehicleWeightKg.HasValue && TransportCapabilities.WeightUnladenDINKg.HasValue)
+            if (TransportCapabilities != null && TransportCapabilities.MaxVehicleWeightKg.HasValue && TransportCapabilities.CurbWeight.HasValue)
             {
-                size = TransportCapabilities.MaxVehicleWeightKg.Value - TransportCapabilities.WeightUnladenDINKg.Value;
+                size = TransportCapabilities.MaxVehicleWeightKg.Value - TransportCapabilities.CurbWeight.Value;
             }
 
             return size;
@@ -567,9 +567,9 @@ namespace evdb.Models
         public decimal WeightUnladenDINKg()
         {
             decimal weightUnladenDINKg = 0;
-            if (TransportCapabilities != null && TransportCapabilities.WeightUnladenDINKg.HasValue)
+            if (TransportCapabilities != null && TransportCapabilities.CurbWeight.HasValue)
             {
-                weightUnladenDINKg = TransportCapabilities.WeightUnladenDINKg.Value;
+                weightUnladenDINKg = TransportCapabilities.CurbWeight.Value;
             }
 
             return weightUnladenDINKg;

@@ -1039,7 +1039,7 @@
                 <th scope="row">Curb Weight</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.TransportCapabilities.WeightUnladenDINKg kg (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.WeightUnladenDINKg, 1) lbs)</td>
+                    <td scope="col">@ev.TransportCapabilities.CurbWeight kg (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.CurbWeight, 1) lbs)</td>
                 }
             </tr>
             <tr>
