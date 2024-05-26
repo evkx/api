@@ -37,7 +37,13 @@ namespace evdb.Services
             evs = EvSorter.Sort(evs, search);
             foreach (EV ev in evs)
             {
-                evSearchResult.Evs.Add(MapToSearchResult(ev, search.SortOrder));
+                try
+                {
+                    evSearchResult.Evs.Add(MapToSearchResult(ev, search.SortOrder));
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(ex.ToString());   
+                }
             }
 
             evSearchResult.Count = evSearchResult.Evs.Count();
