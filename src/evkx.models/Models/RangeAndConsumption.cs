@@ -1,4 +1,5 @@
-﻿using System;
+﻿using evdb.models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -77,6 +78,33 @@ namespace evdb.models.Models
         public decimal? GetImperialBasicTrim90KmhConsumption()
         {
             return ConvertToImperialConsumption(BasicTrim90KmhConsumption);
+        }
+
+        public string GetRangeAndEfficentCategory(EvBodyType? evBodyType)
+        {
+            string rangeCategory = string.Empty;
+            string efficentCategory = string.Empty;
+
+            if(BasicTrimWltpRange.HasValue && BasicTrimRealWltpConsumption.HasValue)
+            {
+                if(BasicTrimWltpRange.Value > 800)
+                {
+                    rangeCategory = "verylongrange";
+                }
+           
+                if(BasicTrimRealWltpConsumption.Value < 14)
+                {
+                    efficentCategory = "veryefficient";
+                }
+                
+            }
+
+            if (!string.IsNullOrEmpty(rangeCategory) && !string.IsNullOrEmpty(efficentCategory))
+            {
+                return $"drivetrain.rangeandconsumption.category.{rangeCategory}.{efficentCategory}";
+            }
+
+            return string.Empty;
         }
 
         private decimal? ConvertToImperialConsumption(decimal? metric)

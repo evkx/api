@@ -53,6 +53,8 @@ namespace evdb.Models
 
         public List<ChargeSpeed>? ChargeCurve { get; set; }
 
+        public CurveStatus? CurveStatus { get; set; }   
+
         public double? MaxDCChargeSpeed { get; set; }
 
         public ChargingConfiguration? ChargingConfiguration { get; set; }

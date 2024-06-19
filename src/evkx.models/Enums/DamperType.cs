@@ -15,5 +15,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "ElectronicallyControlled")]
         ElectronicallyControlled = 3,
+
+        [EnumMember(Value = "ActiveHydraulic")]
+        ActiveHydraulic = 4,
     }
 }

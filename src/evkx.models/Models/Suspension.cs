@@ -30,6 +30,14 @@ namespace evdb.Models
 
         public EVFeature? AdjustableHeightRear { get; set; }
 
+        public EVFeature? EeasyEntry { get; set; }
+
+        public EVFeature? EeasyLoading { get; set; }
+
+        public EVFeature? ActiveBodyControl { get; set; }
+
+        public EVFeature? ActiveCorneringDynamics { get; set; }
+
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SpringType? SpringTypeFront { get; set; }
 
