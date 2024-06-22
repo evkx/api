@@ -19,7 +19,7 @@ namespace evdb.models.Models
 
         public List<string>? LiftOfRegenLevels { get; set; }
 
-        public bool? BlendedBraks { get; set; }
+        public bool? BlendedBrakes { get; set; }
 
         public bool? BlendingBrakeOnLiftUpRegen { get; set; }
     }

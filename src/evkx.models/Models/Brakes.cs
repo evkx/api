@@ -37,7 +37,5 @@ namespace evdb.models.Models
         public decimal? RearBrakeDiscThickness { get; set; }
 
         public int? RearBrakePistons { get; set; }
-
-        public bool? BlendedBrakes { get; set; }
     }
 }

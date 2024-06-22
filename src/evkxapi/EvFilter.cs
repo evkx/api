@@ -804,7 +804,7 @@ namespace evdb
                 List<EV> templist = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Drivetrain?.Brakes != null && ev.Drivetrain.Brakes.Exists(r => r.BlendedBrakes.HasValue && r.BlendedBrakes.Value))
+                    if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.BlendedBrakes.HasValue && ev.Drivetrain.Regen.BlendedBrakes.Value)
                     {
                         templist.Add(ev);
                     }

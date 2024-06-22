@@ -618,12 +618,10 @@
                     <td scope="col">
                         @{
                             bool blendedBrake = false;
-                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+
+                            if(ev.Drivetrain.Regen.BlendedBrakes != null && ev.Drivetrain.Regen.BlendedBrakes.Value)
                             {
-                                if (brake.BlendedBrakes.HasValue && brake.BlendedBrakes.Value)
-                                {
-                                    blendedBrake = true;
-                                }
+                                blendedBrake = true;
                             }
                             if (blendedBrake)
                             {
