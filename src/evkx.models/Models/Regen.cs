@@ -7,7 +7,7 @@ namespace evdb.models.Models
     {
         public int? MaxRegenKw { get; set; }
 
-        public bool? OnePedalDriving { get; set; }
+        public bool? LiftUpRegen { get; set; }
 
         public bool? Coasting { get; set; }
 
@@ -18,5 +18,9 @@ namespace evdb.models.Models
         public OnePedalStoppingMode? OnePedalStoppingMode { get; set; }
 
         public List<string>? LiftOfRegenLevels { get; set; }
+
+        public bool? BlendedBraks { get; set; }
+
+        public bool? BlendingBrakeOnLiftUpRegen { get; set; }
     }
 }

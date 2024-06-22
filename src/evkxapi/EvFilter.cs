@@ -721,7 +721,7 @@ namespace evdb
                 List<EV> templist = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.OnePedalDriving.HasValue && ev.Drivetrain.Regen.OnePedalDriving.Value)
+                    if (ev.Drivetrain?.Regen != null && ev.Drivetrain.Regen.LiftUpRegen.HasValue && ev.Drivetrain.Regen.LiftUpRegen.Value)
                     {
                         if ((!searchFilter.LiftOfRegenWithHoldMode.HasValue || !searchFilter.LiftOfRegenWithHoldMode.Value) && (!searchFilter.LiftOfRegenLevels.HasValue || !searchFilter.LiftOfRegenLevels.Value))
                         {
