@@ -101,9 +101,9 @@ namespace evdb.Models
             return ModelInfo.Name;
         }
 
-        public double? GetZeroTo100()
+        public decimal? GetZeroTo100()
         {
-            double zeroto100 = 1000;
+            decimal zeroto100 = 1000;
 
            if(Drivetrain?.Performance != null && Drivetrain.Performance.Any())
             {
@@ -329,9 +329,9 @@ namespace evdb.Models
             return wltpConsumption;
         }
 
-        public int? Power()
+        public decimal? Power()
         {
-            int power = 0;
+            decimal power = 0;
 
             if(Drivetrain?.Performance != null)
             {
@@ -347,9 +347,9 @@ namespace evdb.Models
             return power;
         }
 
-        public int? TopSpeed()
+        public decimal? TopSpeed()
         {
-            int topSpeed = 0;
+            decimal topSpeed = 0;
 
             if (Drivetrain?.Performance != null)
             {

@@ -18,11 +18,11 @@ namespace evkx.models.Models.Search
 
         public string? ThumbUri { get; set; }
 
-        public int? TopSpeedKph { get; set; }
+        public decimal? TopSpeedKph { get; set; }
 
-        public int? MaxPowerKw { get; set; }
+        public decimal? MaxPowerKw { get; set; }
 
-        public double? ZeroTo100 { get; set; }
+        public decimal? ZeroTo100 { get; set; }
 
         public decimal? NetBattery { get; set; }
 
