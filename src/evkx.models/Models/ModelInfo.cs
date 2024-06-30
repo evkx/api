@@ -6,6 +6,9 @@ using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Basic model information
+    /// </summary>
     public class ModelInfo
     {
         public ModelInfo(string name, string variant)
@@ -17,16 +20,31 @@ namespace evdb.Models
             BodyType = EvBodyType.NotSet;
         }
 
+        /// <summary>
+        /// Model name
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Model variant
+        /// </summary>
         public string? Variant { get; set; }
 
+        /// <summary>
+        /// Legacy version of the model if discontinued and replaced by new
+        /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? LegacyVersion { get; set; }
 
+        /// <summary>
+        /// Ignore this model in the database
+        /// </summary>
         public bool? Ignore { get; set; }
 
-        public string? CarSegment { get; set; }
+        /// <summary>
+        /// Car segment of the model
+        /// </summary>
+        public CarSegment? CarSegment { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public PriceCategory PriceSegment { get; set; }

@@ -9,15 +9,12 @@ namespace evdb.Models
     {
         public Interior()
         {
-            FirstRowSeats = new List<Seatoption>();
-            FirstRowSeats.Add(new Seatoption());
-            SecondRowSeats = new List<Seatoption>();
-            SecondRowSeats.Add(new Seatoption());
+            FirstRowSeats = [new Seatoption()];
+            SecondRowSeats = [new Seatoption()];
             Hvac = new HVAC();
-            SeatLayout = new List<SeatLayout>();
-            SeatLayout.Add(new models.Models.SeatLayout());
-            InteriorDesigns = new List<InteriorDesign>();
-            InteriorDesigns.Add(new models.Models.InteriorDesign());    
+            SeatLayout = [];
+            SeatLayout.Add(new SeatLayout());
+            InteriorDesigns = [new InteriorDesign()];
         }
 
         public string? ConfigOptions { get; set; }

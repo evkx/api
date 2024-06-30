@@ -1,27 +1,27 @@
-﻿using evdb.models.Enums;
-using evdb.Models;
-using System;
+﻿using evdb.Models;
 using System.Collections.Generic;
-using System.Text;
 
 namespace evdb.models.Models
 {
     public class InteriorDesign
     {
-
         public InteriorDesign()
         {
-            SeatMaterials = new List<SeatMaterial>();
-            SeatMaterials.Add(new SeatMaterial());
+            SeatMaterials = [new SeatMaterial()];
         }
 
         public bool? Standard { get; set; }
 
         public Dictionary<string,string>? Name { get; set; }
 
+        /// <summary>
+        /// The different seat materials available
+        /// </summary>
         public List<SeatMaterial>? SeatMaterials { get; set; }
 
+        /// <summary>
+        /// The different headliner designs available
+        /// </summary>
         public List<HeadlinerDesign>? HeadlinerDesigns { get; set; }
-
     }
 }
