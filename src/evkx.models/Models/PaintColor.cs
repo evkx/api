@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using evdb.models.Enums;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace evdb.Models
@@ -18,7 +19,7 @@ namespace evdb.Models
         /// <summary>
         /// Paint type. Metallic, Pearl, Solid ++
         /// </summary>
-        public string? PaintType { get; set; }
+        public PaintType? PaintType { get; set; }
 
         /// <summary>
         /// Two tone color
