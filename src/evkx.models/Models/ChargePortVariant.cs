@@ -19,5 +19,27 @@ namespace evdb.models.Models
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ChargePortConnector? ChargePortType { get; set; }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "ChargeportVariant" };
+
+            if(Region == null || Region.Equals(Enums.Region.NotSet))
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(SubRegion == null || SubRegion.Equals(Enums.SubRegion.NotSet))
+            {
+                dataQualityScore.ReduceScore(1);
+            }
+
+            if(ChargePortType == null || ChargePortType.Equals(Enums.ChargePortConnector.NotSet))
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            return dataQualityScore;
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System;
 using System.Text.Json.Serialization;
 
 namespace evdb.Models
@@ -21,7 +23,45 @@ namespace evdb.Models
 
         public string? Model { get; set; }
 
-        public string? Mount { get; set; }
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Motor" };
+            if(Location == null || Location.Equals(MotorLocation.None))
+            {
+                dataQualityScore.DataQuality--;
+            }
 
+            if(Type == null || Type.Equals(MotorType.None))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(Power == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(PeakPower == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(ContinuousPower == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(Torque == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(string.IsNullOrEmpty(Model))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            return dataQualityScore;
+        }
     }
 }

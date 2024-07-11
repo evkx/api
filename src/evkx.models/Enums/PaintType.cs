@@ -27,7 +27,7 @@ namespace evdb.models.Enums
         [EnumMember(Value = "Wrap")]
         Wrap = 6,
 
-        [EnumMember(Value = "MultiCoat")]
+        [EnumMember(Value = "MultiCoat")]   
         MultiCoat = 7,
 
         [EnumMember(Value = "CrystalEffect")]

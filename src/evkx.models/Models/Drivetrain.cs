@@ -5,6 +5,9 @@ using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines the drivetrain for an EV. 
+    /// </summary>
     public class Drivetrain
     {
         public Drivetrain()
@@ -33,8 +36,6 @@ namespace evdb.Models
             SelectableDriveModes = new EVFeature();
             Charging = new Charging();
         }
-
-        public string? Platform { get; set; }
 
         public List<Battery> Battery { get; set; }
 
@@ -68,6 +69,149 @@ namespace evdb.Models
         public EVFeature SelectableDriveModes { get; set; }
 
         public List<DriveMode> DriveModes { get; set; }
+
+        public DataQualityScore CalculateDataQuality()
+        {
+           DataQualityScore dataQuality = new DataQualityScore() { DataArea = "Drivetrain" };
+
+            if (Battery == null || Battery.Count == 0)
+            {
+                dataQuality.DataQuality -= 10;
+            }
+            else
+            {
+                foreach (Battery battery in Battery)
+                {
+                    dataQuality.AddSubScore(battery.CalculateDataQuality());
+                }
+            }
+
+            if(Motors == null || Motors.Count == 0)
+            {
+                dataQuality.DataQuality -= 10;
+            }
+            else
+            {
+                foreach (Motor motor in Motors)
+                {
+                    dataQuality.AddSubScore(motor.CalculateDataQuality());
+                }
+            }
+
+            if(Brakes == null || Brakes.Count == 0)
+            {
+                dataQuality.DataQuality -= 10;
+            }
+            else
+            {
+                foreach (Brakes brake in Brakes)
+                {
+                    dataQuality.AddSubScore(brake.CalculateDataQuality());
+                }
+            }
+
+            if(DriveSetup == null || DriveSetup.Equals(models.Enums.DriveSetup.NotSet))
+            {
+                dataQuality.DataQuality-=200;
+            }
+
+            if(DynamicSteering == null || DynamicSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
+            {
+                dataQuality.DataQuality--;
+            }
+
+            if(RearWheelSteering == null || RearWheelSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
+            {
+                dataQuality.DataQuality-=5;
+            }
+
+            if(AllWheelDrive == null || AllWheelDrive.FeatureStatus.Equals(FeatureStatus.Unknown))
+            {
+                dataQuality.DataQuality-=5;
+            }
+
+            if(TorqueVectoring == null || TorqueVectoring.FeatureStatus.Equals(FeatureStatus.Unknown))
+            {
+                dataQuality.DataQuality--;
+            }
+
+            if(Suspension == null || Suspension.Count == 0)
+            {
+                dataQuality.ReduceScore(10);
+            }
+            else
+            {
+                foreach (Suspension suspension in Suspension)
+                {
+                    dataQuality.AddSubScore(suspension.CalculateDataQuality());
+                }
+            }
+
+            if(Performance == null || Performance.Count == 0)
+            {
+
+                dataQuality.ReduceScore(50);
+            }
+            else
+            {
+                foreach (Performance performance in Performance)
+                {
+                    dataQuality.AddSubScore(performance.CalculateDataQuality());
+                }
+            }
+
+            if(Charging == null)
+            {
+
+                dataQuality.ReduceScore(10);
+            }
+            else
+            {
+                dataQuality.AddSubScore(Charging.CalculateDataQuality());
+            }
+
+            if(RangeAndConsumption == null || RangeAndConsumption.Count == 0)
+            {
+                dataQuality.ReduceScore(100);
+            }
+            else
+            {
+                foreach (RangeAndConsumption range in RangeAndConsumption)
+                {
+                    dataQuality.AddSubScore(range.CalculateDataQuality());
+                }
+            }
+
+            if(Regen == null)
+            {
+
+                dataQuality.ReduceScore(100);
+            }
+            else
+            {
+                dataQuality.AddSubScore(Regen.CalculateDataQuality());
+            }
+
+            if(Transmission == null)
+            {
+
+                dataQuality.ReduceScore(2);
+            }
+
+            if(SelectableDriveModes == null || SelectableDriveModes.FeatureStatus.Equals(FeatureStatus.Unknown))
+            {
+
+                dataQuality.ReduceScore(5);
+            }
+
+            if(SelectableDriveModes != null && SelectableDriveModes.FeatureStatus.Equals(FeatureStatus.Standard) && DriveModes == null)
+            {
+
+                dataQuality.ReduceScore(5);
+            }
+
+            return dataQuality;
+        }
 
     }
 }

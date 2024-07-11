@@ -1,7 +1,9 @@
 ﻿using evdb.models.Enums;
 using evdb.models.Models;
+using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace evdb.Models
@@ -77,6 +79,105 @@ namespace evdb.Models
         public List<EvModelReference>? ReplacedBy { get; set; }
 
         public List<EvModelReference>? Replaces { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public int CalculateDataQuality()
+        {
+            int counter = 0;
+
+            if(string.IsNullOrEmpty(Name))
+            {
+                counter-=10;
+            }
+
+            if(string.IsNullOrEmpty(Variant))
+            {
+                counter-=10;
+            }
+
+
+            if (BodyType == EvBodyType.NotSet)
+            {
+                counter--;
+            }
+
+            if (CarSegment == null)
+            {
+                counter--;
+            }
+
+            if(string.IsNullOrEmpty(Platform))
+            {
+                counter--;
+            }
+
+            if (PriceSegment == PriceCategory.NotSet)
+            {
+                counter--;
+            }
+
+            if (EvOnlyConstruction == null)
+            {
+                counter--;
+            }
+
+            if(EvOnlyPlatform == null) {
+                counter--;
+            }
+
+   
+
+
+            if(ModelStatus == null)
+            {
+                counter--;
+            }   
+
+            if(SpecStatus == null)
+            {
+                counter--;
+            }
+
+            if(WorldPremiere == null)
+            {
+                counter--;
+            }
+
+            if(DeliveryStart == null)
+            {
+                counter--;
+            }
+
+            if(Availability == null || Availability.Count == 0)
+            {
+                counter--;
+            }
+
+            if(Pricing == null || Pricing.Count == 0)
+            {
+                counter--;
+            }
+
+            if(Alternatives == null || Alternatives.Count == 0)
+            {
+                counter-=10;
+            }
+
+            if(ReplacedBy == null)
+            {
+                counter--;
+            }
+
+            if(Replaces == null)
+            {
+                counter--;
+            }
+
+            return counter;
+        }
 
     }
 }

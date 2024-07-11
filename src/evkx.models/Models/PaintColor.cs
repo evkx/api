@@ -1,4 +1,6 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -21,6 +23,9 @@ namespace evdb.Models
         /// </summary>
         public PaintType? PaintType { get; set; }
 
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public PaintArea? Area { get; set; }
+
         /// <summary>
         /// Two tone color
         /// </summary>
@@ -38,5 +43,26 @@ namespace evdb.Models
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? SpecialColor { get; set; }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "PaintColor" };
+
+            if (string.IsNullOrWhiteSpace(Color))
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+            if (Name == null || Name.Count == 0)
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+
+            if(PaintType == null || PaintType.Equals(models.Enums.PaintType.NotSet))
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+
+            return dataQualityScore;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
 using evkx.models.Models.Search;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,9 @@ using System.Linq;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines the battery for an EV.
+    /// </summary>
     public class Battery
     {
 
@@ -24,11 +28,13 @@ namespace evdb.Models
         }
 
         /// <summary>
-        /// 
+        /// Defines if this battery is an optional battery for the EV or standard
         /// </summary>
-        /// 
         public bool? Optional { get; set; }
 
+        /// <summary>
+        /// Defines the name for the battery. 
+        /// </summary>
         public string? Name { get; set; }
 
         public decimal? GrossCapacitykWh { get; set; }
@@ -100,6 +106,104 @@ namespace evdb.Models
             {
                 return _fullChargeCurve;
             }
+        }
+
+        public DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Battery" };
+
+
+            if (Optional == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if (string.IsNullOrEmpty(Name))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if (!GrossCapacitykWh.HasValue)
+            {
+                dataQualityScore.DataQuality -= 10;
+            }
+
+            if (!NetCapacitykWh.HasValue)
+            {
+                dataQualityScore.DataQuality -= 10;
+            }
+
+            if (!WeightKg.HasValue)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if (string.IsNullOrEmpty(BatteryType))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if (string.IsNullOrEmpty(Modules))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(string.IsNullOrEmpty(CellPerModule))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(string.IsNullOrEmpty(PackConfiguration))
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(CellInfo == null)
+            {
+                dataQualityScore.DataQuality -=13;
+            }
+            else
+            {
+                dataQualityScore.AddSubScore(CellInfo.CalculateDataQuality());
+            }
+
+            if(!NominalVoltage.HasValue)
+            {
+                dataQualityScore.DataQuality -= 5;
+            }
+
+            if(!BatteryCapacityAh.HasValue)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(ChargeCurve == null || ChargeCurve.Count != 101)
+            {
+                dataQualityScore.DataQuality -= 10;
+            }
+
+            if(CurveStatus == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(!MaxDCChargeSpeed.HasValue)
+            {
+                dataQualityScore.DataQuality -= 10;
+            }
+           
+            if(ChargingConfiguration == null)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            if(!MaxDCChargeSpeedLowVoltage.HasValue)
+            {
+                dataQualityScore.DataQuality--;
+            }
+
+            return dataQualityScore;
+
         }
 
         private static List<ChargeSpeed> FindMissingChargeSpeeds(List<ChargeSpeed> sortedCurve)

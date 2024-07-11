@@ -1,4 +1,6 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 using System.Xml.Linq;
@@ -42,7 +44,7 @@ namespace evdb.Models
                     {
                         return "performance";
                     }
-                    else if (PowerKwBoost.Value > 249 && TorqueNmBoost.Value > 300)
+                    else if (PowerKwBoost.Value > 209 && TorqueNmBoost.Value > 300)
                     {
                         return "standardev";
                     }
@@ -61,7 +63,7 @@ namespace evdb.Models
                     {
                         return "performance";
                     }
-                    else if (PowerKw.Value > 249 && TorqueNm.Value > 300)
+                    else if (PowerKw.Value > 209 && TorqueNm.Value > 300)
                     {
                         return "standardev";
                     }
@@ -107,5 +109,35 @@ namespace evdb.Models
             return false;
         }
 
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Performance" };    
+            if(!PowerKw.HasValue && !PowerKwBoost.HasValue)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(!TorqueNm.HasValue && !TorqueNmBoost.HasValue)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(!TopSpeed.HasValue)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(!ZeroToHundredKph.HasValue && !ZeroToHundredKphBoost.HasValue)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(!OptionType.HasValue)
+            {
+                dataQualityScore.ReduceScore(1);
+            }
+         
+            return dataQualityScore;
+        }
     }
 }

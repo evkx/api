@@ -1,4 +1,5 @@
-﻿using evdb.models.Models;
+﻿using evdb.models.Enums;
+using evdb.models.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,12 +14,12 @@ namespace evdb.Models
         {
             ModelInfo = new ModelInfo(string.Empty, string.Empty);
             Brand = new Brand() { Name = string.Empty };
-            Dimensions =  new Dimensions();
+            Dimensions = new Dimensions();
             Reviews = new List<EvReview>();
             Drivetrain = new Drivetrain();
             Interior = new Interior();
-            Exterior = new Exterior();  
-            Lights = new Lights();  
+            Exterior = new Exterior();
+            Lights = new Lights();
             Comfort = new Comfort();
             TransportCapabilities = new TransportCapabilities();
             ModelPictures = new List<CloudMedia>();
@@ -64,17 +65,17 @@ namespace evdb.Models
         public List<EvCalculations>? Calculations { get; set; }
 
         public List<CloudMedia> ModelPictures { get; set; }
-        
+
         public string GetFullName()
         {
-            if(!string.IsNullOrEmpty(ModelInfo?.Variant))
+            if (!string.IsNullOrEmpty(ModelInfo?.Variant))
             {
-                if(Brand?.SubBrand != null)
+                if (Brand?.SubBrand != null)
                 {
                     return Brand?.SubBrand + " " + ModelInfo?.Variant;
                 }
 
-                if(string.IsNullOrEmpty(ModelInfo.LegacyVersion))
+                if (string.IsNullOrEmpty(ModelInfo.LegacyVersion))
                 {
                     return Brand?.Name + " " + ModelInfo?.Variant;
                 }
@@ -105,15 +106,15 @@ namespace evdb.Models
         {
             decimal zeroto100 = 1000;
 
-           if(Drivetrain?.Performance != null && Drivetrain.Performance.Any())
+            if (Drivetrain?.Performance != null && Drivetrain.Performance.Any())
             {
-                foreach(Performance performance in Drivetrain.Performance)
+                foreach (Performance performance in Drivetrain.Performance)
                 {
-                    if(performance.ZeroToHundredKphBoost.HasValue && performance.ZeroToHundredKphBoost.Value < zeroto100)
+                    if (performance.ZeroToHundredKphBoost.HasValue && performance.ZeroToHundredKphBoost.Value < zeroto100)
                     {
                         zeroto100 = performance.ZeroToHundredKphBoost.Value;
                     }
-                    else if(performance.ZeroToHundredKph.HasValue && performance.ZeroToHundredKph.Value < zeroto100)
+                    else if (performance.ZeroToHundredKph.HasValue && performance.ZeroToHundredKph.Value < zeroto100)
                     {
                         zeroto100 = performance.ZeroToHundredKph.Value;
                     }
@@ -133,20 +134,20 @@ namespace evdb.Models
         {
             return _md5Hash;
         }
-        
+
 
         public decimal? GetBasicTrimWltpConsumptionReal(int? rangeIndex = null)
         {
-            if(Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
+            if (Drivetrain?.Battery == null || Drivetrain.Battery.Count == 0)
             {
                 return null;
             }
 
             Battery? battery = Drivetrain?.Battery?.FirstOrDefault();
 
-            if(rangeIndex != null && rangeIndex.Value != 0)
+            if (rangeIndex != null && rangeIndex.Value != 0)
             {
-                if(Drivetrain.Battery.Count > (rangeIndex +1))
+                if (Drivetrain.Battery.Count > (rangeIndex + 1))
                 {
                     battery = Drivetrain.Battery[rangeIndex.Value];
                 }
@@ -154,13 +155,13 @@ namespace evdb.Models
 
             RangeAndConsumption? range = Drivetrain?.RangeAndConsumption?.FirstOrDefault();
 
-            if(battery?.NetCapacitykWh == null || range?.BasicTrimWltpRange == null)
+            if (battery?.NetCapacitykWh == null || range?.BasicTrimWltpRange == null)
             {
                 return null;
             }
 
-            return (battery.NetCapacitykWh / (decimal) range.BasicTrimWltpRange)*100;
-            
+            return (battery.NetCapacitykWh / (decimal)range.BasicTrimWltpRange) * 100;
+
         }
 
         public decimal? GetTopTrimWltpConsumptionReal(int? rangeIndex = null)
@@ -187,7 +188,7 @@ namespace evdb.Models
                 return null;
             }
 
-            return (battery.NetCapacitykWh / (decimal)range.TopTrimWltpRange)*100;
+            return (battery.NetCapacitykWh / (decimal)range.TopTrimWltpRange) * 100;
         }
 
 
@@ -215,7 +216,7 @@ namespace evdb.Models
                 return null;
             }
 
-            return ( (decimal)range.BasicTrimEpaRange) / battery.NetCapacitykWh ;
+            return ((decimal)range.BasicTrimEpaRange) / battery.NetCapacitykWh;
 
         }
 
@@ -277,7 +278,7 @@ namespace evdb.Models
 
         public decimal? GetConsumption120()
         {
-            if(Drivetrain?.RangeAndConsumption != null && Drivetrain.RangeAndConsumption.Any())
+            if (Drivetrain?.RangeAndConsumption != null && Drivetrain.RangeAndConsumption.Any())
             {
 
                 if (Drivetrain.RangeAndConsumption[0].BasicTrim120KmhConsumption.HasValue)
@@ -293,11 +294,11 @@ namespace evdb.Models
         {
             int? rangeValue = 0;
 
-            if(Drivetrain?.RangeAndConsumption != null)
+            if (Drivetrain?.RangeAndConsumption != null)
             {
-                foreach(RangeAndConsumption range in Drivetrain.RangeAndConsumption)
+                foreach (RangeAndConsumption range in Drivetrain.RangeAndConsumption)
                 {
-                    if(rangeValue == 0 && range.BasicTrimWltpRange.HasValue || range.BasicTrimWltpRange.HasValue && range.BasicTrimWltpRange.Value < rangeValue)
+                    if (rangeValue == 0 && range.BasicTrimWltpRange.HasValue || range.BasicTrimWltpRange.HasValue && range.BasicTrimWltpRange.Value < rangeValue)
                     {
                         rangeValue = range.BasicTrimWltpRange.Value;
                     }
@@ -313,7 +314,7 @@ namespace evdb.Models
             decimal? netsize = 0;
             if (Drivetrain?.Battery != null)
             {
-               netsize = Drivetrain.Battery[0].NetCapacitykWh; 
+                netsize = Drivetrain.Battery[0].NetCapacitykWh;
             }
             return netsize;
         }
@@ -333,11 +334,11 @@ namespace evdb.Models
         {
             decimal power = 0;
 
-            if(Drivetrain?.Performance != null)
+            if (Drivetrain?.Performance != null)
             {
-                foreach(var performance in Drivetrain.Performance)
+                foreach (var performance in Drivetrain.Performance)
                 {
-                    if(performance.PowerKw.HasValue && performance.PowerKw.Value > power)
+                    if (performance.PowerKw.HasValue && performance.PowerKw.Value > power)
                     {
                         power = performance.PowerKw.Value;
                     }
@@ -371,7 +372,7 @@ namespace evdb.Models
 
             if (Drivetrain?.Battery != null)
             {
-                foreach(Battery bat in Drivetrain.Battery)
+                foreach (Battery bat in Drivetrain.Battery)
                 {
                     if (bat.MaxDCChargeSpeed.HasValue)
                     {
@@ -386,7 +387,7 @@ namespace evdb.Models
         public decimal TrunkSize()
         {
             decimal size = 0;
-            if(TransportCapabilities != null && TransportCapabilities.CargoCapacityLiter.HasValue)
+            if (TransportCapabilities != null && TransportCapabilities.CargoCapacityLiter.HasValue)
             {
                 size = TransportCapabilities.CargoCapacityLiter.Value;
             }
@@ -433,9 +434,9 @@ namespace evdb.Models
             decimal voltage = 0;
             if (Drivetrain?.Battery != null && Drivetrain.Battery.Count > 0)
             {
-                foreach(Battery battery in Drivetrain.Battery)
+                foreach (Battery battery in Drivetrain.Battery)
                 {
-                    if(battery.NominalVoltage.HasValue && battery.NominalVoltage.Value > voltage)
+                    if (battery.NominalVoltage.HasValue && battery.NominalVoltage.Value > voltage)
                     {
                         voltage = battery.NominalVoltage.Value;
                     }
@@ -455,12 +456,12 @@ namespace evdb.Models
 
         public string GetEvPath()
         {
-            if(!string.IsNullOrEmpty(ModelInfo.LegacyVersion))
+            if (!string.IsNullOrEmpty(ModelInfo.LegacyVersion))
             {
                 return ("/models/" + SanitizedFileName(Brand?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Variant) + "_" + SanitizedFileName(ModelInfo?.LegacyVersion) + "/").ToLower();
             }
 
-            return ("/models/" + SanitizedFileName(Brand?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Name.ToLower()) +"/" + SanitizedFileName(ModelInfo?.Variant)+ "/").ToLower();
+            return ("/models/" + SanitizedFileName(Brand?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Name.ToLower()) + "/" + SanitizedFileName(ModelInfo?.Variant) + "/").ToLower();
         }
 
         public string GetRelativeVariantPath()
@@ -487,11 +488,11 @@ namespace evdb.Models
         {
             int maxGroundClearance = 0;
 
-            if(Drivetrain?.Suspension != null && Drivetrain.Suspension.Any())
+            if (Drivetrain?.Suspension != null && Drivetrain.Suspension.Any())
             {
-                foreach(var d in Drivetrain.Suspension)
+                foreach (var d in Drivetrain.Suspension)
                 {
-                    if(d.MaxGroundClearanceMM.HasValue && d.MaxGroundClearanceMM.Value > maxGroundClearance)
+                    if (d.MaxGroundClearanceMM.HasValue && d.MaxGroundClearanceMM.Value > maxGroundClearance)
                     {
                         maxGroundClearance = d.MaxGroundClearanceMM.Value;
                     }
@@ -531,9 +532,9 @@ namespace evdb.Models
                 {
                     if (d.MinGroundClearanceMM.HasValue && d.MaxGroundClearanceMM.HasValue)
                     {
-                        if((d.MaxGroundClearanceMM.Value - d.MinGroundClearanceMM.Value) > heightAdjustment)
+                        if ((d.MaxGroundClearanceMM.Value - d.MinGroundClearanceMM.Value) > heightAdjustment)
 
-                        heightAdjustment = d.MaxGroundClearanceMM.Value - d.MinGroundClearanceMM.Value;
+                            heightAdjustment = d.MaxGroundClearanceMM.Value - d.MinGroundClearanceMM.Value;
                     }
                 }
 
@@ -545,7 +546,7 @@ namespace evdb.Models
         public decimal Length()
         {
             decimal length = 0;
-            if(Dimensions != null && Dimensions.Length.HasValue)
+            if (Dimensions != null && Dimensions.Length.HasValue)
             {
                 length = Dimensions.Length.Value;
             }
@@ -577,12 +578,12 @@ namespace evdb.Models
 
         public string GetBatterySizeText()
         {
-            if(Drivetrain?.Battery != null && Drivetrain.Battery.Count == 1 && Drivetrain.Battery[0].GrossCapacitykWh.HasValue)
+            if (Drivetrain?.Battery != null && Drivetrain.Battery.Count == 1 && Drivetrain.Battery[0].GrossCapacitykWh.HasValue)
             {
                 return Drivetrain.Battery[0].GrossCapacitykWh + " kWh";
             }
 
-            if(Drivetrain?.Battery != null && Drivetrain.Battery.Count > 1)
+            if (Drivetrain?.Battery != null && Drivetrain.Battery.Count > 1)
             {
                 string batteryText = "" +
                 Drivetrain.Battery.OrderBy(b => b.GrossCapacitykWh.Value).First().GrossCapacitykWh.Value +
@@ -606,7 +607,7 @@ namespace evdb.Models
             if (Drivetrain?.Battery != null && Drivetrain.Battery.Count > 1)
             {
                 string batteryText = "" +
-                Drivetrain.Battery.OrderBy(b => b.MaxDCChargeSpeed.Value).First() .MaxDCChargeSpeed.Value +
+                Drivetrain.Battery.OrderBy(b => b.MaxDCChargeSpeed.Value).First().MaxDCChargeSpeed.Value +
                 " - " +
                 Drivetrain.Battery.OrderByDescending(b => b.MaxDCChargeSpeed.Value).First().MaxDCChargeSpeed.Value +
                 " kW";
@@ -617,5 +618,57 @@ namespace evdb.Models
             return string.Empty;
         }
 
+        public string GetDriveAxleText()
+        {
+            if (Drivetrain?.DriveSetup != null && !Drivetrain.DriveSetup.Equals(DriveSetup.NotSet))
+            {
+                if(Drivetrain.DriveSetup.Value.Equals(DriveSetup.OneMotorRearAxle))
+                {
+                    return "RWD";
+                }
+                else if(Drivetrain.DriveSetup.Value.Equals(DriveSetup.OneMotorFrontAxle))
+                {
+                    return "FWD";
+                }
+                else
+                {
+                    return "AWD";
+                }
+
+            }
+
+            return string.Empty;    
+        }
+
+
+        /// <summary>
+        /// Calculates the data quality score for the EV
+        /// Used to find the EV needed more data
+        /// </summary>
+        public DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQuality = new DataQualityScore() { DataArea = "EV" };
+
+            if(Drivetrain == null)
+            {
+                dataQuality.DataQuality-=1000;
+            }
+            else
+            {
+                dataQuality.AddSubScore(Drivetrain.CalculateDataQuality());
+            }
+
+            if(Exterior == null)
+            {
+
+               dataQuality.DataQuality-=1000;
+            }
+            else
+            {
+                dataQuality.AddSubScore(Exterior.CalculateDataQuality());
+            }
+
+            return dataQuality;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using evdb.models.Models;
+using System;
 using System.Collections.Generic;
 
 namespace evdb.Models
@@ -32,5 +33,64 @@ namespace evdb.Models
         public List<Door>? Doors { get; set; }
 
         public Windows? Windows { get; set; }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Exterior" };
+
+            if(PaintColors == null || PaintColors.Count == 0)
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+            else
+            {
+                foreach(PaintColor paintColor in PaintColors)
+                {
+                    dataQualityScore.AddSubScore(paintColor.CalculateDataQuality());    
+                }
+            }
+
+            if(WheelOptions == null || WheelOptions.Count == 0)
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+            else
+            {
+                foreach(Wheel wheel in WheelOptions)
+                {
+                    dataQualityScore.AddSubScore(wheel.CalculateDataQuality());
+                }
+            }
+
+
+            if(RoofOptions == null || RoofOptions.Count == 0)
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+            else
+            {
+                foreach(Roof roof in RoofOptions)
+                {
+                    dataQualityScore.AddSubScore(roof.CalculateDataQuality());
+                }
+            }
+
+
+            if(Doors == null || Doors.Count == 0)
+            {
+                dataQualityScore.ReduceScore(300);
+            }
+            else
+            {
+                foreach(Door door in Doors)
+                {
+                    dataQualityScore.AddSubScore(door.CalculateDataQuality());
+                }
+            }
+
+
+            return dataQualityScore;
+
+        }
     }
 }

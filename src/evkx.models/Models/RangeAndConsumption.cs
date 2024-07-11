@@ -117,5 +117,34 @@ namespace evdb.models.Models
             return decimal.Round(decimal.Divide(new decimal(62.1371), metric.Value),1);
 
         }
-     }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "RangeAndConsumption" };
+
+            if(BasicTrimCLTCRange == null && BasicTrimWltpRange == null && BasicTrimEpaRange == null)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            
+            if(BasicTrim120KmhConsumption == null)
+            {
+               dataQualityScore.ReduceScore(10);
+            }
+
+
+            if(BasicTrim70MphConsumption == null)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+    
+
+            if(BasicTrim90KmhConsumption == null)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            return dataQualityScore;
+        }
+    }
 }

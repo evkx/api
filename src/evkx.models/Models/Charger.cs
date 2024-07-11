@@ -1,4 +1,7 @@
-﻿namespace evdb.Models
+﻿using evdb.models.Models;
+using System;
+
+namespace evdb.Models
 {
     public class Charger
     {
@@ -8,5 +11,17 @@
 
         public string OptionId { get; set; }
 
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Charger" };
+
+            if(MaxChargeSpeedKw == 0)
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+
+            return dataQualityScore;
+
+        }
     }
 }
