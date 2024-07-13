@@ -1820,11 +1820,12 @@
 
                             foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
                             {
-                                if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Standard))
+                                if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional 
+                                   || seatoption.HasHeating() == SeatRowFeatureStatus.Standard )
                                 {
                                     seatOptionWithFeature = true;
                                 }
-                                else if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Optional))
+                                else if (seatoption.HasHeating() == SeatRowFeatureStatus.Standard)
                                 {
                                     seatOptionWithOptionalFeature = true;
                                 }
@@ -1853,11 +1854,16 @@
 
                             foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
                             {
-                                if (seatoption?.AdjustableThighSupport?.FeatureStatus != null && seatoption.AdjustableThighSupport.FeatureStatus.Equals(FeatureStatus.Standard))
+                                if (seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Standard
+                                 || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.StandardManual
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalElectric)
                                 {
                                     seatOptionWithFeature = true;
                                 }
-                                else if (seatoption?.AdjustableThighSupport?.FeatureStatus != null && seatoption.AdjustableThighSupport.FeatureStatus.Equals(FeatureStatus.Optional))
+                                else if (seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalManual
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalElectric)
                                 {
                                     seatOptionWithOptionalFeature = true;
                                 }
@@ -1885,11 +1891,16 @@
 
                             foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
                             {
-                                if(seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Standard))
+                                if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.Standard
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.StandardManual
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
                                 {
                                     seatOptionWithFeature = true;
                                 }
-                                else if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Optional))
+                                else if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalManual
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
                                 {
                                     seatOptionWithOptionalFeature = true;
                                 }
@@ -1919,11 +1930,16 @@
 
                             foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
                             {
-                                if(seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Standard))
+                                if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.Standard
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.StandardManual
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
                                 {
                                     seatOptionWithFeature = true;
                                 }
-                                else if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Optional))
+                                else if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalManual
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
                                 {
                                     seatOptionWithOptionalFeature = true;
                                 }
@@ -1931,6 +1947,7 @@
                                 {
                                     seatOptionWithoutFeature = true;
                                 }
+
                             }
 
                             RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
@@ -1955,11 +1972,16 @@
                             {
                                 foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
                                 {
-                                    if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Standard))
+                                    if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.Standard
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.StandardManual
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalElectric)
                                     {
                                         seatOptionWithFeature = true;
                                     }
-                                    else if (seatoption?.SeatHeating?.FeatureStatus != null && seatoption.SeatHeating.FeatureStatus.Equals(FeatureStatus.Optional))
+                                    else if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalManual
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalElectric)
                                     {
                                         seatOptionWithOptionalFeature = true;
                                     }
@@ -1967,6 +1989,7 @@
                                     {
                                         seatOptionWithoutFeature = true;
                                     }
+
                                 }
 
                             RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
@@ -1995,11 +2018,18 @@
                             {
                                 foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
                                 {
-                                    if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Standard))
+
+
+                                    if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.Standard
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.StandardManual
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
                                     {
                                         seatOptionWithFeature = true;
                                     }
-                                    else if (seatoption?.Ventilation?.FeatureStatus != null && seatoption.Ventilation.FeatureStatus.Equals(FeatureStatus.Optional))
+                                    else if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalManual
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
                                     {
                                         seatOptionWithOptionalFeature = true;
                                     }
@@ -2035,11 +2065,16 @@
 
                                 foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
                                 {
-                                    if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Standard))
+                                    if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.Standard
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.StandardManual
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
                                     {
                                         seatOptionWithFeature = true;
                                     }
-                                    else if (seatoption?.Massage?.FeatureStatus != null && seatoption.Massage.FeatureStatus.Equals(FeatureStatus.Optional))
+                                    else if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalManual
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
                                     {
                                         seatOptionWithOptionalFeature = true;
                                     }
@@ -2047,6 +2082,7 @@
                                     {
                                         seatOptionWithoutFeature = true;
                                     }
+
                                 }
                             
                             RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
