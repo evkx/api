@@ -384,8 +384,9 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.FirstRowSeats)
                         {
-                            if (seat.SeatHeating != null && seat.SeatHeating.Available())
-                            {
+                            if(seat.HasHeating() == SeatRowFeatureStatus.Standard 
+                               || seat.HasHeating() == SeatRowFeatureStatus.Optional)
+                            { 
                                 templist.Add(ev);
                                 break;
                             }
@@ -406,7 +407,8 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.FirstRowSeats)
                         {
-                            if (seat.Ventilation != null && seat.Ventilation.Available())
+                            if (seat.HasVentilation() == SeatRowFeatureStatus.Optional 
+                                || seat.HasVentilation() == SeatRowFeatureStatus.Standard)
                             {
                                 templist.Add(ev);
                                 break;
@@ -428,7 +430,8 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.FirstRowSeats)
                         {
-                            if (seat.Massage != null && seat.Massage.Available())
+                            if (seat.HasMassage() == SeatRowFeatureStatus.Optional 
+                                || seat.HasMassage() == SeatRowFeatureStatus.Standard)
                             {
                                 templist.Add(ev);
                                 break;
@@ -449,7 +452,13 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.FirstRowSeats)
                         {
-                            if (seat.AdjustableThighSupport != null && seat.AdjustableThighSupport.Available())
+                            if (seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional 
+                                || seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalManual
+                                || seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalManualOrElectric
+                                || seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.StandardManualOptionalElectric
+                                || seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.Standard
+                                || seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.StandardElectric
+                                || seat.HasAdjustableThighSupport() == SeatRowFeatureStatus.StandardManualOptionalElectric)
                             {
                                 templist.Add(ev);
                                 break;
@@ -470,7 +479,8 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.SecondRowSeats)
                         {
-                            if (seat.SeatHeating != null && seat.SeatHeating.Available())
+                            if (seat.HasHeating() == SeatRowFeatureStatus.Standard
+                              || seat.HasHeating() == SeatRowFeatureStatus.Optional)
                             {
                                 templist.Add(ev);
                                 break;
@@ -492,7 +502,8 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.SecondRowSeats)
                         {
-                            if (seat.Ventilation != null && seat.Ventilation.Available())
+                            if (seat.HasVentilation() == SeatRowFeatureStatus.Optional
+                                || seat.HasVentilation() == SeatRowFeatureStatus.Standard)
                             {
                                 templist.Add(ev);
                                 break;
@@ -514,7 +525,8 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.SecondRowSeats)
                         {
-                            if (seat.Massage != null && seat.Massage.Available())
+                            if (seat.HasMassage() == SeatRowFeatureStatus.Optional
+                                || seat.HasMassage() == SeatRowFeatureStatus.Standard)
                             {
                                 templist.Add(ev);
                                 break;
@@ -535,7 +547,13 @@ namespace evdb
                     {
                         foreach (Seatoption seat in ev.Interior.SecondRowSeats)
                         {
-                            if (seat.ReclineAdjustment != null && seat.ReclineAdjustment.Available())
+                            if (seat.HasReclineAdjustment() == SeatRowFeatureStatus.Optional
+                                  || seat.HasReclineAdjustment() == SeatRowFeatureStatus.OptionalManual
+                                  || seat.HasReclineAdjustment() == SeatRowFeatureStatus.OptionalManualOrElectric
+                                  || seat.HasReclineAdjustment() == SeatRowFeatureStatus.StandardManualOptionalElectric
+                                  || seat.HasReclineAdjustment() == SeatRowFeatureStatus.Standard
+                                  || seat.HasReclineAdjustment() == SeatRowFeatureStatus.StandardElectric
+                                  || seat.HasReclineAdjustment() == SeatRowFeatureStatus.StandardManualOptionalElectric)
                             {
                                 templist.Add(ev);
                                 break;
