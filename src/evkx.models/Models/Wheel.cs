@@ -23,8 +23,6 @@ namespace evdb.Models
 
         public int WheelOffset { get; set; }
 
-        public string? OptionId { get; set; }
-
         public string? GetWheelCategory()
         {
             if(WheelSize == null || 

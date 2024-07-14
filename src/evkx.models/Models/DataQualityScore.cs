@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace evdb.models.Models
 {
@@ -8,6 +9,7 @@ namespace evdb.models.Models
 
         public int DataQuality { get; set; }
 
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<DataQualityScore>? SubScore { get; set; }
 
         public void AddSubScore(DataQualityScore subScore)

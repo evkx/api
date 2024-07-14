@@ -18,8 +18,6 @@ namespace evdb.Models
         public bool? Standard { get; set; }
         public string? Name { get; set; }
 
-        public string? OptionId { get; set; }
-
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SeatCategory? SeatCategory { get; set; }
 

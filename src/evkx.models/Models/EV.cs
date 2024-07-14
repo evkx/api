@@ -647,7 +647,7 @@ namespace evdb.Models
         /// </summary>
         public DataQualityScore CalculateDataQuality()
         {
-            DataQualityScore dataQuality = new DataQualityScore() { DataArea = "EV" };
+            DataQualityScore dataQuality = new DataQualityScore() { DataArea = GetFullName() };
 
             if(Drivetrain == null)
             {

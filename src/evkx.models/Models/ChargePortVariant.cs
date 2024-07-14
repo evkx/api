@@ -29,11 +29,6 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(10);
             }
 
-            if(SubRegion == null || SubRegion.Equals(Enums.SubRegion.NotSet))
-            {
-                dataQualityScore.ReduceScore(1);
-            }
-
             if(ChargePortType == null || ChargePortType.Equals(Enums.ChargePortConnector.NotSet))
             {
                 dataQualityScore.ReduceScore(10);

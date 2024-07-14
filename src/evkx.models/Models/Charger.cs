@@ -9,8 +9,6 @@ namespace evdb.Models
 
         public bool Standard { get; set; }
 
-        public string OptionId { get; set; }
-
         internal DataQualityScore CalculateDataQuality()
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Charger" };

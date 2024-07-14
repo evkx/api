@@ -64,7 +64,7 @@ namespace evdb.Models
         {
             DataQualityScore score = new DataQualityScore() { DataArea = "Suspension" };
         
-            if(!string.IsNullOrEmpty(Name))
+            if(string.IsNullOrEmpty(Name))
             {
                 score.ReduceScore(1);
             }

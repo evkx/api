@@ -17,8 +17,6 @@ namespace evdb.models.Models
 
         public bool? Standard { get; set; }
 
-        public string? OptionId { get; set; }
-
         public string? LayoutName { get; set; }
     }
 }

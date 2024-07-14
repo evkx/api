@@ -5,6 +5,9 @@ using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Describes the seat material options of an EV.
+    /// </summary>
     public class SeatMaterial
     {
         public SeatMaterial()
@@ -12,18 +15,37 @@ namespace evdb.Models
             Colors = new List<Color>();
         }
 
+        /// <summary>
+        /// The name of the seat material given by the manufacturer.
+        /// </summary>
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Defines if the seat material is animal free.
+        /// </summary>
         public bool? AnimalFree { get; set; }
 
+        /// <summary>
+        /// Defines the colors of the seat material.
+        /// </summary>
         public List<Color> Colors { get; set; }
 
+        /// <summary>
+        /// Defines the type of material used for the seats.
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public InteriorMaterialType? MaterialType { get; set; } 
 
+        /// <summary>
+        /// Defines which seat options that are available for the seat material.
+        /// </summary>
         public List<string>? SeatOption { get; set; }
 
-        public string GetColorKey()
+
+        /// <summary>
+        /// Returns a string representation of the seat material colors. Used for translation
+        /// </summary>
+        public string GetColorKey(string seperator = "/")
         {
             string colorKey = string.Empty;
             bool addSeperator = false;
@@ -31,7 +53,7 @@ namespace evdb.Models
             {
                 if(addSeperator)
                 {
-                    colorKey += "/";
+                    colorKey += seperator;
                 }
                 colorKey += color;
                 addSeperator = true;
@@ -40,6 +62,9 @@ namespace evdb.Models
             return colorKey;
         }
 
+        /// <summary>
+        /// Calculates the data quality score for the seat material.
+        /// </summary>
         public DataQualityScore CalculateDataQualityScore()
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "SeatMaterial" };

@@ -10,8 +10,6 @@ namespace evdb.Models
     {
         public bool? IsStandard { get; set; }
 
-        public string? OptionId { get; set; }
-
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ChargePortLocation? ChargePortLocation { get; set; }
 

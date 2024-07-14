@@ -10,8 +10,6 @@ namespace evdb.models.Models
     {
         public Dictionary<string, string>? Name { get; set; }
 
-        public string? OptionId { get; set; }
-
         public bool? Standard { get; set; }
 
         public string? FeatureDescription { get; set; }
