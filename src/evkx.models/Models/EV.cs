@@ -668,6 +668,15 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Exterior.CalculateDataQuality());
             }
 
+            if(Interior == null)
+            {
+                dataQuality.DataQuality-=1000;
+            }
+            else
+            {
+                dataQuality.AddSubScore(Interior.CalculateDataQuality());
+            }
+
             return dataQuality;
         }
     }

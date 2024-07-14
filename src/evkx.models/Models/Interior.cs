@@ -45,8 +45,6 @@ namespace evdb.Models
         /// </summary>
         public List<SeatLayout>? SeatLayout { get; set; }
 
-        public string? ConfigOptions { get; set; }
-
         /// <summary>
         /// The first row seats of the EV.
         /// </summary>
@@ -77,5 +75,106 @@ namespace evdb.Models
         /// </summary>
         public HVAC? Hvac { get; set; }
 
+
+        public string GetInteriorIntroKey()
+        {
+            if(InteriorCategory == null || InteriorQuality == null || ConsoleDesign == null)
+            {
+                return string.Empty;
+            }
+
+            if(InteriorCategory == models.Enums.InteriorCategory.NotSet 
+                || InteriorQuality == models.Enums.InteriorQuality.NotSet 
+                || ConsoleDesign == models.Enums.ConsoleDesign.NotSet)
+            {
+                return string.Empty;
+            }   
+           
+            return  $"interior.intro.{InteriorCategory}.{InteriorQuality}.{ConsoleDesign}".ToLower();
+        }
+
+        public string GetInteriorOptionsKey()
+        {
+             bool multipleSeatLayouts = SeatLayout != null && SeatLayout.Count > 1;
+             bool multipleInteriorDesigns = InteriorDesigns != null && InteriorDesigns.Count > 1;
+             bool multipleFirstRowSeats = FirstRowSeats != null && FirstRowSeats.Count > 1;
+             bool multipleSecondRowSeats = SecondRowSeats != null && SecondRowSeats.Count > 1;
+             bool multipleThirdRowSeats = ThirdRowSeats != null && ThirdRowSeats.Count > 1;
+             bool multipleSeatMaterials = GetSeatMaterials().Count > 1;
+
+            if(multipleFirstRowSeats && multipleSeatMaterials && multipleInteriorDesigns)
+            {
+                return "interior.configoptions.multipleseatswithifferentatylingandmaterials";
+            }
+            else if(!multipleFirstRowSeats && multipleSeatMaterials && multipleInteriorDesigns)
+            {
+                return "interior.configoptions.singleseatswithifferentatylingandmaterials";
+            }
+            else if (!multipleFirstRowSeats && multipleSeatMaterials && !multipleInteriorDesigns)
+            {
+                return "interior.configoptions.singleseatswithdifferentmaterial";
+            }
+            else if (!multipleFirstRowSeats && multipleSeatMaterials && !multipleInteriorDesigns)
+            {
+                return "interior.configoptions.twinseatswithpreconfiguredmaterial";
+            }
+
+
+            return string.Empty;
+        }
+
+        public List<InteriorMaterialType> GetSeatMaterials()
+        {
+            List<InteriorMaterialType> seatMaterials = new List<InteriorMaterialType>();
+
+            if (InteriorDesigns != null)
+            {
+                foreach (InteriorDesign interiorDesign in InteriorDesigns)
+                {
+                    if (interiorDesign.SeatMaterials != null)
+                    {
+                        foreach (SeatMaterial material in interiorDesign.SeatMaterials)
+                        {
+                            if (material.MaterialType != null)
+                            {
+                                if (!seatMaterials.Contains(material.MaterialType.Value))
+                                {
+                                    seatMaterials.Add(material.MaterialType.Value);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return seatMaterials;
+        }
+
+        public DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Interior" };
+
+            if(InteriorCategory== null || InteriorQuality == models.Enums.InteriorQuality.NotSet)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+
+            if (InteriorDesigns == null || InteriorDesigns.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (InteriorDesign interiorDesign in InteriorDesigns)
+                {
+                    dataQualityScore.AddSubScore(interiorDesign.CalculateDataQuality());
+                }
+            }
+
+
+
+
+            return dataQualityScore;
+        }
     }
 }

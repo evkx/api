@@ -1,4 +1,5 @@
 ﻿using evdb.Models;
+using System;
 using System.Collections.Generic;
 
 namespace evdb.models.Models
@@ -23,5 +24,40 @@ namespace evdb.models.Models
         /// The different headliner designs available
         /// </summary>
         public List<HeadlinerDesign>? HeadlinerDesigns { get; set; }
+
+        public DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "InteriorDesign" };
+        
+            if (Standard == null)
+            {
+                dataQualityScore.ReduceScore(5);
+            }
+
+            if(Name == null) 
+            {
+                dataQualityScore.ReduceScore(5);
+            }
+
+            if(HeadlinerDesigns == null) 
+            {
+                dataQualityScore.ReduceScore(5);
+            }
+
+            if (SeatMaterials == null)
+            {
+                dataQualityScore.ReduceScore(200);
+            }
+            else
+            {
+                foreach (SeatMaterial seatMaterial in SeatMaterials)
+                {
+                    dataQualityScore.AddSubScore(seatMaterial.CalculateDataQualityScore());
+                }
+            }
+
+            return dataQualityScore;
+
+        }
     }
 }

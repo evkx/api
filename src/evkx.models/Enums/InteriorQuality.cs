@@ -12,7 +12,19 @@ namespace evdb.models.Enums
         [EnumMember(Value = "Budget")]
         Budget = 1,
 
+        [EnumMember(Value = "Standard")]
+        Standard = 2,
+
+        [EnumMember(Value = "HighQuality")]
+        HighQuality = 3,
+
+        [EnumMember(Value = "Premium")]
+        Premium = 4,
+
+        [EnumMember(Value = "PremiumPlus")]
+        PremiumPlus = 5,
+
         [EnumMember(Value = "Luxury")]
-        Luxury = 2,
+        Luxury = 6,
     }
 }
