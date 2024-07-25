@@ -1,4 +1,5 @@
 ﻿using evdb.models.Enums;
+using System;
 
 namespace evdb.models.Models
 {
@@ -9,8 +10,25 @@ namespace evdb.models.Models
             Location = EquipmentLocation.NotSet;
         }
 
-        public bool Optional { get; set; }
+        public bool? Optional { get; set; }
 
         public EquipmentLocation Location { get; set; }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Lidar" };
+
+            if(Location == EquipmentLocation.NotSet)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(Optional == null)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            return dataQualityScore;
+        }
     }
 }

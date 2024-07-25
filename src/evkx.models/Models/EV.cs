@@ -86,6 +86,11 @@ namespace evdb.Models
             return Brand?.Name + " " + ModelInfo?.Name;
         }
 
+        public string GetModelName()
+        {
+            return Brand?.Name + " " + ModelInfo?.Name;
+        }
+
 
         public string GetVariantName()
         {
@@ -675,6 +680,33 @@ namespace evdb.Models
             else
             {
                 dataQuality.AddSubScore(Interior.CalculateDataQuality());
+            }
+
+            if(Comfort == null)
+            {
+                dataQuality.DataQuality-=1000;
+            }
+            else
+            {
+                dataQuality.AddSubScore(Comfort.CalculateDataQuality());
+            }
+
+            if(Infotainment == null)
+            {
+                dataQuality.DataQuality-=1000;
+            }
+            else
+            {
+                dataQuality.AddSubScore(Infotainment.CalculateDataQuality());
+            }
+
+            if(DriverAssistance == null)
+            {
+                dataQuality.DataQuality-=1000;
+            }
+            else
+            {
+                dataQuality.AddSubScore(DriverAssistance.CalculateDataQuality());
             }
 
             return dataQuality;

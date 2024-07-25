@@ -1,4 +1,6 @@
-﻿using evdb.models.Models;
+﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System;
 using System.Collections.Generic;
 
 namespace evdb.Models
@@ -25,5 +27,53 @@ namespace evdb.Models
         public EVFeature? InCarNavigation { get; set; }
 
         public List<PortAndConnection>? PortAndConnections { get; set; }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Infotainment" };
+
+            if (SoundSystems == null || SoundSystems.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (var soundsystem in SoundSystems)
+                {
+                    dataQualityScore.AddSubScore(soundsystem.CalculateDataQuality());
+                }
+
+            }
+
+            if(AndroidAutoSupport == null || AndroidAutoSupport.FeatureStatus == FeatureStatus.Unknown)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(AppleCarPlaySupport == null || AppleCarPlaySupport.FeatureStatus == FeatureStatus.Unknown)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(InCarNavigation == null || InCarNavigation.FeatureStatus == FeatureStatus.Unknown)
+            {
+                dataQualityScore.ReduceScore(10);
+            }   
+
+            if(PortAndConnections == null || PortAndConnections.Count == 0)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+            else
+            {
+                foreach (var portAndConnection in PortAndConnections)
+                {
+                    dataQualityScore.AddSubScore(portAndConnection.CalculateDataQuality());
+                }
+            }
+            
+            return dataQualityScore;
+            
+        }
     }
 }
