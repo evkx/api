@@ -20,7 +20,7 @@ Example data
     "Name": "Taycan",
     "Variant": "Taycan 4S Sport Turismo",
     "Ignore": null,
-    "CarSegment": "M",
+    "CarSegment": "E_Segment",
     "PriceSegment": "Luxury",
     "Platform": null,
     "EvOnlyPlatform": null,
@@ -72,7 +72,6 @@ Example data
     "BedMaxWeight": null
   },
   "Drivetrain": {
-    "Platform": null,
     "Battery": [
       {
         "Optional": false,
@@ -498,6 +497,7 @@ Example data
             "SpeedKw": 10
           }
         ],
+        "CurveStatus": null,
         "MaxDCChargeSpeed": 270,
         "ChargingConfiguration": null,
         "MaxDCChargeSpeedLowVoltage": null
@@ -926,6 +926,7 @@ Example data
             "SpeedKw": 4
           }
         ],
+        "CurveStatus": null,
         "MaxDCChargeSpeed": 320,
         "ChargingConfiguration": null,
         "MaxDCChargeSpeedLowVoltage": null
@@ -939,8 +940,7 @@ Example data
         "PeakPower": 175,
         "ContinuousPower": 80,
         "Torque": 300,
-        "Model": "EBGA",
-        "Mount": null
+        "Model": "EBGA"
       },
       {
         "Location": "RearAxle",
@@ -949,15 +949,13 @@ Example data
         "PeakPower": 320,
         "ContinuousPower": null,
         "Torque": 247,
-        "Model": "EBFA",
-        "Mount": null
+        "Model": "EBFA"
       }
     ],
     "Brakes": [
       {
         "Standard": true,
         "Name": null,
-        "OptionId": null,
         "FrontBrakeType": "FixedCaliperDisc",
         "FrontBrakeDiscType": "CastIron",
         "FrontBrakeDiscDiameter": 360,
@@ -967,13 +965,11 @@ Example data
         "RearBrakeDiscType": "CastIron",
         "RearBrakeDiscDiameter": 358,
         "RearBrakeDiscThickness": null,
-        "RearBrakePistons": null,
-        "BlendedBrakes": true
+        "RearBrakePistons": null
       },
       {
         "Standard": false,
         "Name": null,
-        "OptionId": null,
         "FrontBrakeType": "FixedCaliperDisc",
         "FrontBrakeDiscType": "TungstenCarbidCoating",
         "FrontBrakeDiscDiameter": 410,
@@ -983,8 +979,7 @@ Example data
         "RearBrakeDiscType": "TungstenCarbidCoating",
         "RearBrakeDiscDiameter": 365,
         "RearBrakeDiscThickness": null,
-        "RearBrakePistons": null,
-        "BlendedBrakes": true
+        "RearBrakePistons": null
       }
     ],
     "DriveSetup": "OneMotorFrontAndRearAxle",
@@ -1020,13 +1015,16 @@ Example data
         "AdjustableHeightRear": {
           "FeatureStatus": "Standard"
         },
+        "EeasyEntry": null,
+        "EeasyLoading": null,
+        "ActiveBodyControl": null,
+        "ActiveCorneringDynamics": null,
         "SpringTypeFront": "Air",
         "SpringTypeRear": "Air",
         "DamperTypeFront": "ElectronicallyControlled",
         "DamperTypeRear": "ElectronicallyControlled",
         "SuspensionTypeFront": "DoubleWishbone",
         "SuspensionTypeRear": "Multilink",
-        "OptionId": null,
         "Standard": false
       }
     ],
@@ -1038,8 +1036,8 @@ Example data
         "TorqueNmBoost": 695,
         "BoostLengthSeconds": null,
         "TopSpeed": 250,
-        "ZeroToHundredKph": 3.7,
-        "ZeroToHundredKphBoost": null,
+        "ZeroToHundredKph": null,
+        "ZeroToHundredKphBoost": 3.7,
         "OptionType": null,
         "OptionId": null
       },
@@ -1050,8 +1048,8 @@ Example data
         "TorqueNmBoost": 710,
         "BoostLengthSeconds": null,
         "TopSpeed": 250,
-        "ZeroToHundredKph": 4,
-        "ZeroToHundredKphBoost": null,
+        "ZeroToHundredKph": null,
+        "ZeroToHundredKphBoost": 4,
         "OptionType": "BatteryOption",
         "OptionId": "Performance Battery Plus"
       }
@@ -1060,7 +1058,6 @@ Example data
       "Chargeports": [
         {
           "IsStandard": true,
-          "OptionId": null,
           "ChargePortLocation": "RightFrontSide",
           "ChargePortVariant": [
             {
@@ -1102,7 +1099,6 @@ Example data
         },
         {
           "IsStandard": true,
-          "OptionId": null,
           "ChargePortLocation": "LeftFrontSide",
           "ChargePortVariant": [
             {
@@ -1146,13 +1142,11 @@ Example data
       "OnBoardChargers": [
         {
           "MaxChargeSpeedKw": 11,
-          "Standard": true,
-          "OptionId": null
+          "Standard": true
         },
         {
           "MaxChargeSpeedKw": 22,
-          "Standard": false,
-          "OptionId": "asdf"
+          "Standard": false
         }
       ],
       "BatterySwap": null,
@@ -1214,12 +1208,14 @@ Example data
     ],
     "Regen": {
       "MaxRegenKw": 265,
-      "OnePedalDriving": true,
+      "LiftUpRegen": true,
       "Coasting": true,
       "AdaptiveRegen": true,
       "RegenPaddles": null,
       "OnePedalStoppingMode": null,
-      "LiftOfRegenLevels": null
+      "LiftOfRegenLevels": null,
+      "BlendedBrakes": true,
+      "BlendingBrakeOnLiftUpRegen": null
     },
     "Transmission": null,
     "SelectableDriveModes": {
@@ -1243,204 +1239,136 @@ Example data
         "Name": {
           "en": "White"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Solid",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Black",
         "Name": {
           "en": "Black"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Solid",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Black",
         "Name": {
           "en": "Jet Black Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
-        "Color": "Grey",
+        "Color": "Gray",
         "Name": {
           "en": "Volcano Grey Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "White",
         "Name": {
           "en": "Carrara White Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Blue",
         "Name": {
           "en": "Gentian Blue Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Silver",
         "Name": {
           "en": "Dolomite Silver Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Green",
         "Name": {
           "en": "Mamba Green Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Blue",
         "Name": {
           "en": "Frozen Blue Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Brown",
         "Name": {
           "en": "Mahogany Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Lilac",
         "Name": {
           "en": "Frozen Berry Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Red",
         "Name": {
           "en": "Cherry Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Beige",
         "Name": {
           "en": "Coffee Beige Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Red",
         "Name": {
           "en": "Carmine Red"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": null,
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
         "Color": "Blue",
         "Name": {
           "en": "Neptune Blue"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": null,
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
-        "Color": "Grey",
+        "Color": "Gray",
         "Name": {
           "en": "Crayon"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": null,
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       },
       {
-        "Color": "Grey",
+        "Color": "Gray",
         "Name": {
           "en": "Ice Grey Metallic"
         },
-        "ColorId": null,
-        "ColorCode": null,
-        "Metallic": null,
         "PaintType": "Metallic",
-        "StandardPalette": true,
-        "SpecialColor": null
+        "StandardPalette": true
       }
     ],
     "WheelOptions": [
@@ -1452,8 +1380,7 @@ Example data
         "Name": {
           "en": "Taycan Aero-felger"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "225/55",
@@ -1463,8 +1390,7 @@ Example data
         "Name": {
           "en": "Taycan S Aero"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "245/45",
@@ -1474,8 +1400,7 @@ Example data
         "Name": {
           "en": "Taycan Turbo Aero"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "245/45",
@@ -1485,8 +1410,7 @@ Example data
         "Name": {
           "en": "Sport Aero"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "265/35",
@@ -1496,8 +1420,7 @@ Example data
         "Name": {
           "en": "Mission E Design"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "265/35",
@@ -1507,8 +1430,7 @@ Example data
         "Name": {
           "en": "RS Spyder Design"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "265/35",
@@ -1518,8 +1440,7 @@ Example data
         "Name": {
           "en": "Taycan Exclusive Design-wheels with Aeroblades in carbon"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       },
       {
         "TireDimensionFront": "265/35",
@@ -1529,23 +1450,19 @@ Example data
         "Name": {
           "en": "Taycan Exclusive Design"
         },
-        "WheelOffset": 0,
-        "OptionId": null
+        "WheelOffset": 0
       }
     ],
     "Styling": [
       {
-        "OptionId": null,
         "OptionName": null,
         "Description": "exterior.styling.sportdesignpackage"
       },
       {
-        "OptionId": null,
         "OptionName": null,
         "Description": "exterior.styling.sportdesignpackagecarbon"
       },
       {
-        "OptionId": null,
         "OptionName": null,
         "Description": "exterior.styling.sportdesignpackagehighglossblack"
       }
@@ -1591,7 +1508,9 @@ Example data
         "PoweredOpenClose": {
           "FeatureStatus": "NotAvailable"
         },
-        "Type": "Standard"
+        "Type": "Standard",
+        "FramelessWindow": null,
+        "DoorHandleType": null
       },
       {
         "Location": "FrontRight",
@@ -1604,7 +1523,9 @@ Example data
         "PoweredOpenClose": {
           "FeatureStatus": "NotAvailable"
         },
-        "Type": "Standard"
+        "Type": "Standard",
+        "FramelessWindow": null,
+        "DoorHandleType": null
       },
       {
         "Location": "RearLeft",
@@ -1617,7 +1538,9 @@ Example data
         "PoweredOpenClose": {
           "FeatureStatus": "NotAvailable"
         },
-        "Type": "Standard"
+        "Type": "Standard",
+        "FramelessWindow": null,
+        "DoorHandleType": null
       },
       {
         "Location": "RearRight",
@@ -1630,7 +1553,9 @@ Example data
         "PoweredOpenClose": {
           "FeatureStatus": "NotAvailable"
         },
-        "Type": "Standard"
+        "Type": "Standard",
+        "FramelessWindow": null,
+        "DoorHandleType": null
       },
       {
         "Location": "Tail",
@@ -1643,7 +1568,9 @@ Example data
         "PoweredOpenClose": {
           "FeatureStatus": "Standard"
         },
-        "Type": "Liftgate"
+        "Type": "Liftgate",
+        "FramelessWindow": null,
+        "DoorHandleType": null
       }
     ],
     "Windows": {
@@ -1908,7 +1835,6 @@ Example data
           }
         ],
         "Standard": null,
-        "OptionId": null,
         "LayoutName": null
       }
     ],
@@ -1924,401 +1850,95 @@ Example data
     }
   },
   "Interior": {
-    "ConfigOptions": "multipleseatswithifferentatylingandmaterials",
-    "FirstRowSeats": [
-      {
-        "Standard": true,
-        "Name": "Comfort",
-        "OptionId": null,
-        "SeatCategory": "PassengerAndDriver",
-        "SeatSplit": null,
-        "ForeAndAftAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "ReclineAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "HeightAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "SeatCushionAngleAdjustment": null,
-        "ElectricLumbarAdjustment": {
-          "FeatureStatus": "Standard"
-        },
-        "HeightAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "LengthAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "IntegratedHeadrest": {
-          "FeatureStatus": "Standard"
-        },
-        "AdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBack": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBottom": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustment": {
-          "FeatureStatus": "Standard"
-        },
-        "ElectricAdjustmentPassenger": {
-          "FeatureStatus": "Standard"
-        },
-        "MemoryDriverSeat": {
-          "FeatureStatus": "Optional"
-        },
-        "MemoryPassangerSeat": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "Massage": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "Ventilation": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "SeatHeating": {
-          "FeatureStatus": "Optional"
-        },
-        "EasyAccessDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "EasyAccessPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "FootrestPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "LegSupportPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "Foldable": {
-          "FeatureStatus": "Unknown"
-        },
-        "ElectricFoldable": {
-          "FeatureStatus": "Unknown"
-        }
-      },
-      {
-        "Standard": true,
-        "Name": "Comfortseats with memory",
-        "OptionId": null,
-        "SeatCategory": "PassengerAndDriver",
-        "SeatSplit": null,
-        "ForeAndAftAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "ReclineAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "HeightAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "SeatCushionAngleAdjustment": null,
-        "ElectricLumbarAdjustment": {
-          "FeatureStatus": "Standard"
-        },
-        "HeightAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "LengthAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "IntegratedHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableThighSupport": {
-          "FeatureStatus": "Standard"
-        },
-        "ElectricAdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBack": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBottom": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustment": {
-          "FeatureStatus": "Standard"
-        },
-        "ElectricAdjustmentPassenger": {
-          "FeatureStatus": "Standard"
-        },
-        "MemoryDriverSeat": {
-          "FeatureStatus": "Optional"
-        },
-        "MemoryPassangerSeat": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "Massage": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "Ventilation": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "SeatHeating": {
-          "FeatureStatus": "Standard"
-        },
-        "EasyAccessDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "EasyAccessPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "FootrestPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "LegSupportPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "Foldable": {
-          "FeatureStatus": "Unknown"
-        },
-        "ElectricFoldable": {
-          "FeatureStatus": "Unknown"
-        }
-      },
-      {
-        "Standard": true,
-        "Name": "Sportsseats Plus",
-        "OptionId": null,
-        "SeatCategory": "PassengerAndDriver",
-        "SeatSplit": null,
-        "ForeAndAftAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "ReclineAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "HeightAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "SeatCushionAngleAdjustment": null,
-        "ElectricLumbarAdjustment": {
-          "FeatureStatus": "Standard"
-        },
-        "HeightAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "LengthAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "IntegratedHeadrest": {
-          "FeatureStatus": "Standard"
-        },
-        "AdjustableThighSupport": {
-          "FeatureStatus": "Standard"
-        },
-        "ElectricAdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBack": {
-          "FeatureStatus": "Standard"
-        },
-        "AdjustableSideSupportBottom": {
-          "FeatureStatus": "Standard"
-        },
-        "ElectricAdjustment": {
-          "FeatureStatus": "Standard"
-        },
-        "ElectricAdjustmentPassenger": {
-          "FeatureStatus": "Standard"
-        },
-        "MemoryDriverSeat": {
-          "FeatureStatus": "Standard"
-        },
-        "MemoryPassangerSeat": {
-          "FeatureStatus": "Standard"
-        },
-        "Massage": {
-          "FeatureStatus": "Optional"
-        },
-        "Ventilation": {
-          "FeatureStatus": "Standard"
-        },
-        "SeatHeating": {
-          "FeatureStatus": "Standard"
-        },
-        "EasyAccessDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "EasyAccessPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "FootrestPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "LegSupportPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "Foldable": {
-          "FeatureStatus": "Unknown"
-        },
-        "ElectricFoldable": {
-          "FeatureStatus": "Unknown"
-        }
-      }
-    ],
-    "SecondRowSeats": [
-      {
-        "Standard": true,
-        "Name": "Standard",
-        "OptionId": null,
-        "SeatCategory": "TwoIntegratedSeatBench",
-        "SeatSplit": "40:60",
-        "ForeAndAftAdjustment": null,
-        "ReclineAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "HeightAdjustment": null,
-        "SeatCushionAngleAdjustment": null,
-        "ElectricLumbarAdjustment": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "HeightAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "LengthAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "IntegratedHeadrest": {
-          "FeatureStatus": "Standard"
-        },
-        "AdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBack": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBottom": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustment": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustmentPassenger": null,
-        "MemoryDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "MemoryPassangerSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "Massage": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "Ventilation": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "SeatHeating": {
-          "FeatureStatus": "Optional"
-        },
-        "EasyAccessDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "EasyAccessPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "FootrestPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "LegSupportPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "Foldable": {
-          "FeatureStatus": "Unknown"
-        },
-        "ElectricFoldable": {
-          "FeatureStatus": "Unknown"
-        }
-      },
+    "InteriorCategory": null,
+    "InteriorQuality": null,
+    "ConsoleDesign": null,
+    "InteriorDesigns": [
       {
         "Standard": null,
-        "Name": "2+1",
-        "OptionId": null,
-        "SeatCategory": "TwoPlusOneIntegratedSeatBench",
-        "SeatSplit": "40:20:40",
-        "ForeAndAftAdjustment": null,
-        "ReclineAdjustment": {
-          "FeatureStatus": "Unknown"
-        },
-        "HeightAdjustment": null,
-        "SeatCushionAngleAdjustment": null,
-        "ElectricLumbarAdjustment": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "HeightAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "LengthAdjustableHeadrest": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "IntegratedHeadrest": {
-          "FeatureStatus": "Standard"
-        },
-        "AdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustableThighSupport": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBack": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "AdjustableSideSupportBottom": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustment": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "ElectricAdjustmentPassenger": null,
-        "MemoryDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "MemoryPassangerSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "Massage": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "Ventilation": {
-          "FeatureStatus": "NotAvailable"
-        },
-        "SeatHeating": {
-          "FeatureStatus": "Optional"
-        },
-        "EasyAccessDriverSeat": {
-          "FeatureStatus": "Unknown"
-        },
-        "EasyAccessPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "FootrestPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "LegSupportPassenger": {
-          "FeatureStatus": "Unknown"
-        },
-        "Foldable": {
-          "FeatureStatus": "Unknown"
-        },
-        "ElectricFoldable": {
-          "FeatureStatus": "Unknown"
-        }
+        "Name": null,
+        "SeatMaterials": [
+          {
+            "Name": "Black leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Black"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Comfort"
+            ]
+          },
+          {
+            "Name": "Cascade fabric / leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Gray"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Comfortseats with memory"
+            ]
+          },
+          {
+            "Name": "Dinamica /leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Black"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Comfortseats with memory"
+            ]
+          },
+          {
+            "Name": "Valcona black Leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Black"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Sportsseats Plus"
+            ]
+          },
+          {
+            "Name": "Valcona brown Leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Brown"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Sportsseats Plus"
+            ]
+          },
+          {
+            "Name": "Valcona Red Leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Black"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Sportsseats Plus"
+            ]
+          },
+          {
+            "Name": "Valcona Grey Leather",
+            "AnimalFree": null,
+            "Colors": [
+              "Gray"
+            ],
+            "MaterialType": null,
+            "SeatOption": [
+              "Sportsseats Plus"
+            ]
+          }
+        ],
+        "HeadlinerDesigns": null
       }
     ],
-    "ThirdRowSeats": null,
-    "FourthRowSeats": null,
     "SeatLayout": [
       {
         "NumberOfSeats": 5,
@@ -2329,6 +1949,294 @@ Example data
         "Name": null
       }
     ],
+    "FirstRowSeats": [
+      {
+        "Standard": true,
+        "Name": "Comfort",
+        "SeatCategory": "PassengerAndDriver",
+        "SeatSplit": null,
+        "Seat": [
+          {
+            "Position": "Driver",
+            "ForeAndAftAdjustment": "StandardElectric",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Optional",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "Optional",
+            "EasyAccess": "Unknown",
+            "Footrest": "NotAvailable",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          },
+          {
+            "Position": "FrontPassenger",
+            "ForeAndAftAdjustment": "StandardElectric",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Optional",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "NotAvailable",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          }
+        ]
+      },
+      {
+        "Standard": true,
+        "Name": "Comfortseats with memory",
+        "SeatCategory": "PassengerAndDriver",
+        "SeatSplit": null,
+        "Seat": [
+          {
+            "Position": "Driver",
+            "ForeAndAftAdjustment": "StandardElectric",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Standard",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "Optional",
+            "EasyAccess": "Unknown",
+            "Footrest": "NotAvailable",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          },
+          {
+            "Position": "FrontPassenger",
+            "ForeAndAftAdjustment": "StandardElectric",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Standard",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "NotAvailable",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          }
+        ]
+      },
+      {
+        "Standard": true,
+        "Name": "Sportsseats Plus",
+        "SeatCategory": "PassengerAndDriver",
+        "SeatSplit": null,
+        "Seat": [
+          {
+            "Position": "Driver",
+            "ForeAndAftAdjustment": "StandardElectric",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
+            "AdjustableSideSupportBack": "Standard",
+            "AdjustableSideSupportBottom": "Standard",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Standard",
+            "Ventilation": "Standard",
+            "Massage": "Optional",
+            "Memory": "Standard",
+            "EasyAccess": "Unknown",
+            "Footrest": "NotAvailable",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          },
+          {
+            "Position": "FrontPassenger",
+            "ForeAndAftAdjustment": "StandardElectric",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
+            "AdjustableSideSupportBack": "Standard",
+            "AdjustableSideSupportBottom": "Standard",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Standard",
+            "Ventilation": "Standard",
+            "Massage": "Optional",
+            "Memory": "Standard",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          }
+        ]
+      }
+    ],
+    "SecondRowSeats": [
+      {
+        "Standard": true,
+        "Name": "Standard",
+        "SeatCategory": "TwoIntegratedSeatBench",
+        "SeatSplit": "40:60",
+        "Seat": [
+          {
+            "Position": "Driver",
+            "ForeAndAftAdjustment": "Unknown",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "NotAvailable",
+            "Heating": "Optional",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "Unknown",
+            "EasyAccess": "Unknown",
+            "Footrest": "NotAvailable",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          },
+          {
+            "Position": "FrontPassenger",
+            "ForeAndAftAdjustment": "Unknown",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "NotAvailable",
+            "Heating": "Optional",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "Unknown",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          }
+        ]
+      },
+      {
+        "Standard": null,
+        "Name": "2+1",
+        "SeatCategory": "TwoPlusOneIntegratedSeatBench",
+        "SeatSplit": "40:20:40",
+        "Seat": [
+          {
+            "Position": "BehindDriver",
+            "ForeAndAftAdjustment": "Unknown",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "NotAvailable",
+            "Heating": "Optional",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "NotAvailable",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          },
+          {
+            "Position": "Middle",
+            "ForeAndAftAdjustment": "Unknown",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "NotAvailable",
+            "Heating": "NotAvailable",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "NotAvailable",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          },
+          {
+            "Position": "BehindPassenger",
+            "ForeAndAftAdjustment": "Unknown",
+            "ReclineAdjustment": "Unknown",
+            "HeightAdjustment": "Unknown",
+            "CushionAngleAdjustment": "Unknown",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "NotAvailable",
+            "Heating": "Optional",
+            "Ventilation": "NotAvailable",
+            "Massage": "NotAvailable",
+            "Memory": "NotAvailable",
+            "EasyAccess": "Unknown",
+            "Footrest": "Unknown",
+            "LegSupport": "Unknown",
+            "Foldable": "Unknown",
+            "Isofix": "Unknown"
+          }
+        ]
+      }
+    ],
+    "ThirdRowSeats": null,
+    "FourthRowSeats": null,
     "SteeringWheels": [
       {
         "Name": null,
@@ -2336,92 +2244,6 @@ Example data
         "Heated": null,
         "AudioControl": null,
         "ScreenControl": null
-      }
-    ],
-    "InteriorDesigns": [
-      {
-        "Standard": null,
-        "Name": null,
-        "SeatMaterials": [
-          {
-            "Name": "Black leather",
-            "AnimalFree": null,
-            "Color": "Black",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Comfort"
-            ]
-          },
-          {
-            "Name": "Cascade fabric / leather",
-            "AnimalFree": null,
-            "Color": "Grey",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Comfortseats with memory"
-            ]
-          },
-          {
-            "Name": "Dinamica /leather",
-            "AnimalFree": null,
-            "Color": "Black",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Comfortseats with memory"
-            ]
-          },
-          {
-            "Name": "Valcona black Leather",
-            "AnimalFree": null,
-            "Color": "Black",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Sportsseats Plus"
-            ]
-          },
-          {
-            "Name": "Valcona brown Leather",
-            "AnimalFree": null,
-            "Color": "Brown",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Sportsseats Plus"
-            ]
-          },
-          {
-            "Name": "Valcona Red Leather",
-            "AnimalFree": null,
-            "Color": "Black",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Sportsseats Plus"
-            ]
-          },
-          {
-            "Name": "Valcona Grey Leather",
-            "AnimalFree": null,
-            "Color": "Grey",
-            "Material": null,
-            "MaterialType": null,
-            "OptionId": null,
-            "SeatOption": [
-              "Sportsseats Plus"
-            ]
-          }
-        ],
-        "HeadlinerDesigns": null
       }
     ],
     "Hvac": {
@@ -2448,8 +2270,7 @@ Example data
       "CampMode": {
         "FeatureStatus": "Unknown"
       }
-    },
-    "ConsoleDesign": null
+    }
   },
   "Infotainment": {
     "SoundSystems": [
@@ -2459,8 +2280,7 @@ Example data
         "NumberOfSpeakers": 10,
         "TotalEffect": 150,
         "NumberOfChannels": 10,
-        "Standard": true,
-        "OptionId": null
+        "Standard": true
       },
       {
         "Brand": "BOSE",
@@ -2468,8 +2288,7 @@ Example data
         "NumberOfSpeakers": 14,
         "TotalEffect": 710,
         "NumberOfChannels": 14,
-        "Standard": null,
-        "OptionId": null
+        "Standard": null
       },
       {
         "Brand": "Burmester",
@@ -2477,8 +2296,7 @@ Example data
         "NumberOfSpeakers": 21,
         "TotalEffect": 1455,
         "NumberOfChannels": 21,
-        "Standard": null,
-        "OptionId": null
+        "Standard": null
       }
     ],
     "AndroidAutoSupport": {
@@ -2556,7 +2374,6 @@ Example data
         "Name": {
           "en": "ledbar"
         },
-        "OptionId": null,
         "Standard": true,
         "FeatureDescription": null,
         "LightTechnology": "LED"
