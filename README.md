@@ -10,26 +10,26 @@ Example data
 
 ```json
 {
-  "Id": "2009d566-5d01-4129-b34e-4080bbb83289",
+  "Id": "8308a949-911b-4bb8-be98-e6bed5899448",
   "Brand": {
     "Id": null,
-    "Name": "Porsche",
+    "Name": "Audi",
     "SubBrand": null
   },
   "ModelInfo": {
-    "Name": "Taycan",
-    "Variant": "Taycan 4S Sport Turismo",
+    "Name": "Q6 e-tron",
+    "Variant": "SQ6 e-tron",
     "Ignore": null,
-    "CarSegment": "E_Segment",
-    "PriceSegment": "Luxury",
-    "Platform": null,
-    "EvOnlyPlatform": null,
-    "EvOnlyConstruction": null,
-    "BodyType": "StationWagon",
-    "ModelStatus": "InProduction",
+    "CarSegment": "C_SUV",
+    "PriceSegment": "Premium",
+    "Platform": "PPE",
+    "EvOnlyPlatform": true,
+    "EvOnlyConstruction": true,
+    "BodyType": "SUV",
+    "ModelStatus": "Announced",
     "SpecStatus": null,
-    "WorldPremiere": "2024-02-07T00:00:00",
-    "DeliveryStart": "2024-06-01T00:00:00",
+    "WorldPremiere": "2024-03-18T00:00:00",
+    "DeliveryStart": "2024-08-01T00:00:00",
     "Availability": null,
     "Pricing": null,
     "Alternatives": null,
@@ -37,34 +37,34 @@ Example data
     "Replaces": null
   },
   "Dimensions": {
-    "Length": 4963,
-    "Height": 1395,
-    "WidthExcludingMirrors": 1964,
-    "WidhtIncludingMirrors": 2144,
-    "Wheelbase": 2900,
-    "TrackWidthFront": 1710,
-    "TrackWidthRear": 1694,
-    "DragCoefficient": 0.24,
-    "FrontalArea": 2.35,
-    "OverhangAngleFront": 13,
-    "OverhangAngleRear": 16.4,
-    "TurningCircle": 11.7
+    "Length": 4771,
+    "Height": 1685,
+    "WidthExcludingMirrors": 1939,
+    "WidhtIncludingMirrors": 2193,
+    "Wheelbase": 2899,
+    "TrackWidthFront": null,
+    "TrackWidthRear": null,
+    "DragCoefficient": 0.3,
+    "FrontalArea": 2.73,
+    "OverhangAngleFront": 16.3,
+    "OverhangAngleRear": 23.7,
+    "TurningCircle": 12.1
   },
   "TransportCapabilities": {
-    "CurbWeight": 2170,
-    "MaxVehicleWeightKg": 2875,
+    "CurbWeight": 2350,
+    "MaxVehicleWeightKg": 2965,
     "Frunk": true,
-    "FrunkSizeLiter": 84,
+    "FrunkSizeLiter": 64,
     "RoofCargo": true,
     "MaxRoofLoadKg": 75,
     "Towbar": {
-      "FeatureStatus": "NotAvailable"
+      "FeatureStatus": "Optional"
     },
-    "TrailerSizeBrakedKg": null,
-    "TrailerSizeUnBrakedKg": null,
-    "MaxTowbarDownloadKg": null,
-    "CargoCapacityLiter": 446,
-    "CargoCapacitySeatDownLiter": 1212,
+    "TrailerSizeBrakedKg": 2400,
+    "TrailerSizeUnBrakedKg": 750,
+    "MaxTowbarDownloadKg": 100,
+    "CargoCapacityLiter": 514,
+    "CargoCapacitySeatDownLiter": 1517,
     "CargoCapacityThirdRowSeatDownLiter": null,
     "BedVolumeLiter": null,
     "BedLength": null,
@@ -75,881 +75,867 @@ Example data
     "Battery": [
       {
         "Optional": false,
-        "Name": "Performance Battery",
-        "GrossCapacitykWh": 89,
-        "NetCapacitykWh": 83.6,
-        "WeightKg": null,
-        "BatteryType": null,
-        "Modules": "33",
-        "CellPerModule": "12",
-        "PackConfiguration": "198s2p",
+        "Name": "100kWh",
+        "GrossCapacitykWh": 100,
+        "NetCapacitykWh": 94.9,
+        "WeightKg": 575,
+        "BatteryType": "CTM",
+        "Modules": "12",
+        "CellPerModule": "15",
+        "PackConfiguration": "180s1p",
         "CellInfo": {
-          "CellProducer": "LG Chem",
-          "CellType": "Pouch",
+          "CellProducer": "CATL",
+          "CellType": "Prismatic",
           "CellChemistry": "NMC",
-          "CellCapacityAh": "64.6"
+          "CellCapacityAh": "152"
         },
-        "NominalVoltage": 725,
-        "BatteryCapacityAh": null,
-        "ChargeCurve": [
-          {
-            "SOC": 0,
-            "SpeedKw": 86
-          },
-          {
-            "SOC": 1,
-            "SpeedKw": 87
-          },
-          {
-            "SOC": 2,
-            "SpeedKw": 158
-          },
-          {
-            "SOC": 3,
-            "SpeedKw": 169
-          },
-          {
-            "SOC": 4,
-            "SpeedKw": 221
-          },
-          {
-            "SOC": 5,
-            "SpeedKw": 254
-          },
-          {
-            "SOC": 6,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 7,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 8,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 9,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 10,
-            "SpeedKw": 243
-          },
-          {
-            "SOC": 11,
-            "SpeedKw": 243
-          },
-          {
-            "SOC": 12,
-            "SpeedKw": 251
-          },
-          {
-            "SOC": 13,
-            "SpeedKw": 253
-          },
-          {
-            "SOC": 14,
-            "SpeedKw": 253
-          },
-          {
-            "SOC": 15,
-            "SpeedKw": 254
-          },
-          {
-            "SOC": 16,
-            "SpeedKw": 255
-          },
-          {
-            "SOC": 17,
-            "SpeedKw": 256
-          },
-          {
-            "SOC": 18,
-            "SpeedKw": 256
-          },
-          {
-            "SOC": 19,
-            "SpeedKw": 256
-          },
-          {
-            "SOC": 20,
-            "SpeedKw": 258
-          },
-          {
-            "SOC": 21,
-            "SpeedKw": 259
-          },
-          {
-            "SOC": 22,
-            "SpeedKw": 258
-          },
-          {
-            "SOC": 23,
-            "SpeedKw": 260
-          },
-          {
-            "SOC": 24,
-            "SpeedKw": 260
-          },
-          {
-            "SOC": 25,
-            "SpeedKw": 261
-          },
-          {
-            "SOC": 26,
-            "SpeedKw": 261
-          },
-          {
-            "SOC": 27,
-            "SpeedKw": 262
-          },
-          {
-            "SOC": 28,
-            "SpeedKw": 262
-          },
-          {
-            "SOC": 29,
-            "SpeedKw": 262
-          },
-          {
-            "SOC": 30,
-            "SpeedKw": 265
-          },
-          {
-            "SOC": 31,
-            "SpeedKw": 265
-          },
-          {
-            "SOC": 32,
-            "SpeedKw": 261
-          },
-          {
-            "SOC": 33,
-            "SpeedKw": 261
-          },
-          {
-            "SOC": 34,
-            "SpeedKw": 261
-          },
-          {
-            "SOC": 35,
-            "SpeedKw": 264
-          },
-          {
-            "SOC": 36,
-            "SpeedKw": 244
-          },
-          {
-            "SOC": 37,
-            "SpeedKw": 245
-          },
-          {
-            "SOC": 38,
-            "SpeedKw": 245
-          },
-          {
-            "SOC": 39,
-            "SpeedKw": 245
-          },
-          {
-            "SOC": 40,
-            "SpeedKw": 245
-          },
-          {
-            "SOC": 41,
-            "SpeedKw": 246
-          },
-          {
-            "SOC": 42,
-            "SpeedKw": 246
-          },
-          {
-            "SOC": 43,
-            "SpeedKw": 246
-          },
-          {
-            "SOC": 44,
-            "SpeedKw": 246
-          },
-          {
-            "SOC": 45,
-            "SpeedKw": 246
-          },
-          {
-            "SOC": 46,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 47,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 48,
-            "SpeedKw": 247
-          },
-          {
-            "SOC": 49,
-            "SpeedKw": 248
-          },
-          {
-            "SOC": 50,
-            "SpeedKw": 249
-          },
-          {
-            "SOC": 51,
-            "SpeedKw": 228
-          },
-          {
-            "SOC": 52,
-            "SpeedKw": 229
-          },
-          {
-            "SOC": 53,
-            "SpeedKw": 228
-          },
-          {
-            "SOC": 54,
-            "SpeedKw": 208
-          },
-          {
-            "SOC": 55,
-            "SpeedKw": 208
-          },
-          {
-            "SOC": 56,
-            "SpeedKw": 209
-          },
-          {
-            "SOC": 57,
-            "SpeedKw": 209
-          },
-          {
-            "SOC": 58,
-            "SpeedKw": 190
-          },
-          {
-            "SOC": 59,
-            "SpeedKw": 191
-          },
-          {
-            "SOC": 60,
-            "SpeedKw": 190
-          },
-          {
-            "SOC": 61,
-            "SpeedKw": 180
-          },
-          {
-            "SOC": 62,
-            "SpeedKw": 180
-          },
-          {
-            "SOC": 63,
-            "SpeedKw": 181
-          },
-          {
-            "SOC": 64,
-            "SpeedKw": 176
-          },
-          {
-            "SOC": 65,
-            "SpeedKw": 172
-          },
-          {
-            "SOC": 66,
-            "SpeedKw": 172
-          },
-          {
-            "SOC": 67,
-            "SpeedKw": 173
-          },
-          {
-            "SOC": 68,
-            "SpeedKw": 161
-          },
-          {
-            "SOC": 69,
-            "SpeedKw": 163
-          },
-          {
-            "SOC": 70,
-            "SpeedKw": 163
-          },
-          {
-            "SOC": 71,
-            "SpeedKw": 153
-          },
-          {
-            "SOC": 72,
-            "SpeedKw": 154
-          },
-          {
-            "SOC": 73,
-            "SpeedKw": 154
-          },
-          {
-            "SOC": 74,
-            "SpeedKw": 120
-          },
-          {
-            "SOC": 75,
-            "SpeedKw": 121
-          },
-          {
-            "SOC": 76,
-            "SpeedKw": 122
-          },
-          {
-            "SOC": 77,
-            "SpeedKw": 122
-          },
-          {
-            "SOC": 78,
-            "SpeedKw": 122
-          },
-          {
-            "SOC": 79,
-            "SpeedKw": 123
-          },
-          {
-            "SOC": 80,
-            "SpeedKw": 90
-          },
-          {
-            "SOC": 81,
-            "SpeedKw": 84
-          },
-          {
-            "SOC": 82,
-            "SpeedKw": 73
-          },
-          {
-            "SOC": 83,
-            "SpeedKw": 62
-          },
-          {
-            "SOC": 84,
-            "SpeedKw": 53
-          },
-          {
-            "SOC": 85,
-            "SpeedKw": 44
-          },
-          {
-            "SOC": 86,
-            "SpeedKw": 38
-          },
-          {
-            "SOC": 87,
-            "SpeedKw": 36
-          },
-          {
-            "SOC": 88,
-            "SpeedKw": 33
-          },
-          {
-            "SOC": 89,
-            "SpeedKw": 43
-          },
-          {
-            "SOC": 90,
-            "SpeedKw": 54
-          },
-          {
-            "SOC": 91,
-            "SpeedKw": 66
-          },
-          {
-            "SOC": 92,
-            "SpeedKw": 45
-          },
-          {
-            "SOC": 93,
-            "SpeedKw": 35
-          },
-          {
-            "SOC": 94,
-            "SpeedKw": 33
-          },
-          {
-            "SOC": 95,
-            "SpeedKw": 25
-          },
-          {
-            "SOC": 96,
-            "SpeedKw": 33
-          },
-          {
-            "SOC": 97,
-            "SpeedKw": 30
-          },
-          {
-            "SOC": 98,
-            "SpeedKw": 24
-          },
-          {
-            "SOC": 99,
-            "SpeedKw": 16
-          },
-          {
-            "SOC": 100,
-            "SpeedKw": 10
+        "NominalVoltage": 662,
+        "BatteryCapacityAh": 152,
+        "ChargeCurves": [
+          {
+            "ChargeSpeed": [
+              {
+                "SOC": 0,
+                "SpeedKw": 100
+              },
+              {
+                "SOC": 1,
+                "SpeedKw": 231
+              },
+              {
+                "SOC": 2,
+                "SpeedKw": 231
+              },
+              {
+                "SOC": 3,
+                "SpeedKw": 234
+              },
+              {
+                "SOC": 4,
+                "SpeedKw": 236
+              },
+              {
+                "SOC": 5,
+                "SpeedKw": 240
+              },
+              {
+                "SOC": 6,
+                "SpeedKw": 249
+              },
+              {
+                "SOC": 7,
+                "SpeedKw": 260
+              },
+              {
+                "SOC": 8,
+                "SpeedKw": 273
+              },
+              {
+                "SOC": 9,
+                "SpeedKw": 278
+              },
+              {
+                "SOC": 10,
+                "SpeedKw": 279
+              },
+              {
+                "SOC": 11,
+                "SpeedKw": 280
+              },
+              {
+                "SOC": 12,
+                "SpeedKw": 280
+              },
+              {
+                "SOC": 13,
+                "SpeedKw": 281
+              },
+              {
+                "SOC": 14,
+                "SpeedKw": 281
+              },
+              {
+                "SOC": 15,
+                "SpeedKw": 282
+              },
+              {
+                "SOC": 16,
+                "SpeedKw": 283
+              },
+              {
+                "SOC": 17,
+                "SpeedKw": 282
+              },
+              {
+                "SOC": 18,
+                "SpeedKw": 283
+              },
+              {
+                "SOC": 19,
+                "SpeedKw": 283
+              },
+              {
+                "SOC": 20,
+                "SpeedKw": 284
+              },
+              {
+                "SOC": 21,
+                "SpeedKw": 285
+              },
+              {
+                "SOC": 22,
+                "SpeedKw": 285
+              },
+              {
+                "SOC": 23,
+                "SpeedKw": 286
+              },
+              {
+                "SOC": 24,
+                "SpeedKw": 286
+              },
+              {
+                "SOC": 25,
+                "SpeedKw": 287
+              },
+              {
+                "SOC": 26,
+                "SpeedKw": 287
+              },
+              {
+                "SOC": 27,
+                "SpeedKw": 287
+              },
+              {
+                "SOC": 28,
+                "SpeedKw": 287
+              },
+              {
+                "SOC": 29,
+                "SpeedKw": 288
+              },
+              {
+                "SOC": 30,
+                "SpeedKw": 288
+              },
+              {
+                "SOC": 31,
+                "SpeedKw": 286
+              },
+              {
+                "SOC": 32,
+                "SpeedKw": 282
+              },
+              {
+                "SOC": 33,
+                "SpeedKw": 286
+              },
+              {
+                "SOC": 34,
+                "SpeedKw": 284
+              },
+              {
+                "SOC": 35,
+                "SpeedKw": 280
+              },
+              {
+                "SOC": 36,
+                "SpeedKw": 251
+              },
+              {
+                "SOC": 37,
+                "SpeedKw": 231
+              },
+              {
+                "SOC": 38,
+                "SpeedKw": 219
+              },
+              {
+                "SOC": 39,
+                "SpeedKw": 212
+              },
+              {
+                "SOC": 40,
+                "SpeedKw": 228
+              },
+              {
+                "SOC": 41,
+                "SpeedKw": 229
+              },
+              {
+                "SOC": 42,
+                "SpeedKw": 220
+              },
+              {
+                "SOC": 43,
+                "SpeedKw": 218
+              },
+              {
+                "SOC": 44,
+                "SpeedKw": 215
+              },
+              {
+                "SOC": 45,
+                "SpeedKw": 208
+              },
+              {
+                "SOC": 46,
+                "SpeedKw": 209
+              },
+              {
+                "SOC": 47,
+                "SpeedKw": 210
+              },
+              {
+                "SOC": 48,
+                "SpeedKw": 211
+              },
+              {
+                "SOC": 49,
+                "SpeedKw": 205
+              },
+              {
+                "SOC": 50,
+                "SpeedKw": 206
+              },
+              {
+                "SOC": 51,
+                "SpeedKw": 200
+              },
+              {
+                "SOC": 52,
+                "SpeedKw": 199
+              },
+              {
+                "SOC": 53,
+                "SpeedKw": 200
+              },
+              {
+                "SOC": 54,
+                "SpeedKw": 201
+              },
+              {
+                "SOC": 55,
+                "SpeedKw": 194
+              },
+              {
+                "SOC": 56,
+                "SpeedKw": 195
+              },
+              {
+                "SOC": 57,
+                "SpeedKw": 192
+              },
+              {
+                "SOC": 58,
+                "SpeedKw": 190
+              },
+              {
+                "SOC": 59,
+                "SpeedKw": 181
+              },
+              {
+                "SOC": 60,
+                "SpeedKw": 182
+              },
+              {
+                "SOC": 61,
+                "SpeedKw": 181
+              },
+              {
+                "SOC": 62,
+                "SpeedKw": 182
+              },
+              {
+                "SOC": 63,
+                "SpeedKw": 179
+              },
+              {
+                "SOC": 64,
+                "SpeedKw": 182
+              },
+              {
+                "SOC": 65,
+                "SpeedKw": 178
+              },
+              {
+                "SOC": 66,
+                "SpeedKw": 174
+              },
+              {
+                "SOC": 67,
+                "SpeedKw": 170
+              },
+              {
+                "SOC": 68,
+                "SpeedKw": 165
+              },
+              {
+                "SOC": 69,
+                "SpeedKw": 160
+              },
+              {
+                "SOC": 70,
+                "SpeedKw": 154
+              },
+              {
+                "SOC": 71,
+                "SpeedKw": 148
+              },
+              {
+                "SOC": 72,
+                "SpeedKw": 146
+              },
+              {
+                "SOC": 73,
+                "SpeedKw": 142
+              },
+              {
+                "SOC": 74,
+                "SpeedKw": 139
+              },
+              {
+                "SOC": 75,
+                "SpeedKw": 134
+              },
+              {
+                "SOC": 76,
+                "SpeedKw": 131
+              },
+              {
+                "SOC": 77,
+                "SpeedKw": 128
+              },
+              {
+                "SOC": 78,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 79,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 80,
+                "SpeedKw": 119
+              },
+              {
+                "SOC": 81,
+                "SpeedKw": 117
+              },
+              {
+                "SOC": 82,
+                "SpeedKw": 99
+              },
+              {
+                "SOC": 83,
+                "SpeedKw": 90
+              },
+              {
+                "SOC": 84,
+                "SpeedKw": 77
+              },
+              {
+                "SOC": 85,
+                "SpeedKw": 65
+              },
+              {
+                "SOC": 86,
+                "SpeedKw": 51
+              },
+              {
+                "SOC": 87,
+                "SpeedKw": 49
+              },
+              {
+                "SOC": 88,
+                "SpeedKw": 47
+              },
+              {
+                "SOC": 89,
+                "SpeedKw": 45
+              },
+              {
+                "SOC": 90,
+                "SpeedKw": 41
+              },
+              {
+                "SOC": 91,
+                "SpeedKw": 36
+              },
+              {
+                "SOC": 92,
+                "SpeedKw": 33
+              },
+              {
+                "SOC": 93,
+                "SpeedKw": 31
+              },
+              {
+                "SOC": 94,
+                "SpeedKw": 28
+              },
+              {
+                "SOC": 95,
+                "SpeedKw": 26
+              },
+              {
+                "SOC": 96,
+                "SpeedKw": 23
+              },
+              {
+                "SOC": 97,
+                "SpeedKw": 21
+              },
+              {
+                "SOC": 98,
+                "SpeedKw": 17
+              },
+              {
+                "SOC": 99,
+                "SpeedKw": 14
+              },
+              {
+                "SOC": 100,
+                "SpeedKw": 10
+              }
+            ],
+            "CurveStatus": "PublicTest",
+            "ChargingCurveType": "Optimal"
+          },
+          {
+            "ChargeSpeed": [
+              {
+                "SOC": 0,
+                "SpeedKw": 86
+              },
+              {
+                "SOC": 1,
+                "SpeedKw": 119
+              },
+              {
+                "SOC": 2,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 3,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 4,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 5,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 6,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 7,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 8,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 9,
+                "SpeedKw": null
+              },
+              {
+                "SOC": 10,
+                "SpeedKw": 119
+              },
+              {
+                "SOC": 11,
+                "SpeedKw": 120
+              },
+              {
+                "SOC": 12,
+                "SpeedKw": 120
+              },
+              {
+                "SOC": 13,
+                "SpeedKw": 121
+              },
+              {
+                "SOC": 14,
+                "SpeedKw": 121
+              },
+              {
+                "SOC": 15,
+                "SpeedKw": 121
+              },
+              {
+                "SOC": 16,
+                "SpeedKw": 122
+              },
+              {
+                "SOC": 17,
+                "SpeedKw": 122
+              },
+              {
+                "SOC": 18,
+                "SpeedKw": 122
+              },
+              {
+                "SOC": 19,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 20,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 21,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 22,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 23,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 24,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 25,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 26,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 27,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 28,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 29,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 30,
+                "SpeedKw": 125
+              },
+              {
+                "SOC": 31,
+                "SpeedKw": 125
+              },
+              {
+                "SOC": 32,
+                "SpeedKw": 125
+              },
+              {
+                "SOC": 33,
+                "SpeedKw": 125
+              },
+              {
+                "SOC": 34,
+                "SpeedKw": 125
+              },
+              {
+                "SOC": 35,
+                "SpeedKw": 125
+              },
+              {
+                "SOC": 36,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 37,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 38,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 39,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 40,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 41,
+                "SpeedKw": 126
+              },
+              {
+                "SOC": 42,
+                "SpeedKw": 127
+              },
+              {
+                "SOC": 43,
+                "SpeedKw": 127
+              },
+              {
+                "SOC": 44,
+                "SpeedKw": 127
+              },
+              {
+                "SOC": 45,
+                "SpeedKw": 127
+              },
+              {
+                "SOC": 46,
+                "SpeedKw": 127
+              },
+              {
+                "SOC": 47,
+                "SpeedKw": 128
+              },
+              {
+                "SOC": 48,
+                "SpeedKw": 128
+              },
+              {
+                "SOC": 49,
+                "SpeedKw": 128
+              },
+              {
+                "SOC": 50,
+                "SpeedKw": 128
+              },
+              {
+                "SOC": 51,
+                "SpeedKw": 129
+              },
+              {
+                "SOC": 52,
+                "SpeedKw": 129
+              },
+              {
+                "SOC": 53,
+                "SpeedKw": 130
+              },
+              {
+                "SOC": 54,
+                "SpeedKw": 130
+              },
+              {
+                "SOC": 55,
+                "SpeedKw": 130
+              },
+              {
+                "SOC": 56,
+                "SpeedKw": 130
+              },
+              {
+                "SOC": 57,
+                "SpeedKw": 131
+              },
+              {
+                "SOC": 58,
+                "SpeedKw": 131
+              },
+              {
+                "SOC": 59,
+                "SpeedKw": 131
+              },
+              {
+                "SOC": 60,
+                "SpeedKw": 132
+              },
+              {
+                "SOC": 61,
+                "SpeedKw": 132
+              },
+              {
+                "SOC": 62,
+                "SpeedKw": 132
+              },
+              {
+                "SOC": 63,
+                "SpeedKw": 132
+              },
+              {
+                "SOC": 64,
+                "SpeedKw": 133
+              },
+              {
+                "SOC": 65,
+                "SpeedKw": 133
+              },
+              {
+                "SOC": 66,
+                "SpeedKw": 134
+              },
+              {
+                "SOC": 67,
+                "SpeedKw": 134
+              },
+              {
+                "SOC": 68,
+                "SpeedKw": 134
+              },
+              {
+                "SOC": 69,
+                "SpeedKw": 132
+              },
+              {
+                "SOC": 70,
+                "SpeedKw": 128
+              },
+              {
+                "SOC": 71,
+                "SpeedKw": 124
+              },
+              {
+                "SOC": 72,
+                "SpeedKw": 123
+              },
+              {
+                "SOC": 73,
+                "SpeedKw": 122
+              },
+              {
+                "SOC": 74,
+                "SpeedKw": 120
+              },
+              {
+                "SOC": 75,
+                "SpeedKw": 118
+              },
+              {
+                "SOC": 76,
+                "SpeedKw": 115
+              },
+              {
+                "SOC": 77,
+                "SpeedKw": 114
+              },
+              {
+                "SOC": 78,
+                "SpeedKw": 112
+              },
+              {
+                "SOC": 79,
+                "SpeedKw": 110
+              },
+              {
+                "SOC": 80,
+                "SpeedKw": 109
+              },
+              {
+                "SOC": 81,
+                "SpeedKw": 102
+              },
+              {
+                "SOC": 82,
+                "SpeedKw": 94
+              },
+              {
+                "SOC": 83,
+                "SpeedKw": 80
+              },
+              {
+                "SOC": 84,
+                "SpeedKw": 70
+              },
+              {
+                "SOC": 85,
+                "SpeedKw": 59
+              },
+              {
+                "SOC": 86,
+                "SpeedKw": 46
+              },
+              {
+                "SOC": 87,
+                "SpeedKw": 44
+              },
+              {
+                "SOC": 88,
+                "SpeedKw": 41
+              },
+              {
+                "SOC": 89,
+                "SpeedKw": 38
+              },
+              {
+                "SOC": 90,
+                "SpeedKw": 36
+              },
+              {
+                "SOC": 91,
+                "SpeedKw": 34
+              },
+              {
+                "SOC": 92,
+                "SpeedKw": 31
+              },
+              {
+                "SOC": 93,
+                "SpeedKw": 29
+              },
+              {
+                "SOC": 94,
+                "SpeedKw": 27
+              },
+              {
+                "SOC": 95,
+                "SpeedKw": 25
+              },
+              {
+                "SOC": 96,
+                "SpeedKw": 22
+              },
+              {
+                "SOC": 97,
+                "SpeedKw": 19
+              },
+              {
+                "SOC": 98,
+                "SpeedKw": 16
+              },
+              {
+                "SOC": 99,
+                "SpeedKw": 11
+              },
+              {
+                "SOC": 100,
+                "SpeedKw": 8
+              }
+            ],
+            "CurveStatus": "PublicTest",
+            "ChargingCurveType": "LowVoltage"
           }
         ],
-        "CurveStatus": null,
         "MaxDCChargeSpeed": 270,
-        "ChargingConfiguration": null,
-        "MaxDCChargeSpeedLowVoltage": null
-      },
-      {
-        "Optional": false,
-        "Name": "Performance Battery Plus",
-        "GrossCapacitykWh": 105,
-        "NetCapacitykWh": 97,
-        "WeightKg": null,
-        "BatteryType": null,
-        "Modules": "33",
-        "CellPerModule": "12",
-        "PackConfiguration": "198s2p",
-        "CellInfo": {
-          "CellProducer": "LG Chem",
-          "CellType": "Pouch",
-          "CellChemistry": "NMC",
-          "CellCapacityAh": "64.6"
-        },
-        "NominalVoltage": 725,
-        "BatteryCapacityAh": null,
-        "ChargeCurve": [
-          {
-            "SOC": 0,
-            "SpeedKw": 175
-          },
-          {
-            "SOC": 1,
-            "SpeedKw": 187
-          },
-          {
-            "SOC": 2,
-            "SpeedKw": 295
-          },
-          {
-            "SOC": 3,
-            "SpeedKw": 298
-          },
-          {
-            "SOC": 4,
-            "SpeedKw": 302
-          },
-          {
-            "SOC": 5,
-            "SpeedKw": 303
-          },
-          {
-            "SOC": 6,
-            "SpeedKw": 304
-          },
-          {
-            "SOC": 7,
-            "SpeedKw": 305
-          },
-          {
-            "SOC": 8,
-            "SpeedKw": 307
-          },
-          {
-            "SOC": 9,
-            "SpeedKw": 307
-          },
-          {
-            "SOC": 10,
-            "SpeedKw": 304
-          },
-          {
-            "SOC": 11,
-            "SpeedKw": 311
-          },
-          {
-            "SOC": 12,
-            "SpeedKw": 311
-          },
-          {
-            "SOC": 13,
-            "SpeedKw": 311
-          },
-          {
-            "SOC": 14,
-            "SpeedKw": 313
-          },
-          {
-            "SOC": 15,
-            "SpeedKw": 312
-          },
-          {
-            "SOC": 16,
-            "SpeedKw": 310
-          },
-          {
-            "SOC": 17,
-            "SpeedKw": 314
-          },
-          {
-            "SOC": 18,
-            "SpeedKw": 314
-          },
-          {
-            "SOC": 19,
-            "SpeedKw": 315
-          },
-          {
-            "SOC": 20,
-            "SpeedKw": 312
-          },
-          {
-            "SOC": 21,
-            "SpeedKw": 312
-          },
-          {
-            "SOC": 22,
-            "SpeedKw": 317
-          },
-          {
-            "SOC": 23,
-            "SpeedKw": 317
-          },
-          {
-            "SOC": 24,
-            "SpeedKw": 317
-          },
-          {
-            "SOC": 25,
-            "SpeedKw": 321
-          },
-          {
-            "SOC": 26,
-            "SpeedKw": 321
-          },
-          {
-            "SOC": 27,
-            "SpeedKw": 322
-          },
-          {
-            "SOC": 28,
-            "SpeedKw": 322
-          },
-          {
-            "SOC": 29,
-            "SpeedKw": 325
-          },
-          {
-            "SOC": 30,
-            "SpeedKw": 326
-          },
-          {
-            "SOC": 31,
-            "SpeedKw": 320
-          },
-          {
-            "SOC": 32,
-            "SpeedKw": 321
-          },
-          {
-            "SOC": 33,
-            "SpeedKw": 320
-          },
-          {
-            "SOC": 34,
-            "SpeedKw": 320
-          },
-          {
-            "SOC": 35,
-            "SpeedKw": 322
-          },
-          {
-            "SOC": 36,
-            "SpeedKw": 329
-          },
-          {
-            "SOC": 37,
-            "SpeedKw": 326
-          },
-          {
-            "SOC": 38,
-            "SpeedKw": 319
-          },
-          {
-            "SOC": 39,
-            "SpeedKw": 332
-          },
-          {
-            "SOC": 40,
-            "SpeedKw": 330
-          },
-          {
-            "SOC": 41,
-            "SpeedKw": 324
-          },
-          {
-            "SOC": 42,
-            "SpeedKw": 322
-          },
-          {
-            "SOC": 43,
-            "SpeedKw": 329
-          },
-          {
-            "SOC": 44,
-            "SpeedKw": 326
-          },
-          {
-            "SOC": 45,
-            "SpeedKw": 321
-          },
-          {
-            "SOC": 46,
-            "SpeedKw": 318
-          },
-          {
-            "SOC": 47,
-            "SpeedKw": 317
-          },
-          {
-            "SOC": 48,
-            "SpeedKw": 318
-          },
-          {
-            "SOC": 49,
-            "SpeedKw": 319
-          },
-          {
-            "SOC": 50,
-            "SpeedKw": 320
-          },
-          {
-            "SOC": 51,
-            "SpeedKw": 319
-          },
-          {
-            "SOC": 52,
-            "SpeedKw": 318
-          },
-          {
-            "SOC": 53,
-            "SpeedKw": 318
-          },
-          {
-            "SOC": 54,
-            "SpeedKw": 315
-          },
-          {
-            "SOC": 55,
-            "SpeedKw": 323
-          },
-          {
-            "SOC": 56,
-            "SpeedKw": 320
-          },
-          {
-            "SOC": 57,
-            "SpeedKw": 318
-          },
-          {
-            "SOC": 58,
-            "SpeedKw": 310
-          },
-          {
-            "SOC": 59,
-            "SpeedKw": 309
-          },
-          {
-            "SOC": 60,
-            "SpeedKw": 304
-          },
-          {
-            "SOC": 61,
-            "SpeedKw": 306
-          },
-          {
-            "SOC": 62,
-            "SpeedKw": 305
-          },
-          {
-            "SOC": 63,
-            "SpeedKw": 304
-          },
-          {
-            "SOC": 64,
-            "SpeedKw": 303
-          },
-          {
-            "SOC": 65,
-            "SpeedKw": 215
-          },
-          {
-            "SOC": 66,
-            "SpeedKw": 211
-          },
-          {
-            "SOC": 67,
-            "SpeedKw": 215
-          },
-          {
-            "SOC": 68,
-            "SpeedKw": 215
-          },
-          {
-            "SOC": 69,
-            "SpeedKw": 215
-          },
-          {
-            "SOC": 70,
-            "SpeedKw": 217
-          },
-          {
-            "SOC": 71,
-            "SpeedKw": 216
-          },
-          {
-            "SOC": 72,
-            "SpeedKw": 216
-          },
-          {
-            "SOC": 73,
-            "SpeedKw": 220
-          },
-          {
-            "SOC": 74,
-            "SpeedKw": 218
-          },
-          {
-            "SOC": 75,
-            "SpeedKw": 208
-          },
-          {
-            "SOC": 76,
-            "SpeedKw": 189
-          },
-          {
-            "SOC": 77,
-            "SpeedKw": 173
-          },
-          {
-            "SOC": 78,
-            "SpeedKw": 169
-          },
-          {
-            "SOC": 79,
-            "SpeedKw": 150
-          },
-          {
-            "SOC": 80,
-            "SpeedKw": 107
-          },
-          {
-            "SOC": 81,
-            "SpeedKw": 100
-          },
-          {
-            "SOC": 82,
-            "SpeedKw": 96
-          },
-          {
-            "SOC": 83,
-            "SpeedKw": 94
-          },
-          {
-            "SOC": 84,
-            "SpeedKw": 91
-          },
-          {
-            "SOC": 85,
-            "SpeedKw": 88
-          },
-          {
-            "SOC": 86,
-            "SpeedKw": 84
-          },
-          {
-            "SOC": 87,
-            "SpeedKw": 80
-          },
-          {
-            "SOC": 88,
-            "SpeedKw": 82
-          },
-          {
-            "SOC": 89,
-            "SpeedKw": 75
-          },
-          {
-            "SOC": 90,
-            "SpeedKw": 71
-          },
-          {
-            "SOC": 91,
-            "SpeedKw": 62
-          },
-          {
-            "SOC": 92,
-            "SpeedKw": 51
-          },
-          {
-            "SOC": 93,
-            "SpeedKw": 52
-          },
-          {
-            "SOC": 94,
-            "SpeedKw": 47
-          },
-          {
-            "SOC": 95,
-            "SpeedKw": 44
-          },
-          {
-            "SOC": 96,
-            "SpeedKw": 37
-          },
-          {
-            "SOC": 97,
-            "SpeedKw": 33
-          },
-          {
-            "SOC": 98,
-            "SpeedKw": 26
-          },
-          {
-            "SOC": 99,
-            "SpeedKw": 13
-          },
-          {
-            "SOC": 100,
-            "SpeedKw": 4
-          }
-        ],
-        "CurveStatus": null,
-        "MaxDCChargeSpeed": 320,
-        "ChargingConfiguration": null,
-        "MaxDCChargeSpeedLowVoltage": null
+        "ChargingConfiguration": "SplitBattery",
+        "MaxDCChargeSpeedLowVoltage": 135
       }
     ],
     "Motors": [
       {
         "Location": "FrontAxle",
-        "Type": "PMSM",
+        "Type": "ASM",
         "Power": null,
-        "PeakPower": 175,
-        "ContinuousPower": 80,
-        "Torque": 300,
-        "Model": "EBGA"
+        "PeakPower": null,
+        "ContinuousPower": null,
+        "Torque": 275,
+        "Model": null
       },
       {
         "Location": "RearAxle",
         "Type": "PMSM",
         "Power": null,
-        "PeakPower": 320,
+        "PeakPower": null,
         "ContinuousPower": null,
-        "Torque": 247,
-        "Model": "EBFA"
+        "Torque": 580,
+        "Model": null
       }
     ],
     "Brakes": [
@@ -958,26 +944,12 @@ Example data
         "Name": null,
         "FrontBrakeType": "FixedCaliperDisc",
         "FrontBrakeDiscType": "CastIron",
-        "FrontBrakeDiscDiameter": 360,
-        "FrontBrakeDiscThickness": 30,
-        "FrontBrakePistons": null,
-        "RearBrakeType": "FixedCaliperDisc",
-        "RearBrakeDiscType": "CastIron",
-        "RearBrakeDiscDiameter": 358,
-        "RearBrakeDiscThickness": null,
-        "RearBrakePistons": null
-      },
-      {
-        "Standard": false,
-        "Name": null,
-        "FrontBrakeType": "FixedCaliperDisc",
-        "FrontBrakeDiscType": "TungstenCarbidCoating",
-        "FrontBrakeDiscDiameter": 410,
+        "FrontBrakeDiscDiameter": 375,
         "FrontBrakeDiscThickness": 38,
         "FrontBrakePistons": null,
-        "RearBrakeType": "FixedCaliperDisc",
-        "RearBrakeDiscType": "TungstenCarbidCoating",
-        "RearBrakeDiscDiameter": 365,
+        "RearBrakeType": "FloatingCaliperDisc",
+        "RearBrakeDiscType": "CastIron",
+        "RearBrakeDiscDiameter": 350,
         "RearBrakeDiscThickness": null,
         "RearBrakePistons": null
       }
@@ -987,19 +959,58 @@ Example data
       "FeatureStatus": "Standard"
     },
     "RearWheelSteering": {
-      "FeatureStatus": "Optional"
+      "FeatureStatus": "NotAvailable"
     },
     "AllWheelDrive": {
       "FeatureStatus": "Standard"
     },
     "TorqueVectoring": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "NotAvailable"
     },
     "Suspension": [
       {
-        "Name": "Adaptive Air Suspension",
-        "MaxGroundClearanceMM": 127,
-        "MinGroundClearanceMM": 103,
+        "Name": "Sport",
+        "MaxGroundClearanceMM": 164,
+        "MinGroundClearanceMM": 164,
+        "AdaptiveSuspension": {
+          "FeatureStatus": "Standard"
+        },
+        "AdjustableDampingFront": {
+          "FeatureStatus": "Standard"
+        },
+        "AdjustableDampingRear": {
+          "FeatureStatus": "Standard"
+        },
+        "AdjustableHeightFront": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "AdjustableHeightRear": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "EeasyEntry": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "EeasyLoading": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "ActiveBodyControl": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "ActiveCorneringDynamics": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "SpringTypeFront": "Coil",
+        "SpringTypeRear": "Coil",
+        "DamperTypeFront": "ElectronicallyControlled",
+        "DamperTypeRear": "ElectronicallyControlled",
+        "SuspensionTypeFront": "Multilink",
+        "SuspensionTypeRear": "Multilink",
+        "Standard": true
+      },
+      {
+        "Name": "Adaptive Air Suspension Sport",
+        "MaxGroundClearanceMM": 224,
+        "MinGroundClearanceMM": 185,
         "AdaptiveSuspension": {
           "FeatureStatus": "Standard"
         },
@@ -1015,50 +1026,46 @@ Example data
         "AdjustableHeightRear": {
           "FeatureStatus": "Standard"
         },
-        "EeasyEntry": null,
-        "EeasyLoading": null,
-        "ActiveBodyControl": null,
-        "ActiveCorneringDynamics": null,
+        "EeasyEntry": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "EeasyLoading": {
+          "FeatureStatus": "Standard"
+        },
+        "ActiveBodyControl": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "ActiveCorneringDynamics": {
+          "FeatureStatus": "NotAvailable"
+        },
         "SpringTypeFront": "Air",
         "SpringTypeRear": "Air",
         "DamperTypeFront": "ElectronicallyControlled",
         "DamperTypeRear": "ElectronicallyControlled",
-        "SuspensionTypeFront": "DoubleWishbone",
+        "SuspensionTypeFront": "Multilink",
         "SuspensionTypeRear": "Multilink",
         "Standard": false
       }
     ],
     "Performance": [
       {
-        "PowerKw": 340,
-        "PowerKwBoost": 400,
-        "TorqueNm": null,
-        "TorqueNmBoost": 695,
+        "PowerKw": 360,
+        "PowerKwBoost": 385,
+        "TorqueNm": 855,
+        "TorqueNmBoost": 855,
         "BoostLengthSeconds": null,
-        "TopSpeed": 250,
+        "TopSpeed": 230,
         "ZeroToHundredKph": null,
-        "ZeroToHundredKphBoost": 3.7,
+        "ZeroToHundredKphBoost": 4.4,
         "OptionType": null,
         "OptionId": null
-      },
-      {
-        "PowerKw": 380,
-        "PowerKwBoost": 440,
-        "TorqueNm": null,
-        "TorqueNmBoost": 710,
-        "BoostLengthSeconds": null,
-        "TopSpeed": 250,
-        "ZeroToHundredKph": null,
-        "ZeroToHundredKphBoost": 4,
-        "OptionType": "BatteryOption",
-        "OptionId": "Performance Battery Plus"
       }
     ],
     "Charging": {
       "Chargeports": [
         {
           "IsStandard": true,
-          "ChargePortLocation": "RightFrontSide",
+          "ChargePortLocation": "LeftRearSide",
           "ChargePortVariant": [
             {
               "Region": "Europe",
@@ -1095,11 +1102,11 @@ Example data
               "ChargePortType": "CCS2"
             }
           ],
-          "V2L": null
+          "V2L": false
         },
         {
           "IsStandard": true,
-          "ChargePortLocation": "LeftFrontSide",
+          "ChargePortLocation": "RightRearSide",
           "ChargePortVariant": [
             {
               "Region": "Europe",
@@ -1136,7 +1143,7 @@ Example data
               "ChargePortType": "CCS2"
             }
           ],
-          "V2L": null
+          "V2L": false
         }
       ],
       "OnBoardChargers": [
@@ -1157,47 +1164,27 @@ Example data
         "FeatureStatus": "Standard"
       },
       "V2L": {
-        "FeatureStatus": "Unknown"
+        "FeatureStatus": "NotAvailable"
       },
       "V2LPower": null,
       "V2G": {
-        "FeatureStatus": "Unknown"
+        "FeatureStatus": "NotAvailable"
       }
     },
     "RangeAndConsumption": [
       {
-        "BasicTrimWltpRange": 534,
-        "BasicTrimWltpConsumption": 18.5,
-        "BasicTrimRealWltpConsumption": 15.66,
-        "TopTrimWltpRange": 449,
-        "TopTrimWltpConsumption": 21.6,
-        "TopTrimRealWltpConsumption": 18.62,
-        "BasicTrim120KmhRange": 398,
-        "BasicTrim120KmhConsumption": 21,
-        "BasicTrim90KmhRange": 492,
-        "BasicTrim90KmhConsumption": 17,
-        "BasicTrim70MphRange": null,
-        "BasicTrim70MphConsumption": null,
-        "BasicTrimEpaRange": null,
-        "BasicTrimEpaRealConsumption": null,
-        "TopTrimEpaRange": null,
-        "TopTrimEpaRealConsumption": null,
-        "BasicTrimCLTCRange": null,
-        "BasicTrimCLTCRealConsumption": null
-      },
-      {
-        "BasicTrimWltpRange": 616,
-        "BasicTrimWltpConsumption": 18.6,
-        "BasicTrimRealWltpConsumption": null,
-        "TopTrimWltpRange": 522,
-        "TopTrimWltpConsumption": 21.8,
-        "TopTrimRealWltpConsumption": null,
-        "BasicTrim120KmhRange": null,
-        "BasicTrim120KmhConsumption": 21,
-        "BasicTrim90KmhRange": null,
-        "BasicTrim90KmhConsumption": 17,
-        "BasicTrim70MphRange": null,
-        "BasicTrim70MphConsumption": 19.3,
+        "BasicTrimWltpRange": 598,
+        "BasicTrimWltpConsumption": 17.5,
+        "BasicTrimRealWltpConsumption": 15.87,
+        "TopTrimWltpRange": 565,
+        "TopTrimWltpConsumption": 18.4,
+        "TopTrimRealWltpConsumption": 16.80,
+        "BasicTrim120KmhRange": 413,
+        "BasicTrim120KmhConsumption": 23,
+        "BasicTrim90KmhRange": 527,
+        "BasicTrim90KmhConsumption": 18,
+        "BasicTrim70MphRange": 474,
+        "BasicTrim70MphConsumption": 20,
         "BasicTrimEpaRange": null,
         "BasicTrimEpaRealConsumption": null,
         "TopTrimEpaRange": null,
@@ -1207,53 +1194,147 @@ Example data
       }
     ],
     "Regen": {
-      "MaxRegenKw": 265,
+      "MaxRegenKw": 220,
       "LiftUpRegen": true,
       "Coasting": true,
       "AdaptiveRegen": true,
-      "RegenPaddles": null,
-      "OnePedalStoppingMode": null,
-      "LiftOfRegenLevels": null,
+      "RegenPaddles": true,
+      "OnePedalStoppingMode": "HoldRollCreep",
+      "LiftOfRegenLevels": [
+        "Hard",
+        "Medium"
+      ],
       "BlendedBrakes": true,
-      "BlendingBrakeOnLiftUpRegen": null
+      "BlendingBrakeOnLiftUpRegen": true
     },
     "Transmission": null,
     "SelectableDriveModes": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "Standard"
     },
     "DriveModes": [
       {
-        "Name": null,
-        "SteeringResponse": null,
-        "ThrottleResponse": null,
-        "SuspensionMode": null,
-        "SuspensionHeight": null,
-        "RegenMode": null
+        "Name": {
+          "en": "Dynamic"
+        },
+        "SteeringResponse": "Dynamic",
+        "ThrottleResponse": "Dynamic",
+        "SuspensionMode": "Dynamic",
+        "SuspensionHeight": "Lowest",
+        "RegenMode": "NotSet"
+      },
+      {
+        "Name": {
+          "en": "Efficiency"
+        },
+        "SteeringResponse": "Balanced",
+        "ThrottleResponse": "Efficient",
+        "SuspensionMode": "Balanced",
+        "SuspensionHeight": "Lowest",
+        "RegenMode": "NotSet"
+      },
+      {
+        "Name": {
+          "en": "Comfort"
+        },
+        "SteeringResponse": "Balanced",
+        "ThrottleResponse": "Balanced",
+        "SuspensionMode": "Comfort",
+        "SuspensionHeight": "Normal",
+        "RegenMode": "NotSet"
+      },
+      {
+        "Name": {
+          "en": "Allroad"
+        },
+        "SteeringResponse": "Balanced",
+        "ThrottleResponse": "Balanced",
+        "SuspensionMode": "Comfort",
+        "SuspensionHeight": "High1",
+        "RegenMode": "NotSet"
+      },
+      {
+        "Name": {
+          "en": "Offroad"
+        },
+        "SteeringResponse": "Balanced",
+        "ThrottleResponse": "Balanced",
+        "SuspensionMode": "Balanced",
+        "SuspensionHeight": "Highest",
+        "RegenMode": "NotSet"
+      },
+      {
+        "Name": {
+          "en": "Balanced"
+        },
+        "SteeringResponse": "Balanced",
+        "ThrottleResponse": "Balanced",
+        "SuspensionMode": "Adaptive",
+        "SuspensionHeight": "Adaptive",
+        "RegenMode": "NotSet"
+      },
+      {
+        "Name": {
+          "en": "Custom"
+        },
+        "SteeringResponse": "Custom",
+        "ThrottleResponse": "Custom",
+        "SuspensionMode": "Custom",
+        "SuspensionHeight": "Custom",
+        "RegenMode": "NotSet"
       }
     ]
   },
   "Exterior": {
     "PaintColors": [
       {
+        "Color": "Gray",
+        "Name": {
+          "en": "Magnet Grey"
+        },
+        "PaintType": "Solid",
+        "StandardPalette": true,
+        "ColorId": "G5"
+      },
+      {
+        "Color": "Gray",
+        "Name": {
+          "en": "Daytona Grey"
+        },
+        "PaintType": "Metallic",
+        "StandardPalette": true,
+        "ColorId": "6Y"
+      },
+      {
         "Color": "White",
         "Name": {
-          "en": "White"
+          "en": "Glacier White"
         },
-        "PaintType": "Solid",
-        "StandardPalette": true
+        "PaintType": "Metallic",
+        "StandardPalette": true,
+        "ColorId": "2Y"
       },
       {
-        "Color": "Black",
+        "Color": "Red",
         "Name": {
-          "en": "Black"
+          "en": "Soneira Red"
         },
-        "PaintType": "Solid",
-        "StandardPalette": true
+        "PaintType": "Metallic",
+        "StandardPalette": true,
+        "ColorId": "G1"
       },
       {
-        "Color": "Black",
+        "Color": "Blue",
         "Name": {
-          "en": "Jet Black Metallic"
+          "en": "Plasma Blue"
+        },
+        "PaintType": "Metallic",
+        "StandardPalette": true,
+        "ColorId": "3D"
+      },
+      {
+        "Color": "Blue",
+        "Name": {
+          "en": "Acari Blue"
         },
         "PaintType": "Metallic",
         "StandardPalette": true
@@ -1261,194 +1342,543 @@ Example data
       {
         "Color": "Gray",
         "Name": {
-          "en": "Volcano Grey Metallic"
+          "en": "Manhatten Grey"
         },
         "PaintType": "Metallic",
-        "StandardPalette": true
+        "StandardPalette": true,
+        "ColorId": "2Y"
       },
       {
-        "Color": "White",
+        "Color": "Black",
         "Name": {
-          "en": "Carrara White Metallic"
+          "en": "Mythos black"
         },
         "PaintType": "Metallic",
-        "StandardPalette": true
+        "StandardPalette": true,
+        "ColorId": "OE"
+      },
+      {
+        "Color": "Red",
+        "Name": {
+          "en": "Misano red, pearl effect"
+        },
+        "PaintType": "Pearlescent",
+        "ColorId": "Z3M",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Purple",
+        "Name": {
+          "en": "Merlin purple, pearl effect"
+        },
+        "PaintType": "Pearlescent",
+        "ColorId": "Z3W",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Purple",
+        "Name": {
+          "en": "Velvet purple, pearl effect"
+        },
+        "PaintType": "Pearlescent",
+        "ColorId": "ALD 092 Q87",
+        "SpecialColor": "Audi exclusive"
       },
       {
         "Color": "Blue",
         "Name": {
-          "en": "Gentian Blue Metallic"
+          "en": "Sepang blue, pearl effect"
         },
-        "PaintType": "Metallic",
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Y5Q",
+        "SpecialColor": "Audi exclusive"
       },
       {
-        "Color": "Silver",
+        "Color": "Blue",
         "Name": {
-          "en": "Dolomite Silver Metallic"
+          "en": "Nogoro blue, pearl effect"
         },
-        "PaintType": "Metallic",
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Z5M",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Blue",
+        "Name": {
+          "en": "Palace blue, pearl effect"
+        },
+        "PaintType": "Pearlescent",
+        "ColorId": "ALD 092 Q83",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Blue",
+        "Name": {
+          "en": "Night blue, pearl effect"
+        },
+        "PaintType": "Pearlescent",
+        "ColorId": "Z5D",
+        "SpecialColor": "Audi exclusive"
       },
       {
         "Color": "Green",
         "Name": {
-          "en": "Mamba Green Metallic"
+          "en": "Oak green, pearl effect"
         },
-        "PaintType": "Metallic",
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Q82",
+        "SpecialColor": "Audi exclusive"
       },
       {
-        "Color": "Blue",
+        "Color": "Green",
         "Name": {
-          "en": "Frozen Blue Metallic"
+          "en": "Goodwood green, pearl effect"
         },
-        "PaintType": "Metallic",
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Z6X",
+        "SpecialColor": "Audi exclusive"
       },
       {
-        "Color": "Brown",
+        "Color": "Green",
         "Name": {
-          "en": "Mahogany Metallic"
+          "en": "Deep green, pearl effect"
         },
-        "PaintType": "Metallic",
-        "StandardPalette": true
-      },
-      {
-        "Color": "Lilac",
-        "Name": {
-          "en": "Frozen Berry Metallic"
-        },
-        "PaintType": "Metallic",
-        "StandardPalette": true
-      },
-      {
-        "Color": "Red",
-        "Name": {
-          "en": "Cherry Metallic"
-        },
-        "PaintType": "Metallic",
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Z6E",
+        "SpecialColor": "Audi exclusive"
       },
       {
         "Color": "Beige",
         "Name": {
-          "en": "Coffee Beige Metallic"
+          "en": "Sand beige, pearl effect"
         },
-        "PaintType": "Metallic",
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Y1R",
+        "SpecialColor": "Audi exclusive"
       },
       {
-        "Color": "Red",
+        "Color": "Gray",
         "Name": {
-          "en": "Carmine Red"
+          "en": "Arrow grey, pearl effect"
         },
-        "PaintType": null,
-        "StandardPalette": true
+        "PaintType": "Pearlescent",
+        "ColorId": "Z7W",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Gray",
+        "Name": {
+          "en": "Nimbus grey, pearl effect"
+        },
+        "PaintType": "Pearlescent",
+        "ColorId": "Z7X",
+        "SpecialColor": "Audi exclusive"
       },
       {
         "Color": "Blue",
         "Name": {
-          "en": "Neptune Blue"
+          "en": "Ara blue, crystal effect"
         },
-        "PaintType": null,
-        "StandardPalette": true
+        "PaintType": "CrystalEffect",
+        "ColorId": "X5J",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Black",
+        "Name": {
+          "en": "Panther black, crystal effect"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Z9Z",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "White",
+        "Name": {
+          "en": "Amalfi white"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Y9K",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Yellow",
+        "Name": {
+          "en": "Vegas yellow"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Z1A",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Green",
+        "Name": {
+          "en": "Green"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "2D8",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Blue",
+        "Name": {
+          "en": "Cumulus blue"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "X5A",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Yellow",
+        "Name": {
+          "en": "Citrus yellow"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Y1G",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Yellow",
+        "Name": {
+          "en": "Solar orange"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Y2G",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Orange",
+        "Name": {
+          "en": "Solar orange"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Y2G",
+        "SpecialColor": "Audi exclusive"
       },
       {
         "Color": "Gray",
         "Name": {
-          "en": "Crayon"
+          "en": "Quantum grey"
         },
-        "PaintType": null,
-        "StandardPalette": true
+        "PaintType": "CrystalEffect",
+        "ColorId": "X7B",
+        "SpecialColor": "Audi exclusive"
       },
       {
         "Color": "Gray",
         "Name": {
-          "en": "Ice Grey Metallic"
+          "en": "Nardo grey"
+        },
+        "PaintType": "CrystalEffect",
+        "ColorId": "Y7C",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Green",
+        "Name": {
+          "en": "Camoflage green"
         },
         "PaintType": "Metallic",
-        "StandardPalette": true
+        "ColorId": "X6T",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Brown",
+        "Name": {
+          "en": "Soho brown"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y8R",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Brown",
+        "Name": {
+          "en": "Java brown"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y8Z",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Brown",
+        "Name": {
+          "en": "Teak brown"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Z8W",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Brown",
+        "Name": {
+          "en": "Ipanema brown"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y8Y",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Beige",
+        "Name": {
+          "en": "Diamond beige"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Z1U",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Beige",
+        "Name": {
+          "en": "Siam beige"
+        },
+        "PaintType": "Metallic",
+        "StandardPalette": true,
+        "ColorId": "Z1W",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Gray",
+        "Name": {
+          "en": "Tornado grey"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X7P",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Black",
+        "Name": {
+          "en": "Havana black"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y8X",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Black",
+        "Name": {
+          "en": "Mamba black"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y9X",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Gray",
+        "Name": {
+          "en": "Vesuvius grey"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X7J",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Silver",
+        "Name": {
+          "en": "Ice silver"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X7W",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Gray",
+        "Name": {
+          "en": "Suzuka grey"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y7F",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Gray",
+        "Name": {
+          "en": "Terra grey"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X7H",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Silver",
+        "Name": {
+          "en": "Cuvée silver"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X1Y",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Orange",
+        "Name": {
+          "en": "Samoa orange"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "XZU",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Orange",
+        "Name": {
+          "en": "Coral orange"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y2Z",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Red",
+        "Name": {
+          "en": "Catalunya red"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y3T",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Red",
+        "Name": {
+          "en": "Tango red"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y3U",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Red",
+        "Name": {
+          "en": "Shiraz red"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y4S",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Red",
+        "Name": {
+          "en": "Seville red"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Z3C",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Blue",
+        "Name": {
+          "en": "Ascari blue"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X5F",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Blue",
+        "Name": {
+          "en": "Utopia blue"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "X5F",
+        "SpecialColor": "Audi exclusive"
+      },
+      {
+        "Color": "Green",
+        "Name": {
+          "en": "Java green"
+        },
+        "PaintType": "Metallic",
+        "ColorId": "Y6W",
+        "SpecialColor": "Audi exclusive"
       }
     ],
     "WheelOptions": [
       {
-        "TireDimensionFront": "225/55",
-        "TireDimensionRear": "275/45",
+        "TireDimensionFront": "235/60",
+        "TireDimensionRear": "255/55",
         "WheelSize": 19,
         "WheelWidth": 0,
         "Name": {
-          "en": "Taycan Aero-felger"
+          "en": "5-double spoke flag"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "225/55",
-        "TireDimensionRear": "275/45",
+        "TireDimensionFront": "235/60",
+        "TireDimensionRear": "255/55",
         "WheelSize": 19,
         "WheelWidth": 0,
         "Name": {
-          "en": "Taycan S Aero"
+          "en": "5-double-spoke dynamic design"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "245/45",
-        "TireDimensionRear": "285/40",
+        "TireDimensionFront": "255/50",
+        "TireDimensionRear": "285/45",
         "WheelSize": 20,
         "WheelWidth": 0,
         "Name": {
-          "en": "Taycan Turbo Aero"
+          "en": "10-spoke trapezoidal design"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "245/45",
-        "TireDimensionRear": "285/40",
+        "TireDimensionFront": "255/50",
+        "TireDimensionRear": "285/45",
         "WheelSize": 20,
         "WheelWidth": 0,
         "Name": {
-          "en": "Sport Aero"
+          "en": "5-double-spoke offset design"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "265/35",
-        "TireDimensionRear": "305/30",
-        "WheelSize": 21,
+        "TireDimensionFront": "255/50",
+        "TireDimensionRear": "285/45",
+        "WheelSize": 20,
         "WheelWidth": 0,
         "Name": {
-          "en": "Mission E Design"
+          "en": "5-spoke structural design"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "265/35",
-        "TireDimensionRear": "305/30",
-        "WheelSize": 21,
+        "TireDimensionFront": "255/50",
+        "TireDimensionRear": "285/45",
+        "WheelSize": 20,
         "WheelWidth": 0,
         "Name": {
-          "en": "RS Spyder Design"
+          "en": "5-double spoke Falx"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "265/35",
-        "TireDimensionRear": "305/30",
+        "TireDimensionFront": "255/45",
+        "TireDimensionRear": "285/40",
         "WheelSize": 21,
         "WheelWidth": 0,
         "Name": {
-          "en": "Taycan Exclusive Design-wheels with Aeroblades in carbon"
+          "en": "5-arm aero design"
         },
         "WheelOffset": 0
       },
       {
-        "TireDimensionFront": "265/35",
-        "TireDimensionRear": "305/30",
+        "TireDimensionFront": "255/45",
+        "TireDimensionRear": "285/40",
         "WheelSize": 21,
         "WheelWidth": 0,
         "Name": {
-          "en": "Taycan Exclusive Design"
+          "en": "5 Y-spoke dynamic design"
+        },
+        "WheelOffset": 0
+      },
+      {
+        "TireDimensionFront": "255/45",
+        "TireDimensionRear": "285/40",
+        "WheelSize": 21,
+        "WheelWidth": 0,
+        "Name": {
+          "en": "5-V spoke structure design"
         },
         "WheelOffset": 0
       }
@@ -1474,25 +1904,16 @@ Example data
         "PanoramicRoofShadeType": null,
         "Standard": true,
         "Rails": {
-          "FeatureStatus": "NotAvailable"
+          "FeatureStatus": "Optional"
         }
       },
       {
-        "Material": null,
-        "PanoramicRoofType": "FullFixed",
-        "PanoramicRoofShadeType": "TonedGlass",
-        "Standard": null,
+        "Material": "steel",
+        "PanoramicRoofType": "PartialOpenFront",
+        "PanoramicRoofShadeType": "ElectricCurtain",
+        "Standard": false,
         "Rails": {
-          "FeatureStatus": "NotAvailable"
-        }
-      },
-      {
-        "Material": null,
-        "PanoramicRoofType": "FullFixed",
-        "PanoramicRoofShadeType": "ElectrochromicPattern",
-        "Standard": null,
-        "Rails": {
-          "FeatureStatus": "NotAvailable"
+          "FeatureStatus": "Optional"
         }
       }
     ],
@@ -1509,8 +1930,10 @@ Example data
           "FeatureStatus": "NotAvailable"
         },
         "Type": "Standard",
-        "FramelessWindow": null,
-        "DoorHandleType": null
+        "FramelessWindow": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "DoorHandleType": "Pull"
       },
       {
         "Location": "FrontRight",
@@ -1524,8 +1947,10 @@ Example data
           "FeatureStatus": "NotAvailable"
         },
         "Type": "Standard",
-        "FramelessWindow": null,
-        "DoorHandleType": null
+        "FramelessWindow": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "DoorHandleType": "Pull"
       },
       {
         "Location": "RearLeft",
@@ -1539,8 +1964,10 @@ Example data
           "FeatureStatus": "NotAvailable"
         },
         "Type": "Standard",
-        "FramelessWindow": null,
-        "DoorHandleType": null
+        "FramelessWindow": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "DoorHandleType": "Pull"
       },
       {
         "Location": "RearRight",
@@ -1554,8 +1981,10 @@ Example data
           "FeatureStatus": "NotAvailable"
         },
         "Type": "Standard",
-        "FramelessWindow": null,
-        "DoorHandleType": null
+        "FramelessWindow": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "DoorHandleType": "Pull"
       },
       {
         "Location": "Tail",
@@ -1569,12 +1998,16 @@ Example data
           "FeatureStatus": "Standard"
         },
         "Type": "Liftgate",
-        "FramelessWindow": null,
-        "DoorHandleType": null
+        "FramelessWindow": {
+          "FeatureStatus": "NotAvailable"
+        },
+        "DoorHandleType": "Pull"
       }
     ],
     "Windows": {
-      "TintedFromBPillar": null,
+      "TintedFromBPillar": {
+        "FeatureStatus": "Optional"
+      },
       "DoubleGlazedWindshield": null,
       "DoubleGlazedFirstRow": null,
       "DoubleGlazedSecondRow": null,
@@ -1584,42 +2017,123 @@ Example data
   },
   "DriverAssistance": {
     "SensorsAndCameras": {
-      "Setup": "NotSet",
+      "Setup": "CameraRadarUltrasonic",
       "Cameras": [
         {
           "Optional": false,
-          "Location": "NotSet",
-          "CameraType": "NotSet",
+          "Location": "TopCenterWindshield",
+          "CameraType": "FrontView",
+          "Washer": false
+        },
+        {
+          "Optional": true,
+          "Location": "Front",
+          "CameraType": "SurroundView",
+          "Washer": false
+        },
+        {
+          "Optional": true,
+          "Location": "OnLeftWingMirror",
+          "CameraType": "SurroundView",
+          "Washer": false
+        },
+        {
+          "Optional": true,
+          "Location": "OnRightWingMirror",
+          "CameraType": "SurroundView",
+          "Washer": false
+        },
+        {
+          "Optional": true,
+          "Location": "RearCenter",
+          "CameraType": "ReversingView",
           "Washer": false
         }
       ],
       "Radars": [
         {
           "Optional": false,
-          "Location": "NotSet",
-          "RadarType": "NotSet"
-        }
-      ],
-      "Lidars": [
+          "Location": "Front",
+          "RadarType": "LongRange"
+        },
         {
-          "Optional": false,
-          "Location": "NotSet"
+          "Optional": true,
+          "Location": "LeftFrontCorner",
+          "RadarType": "MidRange"
+        },
+        {
+          "Optional": true,
+          "Location": "RightFrontCorner",
+          "RadarType": "MidRange"
+        },
+        {
+          "Optional": true,
+          "Location": "LeftRearCorner",
+          "RadarType": "MidRange"
+        },
+        {
+          "Optional": true,
+          "Location": "RightRearCorner",
+          "RadarType": "MidRange"
         }
       ],
+      "Lidars": [],
       "UltrasonicSensors": [
         {
           "Optional": false,
-          "Location": "NotSet"
+          "Location": "OnBumberFront"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberFront"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberFrontLeftCorner"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberFrontRightCorner"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberFrontLeftSide"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberFrontRightSide"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberRearLeftSide"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberRearRightSide"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberRearLeftCorner"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberRearRightCorner"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberRear"
+        },
+        {
+          "Optional": false,
+          "Location": "OnBumberRear"
         }
       ],
       "RainSensor": {
-        "FeatureStatus": "Unknown"
+        "FeatureStatus": "Standard"
       }
     },
     "NightVision": {
-      "FeatureStatus": "Optional",
-      "OptionId": "9R1",
-      "FeatureName": "Night Vision Assist"
+      "FeatureStatus": "NotAvailable"
     },
     "LaneKeeping": {
       "FeatureStatus": "Standard"
@@ -1655,7 +2169,7 @@ Example data
       "FeatureName": "Park Assist"
     },
     "SideAssist": {
-      "FeatureStatus": "Optional"
+      "FeatureStatus": "Standard"
     },
     "ExitWarning": null,
     "HillDescentAssist": {
@@ -1680,7 +2194,7 @@ Example data
       "FeatureStatus": "Optional"
     },
     "ForwardCollisionWarning": {
-      "FeatureStatus": "Optional"
+      "FeatureStatus": "Standard"
     },
     "ElectronicStabilityControl": {
       "FeatureStatus": "Standard"
@@ -1689,7 +2203,7 @@ Example data
       "FeatureStatus": "Standard"
     },
     "CrossTrafficAssist": {
-      "FeatureStatus": "Optional"
+      "FeatureStatus": "Standard"
     },
     "SpeedLimiter": {
       "FeatureStatus": "Standard"
@@ -1742,9 +2256,9 @@ Example data
       {
         "LevelOfDrivingAutomation": "PartialDrivingAutomation",
         "Standard": false,
-        "DrivingAutomatFeatureName": "Porsche InnoDrive",
+        "DrivingAutomatFeatureName": "Adaptive Cruise Assist",
         "CruiseControl": {
-          "FeatureStatus": "Unknown"
+          "FeatureStatus": "Standard"
         },
         "AdaptiveCruiseControl": {
           "FeatureStatus": "Standard"
@@ -1781,7 +2295,7 @@ Example data
       {
         "Screens": [
           {
-            "ScreenSize": 16.8,
+            "ScreenSize": 11.9,
             "Location": "BehindSteeringWheelInDash",
             "Content": [
               "Car info"
@@ -1793,7 +2307,7 @@ Example data
             "ScreenCategory": "DriverInformation"
           },
           {
-            "ScreenSize": 10.9,
+            "ScreenSize": 14.9,
             "Location": "TopCenterConsole",
             "Content": [
               "Car info",
@@ -1801,19 +2315,6 @@ Example data
               "Car settings"
             ],
             "Rotation": "Horizontal",
-            "Touch": true,
-            "Resolution": null,
-            "Optional": null,
-            "ScreenCategory": "Infotainment"
-          },
-          {
-            "ScreenSize": 8.4,
-            "Location": "BottomCenterConsole",
-            "Content": [
-              "Air Condition",
-              "ChargingInfo"
-            ],
-            "Rotation": "Vertical",
             "Touch": true,
             "Resolution": null,
             "Optional": null,
@@ -1843,20 +2344,22 @@ Example data
       "OptionId": "KS1"
     },
     "VoiceControl": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "Standard"
     },
     "GestureControl": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "NotAvailable"
     }
   },
   "Interior": {
-    "InteriorCategory": null,
-    "InteriorQuality": null,
-    "ConsoleDesign": null,
+    "InteriorCategory": "DriverFocused",
+    "InteriorQuality": "Premium",
+    "ConsoleDesign": "Traditional",
     "InteriorDesigns": [
       {
-        "Standard": null,
-        "Name": null,
+        "Standard": true,
+        "Name": {
+          "en": "S Interior"
+        },
         "SeatMaterials": [
           {
             "Name": "Black leather",
@@ -1864,7 +2367,7 @@ Example data
             "Colors": [
               "Black"
             ],
-            "MaterialType": null,
+            "MaterialType": "Leatherette",
             "SeatOption": [
               "Comfort"
             ]
@@ -1875,7 +2378,7 @@ Example data
             "Colors": [
               "Gray"
             ],
-            "MaterialType": null,
+            "MaterialType": "FabricLeatherette",
             "SeatOption": [
               "Comfortseats with memory"
             ]
@@ -1886,7 +2389,7 @@ Example data
             "Colors": [
               "Black"
             ],
-            "MaterialType": null,
+            "MaterialType": "DinamicaLeatherette",
             "SeatOption": [
               "Comfortseats with memory"
             ]
@@ -1897,7 +2400,7 @@ Example data
             "Colors": [
               "Black"
             ],
-            "MaterialType": null,
+            "MaterialType": "Leather",
             "SeatOption": [
               "Sportsseats Plus"
             ]
@@ -1908,7 +2411,7 @@ Example data
             "Colors": [
               "Brown"
             ],
-            "MaterialType": null,
+            "MaterialType": "Leather",
             "SeatOption": [
               "Sportsseats Plus"
             ]
@@ -1919,7 +2422,7 @@ Example data
             "Colors": [
               "Black"
             ],
-            "MaterialType": null,
+            "MaterialType": "Leather",
             "SeatOption": [
               "Sportsseats Plus"
             ]
@@ -1930,7 +2433,7 @@ Example data
             "Colors": [
               "Gray"
             ],
-            "MaterialType": null,
+            "MaterialType": "Leather",
             "SeatOption": [
               "Sportsseats Plus"
             ]
@@ -1943,166 +2446,110 @@ Example data
       {
         "NumberOfSeats": 5,
         "Name": null
-      },
-      {
-        "NumberOfSeats": 4,
-        "Name": null
       }
     ],
     "FirstRowSeats": [
       {
         "Standard": true,
-        "Name": "Comfort",
+        "Name": "Sport",
+        "SeatCategory": "PassengerAndDriver",
+        "SeatSplit": null,
+        "Seat": [
+          {
+            "Position": "Driver",
+            "ForeAndAftAdjustment": "StandardManualOptionalElectric",
+            "ReclineAdjustment": "StandardManualOptionalElectric",
+            "HeightAdjustment": "StandardManualOptionalElectric",
+            "CushionAngleAdjustment": "StandardManualOptionalElectric",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Optional",
+            "Ventilation": "Optional",
+            "Massage": "NotAvailable",
+            "Memory": "Optional",
+            "EasyAccess": "Optional",
+            "Footrest": "NotAvailable",
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "NotAvailable"
+          },
+          {
+            "Position": "FrontPassenger",
+            "ForeAndAftAdjustment": "StandardManualOptionalElectric",
+            "ReclineAdjustment": "StandardManualOptionalElectric",
+            "HeightAdjustment": "StandardManualOptionalElectric",
+            "CushionAngleAdjustment": "StandardManualOptionalElectric",
+            "HeightAdjustableHeadrest": "NotAvailable",
+            "LengthAdjustableHeadrest": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
+            "AdjustableSideSupportBack": "NotAvailable",
+            "AdjustableSideSupportBottom": "NotAvailable",
+            "LumbarAdjustment": "StandardElectric",
+            "Heating": "Optional",
+            "Ventilation": "Optional",
+            "Massage": "NotAvailable",
+            "Memory": "NotAvailable",
+            "EasyAccess": "NotAvailable",
+            "Footrest": "NotAvailable",
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "NotAvailable"
+          }
+        ]
+      },
+      {
+        "Standard": false,
+        "Name": "Sport Plus",
         "SeatCategory": "PassengerAndDriver",
         "SeatSplit": null,
         "Seat": [
           {
             "Position": "Driver",
             "ForeAndAftAdjustment": "StandardElectric",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
+            "ReclineAdjustment": "StandardElectric",
+            "HeightAdjustment": "StandardElectric",
+            "CushionAngleAdjustment": "StandardElectric",
             "HeightAdjustableHeadrest": "NotAvailable",
             "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
             "AdjustableSideSupportBack": "NotAvailable",
             "AdjustableSideSupportBottom": "NotAvailable",
             "LumbarAdjustment": "StandardElectric",
             "Heating": "Optional",
             "Ventilation": "NotAvailable",
-            "Massage": "NotAvailable",
-            "Memory": "Optional",
-            "EasyAccess": "Unknown",
+            "Massage": "Standard",
+            "Memory": "Standard",
+            "EasyAccess": "Standard",
             "Footrest": "NotAvailable",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "NotAvailable"
           },
           {
             "Position": "FrontPassenger",
             "ForeAndAftAdjustment": "StandardElectric",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
+            "ReclineAdjustment": "StandardElectric",
+            "HeightAdjustment": "StandardElectric",
+            "CushionAngleAdjustment": "StandardElectric",
+            "HeightAdjustableHeadrest": "Standard",
             "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "NotAvailable",
+            "AdjustableThighSupport": "Standard",
             "AdjustableSideSupportBack": "NotAvailable",
             "AdjustableSideSupportBottom": "NotAvailable",
             "LumbarAdjustment": "StandardElectric",
             "Heating": "Optional",
             "Ventilation": "NotAvailable",
-            "Massage": "NotAvailable",
+            "Massage": "Standard",
             "Memory": "NotAvailable",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
-          }
-        ]
-      },
-      {
-        "Standard": true,
-        "Name": "Comfortseats with memory",
-        "SeatCategory": "PassengerAndDriver",
-        "SeatSplit": null,
-        "Seat": [
-          {
-            "Position": "Driver",
-            "ForeAndAftAdjustment": "StandardElectric",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
-            "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "Standard",
-            "AdjustableSideSupportBack": "NotAvailable",
-            "AdjustableSideSupportBottom": "NotAvailable",
-            "LumbarAdjustment": "StandardElectric",
-            "Heating": "Standard",
-            "Ventilation": "NotAvailable",
-            "Massage": "NotAvailable",
-            "Memory": "Optional",
-            "EasyAccess": "Unknown",
+            "EasyAccess": "NotAvailable",
             "Footrest": "NotAvailable",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
-          },
-          {
-            "Position": "FrontPassenger",
-            "ForeAndAftAdjustment": "StandardElectric",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
-            "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "Standard",
-            "AdjustableSideSupportBack": "NotAvailable",
-            "AdjustableSideSupportBottom": "NotAvailable",
-            "LumbarAdjustment": "StandardElectric",
-            "Heating": "Standard",
-            "Ventilation": "NotAvailable",
-            "Massage": "NotAvailable",
-            "Memory": "NotAvailable",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
-          }
-        ]
-      },
-      {
-        "Standard": true,
-        "Name": "Sportsseats Plus",
-        "SeatCategory": "PassengerAndDriver",
-        "SeatSplit": null,
-        "Seat": [
-          {
-            "Position": "Driver",
-            "ForeAndAftAdjustment": "StandardElectric",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
-            "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "Standard",
-            "AdjustableSideSupportBack": "Standard",
-            "AdjustableSideSupportBottom": "Standard",
-            "LumbarAdjustment": "StandardElectric",
-            "Heating": "Standard",
-            "Ventilation": "Standard",
-            "Massage": "Optional",
-            "Memory": "Standard",
-            "EasyAccess": "Unknown",
-            "Footrest": "NotAvailable",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
-          },
-          {
-            "Position": "FrontPassenger",
-            "ForeAndAftAdjustment": "StandardElectric",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
-            "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "Standard",
-            "AdjustableSideSupportBack": "Standard",
-            "AdjustableSideSupportBottom": "Standard",
-            "LumbarAdjustment": "StandardElectric",
-            "Heating": "Standard",
-            "Ventilation": "Standard",
-            "Massage": "Optional",
-            "Memory": "Standard",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "NotAvailable"
           }
         ]
       }
@@ -2110,68 +2557,16 @@ Example data
     "SecondRowSeats": [
       {
         "Standard": true,
-        "Name": "Standard",
-        "SeatCategory": "TwoIntegratedSeatBench",
-        "SeatSplit": "40:60",
-        "Seat": [
-          {
-            "Position": "Driver",
-            "ForeAndAftAdjustment": "Unknown",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
-            "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "NotAvailable",
-            "AdjustableSideSupportBack": "NotAvailable",
-            "AdjustableSideSupportBottom": "NotAvailable",
-            "LumbarAdjustment": "NotAvailable",
-            "Heating": "Optional",
-            "Ventilation": "NotAvailable",
-            "Massage": "NotAvailable",
-            "Memory": "Unknown",
-            "EasyAccess": "Unknown",
-            "Footrest": "NotAvailable",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
-          },
-          {
-            "Position": "FrontPassenger",
-            "ForeAndAftAdjustment": "Unknown",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
-            "HeightAdjustableHeadrest": "NotAvailable",
-            "LengthAdjustableHeadrest": "NotAvailable",
-            "AdjustableThighSupport": "NotAvailable",
-            "AdjustableSideSupportBack": "NotAvailable",
-            "AdjustableSideSupportBottom": "NotAvailable",
-            "LumbarAdjustment": "NotAvailable",
-            "Heating": "Optional",
-            "Ventilation": "NotAvailable",
-            "Massage": "NotAvailable",
-            "Memory": "Unknown",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
-          }
-        ]
-      },
-      {
-        "Standard": null,
-        "Name": "2+1",
-        "SeatCategory": "TwoPlusOneIntegratedSeatBench",
+        "Name": "standard",
+        "SeatCategory": "ThreeSeatBench",
         "SeatSplit": "40:20:40",
         "Seat": [
           {
             "Position": "BehindDriver",
-            "ForeAndAftAdjustment": "Unknown",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
+            "ForeAndAftAdjustment": "NotAvailable",
+            "ReclineAdjustment": "NotAvailable",
+            "HeightAdjustment": "NotAvailable",
+            "CushionAngleAdjustment": "NotAvailable",
             "HeightAdjustableHeadrest": "NotAvailable",
             "LengthAdjustableHeadrest": "NotAvailable",
             "AdjustableThighSupport": "NotAvailable",
@@ -2182,18 +2577,18 @@ Example data
             "Ventilation": "NotAvailable",
             "Massage": "NotAvailable",
             "Memory": "NotAvailable",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
+            "EasyAccess": "NotAvailable",
+            "Footrest": "NotAvailable",
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "Standard"
           },
           {
             "Position": "Middle",
-            "ForeAndAftAdjustment": "Unknown",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
+            "ForeAndAftAdjustment": "NotAvailable",
+            "ReclineAdjustment": "NotAvailable",
+            "HeightAdjustment": "NotAvailable",
+            "CushionAngleAdjustment": "NotAvailable",
             "HeightAdjustableHeadrest": "NotAvailable",
             "LengthAdjustableHeadrest": "NotAvailable",
             "AdjustableThighSupport": "NotAvailable",
@@ -2204,18 +2599,18 @@ Example data
             "Ventilation": "NotAvailable",
             "Massage": "NotAvailable",
             "Memory": "NotAvailable",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
+            "EasyAccess": "NotAvailable",
+            "Footrest": "NotAvailable",
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "NotAvailable"
           },
           {
             "Position": "BehindPassenger",
-            "ForeAndAftAdjustment": "Unknown",
-            "ReclineAdjustment": "Unknown",
-            "HeightAdjustment": "Unknown",
-            "CushionAngleAdjustment": "Unknown",
+            "ForeAndAftAdjustment": "NotAvailable",
+            "ReclineAdjustment": "NotAvailable",
+            "HeightAdjustment": "NotAvailable",
+            "CushionAngleAdjustment": "NotAvailable",
             "HeightAdjustableHeadrest": "NotAvailable",
             "LengthAdjustableHeadrest": "NotAvailable",
             "AdjustableThighSupport": "NotAvailable",
@@ -2226,11 +2621,11 @@ Example data
             "Ventilation": "NotAvailable",
             "Massage": "NotAvailable",
             "Memory": "NotAvailable",
-            "EasyAccess": "Unknown",
-            "Footrest": "Unknown",
-            "LegSupport": "Unknown",
-            "Foldable": "Unknown",
-            "Isofix": "Unknown"
+            "EasyAccess": "NotAvailable",
+            "Footrest": "NotAvailable",
+            "LegSupport": "NotAvailable",
+            "Foldable": "NotAvailable",
+            "Isofix": "NotAvailable"
           }
         ]
       }
@@ -2250,7 +2645,9 @@ Example data
       "ClimateControlSystems": [
         {
           "Standard": true,
-          "Name": null,
+          "Name": {
+            "en": " 3-zone"
+          },
           "Zones": [
             "LeftFirstRow",
             "RightFirstRow",
@@ -2259,43 +2656,33 @@ Example data
         }
       ],
       "Heatpump": {
-        "FeatureStatus": "Optional"
+        "FeatureStatus": "Standard"
       },
       "Preclimatisation": {
         "FeatureStatus": "Standard"
       },
       "PetMode": {
-        "FeatureStatus": "Unknown"
+        "FeatureStatus": "NotAvailable"
       },
       "CampMode": {
-        "FeatureStatus": "Unknown"
+        "FeatureStatus": "NotAvailable"
       }
     }
   },
   "Infotainment": {
     "SoundSystems": [
       {
-        "Brand": "Porsche",
-        "Name": "Porsche Sound system",
-        "NumberOfSpeakers": 10,
-        "TotalEffect": 150,
-        "NumberOfChannels": 10,
-        "Standard": true
-      },
-      {
-        "Brand": "BOSE",
-        "Name": " BOSE® Surround Sound System",
-        "NumberOfSpeakers": 14,
-        "TotalEffect": 710,
-        "NumberOfChannels": 14,
+        "Brand": "Audi",
+        "Name": "Audi Sound System",
+        "NumberOfSpeakers": 5,
+        "TotalEffect": 200,
         "Standard": null
       },
       {
-        "Brand": "Burmester",
-        "Name": " Burmester® 3D High-End Surround Sound System",
-        "NumberOfSpeakers": 21,
-        "TotalEffect": 1455,
-        "NumberOfChannels": 21,
+        "Brand": "Bang & Olufsen",
+        "Name": "Bang & Olufsen Sound System",
+        "NumberOfSpeakers": 20,
+        "TotalEffect": 830,
         "Standard": null
       }
     ],
@@ -2310,18 +2697,33 @@ Example data
     },
     "PortAndConnections": [
       {
-        "Type": null,
-        "Location": null,
-        "Optional": null
+        "Type": "USBC",
+        "Location": "FirstRowArmRest",
+        "Optional": false
+      },
+      {
+        "Type": "USBC",
+        "Location": "FirstRowArmRest",
+        "Optional": false
+      },
+      {
+        "Type": "USBC",
+        "Location": "SecondRowCenterConsol",
+        "Optional": true
+      },
+      {
+        "Type": "USBC",
+        "Location": "SecondRowCenterConsol",
+        "Optional": true
       }
     ]
   },
   "Comfort": {
     "GarageOpener": {
-      "FeatureStatus": "Standard"
+      "FeatureStatus": "Optional"
     },
     "AirFragrance": {
-      "FeatureStatus": "Standard"
+      "FeatureStatus": "NotAvailable"
     },
     "KeylessGo": {
       "FeatureStatus": "Standard"
@@ -2330,16 +2732,16 @@ Example data
       "FeatureStatus": "Optional"
     },
     "WirelessPhoneCharging": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "Standard"
     },
     "ElectricAdjustableSteeringWeel": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "Optional"
     },
     "EeasyEntrySeat": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "Optional"
     },
     "EeasyEntrySteeringwheel": {
-      "FeatureStatus": "Unknown"
+      "FeatureStatus": "Optional"
     }
   },
   "Lights": {
@@ -2347,7 +2749,7 @@ Example data
       {
         "Standard": true,
         "Name": {
-          "en": "standard"
+          "en": "LED"
         },
         "LightTechnology": "LED",
         "AutoDimming": null,
@@ -2359,7 +2761,7 @@ Example data
       {
         "Standard": false,
         "Name": {
-          "en": "Matrix LED "
+          "en": "Matrix"
         },
         "LightTechnology": "LEDMatrix",
         "AutoDimming": null,
@@ -2382,21 +2784,71 @@ Example data
   },
   "Reviews": [
     {
-      "MediaId": "0ZrEhUl5syE",
+      "MediaId": "beJgUTN6OgA",
       "Url": null,
       "Reviewer": "Out of Spec Reviews",
-      "Title": "New Porsche Taycan 70-MPH Highway Range Test! Larger Battery, More Efficient Motor, & Crazy Charging",
-      "Published": "2024-05-13T00:00:00",
+      "Title": "My First Look At The Audi Q6 e-tron! Tech Specs, Quick Tour, & First Drivee",
+      "Published": "2024-01-25T00:00:00",
       "Language": "en",
       "ReviewPlatform": "YouTube",
       "EvSummary": null
     },
     {
-      "MediaId": "txM6ws_e4Ps",
+      "MediaId": "BucVRnrE2qM",
       "Url": null,
-      "Reviewer": "Out of Spec Reviews",
-      "Title": "The Fastest Road Tripping EV I've Ever Tested! Updated Porsche Taycan Sport Turismo 10% Challenge",
-      "Published": "2024-05-14T00:00:00",
+      "Reviewer": "Autogefühl",
+      "Title": "Audi Q6 e-tron final REVEAL of the Porsche Macan EV brother",
+      "Published": "2024-03-18T00:00:00",
+      "Language": "en",
+      "ReviewPlatform": "YouTube",
+      "EvSummary": null
+    },
+    {
+      "MediaId": "MW3-wFIAWZA",
+      "Url": null,
+      "Reviewer": "Electrifying",
+      "Title": "New Audi Q6 e-tron FIRST LOOK : time to jump the Q?",
+      "Published": "2024-03-18T00:00:00",
+      "Language": "en",
+      "ReviewPlatform": "YouTube",
+      "EvSummary": null
+    },
+    {
+      "MediaId": "R-LUZMSDKKU",
+      "Url": null,
+      "Reviewer": "Autogefühl",
+      "Title": "Audi Q6 e-tron driving REVIEW with SQ6 - better pick than Porsche Macan EV?",
+      "Published": "2024-07-02T00:00:00",
+      "Language": "en",
+      "ReviewPlatform": "YouTube",
+      "EvSummary": null
+    },
+    {
+      "MediaId": "W0IwfFr1uJA",
+      "Url": null,
+      "Reviewer": "Norsk elbilforening",
+      "Title": "Prøvekjøring av Audi Q6 og SQ6 e-tron: Leverer på alt nordmenn ønsker",
+      "Published": "2024-07-02T00:00:00",
+      "Language": "nb",
+      "ReviewPlatform": "YouTube",
+      "EvSummary": null
+    },
+    {
+      "MediaId": "-isNDCM_ZNc",
+      "Url": null,
+      "Reviewer": "Electrifying",
+      "Title": "FIRST DRIVE: Audi Q6 e-tron: the best electric Audi yet? ",
+      "Published": "2024-07-02T00:00:00",
+      "Language": "en",
+      "ReviewPlatform": "YouTube",
+      "EvSummary": null
+    },
+    {
+      "MediaId": "dVjg1D6XiRg",
+      "Url": null,
+      "Reviewer": "AutoTrader",
+      "Title": "NEW Audi Q6 / SQ6 E-Tron Review: Is Audi's Macan Rival Worth £93,000?",
+      "Published": "2024-07-02T00:00:00",
       "Language": "en",
       "ReviewPlatform": "YouTube",
       "EvSummary": null
@@ -2404,237 +2856,193 @@ Example data
   ],
   "Calculations": [
     {
-      "AverageChargingSpeed": 99.61427016732048743092260274,
-      "AverageChargingSpeed10100": 95.18186854329136504632599049,
-      "AverageChargingSpeed1080": 195.52077598233915339784819409,
-      "AverageChargingSpeed1090": 139.57446307519967493215087319,
-      "TravelSpeed120kmh": 104.08612364746912958070672438,
+      "AverageChargingSpeed": 96.63340472707567777623835757,
+      "AverageChargingSpeed10100": 90.86315290786412066743160718,
+      "AverageChargingSpeed1080": 195.79978824926842334989738549,
+      "AverageChargingSpeed1090": 152.89329336937422827273353792,
+      "TravelSpeed120kmh": 103.35054274842677632691453925,
       "TravelSpeed90kmh": null,
-      "TravelSpeedWltp": 44.533094688729335671362309343,
-      "DriveTime1000kmChallenge": 547.406365866667,
-      "AverageSpeed1000kmChallenge": 109.60778635631419561943209232,
-      "EnergyChargedFrom10Percent10minutes": 31.552599458698334191282073557,
-      "EnergyChargedFrom10Percent15Minutes": 48.210827218915761283013314162,
-      "EnergyChargedFrom10Percent20minutes": 58.408526965527991902534566310,
-      "EnergyChargedFrom10Percent25minutes": 63.384665584717473000288096524,
-      "EnergyChargedFrom10Percent30minutes": 66.528732687684360858887235156,
-      "AverageCRating": 2.0340416064078317944153965958,
-      "MaxCRating": 2.9775280898876404494382022472
-    },
-    {
-      "AverageChargingSpeed": 126.27482126177721387603454225,
-      "AverageChargingSpeed10100": 119.36944330909588340471477569,
-      "AverageChargingSpeed1080": 265.09141652590779506833716694,
-      "AverageChargingSpeed1090": 207.74149867356580857792494164,
-      "TravelSpeed120kmh": 107.27758824150353878180579643,
-      "TravelSpeed90kmh": null,
-      "TravelSpeedWltp": 44.959713827338186796474290081,
-      "DriveTime1000kmChallenge": 532.850270503333,
-      "AverageSpeed1000kmChallenge": 112.60198844099995173508342464,
-      "EnergyChargedFrom10Percent10minutes": 39.692505658546641757923367432,
-      "EnergyChargedFrom10Percent15Minutes": 61.581657670781169163545139350,
-      "EnergyChargedFrom10Percent20minutes": 71.782370781811324593443955178,
-      "EnergyChargedFrom10Percent25minutes": 78.049373666042075175383275642,
-      "EnergyChargedFrom10Percent30minutes": 82.26041616314219522391955423,
-      "AverageCRating": 2.3214521452145214521452145214,
-      "MaxCRating": 3.1619047619047619047619047619
+      "TravelSpeedWltp": 44.579851422095626001186667755,
+      "DriveTime1000kmChallenge": 548.470626656667,
+      "AverageSpeed1000kmChallenge": 109.39510173178143314295975012,
+      "EnergyChargedFrom10Percent10minutes": 33.018112311829279578683017733,
+      "EnergyChargedFrom10Percent15Minutes": 48.705411968126248577159825786,
+      "EnergyChargedFrom10Percent20minutes": 62.335764546816951644859498569,
+      "EnergyChargedFrom10Percent25minutes": 70.852712587279280785605008202,
+      "EnergyChargedFrom10Percent30minutes": 74.830290642543134955244892384,
+      "AverageCRating": 1.8713861386138613861386138614,
+      "MaxCRating": 2.88
     }
   ],
   "ModelPictures": [
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\dynamic_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/dynamic_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/dynamic_1.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\charging_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/charging_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/charging_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_1.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\exterior_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/exterior_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/exterior_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1687
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_2.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_2.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_2.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\frontseats_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/frontseats_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/frontseats_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1687
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_3.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_3.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_3.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\frontseats_2.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/frontseats_2.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/frontseats_2.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_4.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_4.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_4.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\headlights_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/headlights_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/headlights_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_5.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_5.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_5.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\interior_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/interior_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/interior_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_6.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_6.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_6.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\interior_2.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/interior_2.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/interior_2.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_7.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_7.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_7.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\main_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/main_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/main_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 1999
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\exterior_8.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/exterior_8.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/exterior_8.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\screens_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/screens_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/screens_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\headlights_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/headlights_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/headlights_1.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\secondrowseats_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/secondrowseats_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/secondrowseats_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\interior_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/interior_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/interior_1.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\secondrowseats_2.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/secondrowseats_2.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/secondrowseats_2.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\main_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/main_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/main_1.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\trunk_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/trunk_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/trunk_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1687
+      "Height": 2249
     },
     {
       "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\rearlights_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/rearlights_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/rearlights_1.jpg",
+      "RepoPath": "models\\audi\\q6_e-tron\\sq6_e-tron\\wheels_1.jpg",
+      "CloudPath": "models/audi/q6_e-tron/sq6_e-tron/wheels_1.jpg",
+      "ExternalUrl": "https://media.evkx.net/multimedia/models/audi/q6_e-tron/sq6_e-tron/wheels_1.jpg",
       "HasXSmallThumb": true,
       "HasSmallThumb": true,
       "HasMediumThumb": true,
       "Tags": null,
       "Description": null,
       "Width": 3000,
-      "Height": 1688
-    },
-    {
-      "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\screens_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/screens_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/screens_1.jpg",
-      "HasXSmallThumb": true,
-      "HasSmallThumb": true,
-      "HasMediumThumb": true,
-      "Tags": null,
-      "Description": null,
-      "Width": 3000,
-      "Height": 1688
-    },
-    {
-      "FileName": null,
-      "RepoPath": "models\\porsche\\taycan\\taycan_4s_sport_turismo\\wheels_1.jpg",
-      "CloudPath": "models/porsche/taycan/taycan_4s_sport_turismo/wheels_1.jpg",
-      "ExternalUrl": "https://media.evkx.net/multimedia/models/porsche/taycan/taycan_4s_sport_turismo/wheels_1.jpg",
-      "HasXSmallThumb": true,
-      "HasSmallThumb": true,
-      "HasMediumThumb": true,
-      "Tags": null,
-      "Description": null,
-      "Width": 3000,
-      "Height": 1688
+      "Height": 2249
     }
   ]
 }
