@@ -1,7 +1,9 @@
 ﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum FeatureStatus: int
     {
         [EnumMember(Value = "Unknown")]
@@ -18,5 +20,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "RequiresSoftwareUpdate")]
         RequiresSoftwareUpdate = 4,
+
+        [EnumMember(Value = "NotRelevant")]
+        NotRelevant = 5,
     }
 }

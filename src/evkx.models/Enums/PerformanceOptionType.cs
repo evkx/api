@@ -1,7 +1,9 @@
 ﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PerformanceOptionType: int
     {
         [EnumMember(Value = "NotSet")]
