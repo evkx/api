@@ -1,4 +1,5 @@
-﻿using evdb.models.Models;
+﻿using evdb.models.Enums;
+using evdb.models.Models;
 using System.Collections.Generic;
 
 namespace evdb.Models
@@ -14,6 +15,8 @@ namespace evdb.Models
             GestureControl = new EVFeature();
 
         }
+
+        public HMIType HMIType { get; set; }
 
         public List<ScreenLayout>? ScreenLayout { get; set; }
 

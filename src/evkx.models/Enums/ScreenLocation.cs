@@ -72,5 +72,11 @@ namespace evdb.models.Enums
         [EnumMember(Value = "CenterOfSharedFrameTopOfDash")]
         CenterOfSharedFrameTopOfDash = 20,
 
+        [EnumMember(Value = "BehindSteeringWheelLeftSideOfSharedCurvedFramePartialIntegratedTopOfDash")]
+        BehindSteeringWheelLeftSideOfSharedCurvedFramePartialIntegratedTopOfDash = 21,
+
+        [EnumMember(Value = "RightSideOfSharedCurvedFramePartialIntegratedTopOfDash")]
+        RightSideOfSharedCurvedFramePartialIntegratedTopOfDash = 22,
+
     }
 }

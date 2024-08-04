@@ -44,6 +44,12 @@ namespace evdb.Models
         public bool? Ignore { get; set; }
 
         /// <summary>
+        /// Ignore this model in the database
+        /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool? ForceGeneration { get; set; }
+
+        /// <summary>
         /// Car segment of the model
         /// </summary>
         public CarSegment? CarSegment { get; set; }
