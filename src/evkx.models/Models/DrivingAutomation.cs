@@ -20,6 +20,7 @@ namespace evdb.models.Models
             TrafficLightControl = new EVFeature();
             StopSignControl = new EVFeature();
             AutomaticParking = new EVFeature();
+            RemoteParking = new EVFeature();
         }
 
         /// <summary>

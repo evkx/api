@@ -142,6 +142,11 @@ namespace evdb.Models
         {
             DataQualityScore score = new DataQualityScore() { DataArea = "Seat" };
 
+            if(Position == null || Position.Equals(SeatPosition.NotSet))
+            {
+                score.ReduceScore(100);
+            }
+            
             if (ForeAndAftAdjustment == null || ForeAndAftAdjustment.Equals(SeatFeatureStatus.Unknown))
             {
                 score.ReduceScore(10);

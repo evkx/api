@@ -39,7 +39,7 @@ namespace evdb.models.Models
         /// <summary>
         /// Defines if the headlight is directional and turn headlights after direction
         /// </summary>
-        public EVFeature? DirectionalLights { get; set; }
+        public EVFeature? SwivelingLight { get; set; }
 
         /// <summary>
         /// Defines if the headlight has a headlight washer
@@ -104,7 +104,7 @@ namespace evdb.models.Models
                 descriptionKey += ".corneringlight";
             }
 
-            if (DirectionalLights != null && DirectionalLights.Available())
+            if (SwivelingLight != null && SwivelingLight.Available())
             {
                 descriptionKey += ".turninglights";
             }
@@ -136,7 +136,7 @@ namespace evdb.models.Models
                 score.ReduceScore(30);
             }
 
-            if (DirectionalLights == null || DirectionalLights.FeatureStatus == FeatureStatus.Unknown)
+            if (SwivelingLight == null || SwivelingLight.FeatureStatus == FeatureStatus.Unknown)
             {
                 score.ReduceScore(30);
             }

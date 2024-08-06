@@ -171,6 +171,35 @@ namespace evdb.Models
                 }
             }
 
+            if(ConsoleDesign == models.Enums.ConsoleDesign.NotSet)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+
+            if(SeatLayout == null || SeatLayout.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (SeatLayout seatLayout in SeatLayout)
+                {
+                    dataQualityScore.AddSubScore(seatLayout.CalculateDataQuality());
+                }
+            }
+
+            if(FirstRowSeats == null || FirstRowSeats.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (Seatoption seatOption in FirstRowSeats)
+                {
+                    dataQualityScore.AddSubScore(seatOption.CalculateDataQuality());
+                }
+            }
+
 
 
 

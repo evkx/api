@@ -58,7 +58,7 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(300);
             }
 
-            if((Setup == SensorSetup.Camera || Setup == SensorSetup.CameraRadarLidar || Setup == SensorSetup.CameraRadar || Setup == SensorSetup.CameraLidarUltrasonic || Setup == SensorSetup.CameraRadarLidarUltrasonic) &&  Cameras == null || Cameras.Count == 0)
+            if((Setup == SensorSetup.Camera || Setup == SensorSetup.CameraRadarLidar || Setup == SensorSetup.CameraRadar || Setup == SensorSetup.CameraLidarUltrasonic || Setup == SensorSetup.CameraRadarLidarUltrasonic) &&  (Cameras == null || Cameras.Count == 0))
             {
                 dataQualityScore.ReduceScore(100);
             }
@@ -70,7 +70,7 @@ namespace evdb.models.Models
                 }
             }
 
-            if((Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarLidar || Setup == SensorSetup.CameraLidarUltrasonic) &&  Lidars == null || Lidars.Count == 0)
+            if((Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarLidar || Setup == SensorSetup.CameraLidarUltrasonic) &&  (Lidars == null || Lidars.Count == 0))
             {
                 dataQualityScore.ReduceScore(100);
             }
@@ -83,7 +83,7 @@ namespace evdb.models.Models
             }
 
             
-            if((Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarUltrasonic) &&  Radars == null || Radars.Count == 0)
+            if((Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarUltrasonic) && (Radars == null || Radars.Count == 0))
             {
                 dataQualityScore.ReduceScore(100);
             }

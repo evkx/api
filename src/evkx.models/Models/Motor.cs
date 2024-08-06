@@ -5,24 +5,42 @@ using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines a motor in an EV
+    /// </summary>
     public class Motor
     {
+        /// <summary>
+        /// The motor location in the EV
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public MotorLocation? Location { get; set; }
 
+        /// <summary>
+        /// The type of motor in the EV
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public MotorType? Type { get; set; }
 
-        public int? Power { get; set; }
-
+        /// <summary>
+        /// The peak power in KW
+        /// </summary>
         public int? PeakPower { get; set; }
 
-        public int? ContinuousPower { get; set; }
-
+        /// <summary>
+        /// The max torque in Nm
+        /// </summary>
         public int? Torque { get; set; }
 
+        /// <summary>
+        /// Name of model type
+        /// </summary>
         public string? Model { get; set; }
 
+        /// <summary>
+        /// Calculates the data quality score for the motor
+        /// </summary>
+        /// <returns></returns>
         internal DataQualityScore CalculateDataQuality()
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Motor" };
@@ -33,32 +51,17 @@ namespace evdb.Models
 
             if(Type == null || Type.Equals(MotorType.None))
             {
-                dataQualityScore.DataQuality--;
-            }
-
-            if(Power == null)
-            {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(50);
             }
 
             if(PeakPower == null)
             {
-                dataQualityScore.DataQuality--;
-            }
-
-            if(ContinuousPower == null)
-            {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(20);
             }
 
             if(Torque == null)
             {
-                dataQualityScore.DataQuality--;
-            }
-
-            if(string.IsNullOrEmpty(Model))
-            {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(10);
             }
 
             return dataQualityScore;

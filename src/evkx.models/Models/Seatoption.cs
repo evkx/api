@@ -1,4 +1,6 @@
 ﻿using evdb.models.Enums;
+using evdb.models.Models;
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -13,6 +15,7 @@ namespace evdb.Models
         public Seatoption()
         {
             SeatCategory = models.Enums.SeatCategory.None;
+            Skihatch = new EVFeature() {  FeatureStatus = FeatureStatus.Unknown };
         }
 
         public bool? Standard { get; set; }
@@ -22,6 +25,8 @@ namespace evdb.Models
         public SeatCategory? SeatCategory { get; set; }
 
         public string? SeatSplit { get; set; }
+
+        public EVFeature Skihatch { get; set; } 
         
         /// <summary>
         /// The seats for this seat option
@@ -576,6 +581,30 @@ namespace evdb.Models
             }
 
             return SeatRowFeatureStatus.Unknown;
+        }
+
+        internal DataQualityScore CalculateDataQuality()
+        {
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Seatoption" };
+
+            if (SeatCategory == null || SeatCategory == models.Enums.SeatCategory.None)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+
+            if(Seat == null || Seat.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (Seat seat in Seat)
+                {
+                    dataQualityScore.AddSubScore(seat.CalculateDataQuality());
+                }
+            }
+
+            return dataQualityScore;
         }
     }
 }
