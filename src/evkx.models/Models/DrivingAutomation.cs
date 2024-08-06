@@ -19,7 +19,7 @@ namespace evdb.models.Models
             FollowNavigation = new EVFeature();
             TrafficLightControl = new EVFeature();
             StopSignControl = new EVFeature();
-            AutomaticParallelParking = new EVFeature();
+            AutomaticParking = new EVFeature();
         }
 
         /// <summary>
@@ -82,7 +82,12 @@ namespace evdb.models.Models
         /// <summary>
         /// Defines if the vehicle has automatic parallel parking.
         /// </summary>
-        public EVFeature? AutomaticParallelParking { get; set; }
+        public EVFeature? AutomaticParking { get; set; }
+
+        /// <summary>
+        /// Defines if the vehicle has remote parking.
+        /// </summary>
+        public EVFeature? RemoteParking { get; set; }
 
 
         /// <summary>
@@ -133,7 +138,7 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(30);
             }
 
-            if (AutomaticParallelParking == null || AutomaticParallelParking.FeatureStatus == FeatureStatus.Unknown)
+            if (AutomaticParking == null || AutomaticParking.FeatureStatus == FeatureStatus.Unknown)
             {
                 dataQualityScore.ReduceScore(30);
             }

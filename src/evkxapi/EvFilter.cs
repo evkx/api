@@ -201,7 +201,7 @@ namespace evdb
                 List<EV> tempList = new List<EV>();
                 foreach (EV ev in evlist)
                 {
-                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutomaticParallelParking != null && evs.AutomaticParallelParking.Available()) != null)
+                    if (ev.DriverAssistance != null && ev.DriverAssistance.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.FirstOrDefault(evs => evs.AutomaticParking != null && evs.AutomaticParking.Available()) != null)
                     {
                         tempList.Add(ev);
                     }
