@@ -1,9 +1,11 @@
 ﻿using evdb.models.Enums;
 using evdb.Models;
-using System;
 
 namespace evdb.models.Models
 {
+    /// <summary>
+    /// Defines the comfort features of an EV
+    /// </summary>
     public class Comfort
     {
         public Comfort()
@@ -18,20 +20,44 @@ namespace evdb.models.Models
             EeasyEntrySteeringwheel = new EVFeature();  
         }
 
+        /// <summary>
+        /// Defines if the EV has a garage opener
+        /// </summary>
         public EVFeature? GarageOpener { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has air fragrance
+        /// </summary>
         public EVFeature? AirFragrance { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has keyless go
+        /// </summary>
         public EVFeature? KeylessGo { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has keyless entry
+        /// </summary>
         public EVFeature? KeylessEntry { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has wireless phone charging
+        /// </summary>
         public EVFeature? WirelessPhoneCharging { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has electric adjustable steering weel
+        /// </summary>
         public EVFeature? ElectricAdjustableSteeringWeel { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has easy entry seat
+        /// </summary>
         public EVFeature? EeasyEntrySeat { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has easy entry steering wheel
+        /// </summary>
         public EVFeature? EeasyEntrySteeringwheel { get; set; }
 
         internal DataQualityScore CalculateDataQuality()

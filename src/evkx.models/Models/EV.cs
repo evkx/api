@@ -8,8 +8,14 @@ using System.Text.RegularExpressions;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines all aspects of an EV. 
+    /// </summary>
     public class EV
     {
+        /// <summary>
+        /// Default constructor for the EV
+        /// </summary>
         public EV()
         {
             ModelInfo = new ModelInfo(string.Empty, string.Empty);
@@ -33,39 +39,89 @@ namespace evdb.Models
 
         private string? _md5Hash;
 
+        /// <summary>
+        /// The unique identifier for the EV in the EVKX.net database
+        /// </summary>
         public Guid? Id { get; set; }
 
-
+        /// <summary>
+        /// Information about the brand of the EV
+        /// </summary>
         public Brand Brand { get; set; }
 
+        /// <summary>
+        /// Information about the model of the EV
+        /// </summary>
         public ModelInfo ModelInfo { get; set; }
 
+        /// <summary>
+        /// Defines the dimensions of the EV
+        /// </summary>
         public Dimensions Dimensions { get; set; }
 
+        /// <summary>
+        /// Defines the transport capabilities of the EV
+        /// </summary>
         public TransportCapabilities TransportCapabilities { get; set; }
 
+        /// <summary>
+        /// Defines the drivetrain of the EV
+        /// </summary>
         public Drivetrain Drivetrain { get; set; }
 
+        /// <summary>
+        /// Defines exterior features of the EV
+        /// </summary>
         public Exterior Exterior { get; set; }
 
+        /// <summary>
+        /// Defines the driver assistance features of the EV
+        /// </summary>
         public DriverAssistance? DriverAssistance { get; set; }
 
+        /// <summary>
+        /// Defines the user interface and controls of the EV
+        /// </summary>
         public UIAndControls? UIAndControls { get; set; }
 
+        /// <summary>
+        /// Defines the interior of the EV
+        /// </summary>
         public Interior Interior { get; set; }
 
+        /// <summary>
+        /// Defines the infotainment system of the EV
+        /// </summary>
         public Infotainment Infotainment { get; set; }
 
+        /// <summary>
+        /// Defines the comfort features of the EV
+        /// </summary>
         public Comfort Comfort { get; set; }
 
+        /// <summary>
+        /// Defines the exterior lights of the EV
+        /// </summary>
         public Lights Lights { get; set; }
 
+        /// <summary>
+        /// List of reviews for the EV
+        /// </summary>
         public List<EvReview>? Reviews { get; set; }
 
+        /// <summary>
+        /// List of calculations for the EV
+        /// </summary>
         public List<EvCalculations>? Calculations { get; set; }
 
+        /// <summary>
+        /// List of media for the EV
+        /// </summary>
         public List<CloudMedia> ModelPictures { get; set; }
 
+        /// <summary>
+        /// Gets the full name of the EV
+        /// </summary>
         public string GetFullName()
         {
             if (!string.IsNullOrEmpty(ModelInfo?.Variant))
@@ -656,7 +712,7 @@ namespace evdb.Models
 
             if(Drivetrain == null)
             {
-                dataQuality.DataQuality-=1000;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
@@ -666,7 +722,7 @@ namespace evdb.Models
             if(Exterior == null)
             {
 
-               dataQuality.DataQuality-=1000;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
@@ -675,7 +731,7 @@ namespace evdb.Models
 
             if(Interior == null)
             {
-                dataQuality.DataQuality-=1000;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
@@ -684,7 +740,7 @@ namespace evdb.Models
 
             if(Comfort == null)
             {
-                dataQuality.DataQuality-=1000;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
@@ -693,7 +749,7 @@ namespace evdb.Models
 
             if(Infotainment == null)
             {
-                dataQuality.DataQuality-=1000;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
@@ -702,12 +758,31 @@ namespace evdb.Models
 
             if(DriverAssistance == null)
             {
-                dataQuality.DataQuality-=1000;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
                 dataQuality.AddSubScore(DriverAssistance.CalculateDataQuality());
             }
+
+            if(Lights == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(Lights.CalculateDataQuality());
+            }
+
+            if(Dimensions == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(Dimensions.CalculateDataQuality());
+            }
+
 
             return dataQuality;
         }
