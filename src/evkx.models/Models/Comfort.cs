@@ -12,8 +12,6 @@ namespace evdb.models.Models
         {
             GarageOpener = new EVFeature();
             AirFragrance = new EVFeature();
-            KeylessGo  = new EVFeature();
-            KeylessEntry = new EVFeature(); 
             WirelessPhoneCharging = new EVFeature();
             ElectricAdjustableSteeringWeel = new EVFeature();   
             EeasyEntrySeat = new EVFeature();   
@@ -29,16 +27,6 @@ namespace evdb.models.Models
         /// Defines if the EV has air fragrance
         /// </summary>
         public EVFeature? AirFragrance { get; set; }
-
-        /// <summary>
-        /// Defines if the EV has keyless go
-        /// </summary>
-        public EVFeature? KeylessGo { get; set; }
-
-        /// <summary>
-        /// Defines if the EV has keyless entry
-        /// </summary>
-        public EVFeature? KeylessEntry { get; set; }
 
         /// <summary>
         /// Defines if the EV has wireless phone charging
@@ -70,16 +58,6 @@ namespace evdb.models.Models
             }
 
             if(AirFragrance == null || AirFragrance.FeatureStatus == FeatureStatus.Unknown)
-            {
-                dataQualityScore.ReduceScore(10);
-            }
-
-            if(KeylessGo == null || KeylessGo.FeatureStatus == FeatureStatus.Unknown)
-            {
-                dataQualityScore.ReduceScore(10);
-            }
-
-            if(KeylessEntry == null || KeylessEntry.FeatureStatus == FeatureStatus.Unknown)
             {
                 dataQualityScore.ReduceScore(10);
             }

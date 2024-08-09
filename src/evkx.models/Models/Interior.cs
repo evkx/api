@@ -242,6 +242,15 @@ namespace evdb.Models
 
             }
 
+            if(SteeringWheels == null || SteeringWheels.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+
+            }
+
             return dataQualityScore;
         }
     }

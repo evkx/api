@@ -105,6 +105,16 @@ namespace evdb.Models
         public Lights Lights { get; set; }
 
         /// <summary>
+        /// Defines the security features of the EV
+        /// </summary>
+        public Security Security { get; set; }
+
+        /// <summary>
+        /// Defines the MobileApp features of the EV
+        /// </summary>
+        public MobileApp MobileApp { get; set; }
+
+        /// <summary>
         /// List of reviews for the EV
         /// </summary>
         public List<EvReview>? Reviews { get; set; }
@@ -819,8 +829,23 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Lights.CalculateDataQuality());
             }
 
+            if(Security == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(Security.CalculateDataQuality());
+            }
 
-
+            if(MobileApp == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(MobileApp.CalculateDataQuality());
+            }
 
             return dataQuality;
         }
