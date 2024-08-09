@@ -90,5 +90,8 @@ namespace evdb.models.Enums
         [EnumMember(Value = "CenterRoofOverRearWindow")]
         CenterRoofOverRearWindow = 27,
 
+        [EnumMember(Value = "OverheadConsole")]
+        OverheadConsole = 28,
+
     }
 }

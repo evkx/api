@@ -26,5 +26,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "InfraredFrontView")]
         InfraredFrontView = 6,
+
+        [EnumMember(Value = "InteriorView")]
+        InteriorView = 7,
     }
 }

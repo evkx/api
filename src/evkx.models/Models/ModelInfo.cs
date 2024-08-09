@@ -54,135 +54,164 @@ namespace evdb.Models
         /// </summary>
         public CarSegment? CarSegment { get; set; }
 
+        /// <summary>
+        /// Defines the price segment
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public PriceCategory PriceSegment { get; set; }
 
+        /// <summary>
+        /// Platform of the model
+        /// </summary>
         public string? Platform { get; set; }
 
+        /// <summary>
+        /// Defines if the model is only available as EV
+        /// </summary>
         public bool? EvOnlyPlatform { get; set; }
 
+        /// <summary>
+        /// Defines if this is a EV only construction
+        /// </summary>
         public bool? EvOnlyConstruction { get; set; }
 
+        /// <summary>
+        /// Defines the body type of the SUV
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public EvBodyType BodyType { get; set; }
 
+        /// <summary>
+        /// Defines the model status
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ModelStatus? ModelStatus { get; set; }
 
+        /// <summary>
+        /// Defines the spec status of the model
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SpecStatus? SpecStatus { get; set; } 
 
+        /// <summary>
+        /// Defines the world premiere date
+        /// </summary>
         public DateTime? WorldPremiere { get; set; }
 
+        /// <summary>
+        /// Defines when the delivery starts
+        /// </summary>
         public DateTime? DeliveryStart { get; set; }
 
+        /// <summary>
+        /// Defines the availability of the model
+        /// </summary>
         public List<Availability>? Availability {get; set; }
 
+        /// <summary>
+        /// Defines the pricing of the model
+        /// </summary>
         public List<Pricing>? Pricing { get; set; }
 
+        /// <summary>
+        /// Defines alternatives to this model
+        /// </summary>
         public List<EvModelReference>? Alternatives { get; set; }
 
+        /// <summary>
+        /// Defines which models this is replaced by
+        /// </summary>
         public List<EvModelReference>? ReplacedBy { get; set; }
 
+        /// <summary>
+        /// Defines 
+        /// </summary>
         public List<EvModelReference>? Replaces { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public int CalculateDataQuality()
+        public DataQualityScore CalculateDataQuality()
         {
-            int counter = 0;
+            DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "ModelInfo" };
 
             if(string.IsNullOrEmpty(Name))
             {
-                counter-=10;
+                dataQualityScore.ReduceScore(1000);
             }
 
             if(string.IsNullOrEmpty(Variant))
             {
-                counter-=10;
+                dataQualityScore.ReduceScore(1000);
             }
-
 
             if (BodyType == EvBodyType.NotSet)
             {
-                counter--;
+                dataQualityScore.ReduceScore(1000);
             }
 
             if (CarSegment == null)
             {
-                counter--;
+                dataQualityScore.ReduceScore(200);
             }
 
             if(string.IsNullOrEmpty(Platform))
             {
-                counter--;
+                dataQualityScore.ReduceScore(50);
             }
 
             if (PriceSegment == PriceCategory.NotSet)
             {
-                counter--;
+                dataQualityScore.ReduceScore(100);
             }
 
             if (EvOnlyConstruction == null)
             {
-                counter--;
+                dataQualityScore.ReduceScore(50);
             }
 
             if(EvOnlyPlatform == null) {
-                counter--;
+                dataQualityScore.ReduceScore(50);
             }
 
-   
-
-
-            if(ModelStatus == null)
+            if(ModelStatus == null || ModelStatus == models.Enums.ModelStatus.NotSet)
             {
-                counter--;
+                dataQualityScore.ReduceScore(200);
             }   
 
             if(SpecStatus == null)
             {
-                counter--;
+                dataQualityScore.ReduceScore(50);
             }
 
             if(WorldPremiere == null)
             {
-                counter--;
+                dataQualityScore.ReduceScore(100);
             }
 
             if(DeliveryStart == null)
             {
-                counter--;
+                dataQualityScore.ReduceScore(100);
             }
 
             if(Availability == null || Availability.Count == 0)
             {
-                counter--;
+                dataQualityScore.ReduceScore(100);
             }
 
             if(Pricing == null || Pricing.Count == 0)
             {
-                counter--;
+                dataQualityScore.ReduceScore(50);
             }
 
             if(Alternatives == null || Alternatives.Count == 0)
             {
-                counter-=10;
+                dataQualityScore.ReduceScore(100);
             }
 
-            if(ReplacedBy == null)
-            {
-                counter--;
-            }
 
-            if(Replaces == null)
-            {
-                counter--;
-            }
-
-            return counter;
+            return dataQualityScore;
         }
 
     }

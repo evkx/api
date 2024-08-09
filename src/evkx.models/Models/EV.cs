@@ -710,7 +710,40 @@ namespace evdb.Models
         {
             DataQualityScore dataQuality = new DataQualityScore() { DataArea = GetFullName() };
 
-            if(Drivetrain == null)
+            if(Brand == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            
+            if(ModelInfo == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(ModelInfo.CalculateDataQuality());
+            }
+
+            if (Dimensions == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(Dimensions.CalculateDataQuality());
+            }
+
+            if (TransportCapabilities == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(TransportCapabilities.CalculateDataQuality());
+            }
+
+
+            if (Drivetrain == null)
             {
                 dataQuality.ReduceScore(1000);
             }
@@ -729,7 +762,28 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Exterior.CalculateDataQuality());
             }
 
-            if(Interior == null)
+
+            if (DriverAssistance == null)
+            {
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(DriverAssistance.CalculateDataQuality());
+            }
+
+
+            if (UIAndControls == null)
+            {
+
+                dataQuality.ReduceScore(1000);
+            }
+            else
+            {
+                dataQuality.AddSubScore(UIAndControls.CalculateDataQuality());
+            }
+
+            if (Interior == null)
             {
                 dataQuality.ReduceScore(1000);
             }
@@ -738,16 +792,7 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Interior.CalculateDataQuality());
             }
 
-            if(Comfort == null)
-            {
-                dataQuality.ReduceScore(1000);
-            }
-            else
-            {
-                dataQuality.AddSubScore(Comfort.CalculateDataQuality());
-            }
-
-            if(Infotainment == null)
+            if (Infotainment == null)
             {
                 dataQuality.ReduceScore(1000);
             }
@@ -756,13 +801,13 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Infotainment.CalculateDataQuality());
             }
 
-            if(DriverAssistance == null)
+            if (Comfort == null)
             {
                 dataQuality.ReduceScore(1000);
             }
             else
             {
-                dataQuality.AddSubScore(DriverAssistance.CalculateDataQuality());
+                dataQuality.AddSubScore(Comfort.CalculateDataQuality());
             }
 
             if(Lights == null)
@@ -774,34 +819,7 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Lights.CalculateDataQuality());
             }
 
-            if(Dimensions == null)
-            {
-                dataQuality.ReduceScore(1000);
-            }
-            else
-            {
-                dataQuality.AddSubScore(Dimensions.CalculateDataQuality());
-            }
 
-            if(UIAndControls == null)
-            {
-
-            dataQuality.ReduceScore(1000); 
-            }
-            else
-            {
-                dataQuality.AddSubScore(UIAndControls.CalculateDataQuality());
-            }
-
-
-            if(TransportCapabilities == null)
-            {
-                dataQuality.ReduceScore(1000);
-            }
-            else
-            {
-                dataQuality.AddSubScore(TransportCapabilities.CalculateDataQuality());
-            }
 
 
             return dataQuality;
