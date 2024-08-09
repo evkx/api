@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    /// <summary>
+    /// Defines the different types of console designs
+    /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum ConsoleDesign: int
     {

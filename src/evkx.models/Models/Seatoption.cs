@@ -1,6 +1,5 @@
 ﻿using evdb.models.Enums;
 using evdb.models.Models;
-using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -18,14 +17,30 @@ namespace evdb.Models
             Skihatch = new EVFeature() {  FeatureStatus = FeatureStatus.Unknown };
         }
 
+        /// <summary>
+        /// Defines if this seat option is standard
+        /// </summary>
         public bool? Standard { get; set; }
+
+        /// <summary>
+        /// The name of the seat option
+        /// </summary>
         public string? Name { get; set; }
 
+        /// <summary>
+        /// The seat category for this seat option
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SeatCategory? SeatCategory { get; set; }
 
+        /// <summary>
+        /// Defines the seat split for this seat option when it is a bench
+        /// </summary>
         public string? SeatSplit { get; set; }
 
+        /// <summary>
+        /// Defines if this has a ski hatch when it is a bench
+        /// </summary>
         public EVFeature Skihatch { get; set; } 
         
         /// <summary>

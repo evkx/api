@@ -20,7 +20,6 @@ namespace evdb.Models
             Brakes.Add(new models.Models.Brakes());
             Battery = new List<Battery>();
             Battery.Add(new Models.Battery());
-            AllWheelDrive = new EVFeature();
             Suspension = new List<Suspension>();
             Suspension.Add(new Models.Suspension());
             Performance = new List<Performance>();
@@ -37,37 +36,80 @@ namespace evdb.Models
             Charging = new Charging();
         }
 
+        /// <summary>
+        /// List of batteries available for this model
+        /// </summary>
         public List<Battery> Battery { get; set; }
 
+        /// <summary>
+        /// Defines the motors of the EV
+        /// </summary>
         public List<Motor> Motors {get; set; }
 
+        /// <summary>
+        /// Defines the brakes of the EV. 
+        /// </summary>
         public List<Brakes> Brakes { get; set; }
 
+        /// <summary>
+        /// Defines the drive setup of the EV
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public DriveSetup? DriveSetup { get; set; }
 
+        /// <summary>
+        /// Defines the dynamic steering of the EV
+        /// </summary>
         public EVFeature DynamicSteering { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has rear wheel steering
+        /// </summary>
         public EVFeature RearWheelSteering { get; set; }
 
-        public EVFeature AllWheelDrive { get; set; }
-
+        /// <summary>
+        /// Defines if the EV has torque vectoring
+        /// </summary>
         public EVFeature TorqueVectoring { get; set; }
 
+        /// <summary>
+        /// Defines the different suspension systems available for the EV
+        /// </summary>
         public List<Suspension> Suspension { get; set; }
 
+        /// <summary>
+        /// Defines the performance figures for the EV
+        /// </summary>
         public List<Performance> Performance { get; set; }
 
+        /// <summary>
+        /// Defines the charging capabilities of the EV
+        /// </summary>
         public Charging Charging { get; set; }    
 
+        /// <summary>
+        /// Defines the range and consumption for the EV. Most would have a single range and consumption value, but some may have multiple
+        /// </summary>
         public List<RangeAndConsumption>? RangeAndConsumption { get; set; }
 
+        /// <summary>
+        /// Defines the regen capabilities of the EV
+        /// </summary>
         public Regen Regen { get; set; }
 
+        /// <summary>
+        /// Defines the transmission of the EV
+        /// </summary>
         public Transmission? Transmission { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has selectable drive modes
+        /// </summary>
         public EVFeature SelectableDriveModes { get; set; }
 
+        /// <summary>
+        /// List the selectable drive modes
+        /// </summary>
         public List<DriveMode> DriveModes { get; set; }
 
         public DataQualityScore CalculateDataQuality()
@@ -115,17 +157,42 @@ namespace evdb.Models
                 dataQuality.DataQuality-=200;
             }
 
-            if(DynamicSteering == null || DynamicSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
+            if(DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontAxle && (Motors == null || Motors.Count != 1))
+            {           
+                dataQuality.DataQuality-=100;
+            }
+
+            if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorRearAxle && (Motors == null || Motors.Count != 1))
+            {
+                dataQuality.DataQuality -= 100;
+            }
+
+            if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontTwoMotorsRearAxle && (Motors == null || Motors.Count != 3))
+            {
+                dataQuality.DataQuality -= 100;
+            }
+
+            if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontTwoMotorsRearAxle && (Motors == null || Motors.Count != 3))
+            {
+                dataQuality.DataQuality -= 100;
+            }
+
+            if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontAndRearAxle && (Motors == null || Motors.Count != 2))
+            {
+                dataQuality.DataQuality -= 100;
+            }
+
+            if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.TwoMotorsFrontAndRearAxle && (Motors == null || Motors.Count != 4))
+            {
+                dataQuality.DataQuality -= 100;
+            }
+
+            if (DynamicSteering == null || DynamicSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
                 dataQuality.DataQuality--;
             }
 
             if(RearWheelSteering == null || RearWheelSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
-            {
-                dataQuality.DataQuality-=5;
-            }
-
-            if(AllWheelDrive == null || AllWheelDrive.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
                 dataQuality.DataQuality-=5;
             }

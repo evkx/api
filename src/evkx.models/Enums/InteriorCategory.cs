@@ -14,5 +14,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Minimalistic")]
         Minimalistic = 2,
+
+        [EnumMember(Value = "Functional")]
+        Functional = 3,
     }
 }

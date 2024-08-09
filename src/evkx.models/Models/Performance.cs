@@ -1,33 +1,66 @@
 ﻿using evdb.models.Enums;
 using evdb.models.Models;
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
-using System.Xml.Linq;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines various performance metrics of an EV
+    /// </summary>
     public class Performance
     {
+        /// <summary>
+        /// Defines the power in kW
+        /// </summary>
         public decimal? PowerKw { get; set; }
 
+        /// <summary>
+        /// Defines the power in kW with boost
+        /// </summary>
         public decimal? PowerKwBoost { get; set; }
 
+        /// <summary>
+        /// Defines the torque in Nm
+        /// </summary>
         public decimal? TorqueNm { get; set; }  
 
+        /// <summary>
+        /// Defines the torque in Nm with boost
+        /// </summary>
         public decimal? TorqueNmBoost { get; set; }
 
+        /// <summary>
+        /// Defines the boost length in seconds
+        /// </summary>
         public decimal? BoostLengthSeconds { get; set; }
 
+        /// <summary>
+        /// Defines the top speed in km/h
+        /// </summary>
         public decimal? TopSpeed { get; set; }
 
+        /// <summary>
+        /// Defines the 0-100 km/h time in seconds
+        /// </summary>
         public decimal? ZeroToHundredKph { get; set; }
 
+        /// <summary>
+        /// Defines the 0-100 km/h time in seconds with boost
+        /// </summary>
         public decimal? ZeroToHundredKphBoost { get; set; }
 
+        /// <summary>
+        /// Defines the market option type
+        /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public PerformanceOptionType? OptionType { get; set; }
 
+        /// <summary>
+        /// Defines the market type
+        /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? OptionId { get; set; }
 
         public string? GetPerformanceClass()
@@ -132,11 +165,6 @@ namespace evdb.Models
                 dataQualityScore.ReduceScore(10);
             }
 
-            if(!OptionType.HasValue)
-            {
-                dataQualityScore.ReduceScore(1);
-            }
-         
             return dataQualityScore;
         }
     }

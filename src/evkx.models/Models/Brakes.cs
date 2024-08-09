@@ -120,7 +120,7 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(20);
             }
 
-            if(RearBrakeDiscType == null || RearBrakeDiscType.Equals(BrakeDiscType.NotSet))
+            if((RearBrakeDiscType == null || RearBrakeDiscType.Equals(BrakeDiscType.NotSet)) && RearBrakeType != BrakeType.Drum)
             {
                 dataQualityScore.ReduceScore(10);
             }
@@ -130,12 +130,12 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(2);
             }
 
-            if(RearBrakeDiscThickness == null)
+            if(RearBrakeDiscThickness == null && RearBrakeType != BrakeType.Drum)
             {
                 dataQualityScore.ReduceScore(1);
             }
 
-            if (RearBrakePistons == null)
+            if (RearBrakePistons == null && RearBrakeType != BrakeType.Drum)
             {
                 dataQualityScore.ReduceScore(2);
             }

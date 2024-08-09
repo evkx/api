@@ -144,6 +144,11 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(30);
             }
 
+            if(RemoteParking == null || RemoteParking.FeatureStatus == FeatureStatus.Unknown)
+            {
+                dataQualityScore.ReduceScore(30);
+            }
+
             if (Standard == null)
             {
                 dataQualityScore.ReduceScore(30);
@@ -151,7 +156,7 @@ namespace evdb.models.Models
 
             if (DrivingAutomatFeatureName == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(3);
             }
 
             return dataQualityScore;

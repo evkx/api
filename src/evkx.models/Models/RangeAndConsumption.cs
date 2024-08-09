@@ -1,47 +1,100 @@
 ﻿using evdb.models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace evdb.models.Models
 {
+    /// <summary>
+    /// Defines the range and consumption
+    /// </summary>
     public class RangeAndConsumption
     {
-
+        /// <summary>
+        /// Defines the basic trim WLTP range
+        /// </summary>
         public int? BasicTrimWltpRange { get; set; }
 
+        /// <summary>
+        /// Defines the basic trim wltp consumption including charging losses
+        /// </summary>
         public decimal? BasicTrimWltpConsumption { get; set; }
         
+        /// <summary>
+        /// Defines the basic trim real wltp consumption
+        /// </summary>
         public decimal? BasicTrimRealWltpConsumption { get; set; }
 
+        /// <summary>
+        /// Defines the top trim WLTP range
+        /// </summary>
         public int? TopTrimWltpRange { get; set; }
 
+        /// <summary>
+        /// Defines the top trim wltp consumption including charging losses
+        /// </summary>
         public decimal? TopTrimWltpConsumption { get; set; }
 
+        /// <summary>
+        /// Defines the top trim real wltp consumption
+        /// </summary>
         public decimal? TopTrimRealWltpConsumption { get; set; }
 
+        /// <summary>
+        /// The basic trim 120 km/h range
+        /// </summary>
         public decimal? BasicTrim120KmhRange { get; set; }
 
+        /// <summary>
+        /// The basic trim 120 km/h consumption
+        /// </summary>
         public decimal? BasicTrim120KmhConsumption { get; set; }
 
+        /// <summary>
+        /// The basic trim 90 km/h range
+        /// </summary>
         public decimal? BasicTrim90KmhRange { get; set; }
 
+        /// <summary>
+        /// The basic trim 90 km/h consumption
+        /// </summary>
         public decimal? BasicTrim90KmhConsumption { get; set; }
 
+        /// <summary>
+        /// The basic trim 70 mph range
+        /// </summary>
         public decimal? BasicTrim70MphRange { get; set; }
 
+        /// <summary>
+        /// The basic trim 70 mph consumption
+        /// </summary>
         public decimal? BasicTrim70MphConsumption { get; set; }
 
+        /// <summary>
+        /// The basic trim EPA range
+        /// </summary>
         public int? BasicTrimEpaRange { get; set; }
 
+        /// <summary>
+        /// The basic trim EPA consumption
+        /// </summary>
         public decimal? BasicTrimEpaRealConsumption { get; set; }
 
+        /// <summary>
+        /// The top trim EPA range
+        /// </summary>
         public int? TopTrimEpaRange { get; set; }
 
+        /// <summary>
+        /// The top trim EPA consumption
+        /// </summary>
         public decimal? TopTrimEpaRealConsumption { get; set; }
 
+        /// <summary>
+        /// The basic trim CLTC range
+        /// </summary>
         public int? BasicTrimCLTCRange { get; set; }
 
+        /// <summary>
+        /// The basic trim CLTC consumption
+        /// </summary>
         public decimal? BasicTrimCLTCRealConsumption { get; set; }
 
 

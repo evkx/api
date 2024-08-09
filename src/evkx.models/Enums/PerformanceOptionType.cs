@@ -14,5 +14,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "PerformanceOption")]
         PerformanceOption = 2,
+
+        [EnumMember(Value = "MarketOption")]
+        MarketOption = 3,
     }
 }

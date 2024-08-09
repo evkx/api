@@ -75,6 +75,11 @@ namespace evdb.Models
         /// </summary>
         public HVAC? Hvac { get; set; }
 
+        /// <summary>
+        /// Defines the interior lights of the EV.
+        /// </summary>
+        public List<InteriorLight> InteriorLights { get; set; }
+
 
         public string GetInteriorIntroKey()
         {
@@ -200,8 +205,42 @@ namespace evdb.Models
                 }
             }
 
+            if (SecondRowSeats != null && SecondRowSeats.Count > 0)
+            {
+                foreach(Seatoption seatOption in SecondRowSeats)
+                {
+                    dataQualityScore.AddSubScore(seatOption.CalculateDataQuality());
+                }
+            }
 
 
+            if (ThirdRowSeats != null && ThirdRowSeats.Count > 0)
+            {
+
+                foreach (Seatoption seatOption in ThirdRowSeats)
+                {
+                    dataQualityScore.AddSubScore(seatOption.CalculateDataQuality());
+                }
+            }
+
+            if(Hvac == null)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                dataQualityScore.AddSubScore(Hvac.CalculateDataQuality());
+            }
+
+            if(InteriorLights != null)
+            {
+                foreach(InteriorLight light in InteriorLights)
+                {
+
+                    dataQualityScore.AddSubScore(light.CalculateDataQuality());
+                }
+
+            }
 
             return dataQualityScore;
         }

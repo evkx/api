@@ -783,6 +783,17 @@ namespace evdb.Models
                 dataQuality.AddSubScore(Dimensions.CalculateDataQuality());
             }
 
+            if(UIAndControls == null)
+            {
+
+            dataQuality.ReduceScore(1000); 
+            }
+            else
+            {
+                dataQuality.AddSubScore(UIAndControls.CalculateDataQuality());
+            }
+
+
             if(TransportCapabilities == null)
             {
                 dataQuality.ReduceScore(1000);

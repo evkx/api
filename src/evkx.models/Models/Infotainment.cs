@@ -130,6 +130,13 @@ namespace evdb.Models
                     dataQualityScore.AddSubScore(portAndConnection.CalculateDataQuality());
                 }
             }
+
+            if(string.IsNullOrEmpty(InfotainmentOs))
+            {
+                dataQualityScore.ReduceScore(50);
+            }
+
+            
             
             return dataQualityScore;
             
