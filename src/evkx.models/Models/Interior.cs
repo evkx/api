@@ -248,6 +248,10 @@ namespace evdb.Models
             }
             else
             {
+                foreach(SteeringWheel steeringWheel in SteeringWheels)
+                {
+                    dataQualityScore.AddSubScore(steeringWheel.CalculateDataQuality());
+                }
 
             }
 

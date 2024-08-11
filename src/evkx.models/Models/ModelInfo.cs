@@ -96,12 +96,12 @@ namespace evdb.Models
         /// <summary>
         /// Defines the world premiere date
         /// </summary>
-        public DateTime? WorldPremiere { get; set; }
+        public DateOnly? WorldPremiere { get; set; }
 
         /// <summary>
-        /// Defines when the delivery starts
+        /// Defines when delivery start
         /// </summary>
-        public DateTime? DeliveryStart { get; set; }
+        public DateOnly? DeliveryStart { get; set; }
 
         /// <summary>
         /// Defines the availability of the model
@@ -195,9 +195,16 @@ namespace evdb.Models
                 dataQualityScore.ReduceScore(100);
             }
 
-            if(Availability == null || Availability.Count == 0)
+            if (Availability == null || Availability.Count == 0)
             {
                 dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (Availability availability in Availability)
+                {
+                    dataQualityScore.AddSubScore(availability.CalculateDataQuality());
+                }
             }
 
             if(Pricing == null || Pricing.Count == 0)
@@ -205,11 +212,17 @@ namespace evdb.Models
                 dataQualityScore.ReduceScore(50);
             }
 
-            if(Alternatives == null || Alternatives.Count == 0)
+            if (Alternatives == null || Alternatives.Count == 0)
             {
                 dataQualityScore.ReduceScore(100);
             }
-
+            else
+            {
+                foreach (EvModelReference evModelReference in Alternatives)
+                {
+                    dataQualityScore.AddSubScore(evModelReference.CalculateDataQuality());
+                }
+            }
 
             return dataQualityScore;
         }

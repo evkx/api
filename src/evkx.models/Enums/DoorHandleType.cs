@@ -14,5 +14,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Flush")]
         Flush = 2,
+
+        [EnumMember(Value = "FlushRetractable")]
+        FlushRetractable = 3,
     }
 }

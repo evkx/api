@@ -1,9 +1,11 @@
 ﻿using evdb.Models;
-using System;
 using System.Collections.Generic;
 
 namespace evdb.models.Models
 {
+    /// <summary>
+    /// Defines a Interior design option
+    /// </summary>
     public class InteriorDesign
     {
         public InteriorDesign()
@@ -11,8 +13,14 @@ namespace evdb.models.Models
             SeatMaterials = [new SeatMaterial()];
         }
 
+        /// <summary>
+        /// Defines if this design is the standard
+        /// </summary>
         public bool? Standard { get; set; }
 
+        /// <summary>
+        /// The design name in different languages
+        /// </summary>
         public Dictionary<string,string>? Name { get; set; }
 
         /// <summary>
@@ -39,9 +47,16 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(5);
             }
 
-            if(HeadlinerDesigns == null) 
+            if (HeadlinerDesigns == null)
             {
                 dataQualityScore.ReduceScore(5);
+            }
+            else
+            {
+                foreach (HeadlinerDesign headlinerDesign in HeadlinerDesigns)
+                {
+                    dataQualityScore.AddSubScore(headlinerDesign.CalculateDataQuality());
+                }
             }
 
             if (SeatMaterials == null)

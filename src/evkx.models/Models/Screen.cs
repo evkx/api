@@ -38,11 +38,6 @@ namespace evdb.Models
         public bool? Touch { get; set; }
 
         /// <summary>
-        /// Defines the resolution of the screen
-        /// </summary>
-        public string? Resolution { get; set; }
-
-        /// <summary>
         /// Defines if the screen is optional
         /// </summary>
         public bool? Optional { get; set; }

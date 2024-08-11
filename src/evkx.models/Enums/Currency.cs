@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    /// <summary>
+    /// Defines the currency of a price.
+    /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Currency
     {
