@@ -66,11 +66,6 @@ namespace evdb.Models
         public List<Seatoption>? FourthRowSeats { get; set; }
 
         /// <summary>
-        /// The steering wheels of the EV.
-        /// </summary>
-        public List<SteeringWheel>? SteeringWheels { get; set; }
-
-        /// <summary>
         /// The HVAC system of the EV.
         /// </summary>
         public HVAC? Hvac { get; set; }
@@ -238,19 +233,6 @@ namespace evdb.Models
                 {
 
                     dataQualityScore.AddSubScore(light.CalculateDataQuality());
-                }
-
-            }
-
-            if(SteeringWheels == null || SteeringWheels.Count == 0)
-            {
-                dataQualityScore.ReduceScore(100);
-            }
-            else
-            {
-                foreach(SteeringWheel steeringWheel in SteeringWheels)
-                {
-                    dataQualityScore.AddSubScore(steeringWheel.CalculateDataQuality());
                 }
 
             }

@@ -1,6 +1,7 @@
 ﻿using evdb.models.Enums;
 using evdb.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace evdb.models.Models
 {
@@ -13,6 +14,11 @@ namespace evdb.models.Models
         /// Defines the steering wheel design
         /// </summary>
         public SteeringWheelDesignType SteeringWheelDesign { get; set; }
+
+        /// <summary>
+        /// Defines the steering wheel control type
+        /// </summary>
+        public SteeringWheelControlType ControlType { get; set; }
 
         /// <summary>
         /// The name of the steering wheel options
@@ -30,14 +36,9 @@ namespace evdb.models.Models
         public EVFeature? Heated { get; set; }
 
         /// <summary>
-        /// Defines if this steering wheel has audi control
+        /// List of controls of the steering wheel
         /// </summary>
-        public bool? AudioControl { get; set; }
-
-        /// <summary>
-        /// Defines if this steering wheel has screenscontrol
-        /// </summary>
-        public bool? ScreenControl { get; set; }
+        public List<string>? Controls { get; set; }
 
         public string? GetName(string language = "en")
         {
@@ -48,6 +49,41 @@ namespace evdb.models.Models
 
             return null;
         }
+
+        public string GetDescriptionKey()
+        {
+            string baseKey = "uicontrols.steeringwheel";
+            string featureKey = string.Empty;
+            
+            if(SteeringWheelDesign != SteeringWheelDesignType.NotSet)
+            {
+                featureKey = "."+ SteeringWheelDesign.ToString().ToLower();
+            }
+            if (ControlType != SteeringWheelControlType.NotSet)
+            {
+                featureKey += "." + ControlType.ToString().ToLower();
+            }
+
+            if (Heated != null && Heated.FeatureStatus == FeatureStatus.Optional)
+            {
+                featureKey += ".optionalheating";
+            }
+            else if(Heated != null && Heated.FeatureStatus == FeatureStatus.Standard)
+            {
+                featureKey += ".heating"; 
+            }
+
+            if (Controls != null)
+            {
+                foreach (var control in Controls.Order())
+                {
+                    featureKey += "." + control.ToLower();
+                }
+            }
+
+            return baseKey + featureKey;    
+        }
+
 
         public DataQualityScore CalculateDataQuality()
         {
@@ -63,12 +99,7 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(10);
             }
 
-            if(AudioControl == null)
-            {
-                dataQualityScore.ReduceScore(10);
-            }
-
-            if(ScreenControl == null)
+            if(Controls == null || Controls.Count == 0)
             {
                 dataQualityScore.ReduceScore(10);
             }

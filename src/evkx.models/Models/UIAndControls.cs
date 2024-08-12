@@ -35,6 +35,11 @@ namespace evdb.Models
         public EVFeature? HeadUpDisplay { get; set; }
 
         /// <summary>
+        /// The steering wheels of the EV.
+        /// </summary>
+        public List<SteeringWheel>? SteeringWheels { get; set; }
+
+        /// <summary>
         /// Defines if the vehicle has voice control
         /// </summary>
         public EVFeature? VoiceControl { get; set; }
@@ -79,6 +84,20 @@ namespace evdb.Models
             if (GestureControl == null)
             {
                 dataQualityScore.ReduceScore(20);
+            }
+
+
+            if (SteeringWheels == null || SteeringWheels.Count == 0)
+            {
+                dataQualityScore.ReduceScore(100);
+            }
+            else
+            {
+                foreach (SteeringWheel steeringWheel in SteeringWheels)
+                {
+                    dataQualityScore.AddSubScore(steeringWheel.CalculateDataQuality());
+                }
+
             }
 
             return dataQualityScore;

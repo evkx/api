@@ -118,7 +118,7 @@ namespace evdb.Models
 
             if (Battery == null || Battery.Count == 0)
             {
-                dataQuality.DataQuality -= 10;
+                dataQuality.ReduceScore(1000);
             }
             else
             {
@@ -130,7 +130,7 @@ namespace evdb.Models
 
             if(Motors == null || Motors.Count == 0)
             {
-                dataQuality.DataQuality -= 10;
+                dataQuality.ReduceScore(200);
             }
             else
             {
@@ -142,7 +142,7 @@ namespace evdb.Models
 
             if(Brakes == null || Brakes.Count == 0)
             {
-                dataQuality.DataQuality -= 10;
+                dataQuality.ReduceScore(200);
             }
             else
             {
@@ -154,52 +154,52 @@ namespace evdb.Models
 
             if(DriveSetup == null || DriveSetup.Equals(models.Enums.DriveSetup.NotSet))
             {
-                dataQuality.DataQuality-=200;
+                dataQuality.ReduceScore(300);
             }
 
             if(DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontAxle && (Motors == null || Motors.Count != 1))
-            {           
-                dataQuality.DataQuality-=100;
+            {
+                dataQuality.ReduceScore(100);
             }
 
             if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorRearAxle && (Motors == null || Motors.Count != 1))
             {
-                dataQuality.DataQuality -= 100;
+                dataQuality.ReduceScore(100);
             }
 
             if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontTwoMotorsRearAxle && (Motors == null || Motors.Count != 3))
             {
-                dataQuality.DataQuality -= 100;
+                dataQuality.ReduceScore(100);
             }
 
             if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontTwoMotorsRearAxle && (Motors == null || Motors.Count != 3))
             {
-                dataQuality.DataQuality -= 100;
+                dataQuality.ReduceScore(100);
             }
 
             if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.OneMotorFrontAndRearAxle && (Motors == null || Motors.Count != 2))
             {
-                dataQuality.DataQuality -= 100;
+                dataQuality.ReduceScore(100);
             }
 
             if (DriveSetup != null && DriveSetup == models.Enums.DriveSetup.TwoMotorsFrontAndRearAxle && (Motors == null || Motors.Count != 4))
             {
-                dataQuality.DataQuality -= 100;
+                 dataQuality.ReduceScore(100);
             }
 
             if (DynamicSteering == null || DynamicSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQuality.DataQuality--;
+                dataQuality.ReduceScore(1);
             }
 
             if(RearWheelSteering == null || RearWheelSteering.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQuality.DataQuality-=5;
+                dataQuality.ReduceScore(5);
             }
 
             if(TorqueVectoring == null || TorqueVectoring.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQuality.DataQuality--;
+                dataQuality.ReduceScore(1);
             }
 
             if(Suspension == null || Suspension.Count == 0)
