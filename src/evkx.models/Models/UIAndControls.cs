@@ -40,6 +40,16 @@ namespace evdb.Models
         public List<SteeringWheel>? SteeringWheels { get; set; }
 
         /// <summary>
+        /// Defines the option for exterior mirror
+        /// </summary>
+        public List<ExteriorMirror>? ExteriorMirror { get; set; }
+
+        /// <summary>
+        /// Defines the options for interior mirror
+        /// </summary>
+        public List<InteriorMirror>? InteriorMirror { get; set; }
+
+        /// <summary>
         /// Defines if the vehicle has voice control
         /// </summary>
         public EVFeature? VoiceControl { get; set; }

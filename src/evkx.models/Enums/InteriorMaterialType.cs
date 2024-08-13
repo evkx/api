@@ -56,5 +56,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "NappaLeatherMicrofiber")]
         NappaLeatherMicrofiber = 15,
+
+        [EnumMember(Value = "DinamicaLeather")]
+        DinamicaLeather = 16,
     }
 }

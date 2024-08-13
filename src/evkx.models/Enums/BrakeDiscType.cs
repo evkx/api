@@ -17,5 +17,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Ceramic")]
         Ceramic = 3,
+
+        [EnumMember(Value = "VentilatedCastIron")]
+        VentilatedCastIron = 4,
     }
 }
