@@ -18,5 +18,9 @@ namespace evdb.models.Enums
         [EnumMember(Value = "ScreenFocusWithLimitedButtons")]
         ScreenFocusWithLimitedButtons = 3,
 
+        [EnumMember(Value = "ScreensWithStalksAndLotsOfButtons")]
+        ScreensWithStalksAndLotsOfButtons = 4,
+
+
     }
 }
