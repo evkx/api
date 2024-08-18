@@ -166,7 +166,7 @@ namespace evdb.models.Models
                 }
             }
 
-            if(CargoCapacityLiter == null || CargoCapacityLiter == 0)
+            if(BedLength == null && ( CargoCapacityLiter == null || CargoCapacityLiter == 0))
             {
                 dataQualityScore.ReduceScore(100);
             }

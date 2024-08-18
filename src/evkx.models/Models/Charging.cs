@@ -1,10 +1,12 @@
 ﻿using evdb.models.Enums;
 using evdb.models.Models;
-using System;
 using System.Collections.Generic;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines the charging capabilities of an EV
+    /// </summary>
     public class Charging
     {
         public Charging() 
@@ -14,22 +16,55 @@ namespace evdb.Models
             HeatingWhenNavigateToCharger = new EVFeature();
         }
 
+        /// <summary>
+        /// Defines the chargeports of the EV
+        /// </summary>
         public List<Chargeport>? Chargeports { get; set; }
 
+        /// <summary>
+        /// Defines the onboard chargers of the EV
+        /// </summary>
         public List<Charger>? OnBoardChargers { get; set; }
 
+        /// <summary>
+        /// Defines the battery swap capabilities of the EV
+        /// </summary>
         public BatterySwap? BatterySwap { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has manual trigger heating
+        /// </summary>
         public EVFeature? ManualTriggerHeating { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has heating when navigate to charger
+        /// </summary>
         public EVFeature? HeatingWhenNavigateToCharger { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has V2L capabilities
+        /// </summary>
         public EVFeature? V2L { get; set; }
 
+        /// <summary>
+        /// Defines the V2L power in kW
+        /// </summary>
         public decimal? V2LPower { get; set; }
 
+        /// <summary>
+        /// Defines if the EV has V2G capabilities
+        /// </summary>
         public EVFeature? V2G { get; set; }
 
+        /// <summary>
+        /// List ports that support V2X
+        /// </summary>
+        public List<V2XPort> V2XPorts { get; set; }
+
+        /// <summary>
+        /// Calculate dataquality
+        /// </summary>
+        /// <returns></returns>
         internal DataQualityScore CalculateDataQuality()
         {
             
