@@ -57,6 +57,16 @@ namespace evdb.Models
         public EVFeature? V2G { get; set; }
 
         /// <summary>
+        /// Defines if the EV has V2H capabilities
+        /// </summary>
+        public EVFeature? V2H { get; set; }
+
+        /// <summary>
+        /// Defines the V2H type
+        /// </summary>
+        public V2HType? V2HType { get; set; }
+
+        /// <summary>
         /// List ports that support V2X
         /// </summary>
         public List<V2XPort> V2XPorts { get; set; }

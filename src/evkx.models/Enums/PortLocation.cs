@@ -68,5 +68,11 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "BedRightSide")]
         BedRightSide = 20,
+
+        [EnumMember(Value = "FrunkLeftSide")]
+        FrunkLeftSide = 21,
+
+        [EnumMember(Value = "FrunkRightSide")]
+        FrunkRightSide = 22,
     }
 }
