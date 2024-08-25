@@ -1,5 +1,6 @@
 using evdb.Config;
 using evdb.Services;
+using evdb.sitegenerator.Service;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -60,11 +61,10 @@ void ConfigureServices(IServiceCollection services, IConfiguration config)
 
     services.AddMvc();
     services.AddMemoryCache();
-
-    services.AddSingleton<IEv, EvSi>();
     services.AddSingleton<IEvRepository, EvRepository>();
-
     services.Configure<EvkxConfig>(config.GetSection("EvkxConfig"));
+    services.AddSingleton<IEv, EvSi>();
+    services.AddSingleton<ITexts, TextsSi>();
 }
 
 

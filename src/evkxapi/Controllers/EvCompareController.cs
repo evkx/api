@@ -1,5 +1,7 @@
-﻿using evdb.Models;
+﻿using evdb.models.Models;
+using evdb.Models;
 using evdb.Services;
+using evdb.sitegenerator.Service;
 using evkxapi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,18 +13,20 @@ namespace evkxapi.Controllers
     public class EvCompareController : Controller
     {
         private IEv _evService;
+        private ITexts _textService;
 
-        public EvCompareController(IEv evService)
+        public EvCompareController(IEv evService, ITexts texts)
         {
             _evService = evService;
+            _textService = texts;
         }
-
 
         // GET: EvCompareController
         public async Task<ActionResult> Index([FromQuery] string evs)
         {
             EvCompareViewModel model = new EvCompareViewModel();
             model.Models = await _evService.GetAllEv();
+            model.Language = "en";
 
             if (!string.IsNullOrEmpty(evs))
             {
@@ -41,6 +45,8 @@ namespace evkxapi.Controllers
 
             }
 
+            model.Languages = new Dictionary<string, SiteLanguage>();
+            model.Languages.Add("en", await _textService.GetSpecText(model.Language));
             
             return View(model);
         }
