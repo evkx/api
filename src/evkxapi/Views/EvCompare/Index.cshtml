@@ -46,14 +46,27 @@
 
                 }
             </tr>
-            <tr>
+
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#modelcollapse" role="button" aria-expanded="false" aria-controls="modelcollapse">
+                        Modelinfo
+                    </a>
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="modelcollapse">
                 <th scope="row">Type</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.ModelInfo.BodyType</td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="modelcollapse">
                 <th scope="row">World premiere</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -67,7 +80,7 @@
                     }
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="modelcollapse">
                 <th scope="row">Delivery start</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -81,7 +94,7 @@
                     }
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="modelcollapse">
                 <th scope="row">Model status</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -265,7 +278,6 @@
                     </td>
                 }
             </tr>
-
              <tr class="table-secondary">
                 <th scope="row">
                     <i class="bi bi-caret-down-fill"></i>
@@ -2401,9 +2413,8 @@
                             if (ev.Interior.Hvac != null)
                             {
 
-                                @ev.Interior.Hvac.Preclimatisation
+                                RenderEvFeature(ev.Interior.Hvac.Preclimatisation);
 
-                              
                             }
                         }
                     </td>
@@ -2418,9 +2429,7 @@
                             if (ev.Interior.Hvac != null)
                             {
 
-                                @ev.Interior.Hvac.PetMode
-
-
+                                RenderEvFeature(ev.Interior.Hvac.PetMode);
                             }
                         }
                     </td>
@@ -2434,9 +2443,7 @@
                         @{
                             if (ev.Interior.Hvac != null)
                             {
-
-                                @ev.Interior.Hvac.CampMode
-
+                                RenderEvFeature(ev.Interior.Hvac.CampMode);
                             }
                         }
                     </td>
