@@ -12,7 +12,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <title>Compare models EVKX.net</title>
+    <title>@Model.PageTitle</title>
 </head>
 <body>
     <img src="https://evkx.net/images/evkxlogo_s.png" />
@@ -96,13 +96,19 @@
                 }
             </tr>
             <tr class="table-secondary">
-                <th scope="row">Range And Consumption</th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#rangeandconsumptioncollapse" role="button" aria-expanded="false" aria-controls="rangeandconsumptioncollapse">
+
+                        Range And Consumption
+                    </a>    
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="rangeandconsumptioncollapse">
                 <th scope="row">WLTP range</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -138,7 +144,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="rangeandconsumptioncollapse">
                 <th scope="row">WLTP consumption</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -167,7 +173,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="rangeandconsumptioncollapse">
                 <th scope="row">WLTP consumption including charging loss</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -197,7 +203,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="rangeandconsumptioncollapse">
                 <th scope="row">EPA range</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -227,7 +233,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="rangeandconsumptioncollapse">
                 <th scope="row">EPA consumption</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -261,13 +267,18 @@
             </tr>
 
              <tr class="table-secondary">
-                <th scope="row">Performance</th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#performancecollapse" role="button" aria-expanded="false" aria-controls="performancecollapse">
+                    Performance
+                    </a>
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="performancecollapse">
                 <th scope="row">Top Speed</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -286,7 +297,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="performancecollapse">
                 <th scope="row">Power</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -307,7 +318,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="performancecollapse">
                 <th scope="row">Torque</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -331,7 +342,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="performancecollapse">
                 <th scope="row">0-100km/h (0-62mph)</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -353,13 +364,18 @@
                 }
             </tr>
             <tr class="table-secondary">
-                <th scope="row">Drivetrain</th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#drivetraincollapse" role="button" aria-expanded="false" aria-controls="drivetraincollapse">
+                        Drivetrain
+                    </a>
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="drivetraincollapse">
                 <th scope="row">Drive</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -380,7 +396,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="drivetraincollapse">
                 <th scope="row">Motor setup</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -406,7 +422,7 @@
                     }
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="drivetraincollapse">
                 <th scope="row">Motor technology</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -449,41 +465,46 @@
                 }
             </tr>
             <tr class="table-secondary">
-                <th scope="row">Brakes & Regen</th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#brakeregencollapse" role="button" aria-expanded="false" aria-controls="brakeregencollapse">
+                        Brakes & Regen
+                    </a>    
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">@Model.GetSpecTitle("DriveTrain.Brakes.Front.BrakeType")</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (Brakes brake in ev.Drivetrain.Brakes)
-                            {
-                                @spacer
-                                if(brake.FrontBrakeType.Equals(BrakeType.FixedCaliperDisc))
-                                {
-                                    @Html.Raw("Disc brakes, fixed caliper")    
+                        @foreach (EV ev in Model.Models)
+                        {
+                            <td scope="col">
+                                @{
+                                    string spacer = "";
+                                    foreach (Brakes brake in ev.Drivetrain.Brakes)
+                                    {
+                                        @spacer
+                                        if(brake.FrontBrakeType.Equals(BrakeType.FixedCaliperDisc))
+                                        {
+                                            @Html.Raw("Disc brakes, fixed caliper")    
+                                        }
+                                        else if(brake.FrontBrakeType.Equals(BrakeType.FloatingCaliperDisc))
+                                        {
+                                            @Html.Raw("Disc brakes, floating caliper")
+                                        }
+                                        else if (brake.FrontBrakeType.Equals(BrakeType.Drum))
+                                        {
+                                            @Html.Raw("Drum brake")
+                                        }
+                                        spacer = " / ";
+                                    }
                                 }
-                                else if(brake.FrontBrakeType.Equals(BrakeType.FloatingCaliperDisc))
-                                {
-                                    @Html.Raw("Disc brakes, floating caliper")
-                                }
-                                else if (brake.FrontBrakeType.Equals(BrakeType.Drum))
-                                {
-                                    @Html.Raw("Drum brake")
-                                }
-                                spacer = " / ";
-                            }
+                            </td>
                         }
-                    </td>
-                }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Rear brake type</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -511,7 +532,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Front Disc diameter</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -533,7 +554,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Rear Disc diameter</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -555,7 +576,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Front disc type</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -583,7 +604,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Rear disc type</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -611,7 +632,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Blended brakes (regen on brake pedal)</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -635,7 +656,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Lift-up-regen (one-pedal-driving)</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -653,7 +674,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Lift-up-regen stopping modes</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -679,7 +700,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Lift-up-regen levels</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -698,7 +719,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Coasting</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -716,7 +737,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="brakeregencollapse">
                 <th scope="row">Adaptive regen when coasting</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -735,13 +756,46 @@
                 }
             </tr>
             <tr class="table-secondary">
-                <th scope="row">Suspension</th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#suspensioncollapse" role="button" aria-expanded="false" aria-controls="suspensioncollapse">
+                        Suspension
+                    </a>
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
+                <th scope="row">Front disc type</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Brakes brake in ev.Drivetrain.Brakes)
+                            {
+                                @spacer
+                                if (brake.FrontBrakeDiscType.Equals(BrakeDiscType.Ceramic))
+                                {
+                                    @Html.Raw("Ceramic")
+                                }
+                                else if (brake.FrontBrakeDiscType.Equals(BrakeDiscType.CastIron))
+                                {
+                                    @Html.Raw("Cast Iron")
+                                }
+                                else if (brake.FrontBrakeDiscType.Equals(BrakeDiscType.TungstenCarbidCoating))
+                                {
+                                    @Html.Raw("Carbid")
+                                }
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Suspension options</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -765,7 +819,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Adaptive damping front</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -782,7 +836,7 @@
            
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Adaptive damping rear</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -799,7 +853,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Suspension type front</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -832,7 +886,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Suspension type rear</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -862,7 +916,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Spring type front</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -892,7 +946,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Spring type rear</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -922,7 +976,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Adjustable height front</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -939,9 +993,7 @@
 
                 }
             </tr>
-            
-
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Adjustable height rear</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -958,7 +1010,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="suspensioncollapse">
                 <th scope="row">Ground clearance</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -983,71 +1035,74 @@
                 }
             </tr>
             <tr class="table-secondary">
-                <th scope="row">Size & Weight</th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#dimensionscollapse" role="button" aria-expanded="false" aria-controls="dimensionscollapse">
+                    Size & Weight
+                    </a>    
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Length</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.Dimensions.Length mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.Length, 1)")</td>
                 }
             </tr>
-
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Height</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.Dimensions.Height mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.Height, 1)")</td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Width excluding mirrors</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.Dimensions.WidthExcludingMirrors mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.WidthExcludingMirrors,1)") </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Width including mirrors</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.Dimensions.WidhtIncludingMirrors mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.WidhtIncludingMirrors, 1)")</td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Wheelbase</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.Dimensions.Wheelbase mm (@EvConversion.ToInchFromMillimeter(ev.Dimensions.Wheelbase, 1)")</td>
                 }
             </tr>
-           <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Turning circle</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.Dimensions.TurningCircle meter (@EvConversion.ToInchFromMeter(ev.Dimensions.TurningCircle, 1)")</td>
                 }
             </tr>
-
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Curb Weight</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.TransportCapabilities.CurbWeight kg (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.CurbWeight, 1) lbs)</td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Max Weight</th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">@ev.TransportCapabilities.MaxVehicleWeightKg kg (@EvConversion.ToLbsFromKg(ev.TransportCapabilities.MaxVehicleWeightKg, 1) lbs)</td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Max Roof load</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1062,7 +1117,7 @@
                    </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Max weight braked trailer</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1077,7 +1132,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Trunk capacity</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1089,7 +1144,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Trunk capacity seat down</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1110,8 +1165,7 @@
             </tr>
             @if(Model.Models.Exists(r=> r.ModelInfo.BodyType.Equals(EvBodyType.PickupTruck)))
             {
-
-            <tr>
+                <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Bed capacity</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1123,8 +1177,7 @@
                     </td>
                 }
             </tr>
-
-                <tr>
+                <tr class="collapse" id="dimensionscollapse">
                     <th scope="row">Bed length</th>
                     @foreach (EV ev in Model.Models)
                     {
@@ -1136,8 +1189,7 @@
                         </td>
                     }
                 </tr>
-
-                <tr>
+                <tr class="collapse" id="dimensionscollapse">
                     <th scope="row">Bed width</th>
                     @foreach (EV ev in Model.Models)
                     {
@@ -1149,17 +1201,19 @@
                         </td>
                     }
                 </tr>
-
             }
-
             <tr class="table-secondary">
-                <th scope="row">UI </th>
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#uicollapse" role="button" aria-expanded="false" aria-controls="uicollapse">
+                      UI 
+                    </a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col"></td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Head Up Display</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1170,7 +1224,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Voice Control</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1181,7 +1235,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Gesture Control</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1192,7 +1246,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Driver display</th>
                 @{
 
@@ -1239,7 +1293,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Infotainment screen</th>
                 @{
 
@@ -1286,7 +1340,7 @@
 
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">In car navigation <a href="https://evkx.net/technology/infotainment/navigation/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1297,7 +1351,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Apple Car Play <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1308,7 +1362,7 @@
                     </td>
                 }
             </tr>
-            <tr>
+            <tr class="collapse" id="uicollapse">
                 <th scope="row">Android Auto <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1320,857 +1374,10 @@
                 }
             </tr>
             <tr class="table-secondary">
-                <th scope="row">Lights</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col"></td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">LED Matrix headlights <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-
-                            bool headlightsWithoutMatrix =false;
-                            bool headlightsWithMatrix = false;
-                            foreach (Headlight headlight in ev.Lights.Headlights)
-                            {
-                                if (headlight.LightTechnology.Equals(LightTechnology.LEDMatrix) || headlight.LightTechnology.Equals(LightTechnology.LEDDigitalMatrix)
-                                || headlight.LightTechnology.Equals(LightTechnology.LEDMatrixLaser))
-                                {
-                                    headlightsWithMatrix = true;
-                                }
-                                else
-                                {
-                                    headlightsWithoutMatrix = true;
-                                }
-
-                            }
-
-
-                            if(headlightsWithMatrix && !headlightsWithoutMatrix)
-                            {
-                                <span>Standard</span>
-                            }
-                            else if (headlightsWithMatrix && headlightsWithoutMatrix)
-                            {
-                                <span>Optional</span>
-                            }
-                            else
-                            {
-                                <span>Not available</span>
-                            }
-
-                      }
-                        
-                        
-
-                    </td>
-                }
-            </tr>
-
-            <tr class="table-secondary">
-                <th scope="row">Driver Assist Systems</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col"></td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">ABS <a href="https://evkx.net/technology/driverassistance/antilockbrakingsystem/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.AntiLockBrakingSystem);
-                        }
-                    </td>
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Automatic Emergency Braking <a href="https://evkx.net/technology/driverassistance/automaticemergencybraking/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.AutomaticEmergencyBraking);
-                        }
-                    </td>
-                    
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Automatic Emergency Steering <a href="https://evkx.net/technology/driverassistance/automaticemergencysteering/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.AutomaticEmergencySteering);
-                        }
-                    </td>
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Cross Traffic Assist <a href="https://evkx.net/technology/driverassistance/frontcrosstrafficassist/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.CrossTrafficAssist);
-                        }
-                    </td>
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Drowsiness Alert <a href="https://evkx.net/technology/driverassistance/driverdrowsinessdetection/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.DrowsinessAlert);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Electronic Stability Control <a href="https://evkx.net/technology/driverassistance/electronicstabilitycontrol/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.ElectronicStabilityControl);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Blind Spot monitoring <a href="https://evkx.net/technology/driverassistance/blindspotmonitoring/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.SideAssist);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Exit Warning <a href="https://evkx.net/technology/driverassistance/exitwarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.ExitWarning);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Forward collision warning (FCW) <a href="https://evkx.net/technology/driverassistance/forwardcollisionwarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.ForwardCollisionWarning);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Lane Departure Warning (LDW) <a href="https://evkx.net/technology/driverassistance/lanedeparturewarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.LaneDepartureWarning);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Lane Keeping Assist (LKA) <a href="https://evkx.net/technology/driverassistance/lanekeepingassist/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.LaneKeeping);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Left Turn Crash Avoidance</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.LeftTurnCrashAvoidance);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Night Vision <a href="https://evkx.net/technology/sensorsandcameras/infrared/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            RenderEvFeature(ev.DriverAssistance.NightVision);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Auto steer <a href="https://evkx.net/technology/driverassistance/autosteer/" target="_blank"><i class="bi-info-circle"></i></a></th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                    @if(ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count == 1)
-                    {
-                        EVFeature? eVFeature = ev.DriverAssistance.DrivingAutomation[0].LaneCenteringAssist;
-                        if(eVFeature != null)
-                        {
-                            RenderEvFeature(eVFeature);
-                        }
-                    }
-                    else if (ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count > 1)
-                    {
-                    
-                        if(ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.NotAvailable))
-                        && (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional))
-                        || ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard))))
-                        {
-                            @Html.Raw("Optional")
-                        }
-                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional))
-                        && ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard)))
-                        {
-                            @Html.Raw("Optional")
-
-                        }
-                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional)))
-                        {
-                            @Html.Raw("Optional")
-                        }
-                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard)))
-                        {
-                            @Html.Raw("Standard")
-                        }
-                    }
-                    </td>
-                 }
-            </tr>
-            <tr class="table-secondary">
-                <th scope="row">Battery</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col"></td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Gross battery size</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (Battery battery in ev.Drivetrain.Battery)
-                            {
-                                @spacer
-                                @battery.GrossCapacitykWh <span>kWh</span>
-                                spacer = " / ";
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Available battery size</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (Battery battery in ev.Drivetrain.Battery)
-                            {
-                                @spacer
-                                @battery.NetCapacitykWh <span>kWh</span>
-                                spacer = " / ";
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Cell chemistry</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (Battery battery in ev.Drivetrain.Battery)
-                            {
-                                @spacer
-                                @battery.CellInfo.CellChemistry
-                                spacer = " / ";
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-            <tr class="table-secondary">
-                <th scope="row">Charging</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col"></td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Charge curve (click for full size)</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    if (ev.Drivetrain.Battery.Count == 1)
-                    {
-                        <td scope="col">
-                            <a href="https://evkx.net/@Html.Raw(ev.GetEvPath())/chargingcurve/" target="_blank">
-                                <img src="https://evkx.net/images/@Html.Raw(ev.GetEvPath())/chargingcurve.svg" style="max-width: 250px" class="img-fluid">
-                            </a>
-                        </td>
-                    }
-                    else
-                    {
-                        <td scope="col">
-                            <a href="https://evkx.net/@Html.Raw(ev.GetEvPath())/chargingcurve/" target="_blank">
-                                <img src="https://evkx.net/images/@Html.Raw(ev.GetEvPath())/chargingcurve_1.svg" style="max-width: 250px" class="img-fluid">
-                            </a>
-                        </td>
-                    }
-                }
-            </tr>
-            <tr>
-                <th scope="row">Max DC charging power</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (Battery battery in ev.Drivetrain.Battery)
-                            {
-                                @spacer
-                                @battery.MaxDCChargeSpeed <span>kW</span>
-                                spacer = " / ";
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Average DC charging power 0-100%</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                       @{
-                            string spacer = "";
-                            foreach(EvCalculations evsc in ev.Calculations)
-                            {
-                           
-                                @if (evsc.AverageChargingSpeed.HasValue)
-                                {
-                                    @spacer
-                                    @Decimal.Round(evsc.AverageChargingSpeed.Value,1) <span>kW</span>
-                                    spacer = " / ";
-                                }
-                            }
-                        }
-
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Average DC charging power 10-100%</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (EvCalculations evsc in ev.Calculations)
-                            {
-                           
-                                @if (evsc.AverageChargingSpeed10100.HasValue)
-                                {
-                                    @spacer
-                                    @Decimal.Round(evsc.AverageChargingSpeed10100.Value,1) <span>kW</span>
-                                    spacer = " / ";
-                                }
-                            }
-                        }
-
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Average DC charging power 10-80%</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            string spacer = "";
-                            foreach (EvCalculations evsc in ev.Calculations)
-                            {
-                      
-                                @if (evsc.AverageChargingSpeed1080.HasValue)
-                                {
-                                    @spacer
-                                    @Decimal.Round(evsc.AverageChargingSpeed1080.Value,1) <span>kW</span>
-                                    spacer = " / ";
-                                }
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Battery heating navigating to charger</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                           RenderEvFeature(ev.Drivetrain?.Charging?.HeatingWhenNavigateToCharger);
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Manual battery heating</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                                RenderEvFeature(ev.Drivetrain?.Charging?.ManualTriggerHeating);
-                         }
-                    </td>
-                }
-            </tr>
-            <tr class="table-secondary">
-                <th scope="row">Seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col"></td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Number of seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-
-                            if (ev.Interior?.SeatLayout != null && ev.Interior?.SeatLayout.Count > 0)
-                            {
-                                if (ev.Interior.SeatLayout.Count > 1)
-                                {
-                                    string spacer = "";
-                                    string seatNames = "";
-                                    foreach (SeatLayout seatoption in ev.Interior.SeatLayout)
-                                    {
-                                        seatNames += spacer + seatoption.NumberOfSeats;
-                                        spacer = ", ";
-                                    }
-                                    @seatNames
-                                }
-                                else
-                                {
-                                    @ev.Interior.SeatLayout[0].NumberOfSeats
-                                }
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Front seats options</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            @ev.Interior.FirstRowSeats.Count
-
-                            if (ev.Interior.FirstRowSeats.Count > 1)
-                            {
-                                string spacer = "";
-
-                                string seatNames = " (";
-                                foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
-                                {
-                                    seatNames += spacer + seatoption.Name;
-                                    spacer = ", ";
-                                }
-                                seatNames += ")";
-                                @seatNames
-                            }
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Heating front seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-
-                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
-                            {
-                                if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional 
-                                   || seatoption.HasHeating() == SeatRowFeatureStatus.Standard )
-                                {
-                                    seatOptionWithFeature = true;
-                                }
-                                else if (seatoption.HasHeating() == SeatRowFeatureStatus.Standard)
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
-                            }
-
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-
-                        }
-                    </td>
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Adjustable thigh support</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-
-                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
-                            {
-                                if (seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional
-                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Standard
-                                 || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.StandardManual
-                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalElectric)
-                                {
-                                    seatOptionWithFeature = true;
-                                }
-                                else if (seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional
-                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalManual
-                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalElectric)
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
-                            }
-
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-
-                        }
-                    </td>
-                }
-            </tr>
-             <tr>
-                <th scope="row">Ventilation front seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-
-                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
-                            {
-                                if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
-                                || seatoption.HasVentilation() == SeatRowFeatureStatus.Standard
-                                || seatoption.HasVentilation() == SeatRowFeatureStatus.StandardManual
-                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
-                                {
-                                    seatOptionWithFeature = true;
-                                }
-                                else if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
-                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalManual
-                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
-                            }
-
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-
-                        }
-
-
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Massage front seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-
-                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
-                            {
-                                if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
-                                || seatoption.HasMassage() == SeatRowFeatureStatus.Standard
-                                || seatoption.HasMassage() == SeatRowFeatureStatus.StandardManual
-                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
-                                {
-                                    seatOptionWithFeature = true;
-                                }
-                                else if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
-                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalManual
-                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
-                                {
-                                    seatOptionWithOptionalFeature = true;
-                                }
-                                else
-                                {
-                                    seatOptionWithoutFeature = true;
-                                }
-
-                            }
-
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-
-                        }
-
-
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Heating second row</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-
-                            if(ev?.Interior?.SecondRowSeats != null)
-                            {
-                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
-                                {
-                                    if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional
-                                    || seatoption.HasHeating() == SeatRowFeatureStatus.Standard
-                                    || seatoption.HasHeating() == SeatRowFeatureStatus.StandardManual
-                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalElectric)
-                                    {
-                                        seatOptionWithFeature = true;
-                                    }
-                                    else if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional
-                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalManual
-                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalElectric)
-                                    {
-                                        seatOptionWithOptionalFeature = true;
-                                    }
-                                    else
-                                    {
-                                        seatOptionWithoutFeature = true;
-                                    }
-
-                                }
-
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-                            }
-                            else
-                            {
-                                <span>N/A</span>
-                            }
-
-                        }
-                    </td>
-                }
-            </tr>
-
-            <tr>
-                <th scope="row">Ventilation second row seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-                            
-                            if(ev?.Interior?.SecondRowSeats != null)
-                            {
-                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
-                                {
-
-
-                                    if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
-                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.Standard
-                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.StandardManual
-                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
-                                    {
-                                        seatOptionWithFeature = true;
-                                    }
-                                    else if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
-                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalManual
-                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
-                                    {
-                                        seatOptionWithOptionalFeature = true;
-                                    }
-                                    else
-                                    {
-                                        seatOptionWithoutFeature = true;
-                                    }
-                                }
-                                RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-                            }
-                            else
-                            {
-                                <span>N/A</span>
-                            }
-                        }
-
-
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Massage second row seats</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @{
-                            bool seatOptionWithoutFeature = false;
-                            bool seatOptionWithFeature = false;
-                            bool seatOptionWithOptionalFeature = false;
-
-                            if (ev?.Interior?.SecondRowSeats != null)
-                            {
-
-                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
-                                {
-                                    if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
-                                    || seatoption.HasMassage() == SeatRowFeatureStatus.Standard
-                                    || seatoption.HasMassage() == SeatRowFeatureStatus.StandardManual
-                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
-                                    {
-                                        seatOptionWithFeature = true;
-                                    }
-                                    else if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
-                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalManual
-                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
-                                    {
-                                        seatOptionWithOptionalFeature = true;
-                                    }
-                                    else
-                                    {
-                                        seatOptionWithoutFeature = true;
-                                    }
-
-                                }
-                            
-                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
-                            }
-                            else
-                            {
-                            <span>N/A</span>
-                            }
-                            }
-
-
-                    </td>
-                }
-            </tr>
-            <tr class="table-secondary">
-                <th scope="row">Exterior design</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col"></td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Paint color options</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @if (ev.Exterior?.PaintColors != null)
-                        {
-                            @ev.Exterior.PaintColors.Count()
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Wheel options</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @if (ev.Exterior?.WheelOptions != null)
-                        {
-                            @ev.Exterior.WheelOptions.Count()
-                        }
-                    </td>
-                }
-            </tr>
-            <tr>
-                <th scope="row">Wheel sizes (front/rear)</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
-                        @if (ev.Exterior?.WheelOptions != null)
-                        {
-                            List<string> sizes = new List<string>();
-                            foreach(Wheel wheel in ev.Exterior.WheelOptions)
-                            {
-                                string sizeKey = wheel.TireDimensionFront + "R" + wheel.WheelSize + " / " + wheel.TireDimensionRear + "R" + wheel.WheelSize;
-                                if (!sizes.Contains(sizeKey))
-                                {
-                                    sizes.Add(sizeKey);
-                                }
-                            }
-
-                            foreach(string size in sizes)
-                            {
-                                @size
-                                <br/>
-                            }
-                            
-                        }
-                    </td>
-                }
-            </tr>
-              <tr class="table-secondary">
                 <th scope="row">
-
+                    <i class="bi bi-caret-down-fill"></i>
                     <a data-bs-toggle="collapse" href="#navigationcollapse" role="button" aria-expanded="false" aria-controls="navigationcollapse">
-                        <i class="bi bi-arrows-expand"></i> Navigation system
+                      Navigation system
                     </a>
                 </th>
                 @foreach (EV ev in Model.Models)
@@ -2226,7 +1433,6 @@
                     </td>
                 }
             </tr>
-
             <tr class="collapse" id="navigationcollapse">
                 <th scope="row">Satelitt image map</th>
                 @foreach (EV ev in Model.Models)
@@ -2239,7 +1445,6 @@
                     </td>
                 }
             </tr>
-
             <tr class="collapse" id="navigationcollapse">
                 <th scope="row">Voice controlled</th>
                 @foreach (EV ev in Model.Models)
@@ -2252,7 +1457,6 @@
                     </td>
                 }
             </tr>
-
             <tr class="collapse" id="navigationcollapse">
                 <th scope="row">Voice guiding</th>
                 @foreach (EV ev in Model.Models)
@@ -2266,12 +1470,983 @@
                 }
             </tr>
 
-
             <tr class="table-secondary">
                 <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#lightscollapse" role="button" aria-expanded="false" aria-controls="lightscollapse">
+                    Lights
+                    </a>
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="lightscollapse">
+                <th scope="row">LED Matrix headlights <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
 
+                            bool headlightsWithoutMatrix =false;
+                            bool headlightsWithMatrix = false;
+                            foreach (Headlight headlight in ev.Lights.Headlights)
+                            {
+                                if (headlight.LightTechnology.Equals(LightTechnology.LEDMatrix) || headlight.LightTechnology.Equals(LightTechnology.LEDDigitalMatrix)
+                                || headlight.LightTechnology.Equals(LightTechnology.LEDMatrixLaser))
+                                {
+                                    headlightsWithMatrix = true;
+                                }
+                                else
+                                {
+                                    headlightsWithoutMatrix = true;
+                                }
+
+                            }
+
+
+                            if(headlightsWithMatrix && !headlightsWithoutMatrix)
+                            {
+                                <span>Standard</span>
+                            }
+                            else if (headlightsWithMatrix && headlightsWithoutMatrix)
+                            {
+                                <span>Optional</span>
+                            }
+                            else
+                            {
+                                <span>Not available</span>
+                            }
+
+                      }
+                        
+                        
+
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#adascollapse" role="button" aria-expanded="false" aria-controls="adascollapse">
+                        Driver Assist Systems
+                    </a>
+                    </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">ABS <a href="https://evkx.net/technology/driverassistance/antilockbrakingsystem/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.AntiLockBrakingSystem);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Automatic Emergency Braking <a href="https://evkx.net/technology/driverassistance/automaticemergencybraking/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.AutomaticEmergencyBraking);
+                        }
+                    </td>
+                    
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Automatic Emergency Steering <a href="https://evkx.net/technology/driverassistance/automaticemergencysteering/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.AutomaticEmergencySteering);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Cross Traffic Assist <a href="https://evkx.net/technology/driverassistance/frontcrosstrafficassist/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.CrossTrafficAssist);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Drowsiness Alert <a href="https://evkx.net/technology/driverassistance/driverdrowsinessdetection/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.DrowsinessAlert);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Electronic Stability Control <a href="https://evkx.net/technology/driverassistance/electronicstabilitycontrol/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.ElectronicStabilityControl);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Blind Spot monitoring <a href="https://evkx.net/technology/driverassistance/blindspotmonitoring/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.SideAssist);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Exit Warning <a href="https://evkx.net/technology/driverassistance/exitwarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.ExitWarning);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Forward collision warning (FCW) <a href="https://evkx.net/technology/driverassistance/forwardcollisionwarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.ForwardCollisionWarning);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Lane Departure Warning (LDW) <a href="https://evkx.net/technology/driverassistance/lanedeparturewarning/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.LaneDepartureWarning);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Lane Keeping Assist (LKA) <a href="https://evkx.net/technology/driverassistance/lanekeepingassist/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.LaneKeeping);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Left Turn Crash Avoidance</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.LeftTurnCrashAvoidance);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Night Vision <a href="https://evkx.net/technology/sensorsandcameras/infrared/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            RenderEvFeature(ev.DriverAssistance.NightVision);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="adascollapse">
+                <th scope="row">Auto steer <a href="https://evkx.net/technology/driverassistance/autosteer/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                    @if(ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count == 1)
+                    {
+                        EVFeature? eVFeature = ev.DriverAssistance.DrivingAutomation[0].LaneCenteringAssist;
+                        if(eVFeature != null)
+                        {
+                            RenderEvFeature(eVFeature);
+                        }
+                    }
+                    else if (ev.DriverAssistance?.DrivingAutomation != null && ev.DriverAssistance.DrivingAutomation.Count > 1)
+                    {
+                    
+                        if(ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.NotAvailable))
+                        && (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional))
+                        || ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard))))
+                        {
+                            @Html.Raw("Optional")
+                        }
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional))
+                        && ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard)))
+                        {
+                            @Html.Raw("Optional")
+
+                        }
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Optional)))
+                        {
+                            @Html.Raw("Optional")
+                        }
+                        else if (ev.DriverAssistance.DrivingAutomation.Exists(d => d.LaneCenteringAssist != null && d.LaneCenteringAssist.FeatureStatus.Equals(FeatureStatus.Standard)))
+                        {
+                            @Html.Raw("Standard")
+                        }
+                    }
+                    </td>
+                 }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#batterycollapse" role="button" aria-expanded="false" aria-controls="batterycollapse">
+                        Battery
+                    </a>
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="batterycollapse">
+                <th scope="row">Gross battery size</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.GrossCapacitykWh <span>kWh</span>
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="batterycollapse">
+                <th scope="row">Available battery size</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.NetCapacitykWh <span>kWh</span>
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="batterycollapse">
+                <th scope="row">Cell chemistry</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.CellInfo.CellChemistry
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#chargingcollapse" role="button" aria-expanded="false" aria-controls="chargingcollapse">
+                    Charging
+                    </a>    
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Charge curve (click for full size)</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    if (ev.Drivetrain.Battery.Count == 1)
+                    {
+                        <td scope="col">
+                            <a href="https://evkx.net/@Html.Raw(ev.GetEvPath())/chargingcurve/" target="_blank">
+                                <img src="https://evkx.net/images/@Html.Raw(ev.GetEvPath())/chargingcurve.svg" style="max-width: 250px" class="img-fluid">
+                            </a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="col">
+                            <a href="https://evkx.net/@Html.Raw(ev.GetEvPath())/chargingcurve/" target="_blank">
+                                <img src="https://evkx.net/images/@Html.Raw(ev.GetEvPath())/chargingcurve_1.svg" style="max-width: 250px" class="img-fluid">
+                            </a>
+                        </td>
+                    }
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Max DC charging power</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.MaxDCChargeSpeed <span>kW</span>
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Average DC charging power 0-100%</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                       @{
+                            string spacer = "";
+                            foreach(EvCalculations evsc in ev.Calculations)
+                            {
+                           
+                                @if (evsc.AverageChargingSpeed.HasValue)
+                                {
+                                    @spacer
+                                    @Decimal.Round(evsc.AverageChargingSpeed.Value,1) <span>kW</span>
+                                    spacer = " / ";
+                                }
+                            }
+                        }
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Average DC charging power 10-100%</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (EvCalculations evsc in ev.Calculations)
+                            {
+                           
+                                @if (evsc.AverageChargingSpeed10100.HasValue)
+                                {
+                                    @spacer
+                                    @Decimal.Round(evsc.AverageChargingSpeed10100.Value,1) <span>kW</span>
+                                    spacer = " / ";
+                                }
+                            }
+                        }
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Average DC charging power 10-80%</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (EvCalculations evsc in ev.Calculations)
+                            {
+                      
+                                @if (evsc.AverageChargingSpeed1080.HasValue)
+                                {
+                                    @spacer
+                                    @Decimal.Round(evsc.AverageChargingSpeed1080.Value,1) <span>kW</span>
+                                    spacer = " / ";
+                                }
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Battery heating navigating to charger</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                           RenderEvFeature(ev.Drivetrain?.Charging?.HeatingWhenNavigateToCharger);
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="chargingcollapse">
+                <th scope="row">Manual battery heating</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                                RenderEvFeature(ev.Drivetrain?.Charging?.ManualTriggerHeating);
+                         }
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#seatcollapse" role="button" aria-expanded="false" aria-controls="seatcollapse">
+                    Seats
+                    </a>    
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Number of seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+
+                            if (ev.Interior?.SeatLayout != null && ev.Interior?.SeatLayout.Count > 0)
+                            {
+                                if (ev.Interior.SeatLayout.Count > 1)
+                                {
+                                    string spacer = "";
+                                    string seatNames = "";
+                                    foreach (SeatLayout seatoption in ev.Interior.SeatLayout)
+                                    {
+                                        seatNames += spacer + seatoption.NumberOfSeats;
+                                        spacer = ", ";
+                                    }
+                                    @seatNames
+                                }
+                                else
+                                {
+                                    @ev.Interior.SeatLayout[0].NumberOfSeats
+                                }
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Front seats options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            @ev.Interior.FirstRowSeats.Count
+
+                            if (ev.Interior.FirstRowSeats.Count > 1)
+                            {
+                                string spacer = "";
+
+                                string seatNames = " (";
+                                foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
+                                {
+                                    seatNames += spacer + seatoption.Name;
+                                    spacer = ", ";
+                                }
+                                seatNames += ")";
+                                @seatNames
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Heating front seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
+                            {
+                                if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional 
+                                   || seatoption.HasHeating() == SeatRowFeatureStatus.Standard )
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption.HasHeating() == SeatRowFeatureStatus.Standard)
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Adjustable thigh support</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
+                            {
+                                if (seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Standard
+                                 || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.StandardManual
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalElectric)
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalManual
+                                || seatoption.HasAdjustableThighSupport() == SeatRowFeatureStatus.OptionalElectric)
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Ventilation front seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
+                            {
+                                if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.Standard
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.StandardManual
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalManual
+                                || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+                            }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+
+                        }
+
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Massage front seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            foreach (Seatoption seatoption in ev.Interior.FirstRowSeats)
+                            {
+                                if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.Standard
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.StandardManual
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
+                                {
+                                    seatOptionWithFeature = true;
+                                }
+                                else if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalManual
+                                || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
+                                {
+                                    seatOptionWithOptionalFeature = true;
+                                }
+                                else
+                                {
+                                    seatOptionWithoutFeature = true;
+                                }
+
+                            }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+
+                        }
+
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Heating second row</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            if(ev?.Interior?.SecondRowSeats != null)
+                            {
+                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                                {
+                                    if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.Standard
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.StandardManual
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalElectric)
+                                    {
+                                        seatOptionWithFeature = true;
+                                    }
+                                    else if (seatoption.HasHeating() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalManual
+                                    || seatoption.HasHeating() == SeatRowFeatureStatus.OptionalElectric)
+                                    {
+                                        seatOptionWithOptionalFeature = true;
+                                    }
+                                    else
+                                    {
+                                        seatOptionWithoutFeature = true;
+                                    }
+
+                                }
+
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
+
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Ventilation second row seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+                            
+                            if(ev?.Interior?.SecondRowSeats != null)
+                            {
+                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                                {
+
+
+                                    if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.Standard
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.StandardManual
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
+                                    {
+                                        seatOptionWithFeature = true;
+                                    }
+                                    else if (seatoption.HasVentilation() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalManual
+                                    || seatoption.HasVentilation() == SeatRowFeatureStatus.OptionalElectric)
+                                    {
+                                        seatOptionWithOptionalFeature = true;
+                                    }
+                                    else
+                                    {
+                                        seatOptionWithoutFeature = true;
+                                    }
+                                }
+                                RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
+                        }
+
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="seatcollapse">
+                <th scope="row">Massage second row seats</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            bool seatOptionWithoutFeature = false;
+                            bool seatOptionWithFeature = false;
+                            bool seatOptionWithOptionalFeature = false;
+
+                            if (ev?.Interior?.SecondRowSeats != null)
+                            {
+
+                                foreach (Seatoption seatoption in ev.Interior.SecondRowSeats)
+                                {
+                                    if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.Standard
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.StandardManual
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
+                                    {
+                                        seatOptionWithFeature = true;
+                                    }
+                                    else if (seatoption.HasMassage() == SeatRowFeatureStatus.Optional
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalManual
+                                    || seatoption.HasMassage() == SeatRowFeatureStatus.OptionalElectric)
+                                    {
+                                        seatOptionWithOptionalFeature = true;
+                                    }
+                                    else
+                                    {
+                                        seatOptionWithoutFeature = true;
+                                    }
+
+                                }
+                            
+                            RenderSeatFeature(seatOptionWithFeature, seatOptionWithOptionalFeature, seatOptionWithoutFeature);
+                            }
+                            else
+                            {
+                            <span>N/A</span>
+                            }
+                            }
+
+
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#exteriorcollapse" role="button" aria-expanded="false" aria-controls="exteriorcollapse">
+                        Exterior design
+                    </a>
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="exteriorcollapse">
+                <th scope="row">Paint color options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Exterior?.PaintColors != null)
+                        {
+                            @ev.Exterior.PaintColors.Count()
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="exteriorcollapse">
+                <th scope="row">Wheel options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Exterior?.WheelOptions != null)
+                        {
+                            @ev.Exterior.WheelOptions.Count()
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="exteriorcollapse">
+                <th scope="row">Wheel sizes (front/rear)</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Exterior?.WheelOptions != null)
+                        {
+                            List<string> sizes = new List<string>();
+                            foreach(Wheel wheel in ev.Exterior.WheelOptions)
+                            {
+                                string sizeKey = wheel.TireDimensionFront + "R" + wheel.WheelSize + " / " + wheel.TireDimensionRear + "R" + wheel.WheelSize;
+                                if (!sizes.Contains(sizeKey))
+                                {
+                                    sizes.Add(sizeKey);
+                                }
+                            }
+
+                            foreach(string size in sizes)
+                            {
+                                @size
+                                <br/>
+                            }
+                            
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <a data-bs-toggle="collapse" href="#hvaccollapse" role="button" aria-expanded="false" aria-controls="hvaccollapse">
+                        Climate system
+                    </a>
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col"></td>
+                }
+            </tr>
+            <tr class="collapse" id="hvaccollapse">
+                <th scope="row">Climate system options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if (ev.Interior?.Hvac?.ClimateControlSystems != null)
+                        {
+                            @ev.Interior.Hvac.ClimateControlSystems.Count
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="hvaccollapse">
+                <th scope="row">Climate system options</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if(ev.Interior.Hvac?.ClimateControlSystems != null)
+                            {
+
+                                @ev.Interior.Hvac.ClimateControlSystems.Count
+
+                                if (ev.Interior.Hvac.ClimateControlSystems.Count > 1)
+                                {
+                                    string spacer = "";
+
+                                    string seatNames = " (";
+                                    foreach (ClimateControlSystem  climateSystemn in ev.Interior.Hvac.ClimateControlSystems)
+                                    {
+                                        seatNames += spacer + climateSystemn.GetName();
+                                        spacer = ", ";
+                                    }
+                                    seatNames += ")";
+                                    @seatNames
+                                }
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="hvaccollapse">
+                <th scope="row">Preclimatization</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Interior.Hvac != null)
+                            {
+
+                                @ev.Interior.Hvac.Preclimatisation
+
+                              
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="hvaccollapse">
+                <th scope="row">Petmode</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Interior.Hvac != null)
+                            {
+
+                                @ev.Interior.Hvac.PetMode
+
+
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="hvaccollapse">
+                <th scope="row">Camping mode</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            if (ev.Interior.Hvac != null)
+                            {
+
+                                @ev.Interior.Hvac.CampMode
+
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">
+                    <i class="bi bi-caret-down-fill"></i>
                     <a data-bs-toggle="collapse" href="#mobileappcollapse" role="button" aria-expanded="false" aria-controls="mobileappcollapse">
-                        <i class="bi bi-arrows-expand"></i> Mobile App & App features
+                        Mobile App & App features
                     </a>
                 </th>
                 @foreach (EV ev in Model.Models)
@@ -2401,7 +2576,6 @@
                     </td>
                 }
             </tr>
-
         </tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

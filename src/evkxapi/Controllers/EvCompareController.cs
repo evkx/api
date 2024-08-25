@@ -5,6 +5,7 @@ using evdb.sitegenerator.Service;
 using evkxapi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.Scaffolding.Shared.Project;
 
 namespace evkxapi.Controllers
 {
@@ -27,6 +28,7 @@ namespace evkxapi.Controllers
             EvCompareViewModel model = new EvCompareViewModel();
             model.Models = await _evService.GetAllEv();
             model.Language = "en";
+            model.PageTitle = "EV Compare EVKX.net : ";
 
             if (!string.IsNullOrEmpty(evs))
             {
@@ -41,8 +43,12 @@ namespace evkxapi.Controllers
                if(tempList.Count > 0)
                 {
                     model.Models = tempList;
+                    
+                    foreach(EV ev in model.Models)
+                    {
+                        model.PageTitle += ev.GetFullName() + " ";
+                    }
                 }
-
             }
 
             model.Languages = new Dictionary<string, SiteLanguage>();

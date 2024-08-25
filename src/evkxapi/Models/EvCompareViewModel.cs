@@ -1,5 +1,6 @@
 ﻿using evdb.models.Models;
 using evdb.Models;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace evkxapi.Models
 {
@@ -10,6 +11,8 @@ namespace evkxapi.Models
         public string Language { get; set; }
 
         public Dictionary<string, SiteLanguage> Languages { get; set; }
+
+        public string PageTitle { get; set; }
 
         public string GetSpecTitle(string key)
         {
