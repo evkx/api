@@ -35,5 +35,27 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "OptionalManualOrElectric")]
         OptionalManualOrElectric = 10,
+
+
+        [EnumMember(Value = "StandardElectricDriver")]
+        StandardElectricDriver = 11,
+
+        [EnumMember(Value = "StandardElectricDriverStandardManualPassenger")]
+        StandardElectricDriverStandardManualPassenger = 12,
+
+        [EnumMember(Value = "StandardElectricDriverNotAvailablePassenger")]
+        StandardElectricDriverNotAvailablePassenger = 13,
+
+        [EnumMember(Value = "StandardDriverNotAvailablePassenger")]
+        StandardDriverNotAvailablePassenger = 14,
+
+        [EnumMember(Value = "StandardOuterSeats")]
+        StandardOuterSeats = 15,
+
+        [EnumMember(Value = "StandardElectricPassengerSeat")]
+        StandardElectricPassengerSeat = 16,
+
+        [EnumMember(Value = "StandardPassengerSeat")]
+        StandardPassengerSeat = 17,
     }
 }

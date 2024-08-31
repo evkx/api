@@ -1495,7 +1495,7 @@
                 }
             </tr>
             <tr class="collapse" id="lightscollapse">
-                <th scope="row">LED Matrix headlights <a href="https://evkx.net/technology/infotainment/smartphoneintegration/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                <th scope="row">LED Matrix headlights <a href="https://evkx.net/technology/lights/headlights/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1534,6 +1534,44 @@
                       }
                         
                         
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="lightscollapse">
+                <th scope="row">Auto dimming</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+
+                            List<EVFeature?> eVFeatures = new List<EVFeature?>();
+                            foreach(Headlight headlight in ev.Lights.Headlights)
+                            {
+                                eVFeatures.Add(headlight.AutoDimming);
+                            }
+
+                            RenderFeature(eVFeatures);
+                        }
+
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="lightscollapse">
+                <th scope="row">Cornering lights</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+
+                            List<EVFeature?> eVFeatures = new List<EVFeature?>();
+                            foreach (Headlight headlight in ev.Lights.Headlights)
+                            {
+                                eVFeatures.Add(headlight.CorneringLight);
+                            }
+
+                            RenderFeature(eVFeatures);
+                        }
 
                     </td>
                 }
@@ -2368,18 +2406,6 @@
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
-                        @if (ev.Interior?.Hvac?.ClimateControlSystems != null)
-                        {
-                            @ev.Interior.Hvac.ClimateControlSystems.Count
-                        }
-                    </td>
-                }
-            </tr>
-            <tr class="collapse" id="hvaccollapse">
-                <th scope="row">Climate system options</th>
-                @foreach (EV ev in Model.Models)
-                {
-                    <td scope="col">
                         @{
                             if(ev.Interior.Hvac?.ClimateControlSystems != null)
                             {
@@ -2642,6 +2668,64 @@
         else
         {
             @seatOptionWithFeature @seatOptionWithOptionalFeature @seatOptionWithoutFeature
+        }
+    }
+}
+
+ @functions {
+    void RenderFeature(List<EVFeature?> evfeatures)
+    {
+        bool unknown = false;
+        bool notAvailable = false;
+        bool optional = false;
+        bool standard = false;
+
+        foreach(EVFeature? evFeature in evfeatures)
+        {
+            if(evFeature == null)
+            {
+                unknown = true;
+            }
+            else if(evFeature.Available())
+            {
+                if(evFeature.FeatureStatus.Equals(FeatureStatus.Optional))
+                {
+                    optional = true;
+                }
+                else
+                {
+                    standard = true;
+                }
+            }
+            else
+            {
+                notAvailable = true;
+            }
+        }
+
+        if (standard && !optional && !notAvailable && !unknown)
+        {
+            @Html.Raw("Standard")
+        }
+        else if (standard && optional || !notAvailable)
+        {
+            @Html.Raw("Optional")
+        }
+        else if (standard && (optional || notAvailable))
+        {
+            @Html.Raw("Optional")
+        }
+        else if (optional)
+        {
+            @Html.Raw("Optional")
+        }
+        else if (!standard && !optional)
+        {
+            @Html.Raw("Not available")
+        }
+        else
+        {
+            @unknown @optional @notAvailable
         }
     }
 }
