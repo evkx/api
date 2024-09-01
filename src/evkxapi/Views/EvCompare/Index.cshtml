@@ -15,7 +15,10 @@
     <title>@Model.PageTitle</title>
 </head>
 <body>
-    <img src="https://evkx.net/images/evkxlogo_s.png" />
+    <div class="bg-black">
+        <img src="https://evkx.net/images/evkxlogo_s.png" class="responsive" /><br />
+    </div>
+
     <table class="table">
         <thead>
             <tr>
@@ -29,6 +32,7 @@
         <tbody>
             <tr>
                 <th scope="row">
+
                     Click on heading below to compare section
                 </th>
                 @foreach (EV ev in Model.Models)
@@ -61,7 +65,7 @@
                     <td scope="col"></td>
                 }
             </tr>
-            <tr class="collapse" id="modelcollapse">
+            <tr class="collapse table-succes" id="modelcollapse">
                 <th scope="row">Type</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1088,6 +1092,25 @@
                 }
             </tr>
             <tr class="collapse" id="dimensionscollapse">
+                <th scope="row">
+                    Drag coefficient Cd / frontal area A
+                </th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">@ev.Dimensions.DragCoefficient / 
+                        @if(ev.Dimensions.FrontalArea.HasValue)
+                        {
+                            @Html.Raw($"{ev.Dimensions.FrontalArea} m2")
+                            @Html.Raw($"({EvConversion.ToSqFeetFromSquareMeter(ev.Dimensions.FrontalArea.Value)} sq ft)")
+                        }
+                        else
+                        {
+                            @Html.Raw("?")
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="dimensionscollapse">
                 <th scope="row">Wheelbase</th>
                 @foreach (EV ev in Model.Models)
                 {
@@ -1098,7 +1121,16 @@
                 <th scope="row">Turning circle</th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.TurningCircle meter (@EvConversion.ToInchFromMeter(ev.Dimensions.TurningCircle, 1)")</td>
+                    <td scope="col">
+                        @if(ev.Dimensions.TurningCircle.HasValue)
+                        {
+                            @Html.Raw($"{ev.Dimensions.TurningCircle} meter ({EvConversion.ToInchFromMeter(ev.Dimensions.TurningCircle, 1)}\")")
+                        }
+                        else
+                        {
+                            @Html.Raw("?")
+                        }
+                    </td>
                 }
             </tr>
             <tr class="collapse" id="dimensionscollapse">

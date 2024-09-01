@@ -29,6 +29,16 @@ namespace evkxapi.Helpers
             return null;
         }
 
+        public static decimal? ToSqFeetFromSquareMeter(decimal? squareMeter, int decimals = 1)
+        {
+            if (squareMeter != null)
+            {
+                return decimal.Round(Decimal.Multiply(squareMeter.Value, (decimal)10.7639), decimals);
+            }
+
+            return null;
+        }
+
         public static decimal? ToMiKwhFromKwh100km(decimal? consumption)
         {
             decimal milesDriven = Decimal.Divide(100, (decimal)1.609);
