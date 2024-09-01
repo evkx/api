@@ -19,7 +19,7 @@
         <img src="https://evkx.net/images/evkxlogo_s.png" class="responsive" /><br />
     </div>
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">Model</th>
@@ -1097,7 +1097,18 @@
                 </th>
                 @foreach (EV ev in Model.Models)
                 {
-                    <td scope="col">@ev.Dimensions.DragCoefficient / 
+                    <td scope="col">
+                  
+                        @if (ev.Dimensions.DragCoefficient.HasValue)
+                        {
+                            @Html.Raw($"{ev.Dimensions.DragCoefficient}")
+           
+                        }
+                        else
+                        {
+                            @Html.Raw("?")
+                        }
+                        <span>/</span> 
                         @if(ev.Dimensions.FrontalArea.HasValue)
                         {
                             @Html.Raw($"{ev.Dimensions.FrontalArea} m2")
@@ -1160,6 +1171,18 @@
                             </span>
                    }
                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="dimensionscollapse">
+                <th scope="row">Max. Payload</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @if(ev.TransportCapabilities.MaxVehicleWeightKg.HasValue && ev.TransportCapabilities.CurbWeight.HasValue)
+                        {
+                            @Html.Raw($"{Decimal.Subtract(ev.TransportCapabilities.MaxVehicleWeightKg.Value, ev.TransportCapabilities.CurbWeight.Value)} kg ({EvConversion.ToLbsFromKg(Decimal.Subtract(ev.TransportCapabilities.MaxVehicleWeightKg.Value, ev.TransportCapabilities.CurbWeight.Value), 1)} lbs) ")
+                        }
+                    </td>
                 }
             </tr>
             <tr class="collapse" id="dimensionscollapse">
@@ -1864,6 +1887,23 @@
                             {
                                 @spacer
                                 @battery.CellInfo.CellChemistry
+                                spacer = " / ";
+                            }
+                        }
+                    </td>
+                }
+            </tr>
+            <tr class="collapse" id="batterycollapse">
+                <th scope="row">Nominal Voltage</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string spacer = "";
+                            foreach (Battery battery in ev.Drivetrain.Battery)
+                            {
+                                @spacer
+                                @battery.NominalVoltage <span>V</span>
                                 spacer = " / ";
                             }
                         }
