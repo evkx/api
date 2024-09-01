@@ -28,7 +28,9 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row"></th>
+                <th scope="row">
+                    Click on heading below to compare section
+                </th>
                 @foreach (EV ev in Model.Models)
                 {
                     if (ev.ModelPictures.Any())
@@ -49,8 +51,8 @@
 
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#modelcollapse" role="button" aria-expanded="false" aria-controls="modelcollapse">
+                    <a data-bs-toggle="collapse" href="#modelcollapse" role="button" aria-expanded="false" aria-controls="modelcollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Modelinfo
                     </a>
                 </th>
@@ -110,9 +112,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#rangeandconsumptioncollapse" role="button" aria-expanded="false" aria-controls="rangeandconsumptioncollapse">
-
+                    <a data-bs-toggle="collapse" href="#rangeandconsumptioncollapse" role="button" aria-expanded="false" aria-controls="rangeandconsumptioncollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Range And Consumption
                     </a>    
                 </th>
@@ -280,8 +281,8 @@
             </tr>
              <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#performancecollapse" role="button" aria-expanded="false" aria-controls="performancecollapse">
+                    <a data-bs-toggle="collapse" href="#performancecollapse" role="button" aria-expanded="false" aria-controls="performancecollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                     Performance
                     </a>
                 </th>
@@ -377,8 +378,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#drivetraincollapse" role="button" aria-expanded="false" aria-controls="drivetraincollapse">
+                    <a data-bs-toggle="collapse" href="#drivetraincollapse" role="button" aria-expanded="false" aria-controls="drivetraincollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Drivetrain
                     </a>
                 </th>
@@ -478,8 +479,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#brakeregencollapse" role="button" aria-expanded="false" aria-controls="brakeregencollapse">
+                    <a data-bs-toggle="collapse" href="#brakeregencollapse" role="button" aria-expanded="false" aria-controls="brakeregencollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Brakes & Regen
                     </a>    
                 </th>
@@ -769,8 +770,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#suspensioncollapse" role="button" aria-expanded="false" aria-controls="suspensioncollapse">
+                    <a data-bs-toggle="collapse" href="#suspensioncollapse" role="button" aria-expanded="false" aria-controls="suspensioncollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Suspension
                     </a>
                 </th>
@@ -1048,8 +1049,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#dimensionscollapse" role="button" aria-expanded="false" aria-controls="dimensionscollapse">
+                    <a data-bs-toggle="collapse" href="#dimensionscollapse" role="button" aria-expanded="false" aria-controls="dimensionscollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                     Size & Weight
                     </a>    
                 </th>
@@ -1216,8 +1217,9 @@
             }
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#uicollapse" role="button" aria-expanded="false" aria-controls="uicollapse">
+
+                    <a data-bs-toggle="collapse" href="#uicollapse" role="button" aria-expanded="false" aria-controls="uicollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                       UI 
                     </a></th>
                 @foreach (EV ev in Model.Models)
@@ -1387,8 +1389,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#navigationcollapse" role="button" aria-expanded="false" aria-controls="navigationcollapse">
+                    <a data-bs-toggle="collapse" href="#navigationcollapse" role="button" aria-expanded="false" aria-controls="navigationcollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                       Navigation system
                     </a>
                 </th>
@@ -1484,8 +1486,9 @@
 
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#lightscollapse" role="button" aria-expanded="false" aria-controls="lightscollapse">
+
+                    <a data-bs-toggle="collapse" href="#lightscollapse" role="button" aria-expanded="false" aria-controls="lightscollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                     Lights
                     </a>
                 </th>
@@ -1578,8 +1581,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#adascollapse" role="button" aria-expanded="false" aria-controls="adascollapse">
+                    <a data-bs-toggle="collapse" href="#adascollapse" role="button" aria-expanded="false" aria-controls="adascollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Driver Assist Systems
                     </a>
                     </th>
@@ -1733,7 +1736,7 @@
                 }
             </tr>
             <tr class="collapse" id="adascollapse">
-                <th scope="row">Auto steer <a href="https://evkx.net/technology/driverassistance/autosteer/" target="_blank"><i class="bi-info-circle"></i></a></th>
+                <th scope="row">Lane Centering Assist (LCA) / Auto steer <a href="https://evkx.net/technology/driverassistance/autosteer/" target="_blank"><i class="bi-info-circle"></i></a></th>
                 @foreach (EV ev in Model.Models)
                 {
                     <td scope="col">
@@ -1774,8 +1777,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#batterycollapse" role="button" aria-expanded="false" aria-controls="batterycollapse">
+                    <a data-bs-toggle="collapse" href="#batterycollapse" role="button" aria-expanded="false" aria-controls="batterycollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Battery
                     </a>
                 </th>
@@ -1837,8 +1840,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#chargingcollapse" role="button" aria-expanded="false" aria-controls="chargingcollapse">
+                    <a data-bs-toggle="collapse" href="#chargingcollapse" role="button" aria-expanded="false" aria-controls="chargingcollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                     Charging
                     </a>    
                 </th>
@@ -1975,8 +1978,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#seatcollapse" role="button" aria-expanded="false" aria-controls="seatcollapse">
+                    <a data-bs-toggle="collapse" href="#seatcollapse" role="button" aria-expanded="false" aria-controls="seatcollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                     Seats
                     </a>    
                 </th>
@@ -2328,8 +2331,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#exteriorcollapse" role="button" aria-expanded="false" aria-controls="exteriorcollapse">
+                    <a data-bs-toggle="collapse" href="#exteriorcollapse" role="button" aria-expanded="false" aria-controls="exteriorcollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Exterior design
                     </a>
                 </th>
@@ -2391,8 +2394,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#hvaccollapse" role="button" aria-expanded="false" aria-controls="hvaccollapse">
+                    <a data-bs-toggle="collapse" href="#hvaccollapse" role="button" aria-expanded="false" aria-controls="hvaccollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Climate system
                     </a>
                 </th>
@@ -2477,8 +2480,8 @@
             </tr>
             <tr class="table-secondary">
                 <th scope="row">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <a data-bs-toggle="collapse" href="#mobileappcollapse" role="button" aria-expanded="false" aria-controls="mobileappcollapse">
+                    <a data-bs-toggle="collapse" href="#mobileappcollapse" role="button" aria-expanded="false" aria-controls="mobileappcollapse" class="text-decoration-none fs-4">
+                        <i class="bi bi-caret-down-fill"></i>
                         Mobile App & App features
                     </a>
                 </th>
