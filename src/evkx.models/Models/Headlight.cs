@@ -10,6 +10,17 @@ namespace evdb.models.Models
     /// </summary>
     public class Headlight
     {
+
+        public Headlight()
+        {
+            Name = new Dictionary<string, string>();
+            LightTechnology = Enums.LightTechnology.NotSet;
+            AutoDimming = new EVFeature();
+            CorneringLight = new EVFeature();
+            SwivelingLight = new EVFeature();
+            HeadlightWasher = new EVFeature();
+            DRLLightSignatures = new EVFeature();
+        }
         /// <summary>
         /// Defines if this is a standard headlight option
         /// </summary>

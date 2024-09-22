@@ -93,5 +93,11 @@ namespace evdb.models.Enums
         [EnumMember(Value = "OverheadConsole")]
         OverheadConsole = 28,
 
+        [EnumMember(Value = "LeftRoofOverWindshield")]
+        LeftRoofOverWindshield = 29,
+
+        [EnumMember(Value = "RightRoofOverWindshield")]
+        RightRoofOverWindshield = 30,
+
     }
 }

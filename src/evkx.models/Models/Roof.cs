@@ -9,6 +9,12 @@ namespace evdb.Models
     /// </summary>
     public class Roof
     {
+
+        public Roof()
+        {
+            Rails = new EVFeature() { FeatureStatus = FeatureStatus.Unknown };
+        }
+        
         /// <summary>
         /// Defines the material of the roof
         /// </summary>

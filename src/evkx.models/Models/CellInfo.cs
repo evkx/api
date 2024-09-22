@@ -11,7 +11,10 @@ namespace evdb.Models
 
         public string? CellChemistry { get; set; }
 
-        public string? CellCapacityAh { get; set; }
+        public decimal? Capacity { get; set; }
+
+        public decimal? NominalVoltage { get; set; }
+
 
         public DataQualityScore CalculateDataQuality()
         {
@@ -30,11 +33,6 @@ namespace evdb.Models
             if(string.IsNullOrEmpty(CellChemistry))
             {
                 dataQualityScore.DataQuality -= 10;
-            }
-
-            if(string.IsNullOrEmpty(CellCapacityAh))
-            {
-                dataQualityScore.DataQuality--;
             }
 
             return dataQualityScore;

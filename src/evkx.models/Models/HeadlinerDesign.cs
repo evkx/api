@@ -28,11 +28,6 @@ namespace evdb.Models
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "HeadlinerDesign" };
 
-            if (Name == null)
-            {
-                dataQualityScore.ReduceScore(5);
-            }
-
             if (Color == models.Enums.Color.NotSet)
             {
                 dataQualityScore.ReduceScore(5);

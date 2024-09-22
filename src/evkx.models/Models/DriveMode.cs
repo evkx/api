@@ -8,6 +8,11 @@ namespace evdb.models.Models
 {
     public class DriveMode
     {
+        public DriveMode()
+        {
+            Name = new Dictionary<string, string>();
+        }
+
         public Dictionary<string,string>? Name { get; set; }
 
         public DriveModeSteeringResponse? SteeringResponse { get; set; }

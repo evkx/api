@@ -125,30 +125,27 @@ namespace evdb.models.Models
 
             if(Frunk == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(20);
             }
-
-            if(Frunk == true &&(FrunkSizeLiter == null || FrunkSizeLiter == 0))
+            else if(Frunk == true &&(FrunkSizeLiter == null || FrunkSizeLiter == 0))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(20);
             }
 
             if(RoofCargo == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(15);
             }
-
-            if(RoofCargo == true && (MaxRoofLoadKg == null || MaxRoofLoadKg == 0))
+            else if(RoofCargo == true && (MaxRoofLoadKg == null || MaxRoofLoadKg == 0))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(15);
             }
 
             if(Towbar == null || Towbar.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(35);
             }
-
-            if(Towbar != null && (Towbar.FeatureStatus == FeatureStatus.Optional || Towbar.FeatureStatus == FeatureStatus.Standard))
+            else if(Towbar != null && (Towbar.FeatureStatus == FeatureStatus.Optional || Towbar.FeatureStatus == FeatureStatus.Standard))
             {
                 if(TrailerSizeBrakedKg == null || TrailerSizeBrakedKg == 0)
                 {

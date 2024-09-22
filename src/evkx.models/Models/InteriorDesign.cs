@@ -11,6 +11,7 @@ namespace evdb.models.Models
         public InteriorDesign()
         {
             SeatMaterials = [new SeatMaterial()];
+            Name = new Dictionary<string, string>();
         }
 
         /// <summary>
@@ -42,9 +43,9 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(5);
             }
 
-            if(Name == null) 
+            if(Name == null || Name.Values.Count== 0) 
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(1);
             }
 
             if (HeadlinerDesigns == null)
