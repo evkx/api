@@ -283,6 +283,30 @@
                     </td>
                 }
             </tr>
+            <tr class="collapse" id="rangeandconsumptioncollapse">
+                <th scope="row">CLTC range</th>
+                @foreach (EV ev in Model.Models)
+                {
+                    <td scope="col">
+                        @{
+                            string splitvalue = string.Empty;
+                            foreach (RangeAndConsumption range in ev.Drivetrain.RangeAndConsumption)
+                            {
+                                if (range.BasicTrimCLTCRange != null)
+                                {
+                                    @Html.Raw(splitvalue)
+                                    @range.BasicTrimCLTCRange
+                                    @Html.Raw("km (")
+                                    @Decimal.Round(EvConversion.ToMilesFromKph(range.BasicTrimCLTCRange).Value, 0)
+                                    @Html.Raw("miles)")
+                                }
+                                splitvalue = " / ";
+                            }
+                        }
+                    </td>
+
+                }
+            </tr>
              <tr class="table-secondary">
                 <th scope="row">
                     <a data-bs-toggle="collapse" href="#performancecollapse" role="button" aria-expanded="false" aria-controls="performancecollapse" class="text-decoration-none fs-4">

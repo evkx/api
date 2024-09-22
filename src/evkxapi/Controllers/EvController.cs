@@ -85,16 +85,6 @@ namespace evdb.Controllers
             return Ok();
         }
 
-
-        [HttpPost("/api/convertcurve")]
-        public ActionResult<List<ChargeSpeedExternal>> ConvertCurve([FromBody] string curves)
-        {
-            List<ChargeSpeedExternal> evs = new List<ChargeSpeedExternal>();
-
-            return Ok(evs);
-        }
-
-
         private List<BatteryExternal> GetBatteryExternal(EV ev)
         {
             List<BatteryExternal> batteryList = new List<BatteryExternal>();    
@@ -111,6 +101,7 @@ namespace evdb.Controllers
             BatteryExternal batteryExternal = new BatteryExternal();
             batteryExternal.GrossCapacity = battery.GrossCapacitykWh;
             batteryExternal.NetCapacity = battery.NetCapacitykWh;
+            battery.CalculateChargeTime();
             batteryExternal.OptimalChargeCurve = MapChargeCurve(battery.GetFullChargeCurve());
             return batteryExternal; ;
         }
@@ -124,7 +115,10 @@ namespace evdb.Controllers
                 ChargeSpeedExternal chargeSpeedExternal = new ChargeSpeedExternal();    
 
                 chargeSpeedExternal.SOC = chargeSpeed.SOC;
-                chargeSpeedExternal.SpeedKw = chargeSpeed.SpeedKw;  
+                chargeSpeedExternal.SpeedKw = chargeSpeed.SpeedKw;
+                chargeSpeedExternal.EnergyCharged = chargeSpeed.EnergyCharged;
+                chargeSpeedExternal.ChargeTime = Decimal.Round(chargeSpeed.ChargeTime,0);
+                chargeSpeedExternal.ChargeTimeFromZero = Decimal.Round(chargeSpeed.ChargeTimeFromZero,0);
                 chargeSpeedExternals.Add(chargeSpeedExternal);
             }
 

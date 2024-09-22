@@ -18,6 +18,9 @@ namespace evdb.Models
         public decimal EnergyCharged { get; set; }
 
 
+        /// <summary>
+        /// The speed of the charge after a 5% loss.
+        /// </summary>
         public decimal? GetChargeSpeedAfterLoss()
         {
             if(SpeedKw != null)

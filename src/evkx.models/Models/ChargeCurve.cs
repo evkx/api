@@ -1,5 +1,6 @@
 ﻿using evdb.models.Enums;
 using evdb.Models;
+using evkx.models.Models.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,48 @@ namespace evdb.models.Models
             else
             {
                 return _fullChargeCurve;
+            }
+        }
+
+        /// <summary>
+        /// Populates the charging time based on staring charging on empty battery
+        /// </summary>
+        /// <param name="netBatterySize"></param>
+        public void CalculateChargeTime(decimal NetCapacitykWh)
+        {
+            GetFullChargeCurve();
+
+            ChargeSpeed? lastChargeSpeed = null;
+
+            if(_fullChargeCurve == null)
+            {
+                return;
+            }
+
+            decimal timeSpentTotal = 0;
+            decimal totalCharged = 0;
+            decimal amountToCharge = NetCapacitykWh / 100;
+
+            for (int i = 0; i < 101; i++)
+            {
+                if(lastChargeSpeed == null)
+                {
+                    lastChargeSpeed = _fullChargeCurve[i];
+                    // We skip the first one
+                    continue;
+                }
+
+                // Uses speed after loss 
+                decimal avgSpeed = (_fullChargeCurve[i-1].GetChargeSpeedAfterLoss().Value + _fullChargeCurve[i].GetChargeSpeedAfterLoss().Value) / 2;
+
+                decimal timeToChargeCurrentPercent = (amountToCharge / avgSpeed) * 3600;
+
+                timeSpentTotal = timeSpentTotal + timeToChargeCurrentPercent;
+                totalCharged = amountToCharge + totalCharged;
+
+                _fullChargeCurve[i].ChargeTime = timeToChargeCurrentPercent;
+                _fullChargeCurve[i].ChargeTimeFromZero = timeSpentTotal;
+                _fullChargeCurve[i].EnergyCharged = totalCharged;
             }
         }
 

@@ -142,6 +142,21 @@ namespace evdb.Models
             return new List<ChargeSpeed>();
         }
 
+        public void CalculateChargeTime()
+        {
+            if(ChargeCurves != null)
+            {
+                foreach(ChargeCurve chargeCurve in ChargeCurves)
+                {
+                    if(NetCapacitykWh.HasValue)
+                    {
+                        chargeCurve.CalculateChargeTime(NetCapacitykWh.Value);
+                    }
+                }
+            }
+        }
+
+
         /// <summary>
         /// Calculates the data quality for the battery
         /// </summary>
