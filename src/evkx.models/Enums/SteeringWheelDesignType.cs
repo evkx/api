@@ -20,5 +20,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Yoke")]
         Yoke = 4,
+
+        [EnumMember(Value = "Oval")]
+        Oval = 5,
     }
 }
