@@ -1,4 +1,5 @@
-﻿using evdb.Models;
+﻿using evdb.models.Enums;
+using evdb.Models;
 using System.Collections.Generic;
 
 namespace evdb.models.Models
@@ -33,6 +34,11 @@ namespace evdb.models.Models
         /// The different headliner designs available
         /// </summary>
         public List<HeadlinerDesign>? HeadlinerDesigns { get; set; }
+
+        /// <summary>
+        /// The colors of the interior design
+        /// </summary>
+        public List<Color> Colors { get; set; }
 
         public DataQualityScore CalculateDataQuality()
         {

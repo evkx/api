@@ -2,6 +2,9 @@
 
 namespace evdb.models.Models
 {
+    /// <summary>
+    /// Security features of the EV
+    /// </summary>
     public class Security
     {
         /// <summary>
@@ -23,6 +26,16 @@ namespace evdb.models.Models
         /// Defines if the EV has a alarm system
         /// </summary>
         public EVFeature? AlarmSystem { get; set; }
+
+        /// <summary>
+        /// Defines if the EV has Dash Cam
+        /// </summary>
+        public EVFeature? DashCam { get; set; }
+
+        /// <summary>
+        /// Defines if the EV has Parking Surveillance
+        /// </summary>
+        public EVFeature? ParkingSurveillance { get; set; }
 
         /// <summary>
         /// Calculate data qualtity
@@ -47,6 +60,16 @@ namespace evdb.models.Models
             }
 
             if (AlarmSystem == null)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(DashCam == null)
+            {
+                dataQualityScore.ReduceScore(10);
+            }
+
+            if(ParkingSurveillance == null)
             {
                 dataQualityScore.ReduceScore(10);
             }

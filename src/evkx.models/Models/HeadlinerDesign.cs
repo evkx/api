@@ -41,6 +41,4 @@ namespace evdb.Models
             return dataQualityScore;
         }
     }
-
-   
 }
