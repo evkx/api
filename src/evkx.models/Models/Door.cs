@@ -38,11 +38,6 @@ namespace evdb.models.Models
         public DoorType? Type { get; set; }
 
         /// <summary>
-        /// Defines if the door has frameless window
-        /// </summary>
-        public EVFeature? FramelessWindow { get; set; }
-
-        /// <summary>
         /// Defines the door handle type
         /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
@@ -73,11 +68,6 @@ namespace evdb.models.Models
             }
 
             if(Type == null || Type == Enums.DoorType.NotSet)
-            {
-                dataQualityScore.ReduceScore(10);
-            }   
-
-            if(FramelessWindow == null || FramelessWindow.FeatureStatus == FeatureStatus.Unknown)
             {
                 dataQualityScore.ReduceScore(10);
             }   

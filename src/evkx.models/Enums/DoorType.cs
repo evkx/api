@@ -59,5 +59,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Butterfly")]
         Butterfly = 17,
+
+        [EnumMember(Value = "StandardFrameless")]
+        StandardFrameless = 18,
     }
 }
