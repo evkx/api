@@ -34,7 +34,6 @@ namespace evdb.Models
             ElectronicStabilityControl = new EVFeature();
             TemperatureWarning = new EVFeature();   
             CrossTrafficAssist = new EVFeature();
-            SpeedLimiter = new EVFeature(); 
             AutomaticEmergencySteering = new EVFeature();   
             TrafficSignRecognition = new EVFeature();
             EfficiencyAssist = new EVFeature();
@@ -166,11 +165,6 @@ namespace evdb.Models
         public EVFeature? CrossTrafficAssist { get; set; }
 
         /// <summary>
-        /// Defines if the vehicle has speed limiter.
-        /// </summary>
-        public EVFeature? SpeedLimiter { get; set; }
-
-        /// <summary>
         /// Defines if the vehicle has automatic emergency steering.
         /// </summary>
         public EVFeature? AutomaticEmergencySteering { get; set; }
@@ -196,7 +190,7 @@ namespace evdb.Models
 
             if(SensorsAndCameras == null)
             {
-                dataQualityScore.ReduceScore(200);
+                dataQualityScore.ReduceScore(200, "SensorsAndCameras");
             }
             else
             {
@@ -205,142 +199,137 @@ namespace evdb.Models
 
             if(NightVision == null || NightVision.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "NightVision");
             }
 
             if(LaneKeeping == null || LaneKeeping.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "LaneKeeping");
             }
 
             if(LaneDepartureWarning == null || LaneDepartureWarning.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "LaneDepartureWarning");
             }
 
             if(DrowsinessAlert == null || DrowsinessAlert.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "DrowsinessAlert");
             }
 
             if(ReversingCamera == null || ReversingCamera.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ReversingCamera");
             }
 
             if(Camera360 == null || Camera360.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Camera360");
             }
 
             if(RearCrossTrafficAlert == null || RearCrossTrafficAlert.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RearCrossTrafficAlert");
             }
 
             if(RearParkingSensors == null || RearParkingSensors.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RearParkingSensors");
             }
 
             if(FrontParkingSensors == null || FrontParkingSensors.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "FrontParkingSensors");
             }
 
             if(SideParkingSensors == null || SideParkingSensors.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "SideParkingSensors");
             }
 
             if(SideAssist == null || SideAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "SideAssist");
             }
 
             if(ExitWarning == null || ExitWarning.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ExitWarning");
             }
 
             if(HillDescentAssist == null || HillDescentAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "HillDescentAssist");
             }
 
             if(HillStartAssist == null || HillStartAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "HillStartAssist");
             }
 
             if(AntiLockBrakingSystem == null || AntiLockBrakingSystem.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AntiLockBrakingSystem");
             }
 
             if(AutomaticEmergencyBraking == null || AutomaticEmergencyBraking.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AutomaticEmergencyBraking");
             }
 
             if(BrakeAssist == null || BrakeAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "BrakeAssist");
             }
 
             if(TractionControl == null || TractionControl.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TractionControl");
             }
 
             if(LeftTurnCrashAvoidance == null || LeftTurnCrashAvoidance.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "LeftTurnCrashAvoidance");
             }
 
             if(ForwardCollisionWarning == null || ForwardCollisionWarning.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ForwardCollisionWarning");
             }
 
             if(ElectronicStabilityControl == null || ElectronicStabilityControl.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ElectronicStabilityControl");
             }
 
             if(TemperatureWarning == null || TemperatureWarning.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TemperatureWarning");
             }
 
             if(CrossTrafficAssist == null || CrossTrafficAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
-            }
-
-            if(SpeedLimiter == null || SpeedLimiter.FeatureStatus == FeatureStatus.Unknown)
-            {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "CrossTrafficAssist");
             }
 
             if(AutomaticEmergencySteering == null || AutomaticEmergencySteering.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AutomaticEmergencySteering");
             }
 
             if(TrafficSignRecognition == null || TrafficSignRecognition.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TrafficSignRecognition");
             }
 
             if(EfficiencyAssist == null || EfficiencyAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "EfficiencyAssist");
             }
 
             if(DrivingAutomation == null || DrivingAutomation.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "DrivingAutomation");
             }
             else
             {

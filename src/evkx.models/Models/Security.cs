@@ -46,32 +46,32 @@ namespace evdb.models.Models
 
             if (KeylessGo == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "KeylessGo");
             }
 
             if (KeylessEntry == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "KeylessEntry");
             }
 
             if (PhoneAsKey == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PhoneAsKey");
             }
 
             if (AlarmSystem == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AlarmSystem");
             }
 
             if(DashCam == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "DashCam");
             }
 
             if(ParkingSurveillance == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ParkingSurveillance");
             }
 
             return dataQualityScore;

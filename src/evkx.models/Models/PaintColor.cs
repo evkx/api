@@ -50,16 +50,16 @@ namespace evdb.Models
 
             if (string.IsNullOrWhiteSpace(Color))
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30,"Color");
             }
             if (Name == null || Name.Count == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "Name");
             }
 
             if(PaintType == null || PaintType.Equals(models.Enums.PaintType.NotSet))
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "PaintType");
             }
 
             return dataQualityScore;

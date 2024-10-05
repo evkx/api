@@ -20,17 +20,17 @@ namespace evdb.models.Models
 
             if(Location == EquipmentLocation.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Location");
             }
 
             if(CameraType == CameraType.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "CameraType");
             }
             
             if(Optional == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Optional");
             }
 
             return dataQualityScore;

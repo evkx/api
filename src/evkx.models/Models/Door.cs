@@ -49,32 +49,32 @@ namespace evdb.models.Models
 
             if(Location == null || Location == Enums.DoorLocation.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Location");
             }   
 
             if(SoftClose == null || SoftClose.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "SoftClose");
             }
 
             if(KickSensor == null || KickSensor.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "KickSensor");
             }
 
             if(PoweredOpenClose == null || PoweredOpenClose.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PoweredOpenClose");
             }
 
             if(Type == null || Type == Enums.DoorType.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Type");
             }   
 
             if(DoorHandleType == null || DoorHandleType == Enums.DoorHandleType.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "DoorHandleType");
             }   
 
             return dataQualityScore;

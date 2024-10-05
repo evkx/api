@@ -17,7 +17,7 @@ namespace evdb.models.Models
 
             if (!NumberOfSeats.HasValue || NumberOfSeats == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "NumberOfSeats");
             }
 
             return dataQualityScore;

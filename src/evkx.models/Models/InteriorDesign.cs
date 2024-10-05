@@ -46,17 +46,17 @@ namespace evdb.models.Models
         
             if (Standard == null)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "Standard");
             }
 
             if(Name == null || Name.Values.Count== 0) 
             {
-                dataQualityScore.ReduceScore(1);
+                dataQualityScore.ReduceScore(1, "Name");
             }
 
             if (HeadlinerDesigns == null)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "HeadlinerDesigns");
             }
             else
             {
@@ -68,7 +68,7 @@ namespace evdb.models.Models
 
             if (SeatMaterials == null)
             {
-                dataQualityScore.ReduceScore(200);
+                dataQualityScore.ReduceScore(200, "SeatMaterials");
             }
             else
             {

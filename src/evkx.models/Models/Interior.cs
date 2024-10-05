@@ -18,6 +18,8 @@ namespace evdb.Models
             SeatLayout = [];
             SeatLayout.Add(new SeatLayout());
             InteriorDesigns = [new InteriorDesign()];
+            InteriorLights = [new InteriorLight()];
+            InteriorStorage = new InteriorStorage();
         }
 
         /// <summary>
@@ -74,6 +76,9 @@ namespace evdb.Models
         /// Defines the interior lights of the EV.
         /// </summary>
         public List<InteriorLight> InteriorLights { get; set; }
+
+
+        public InteriorStorage InteriorStorage { get; set; }
 
 
         public string GetInteriorIntroKey()
@@ -156,12 +161,12 @@ namespace evdb.Models
 
             if(InteriorCategory== null || InteriorQuality == models.Enums.InteriorQuality.NotSet)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "InteriorCategory");
             }
 
             if (InteriorDesigns == null || InteriorDesigns.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "InteriorDesigns");
             }
             else
             {
@@ -173,12 +178,12 @@ namespace evdb.Models
 
             if(ConsoleDesign == models.Enums.ConsoleDesign.NotSet)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "ConsoleDesign");
             }
 
             if(SeatLayout == null || SeatLayout.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "SeatLayout");
             }
             else
             {
@@ -190,7 +195,7 @@ namespace evdb.Models
 
             if(FirstRowSeats == null || FirstRowSeats.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "FirstRowSeats");
             }
             else
             {
@@ -220,7 +225,7 @@ namespace evdb.Models
 
             if(Hvac == null)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Hvac");
             }
             else
             {
@@ -231,10 +236,21 @@ namespace evdb.Models
             {
                 foreach(InteriorLight light in InteriorLights)
                 {
-
                     dataQualityScore.AddSubScore(light.CalculateDataQuality());
                 }
+            }
+            else
+            {
+               dataQualityScore.ReduceScore(100, "InteriorLights");
+            }
 
+            if(InteriorStorage == null)
+            {
+                dataQualityScore.ReduceScore(100, "InteriorStorage");
+            }
+            else
+            {
+                dataQualityScore.AddSubScore(InteriorStorage.CalculateDataQuality());
             }
 
             return dataQualityScore;

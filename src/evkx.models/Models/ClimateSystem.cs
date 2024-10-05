@@ -43,7 +43,7 @@ namespace evdb.models.Models
 
             if (Zones == null || Zones.Length == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Zones");
             }
 
             return dataQualityScore;

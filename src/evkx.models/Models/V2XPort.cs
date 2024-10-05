@@ -23,17 +23,17 @@ namespace evdb.models.Models
 
             if (Type == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Type");
             }
 
             if (Location == null || Location == PortLocation.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Location");
             }
 
             if (Optional == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Optional");
             }
 
             return dataQualityScore;

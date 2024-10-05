@@ -34,17 +34,17 @@ namespace evdb.models.Models
 
             if(Location == EquipmentLocation.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Location");
             }
 
             if(RadarType == RadarType.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RadarType");
             }
 
             if(Optional == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Optional");
             }
 
             return dataQualityScore;

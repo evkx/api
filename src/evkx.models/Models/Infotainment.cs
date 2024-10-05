@@ -79,7 +79,7 @@ namespace evdb.Models
 
             if (SoundSystems == null || SoundSystems.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "SoundSystems");
             }   
             else
             {
@@ -92,22 +92,22 @@ namespace evdb.Models
 
             if(AndroidAutoSupport == null || AndroidAutoSupport.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AndroidAutoSupport");
             }
 
             if(AppleCarPlaySupport == null || AppleCarPlaySupport.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AppleCarPlaySupport");
             }
 
             if(InCarNavigation == null || InCarNavigation.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "InCarNavigation");
             }
             
             if(NavigationSystem == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "NavigationSystem");
             }
             else
             {
@@ -116,12 +116,12 @@ namespace evdb.Models
 
             if(AppStore == null || AppStore.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AppStore");
             }
 
             if(PortAndConnections == null || PortAndConnections.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PortAndConnections");
             }
             else
             {
@@ -133,7 +133,7 @@ namespace evdb.Models
 
             if(string.IsNullOrEmpty(InfotainmentOs))
             {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "InfotainmentOs");
             }
 
             

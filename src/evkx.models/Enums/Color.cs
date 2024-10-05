@@ -96,6 +96,10 @@ namespace evdb.models.Enums
         [EnumMember(Value = "Yellow")]
         Yellow = 42,
         [EnumMember(Value = "Lilac")]
-        Lilac = 43
+        Lilac = 43,
+        [EnumMember(Value = "DarkGray")]
+        DarkGray = 44,
+        [EnumMember(Value = "LightGray")]
+        LightGray = 45
     }
 }

@@ -134,32 +134,32 @@ namespace evdb.models.Models
 
             if (LightTechnology == null || LightTechnology == Enums.LightTechnology.NotSet)
             {
-                score.ReduceScore(30);
+                score.ReduceScore(30, "LightTechnology");
             }
 
             if (AutoDimming == null || AutoDimming.FeatureStatus == FeatureStatus.Unknown)
             {
-                score.ReduceScore(30);
+                score.ReduceScore(30, "AutoDimming");
             }
 
             if (CorneringLight == null || CorneringLight.FeatureStatus == FeatureStatus.Unknown)
             {
-                score.ReduceScore(30);
+                score.ReduceScore(30, "CorneringLight");
             }
 
             if (SwivelingLight == null || SwivelingLight.FeatureStatus == FeatureStatus.Unknown)
             {
-                score.ReduceScore(30);
+                score.ReduceScore(30, "SwivelingLight");
             }
 
             if (HeadlightWasher == null || HeadlightWasher.FeatureStatus == FeatureStatus.Unknown)
             {
-                score.ReduceScore(30);
+                score.ReduceScore(30, "HeadlightWasher");
             }
 
             if (DRLLightSignatures == null || DRLLightSignatures.FeatureStatus == FeatureStatus.Unknown)
             {
-                score.ReduceScore(30);
+                score.ReduceScore(30, "DRLLightSignatures");
             }
 
             return score;

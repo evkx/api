@@ -21,6 +21,11 @@
         public bool? AppleOs { get; set; }
 
         /// <summary>
+        /// See the current SOC and range
+        /// </summary>
+        public bool? ChargeStatus { get; set; }
+
+        /// <summary>
         /// Defines if app let you control the charge target
         /// </summary>
         public bool? ChangeChargeTarget { get; set; }
@@ -82,57 +87,62 @@
             
             if (string.IsNullOrEmpty(AppName))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AppName");
             }
 
             if(ChangeChargeTarget == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ChangeChargeTarget");
             }
 
             if(Location == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Location");
             }
 
             if(Preconditioning == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Preconditioning");
             }
 
             if(RemoteParking == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RemoteParking");
             }
 
             if(LockUnlock == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "LockUnlock");
             }
 
             if(OpenCloseWindows == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "OpenCloseWindows");
             }
 
             if(ScheduleCharging == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ScheduleCharging");
             }
 
             if(TriggerSignal == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TriggerSignal");
             }
 
             if(RoutePlanning == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RoutePlanning");
             }
 
             if(SeeDrivingHistory == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "SeeDrivingHistory");
+            }
+
+            if(ChargeStatus == null)
+            {
+                dataQualityScore.ReduceScore(10, "ChargeStatus");
             }
 
             return dataQualityScore;

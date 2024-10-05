@@ -72,62 +72,62 @@
 
             if (Length == null || Length == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Length");
             }
 
             if (Height == null || Height == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Height");
             }
 
             if (WidthExcludingMirrors == null || WidthExcludingMirrors == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "WidthExcludingMirrors");
             }
 
             if (WidhtIncludingMirrors == null || WidhtIncludingMirrors == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "WidhtIncludingMirrors");
             }
 
             if (Wheelbase == null || Wheelbase == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Wheelbase");
             }
 
             if (TrackWidthFront == null || TrackWidthFront == 0)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "TrackWidthFront");
             }
 
             if (TrackWidthRear == null || TrackWidthRear == 0)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "TrackWidthRear");
             }
 
             if (DragCoefficient == null || DragCoefficient == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "DragCoefficient");
             }
 
             if (FrontalArea == null || FrontalArea == 0)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "FrontalArea");
             }
 
             if (OverhangAngleFront == null || OverhangAngleFront == 0)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "OverhangAngleFront");
             }
 
             if (OverhangAngleRear == null || OverhangAngleRear == 0)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "OverhangAngleRear");
             }
 
             if (TurningCircle == null || TurningCircle == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "TurningCircle");
             }
 
             return dataQualityScore;

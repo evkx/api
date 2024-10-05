@@ -38,7 +38,7 @@ namespace evdb.models.Models
 
             if(Screens == null || Screens.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Screens");
             }
             else
             {
@@ -50,7 +50,7 @@ namespace evdb.models.Models
 
             if(Standard == null)
             {
-                dataQualityScore.ReduceScore(2);
+                dataQualityScore.ReduceScore(2, "Standard");
             }
 
             return dataQualityScore;

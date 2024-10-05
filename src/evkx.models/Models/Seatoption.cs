@@ -276,12 +276,12 @@ namespace evdb.Models
 
             if (SeatCategory == null || SeatCategory == models.Enums.SeatCategory.None)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "SeatCategory");
             }
 
             if(Seat == null || Seat.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Seat");
             }
             else
             {

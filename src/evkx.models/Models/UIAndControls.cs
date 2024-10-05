@@ -65,12 +65,12 @@ namespace evdb.Models
 
             if (HMIType == HMIType.NotSet)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "HMIType");
             }
 
             if (ScreenLayout == null || ScreenLayout.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "ScreenLayout");
             }
             else
             {
@@ -83,23 +83,23 @@ namespace evdb.Models
 
             if (HeadUpDisplay == null || HeadUpDisplay.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "HeadUpDisplay");
             }
 
             if (VoiceControl == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "VoiceControl");
             }
 
             if (GestureControl == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "GestureControl");
             }
 
 
             if (SteeringWheels == null || SteeringWheels.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "SteeringWheels");
             }
             else
             {

@@ -51,7 +51,7 @@ namespace evdb.models.Models
 
             if (ClimateControlSystems == null || ClimateControlSystems.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(100, "ClimateControlSystems");
             }
             else
             {
@@ -63,17 +63,17 @@ namespace evdb.models.Models
 
             if (Heatpump == null || Heatpump.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Heatpump");
             }
 
             if (Preclimatisation == null || Preclimatisation.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Preclimatisation");
             }
 
             if(PetMode == null || PetMode.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PetMode");
             }   
 
             return dataQualityScore;

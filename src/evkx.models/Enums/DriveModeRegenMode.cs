@@ -23,5 +23,8 @@ namespace evdb.models.Enums
 
         [EnumMember(Value = "Adaptive")]
         Adaptive = 5,
+
+        [EnumMember(Value = "Custom")]
+        Custom = 6,
     }
 }

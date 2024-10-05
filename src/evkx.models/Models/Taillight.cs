@@ -76,12 +76,12 @@ namespace evdb.models.Models
 
             if (LightTechnology == null || LightTechnology == Enums.LightTechnology.NotSet)
             {
-                score.ReduceScore(100);
+                score.ReduceScore(100, "LightTechnology");
             }
 
             if(LightSignatures == null || LightSignatures.FeatureStatus == FeatureStatus.Unknown)
             {
-                score.ReduceScore(20);
+                score.ReduceScore(20, "LightSignatures");
             }
 
             return score;

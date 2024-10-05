@@ -29,7 +29,7 @@ namespace evdb.models.Models
 
             if(Headlights == null || Headlights.Count == 0)
             {
-                score.ReduceScore(100);
+                score.ReduceScore(200, "Headlights");
             }
             else
             {
@@ -45,14 +45,14 @@ namespace evdb.models.Models
 
                 if(!hasStandard)
                 {
-                    score.ReduceScore(50);
+                    score.ReduceScore(50, "hasStandard");
                 }
             
             }
            
             if(Taillights == null || Taillights.Count == 0)
             {
-                score.ReduceScore(100);
+                score.ReduceScore(100, "Taillights");
             }
             else
             {
@@ -68,7 +68,7 @@ namespace evdb.models.Models
 
                 if(!hasStandard)
                 {
-                    score.ReduceScore(50);
+                    score.ReduceScore(50, "hasStandard");
                 }
             }
 

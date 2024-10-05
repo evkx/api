@@ -43,12 +43,12 @@ namespace evdb.Models
 
             if(ChargePortLocation == null || ChargePortLocation.Equals(models.Enums.ChargePortLocation.NotSet))
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "ChargePortLocation");
             }
 
             if(ChargePortVariant == null || ChargePortVariant.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ChargePortVariant");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace evdb.Models
 
             if(V2L == null)
             {
-                dataQualityScore.ReduceScore(1);
+                dataQualityScore.ReduceScore(1, "V2L");
             }
 
             return dataQualityScore;

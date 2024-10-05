@@ -82,7 +82,7 @@ namespace evdb.Models
 
             if(Chargeports == null || Chargeports.Count == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "Chargeports");
             }
             else
             {
@@ -95,7 +95,7 @@ namespace evdb.Models
 
             if(OnBoardChargers == null || OnBoardChargers.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "OnBoardChargers");
             }
             else
             {
@@ -108,28 +108,28 @@ namespace evdb.Models
 
             if(ManualTriggerHeating == null || ManualTriggerHeating.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "ManualTriggerHeating");
             }
 
 
             if(HeatingWhenNavigateToCharger == null || HeatingWhenNavigateToCharger.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "HeatingWhenNavigateToCharger");
             }
 
             if(V2L == null || V2L.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "V2L");
             }
 
             if(V2L != null && V2L.FeatureStatus.Equals(FeatureStatus.Standard) && V2LPower == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "V2LPower");
             }
 
             if(V2G == null || V2G.FeatureStatus.Equals(FeatureStatus.Unknown))
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "V2G");
             }
 
             return dataQualityScore;

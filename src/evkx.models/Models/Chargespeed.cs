@@ -19,13 +19,13 @@ namespace evdb.Models
 
 
         /// <summary>
-        /// The speed of the charge after a 5% loss.
+        /// The speed of the charge after a 7% loss.
         /// </summary>
         public decimal? GetChargeSpeedAfterLoss()
         {
             if(SpeedKw != null)
             {
-                return decimal.Multiply(SpeedKw.Value, (decimal) 0.95);
+                return decimal.Multiply(SpeedKw.Value, (decimal) 0.93);
             }
 
             return SpeedKw;

@@ -59,47 +59,47 @@ namespace evdb.models.Models
 
             if(MaxRegenKw == null)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "MaxRegenKw");
             }
 
             if(LiftUpRegen == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "LiftUpRegen");
             }
 
             if(Coasting == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "Coasting");
             }
 
             if(AdaptiveRegen == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "AdaptiveRegen");
             }
 
             if(RegenPaddles == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "RegenPaddles");
             }
 
             if(OnePedalStoppingMode == null || OnePedalStoppingMode.Equals(Enums.OnePedalStoppingMode.NotSet))
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "OnePedalStoppingMode");
             }
 
             if(LiftOfRegenLevels == null || LiftOfRegenLevels.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "LiftOfRegenLevels");
             }
 
             if(BlendedBrakes == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "BlendedBrakes");
             }
 
             if(BlendingBrakeOnLiftUpRegen == null)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "BlendingBrakeOnLiftUpRegen");
             }
 
             return dataQualityScore;

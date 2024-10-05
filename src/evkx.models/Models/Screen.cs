@@ -51,27 +51,27 @@ namespace evdb.Models
 
             if(ScreenSize == null)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "ScreenSize");
             }
 
             if (Location == null || Location == ScreenLocation.None)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "Location");
             }
 
             if(Content == null || Content.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Content");
             }
 
             if(Rotation == null || Rotation == ScreenRotation.None)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "Rotation");
             }
 
             if(Optional == null)
             {
-                dataQualityScore.ReduceScore(2);
+                dataQualityScore.ReduceScore(2, "Optional");
             }
 
 

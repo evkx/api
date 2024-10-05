@@ -177,24 +177,24 @@ namespace evdb.models.Models
 
             if(BasicTrimCLTCRange == null && BasicTrimWltpRange == null && BasicTrimEpaRange == null)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "BasicTrimCLTCRange");
             }
             
             if(BasicTrim120KmhConsumption == null)
             {
-               dataQualityScore.ReduceScore(10);
+               dataQualityScore.ReduceScore(10, "BasicTrim120KmhConsumption");
             }
 
 
             if(BasicTrim70MphConsumption == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "BasicTrim70MphConsumption");
             }
     
 
             if(BasicTrim90KmhConsumption == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "BasicTrim90KmhConsumption");
             }
 
             return dataQualityScore;

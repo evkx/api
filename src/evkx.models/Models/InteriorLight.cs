@@ -52,19 +52,19 @@ namespace evdb.models.Models
 
             if (AmbientLight == null || AmbientLight.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AmbientLight");
             }
             else
             {
                 if (NumberOfAmbientLightColors == null)
                 {
-                    dataQualityScore.ReduceScore(10);
+                    dataQualityScore.ReduceScore(10, "NumberOfAmbientLightColors");
                 }
 
                 if (AmbientLightLocations == null)
                 {
                     {
-                        dataQualityScore.ReduceScore(10);
+                        dataQualityScore.ReduceScore(10, "AmbientLightLocations");
                     }
                 }
 
@@ -72,19 +72,19 @@ namespace evdb.models.Models
 
             if(ContourLight == null || ContourLight.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ContourLight");
             }
             else
             {
                 if (NumberOfContourLightsColors == null)
                 {
-                    dataQualityScore.ReduceScore(10);
+                    dataQualityScore.ReduceScore(10, "NumberOfContourLightsColors");
                 }
 
                 if (ContourLightLocations == null)
                 {
                     {
-                        dataQualityScore.ReduceScore(10);
+                        dataQualityScore.ReduceScore(10, "ContourLightLocations");
                     }
                 }
 

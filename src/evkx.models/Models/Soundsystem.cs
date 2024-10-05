@@ -22,27 +22,27 @@ namespace evdb.Models
 
             if (Brand == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, Brand);
             }   
 
             if (Name == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Name");
             }
 
             if (NumberOfSpeakers == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "NumberOfSpeakers");
             }
 
             if (TotalEffect == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TotalEffect");
             }
 
             if (Standard == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Standard");
             }   
 
             return dataQualityScore;

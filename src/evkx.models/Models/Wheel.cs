@@ -218,17 +218,17 @@ namespace evdb.Models
 
             if(string.IsNullOrWhiteSpace(TireDimensionFront))
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "TireDimensionFront");
             }
 
             if(string.IsNullOrWhiteSpace(TireDimensionRear))
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "TireDimensionRear");
             }
 
             if(WheelSize == null)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "WheelSize");
             }
 
             return dataQualityScore;

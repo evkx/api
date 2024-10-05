@@ -101,62 +101,62 @@ namespace evdb.models.Models
 
             if (CruiseControl == null || CruiseControl.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "CruiseControl");
             }
 
             if (AdaptiveCruiseControl == null || AdaptiveCruiseControl.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "AdaptiveCruiseControl");
             }
 
             if (LaneCenteringAssist == null || LaneCenteringAssist.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "LaneCenteringAssist");
             }
 
             if (Summon == null || Summon.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "Summon");
             }
 
             if (AutomaticLaneChange == null || AutomaticLaneChange.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "AutomaticLaneChange");
             }
 
             if (FollowNavigation == null || FollowNavigation.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "FollowNavigation");
             }
 
             if (TrafficLightControl == null || TrafficLightControl.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "TrafficLightControl");
             }
 
             if (StopSignControl == null || StopSignControl.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "StopSignControl");
             }
 
             if (AutomaticParking == null || AutomaticParking.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "AutomaticParking");
             }
 
             if(RemoteParking == null || RemoteParking.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "RemoteParking");
             }
 
             if (Standard == null)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "Standard");
             }
 
             if (DrivingAutomatFeatureName == null)
             {
-                dataQualityScore.ReduceScore(3);
+                dataQualityScore.ReduceScore(3, "DrivingAutomatFeatureName");
             }
 
             return dataQualityScore;

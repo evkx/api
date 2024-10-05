@@ -91,22 +91,22 @@ namespace evdb.models.Models
 
             if (Standard != null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Standard");
             }
 
             if(Heated == null || Heated.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Heated");
             }
 
             if(Controls == null || Controls.Count == 0)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Controls");
             }
 
             if(SteeringWheelDesign == SteeringWheelDesignType.NotSet)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "SteeringWheelDesign");
             }
            
             return dataQualityScore;

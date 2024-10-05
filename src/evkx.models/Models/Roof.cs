@@ -53,22 +53,22 @@ namespace evdb.Models
 
             if(string.IsNullOrWhiteSpace(Material))
             {
-                dataQualityScore.ReduceScore(2);
+                dataQualityScore.ReduceScore(2, "Material");
             }
 
            if(Rails == null || Rails.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Rails");
             }
 
             if(PanoramicRoofType != null && PanoramicRoofType == models.Enums.PanoramicRoofType.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PanoramicRoofType");
             }
 
             if(PanoramicRoofType != null && (PanoramicRoofShadeType == null || PanoramicRoofShadeType == models.Enums.PanoramicRoofShadeType.NotSet))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PanoramicRoofShadeType");
             }
 
             return dataQualityScore;

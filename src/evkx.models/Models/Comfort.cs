@@ -54,32 +54,32 @@ namespace evdb.models.Models
 
             if(GarageOpener == null || GarageOpener.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "GarageOpener");
             }
 
             if(AirFragrance == null || AirFragrance.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "AirFragrance");
             }
 
             if(WirelessPhoneCharging == null || WirelessPhoneCharging.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "WirelessPhoneCharging");
             }
 
             if(ElectricAdjustableSteeringWeel == null || ElectricAdjustableSteeringWeel.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ElectricAdjustableSteeringWeel");
             }
 
             if (EeasyEntrySeat == null || EeasyEntrySeat.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "EeasyEntrySeat");
             }
 
             if(EeasyEntrySteeringwheel == null || EeasyEntrySteeringwheel.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "EeasyEntrySteeringwheel");
             }
 
             return dataQualityScore;

@@ -115,57 +115,57 @@ namespace evdb.models.Models
         
             if(CurbWeight == null || CurbWeight == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "CurbWeight");
             }
 
             if(MaxVehicleWeightKg == null || MaxVehicleWeightKg == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "MaxVehicleWeightKg");
             }
 
             if(Frunk == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "Frunk");
             }
             else if(Frunk == true &&(FrunkSizeLiter == null || FrunkSizeLiter == 0))
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "FrunkSizeLiter");
             }
 
             if(RoofCargo == null)
             {
-                dataQualityScore.ReduceScore(15);
+                dataQualityScore.ReduceScore(15, "RoofCargo");
             }
             else if(RoofCargo == true && (MaxRoofLoadKg == null || MaxRoofLoadKg == 0))
             {
-                dataQualityScore.ReduceScore(15);
+                dataQualityScore.ReduceScore(15, "MaxRoofLoadKg");
             }
 
             if(Towbar == null || Towbar.FeatureStatus == FeatureStatus.Unknown)
             {
-                dataQualityScore.ReduceScore(35);
+                dataQualityScore.ReduceScore(35,"TowBar");
             }
             else if(Towbar != null && (Towbar.FeatureStatus == FeatureStatus.Optional || Towbar.FeatureStatus == FeatureStatus.Standard))
             {
                 if(TrailerSizeBrakedKg == null || TrailerSizeBrakedKg == 0)
                 {
-                    dataQualityScore.ReduceScore(50);
+                    dataQualityScore.ReduceScore(50, "TrailerSizeBrakedKg");
                 }
 
                 if(TrailerSizeUnBrakedKg == null || TrailerSizeUnBrakedKg == 0)
                 {
-                    dataQualityScore.ReduceScore(50);
+                    dataQualityScore.ReduceScore(50, "TrailerSizeUnBrakedKg");
                 }
 
                 if(MaxTowbarDownloadKg == null || MaxTowbarDownloadKg == 0)
                 {
-                    dataQualityScore.ReduceScore(20);
+                    dataQualityScore.ReduceScore(20, "MaxTowbarDownloadKg");
                 }
             }
 
             if(BedLength == null && ( CargoCapacityLiter == null || CargoCapacityLiter == 0))
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "BedLength");
             }
 
             return dataQualityScore;

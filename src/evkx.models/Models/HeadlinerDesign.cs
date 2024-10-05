@@ -30,12 +30,12 @@ namespace evdb.Models
 
             if (Color == models.Enums.Color.NotSet)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "Color");
             }
 
             if(Material == models.Enums.InteriorMaterialType.None)
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "Material");
             }
 
             return dataQualityScore;

@@ -26,12 +26,12 @@ namespace evdb.models.Models
 
             if(Region == null || Region.Equals(Enums.Region.NotSet))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Region");
             }
 
             if(ChargePortType == null || ChargePortType.Equals(Enums.ChargePortConnector.NotSet))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ChargePortType");
             }
 
             return dataQualityScore;

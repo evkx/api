@@ -45,12 +45,12 @@ namespace evdb.models.Models
 
             if (Region == null  || Region == Enums.Region.NotSet)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Region");
             }
 
             if (AvailableStatus == null || AvailableStatus == Enums.AvailableStatus.NotSet)
             {
-                dataQualityScore.ReduceScore(25);
+                dataQualityScore.ReduceScore(25, "AvailableStatus");
             }
 
             return dataQualityScore;

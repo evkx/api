@@ -40,7 +40,7 @@ namespace evdb.Models
 
             if(PaintColors == null || PaintColors.Count == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(200, "PaintColors");
             }
             else
             {
@@ -52,7 +52,7 @@ namespace evdb.Models
 
             if(WheelOptions == null || WheelOptions.Count == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "WheelOptions");
             }
             else
             {
@@ -65,7 +65,7 @@ namespace evdb.Models
 
             if(RoofOptions == null || RoofOptions.Count == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "RoofOptions");
             }
             else
             {
@@ -78,7 +78,7 @@ namespace evdb.Models
 
             if(Doors == null || Doors.Count == 0)
             {
-                dataQualityScore.ReduceScore(300);
+                dataQualityScore.ReduceScore(300, "Doors");
             }
             else
             {

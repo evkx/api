@@ -55,12 +55,12 @@ namespace evdb.models.Models
             
             if(Setup == SensorSetup.NotSet)
             {
-                dataQualityScore.ReduceScore(300);
+                dataQualityScore.ReduceScore(300, "Setup");
             }
 
             if((Setup == SensorSetup.Camera || Setup == SensorSetup.CameraRadarLidar || Setup == SensorSetup.CameraRadar || Setup == SensorSetup.CameraLidarUltrasonic || Setup == SensorSetup.CameraRadarLidarUltrasonic) &&  (Cameras == null || Cameras.Count == 0))
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Camera");
             }
             else
             {
@@ -72,7 +72,7 @@ namespace evdb.models.Models
 
             if((Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarLidar || Setup == SensorSetup.CameraLidarUltrasonic) &&  (Lidars == null || Lidars.Count == 0))
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Lidars");
             }
             else
             {
@@ -85,7 +85,7 @@ namespace evdb.models.Models
             
             if((Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarLidarUltrasonic || Setup == SensorSetup.CameraRadarUltrasonic) && (Radars == null || Radars.Count == 0))
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Radars");
             }
             else
             {

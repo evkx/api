@@ -11,10 +11,18 @@ namespace evdb.models.Models
         public int DataQuality { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public List<string>? MissingDataAreas { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public List<DataQualityScore>? SubScore { get; set; }
 
         public void AddSubScore(DataQualityScore subScore)
         {
+            if(subScore.DataQuality== 0)
+            {
+                return;
+            }
+
             if (SubScore == null)
             {
                 SubScore = new List<DataQualityScore>();
@@ -24,8 +32,14 @@ namespace evdb.models.Models
             DataQuality += subScore.DataQuality;
         }
 
-        public void ReduceScore(int reduction)
+        public void ReduceScore(int reduction, string area)
         {
+            if (MissingDataAreas == null)
+            {
+                MissingDataAreas = new List<string>();
+            }
+            MissingDataAreas.Add(area);
+
             DataQuality -= reduction;
         }
     }

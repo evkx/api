@@ -51,17 +51,17 @@ namespace evdb.Models
 
             if(Type == null || Type.Equals(MotorType.None))
             {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "Type");
             }
 
             if(PeakPower == null)
             {
-                dataQualityScore.ReduceScore(20);
+                dataQualityScore.ReduceScore(20, "PeakPower");
             }
 
             if(Torque == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "Torque");
             }
 
             return dataQualityScore;

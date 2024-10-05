@@ -147,22 +147,22 @@ namespace evdb.Models
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "Performance" };    
             if(!PowerKw.HasValue && !PowerKwBoost.HasValue)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "PowerKw");
             }
 
             if(!TorqueNm.HasValue && !TorqueNmBoost.HasValue)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TorqueNm");
             }
 
             if(!TopSpeed.HasValue)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "TopSpeed");
             }
 
             if(!ZeroToHundredKph.HasValue && !ZeroToHundredKphBoost.HasValue)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "ZeroToHundredKph");
             }
 
             return dataQualityScore;

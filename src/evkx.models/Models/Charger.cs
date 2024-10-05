@@ -15,7 +15,7 @@ namespace evdb.Models
 
             if(MaxChargeSpeedKw == 0)
             {
-                dataQualityScore.ReduceScore(30);
+                dataQualityScore.ReduceScore(30, "MaxChargeSpeedKw");
             }
 
             return dataQualityScore;

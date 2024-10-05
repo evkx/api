@@ -72,17 +72,17 @@ namespace evdb.Models
 
             if (string.IsNullOrEmpty(Name))
             {
-                dataQualityScore.ReduceScore(5);
+                dataQualityScore.ReduceScore(5, "Name");
             }
 
             if (MaterialType == null)
             {
-                dataQualityScore.ReduceScore(25);
+                dataQualityScore.ReduceScore(25, "MaterialType");
             }
 
             if(Colors == null || Colors.Count == 0)
             {
-                dataQualityScore.ReduceScore(25);
+                dataQualityScore.ReduceScore(25, "Colors");
             }
 
             return dataQualityScore;

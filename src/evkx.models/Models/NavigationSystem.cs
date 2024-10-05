@@ -101,42 +101,42 @@
 
             if (string.IsNullOrEmpty(MapProvider))
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "MapProvider");
             }
 
             if (RealTimeTraffic == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RealTimeTraffic");
             }
 
             if (OnlineMapUpdates == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "OnlineMapUpdates");
             }
 
             if (VoiceControl == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "VoiceControl");
             }
 
             if (RoutePlanning == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "RoutePlanning");
             }
 
             if (MinSOCDestintation == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "MinSOCDestintation");
             }
 
             if (MinSOCHPC == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "MinSOCHPC");
             }
 
             if (VoiceGuiding == null)
             {
-                dataQualityScore.ReduceScore(10);
+                dataQualityScore.ReduceScore(10, "VoiceGuiding");
             }
 
             return dataQualityScore;

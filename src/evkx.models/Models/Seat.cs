@@ -144,97 +144,97 @@ namespace evdb.Models
 
             if(Position == null || Position.Equals(SeatPosition.NotSet))
             {
-                score.ReduceScore(100);
+                score.ReduceScore(100, "Position");
             }
             
             if (ForeAndAftAdjustment == null || ForeAndAftAdjustment.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "ForeAndAftAdjustment");
             }
 
             if (ReclineAdjustment == null || ReclineAdjustment.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "ReclineAdjustment");
             }
 
             if (HeightAdjustment == null || HeightAdjustment.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "HeightAdjustment");
             }
 
             if (CushionAngleAdjustment == null || CushionAngleAdjustment.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "CushionAngleAdjustment");
             }
 
             if (HeightAdjustableHeadrest == null || HeightAdjustableHeadrest.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "HeightAdjustableHeadrest");
             }
 
             if (LengthAdjustableHeadrest == null || LengthAdjustableHeadrest.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "LengthAdjustableHeadrest");
             }
 
             if (AdjustableThighSupport == null || AdjustableThighSupport.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "AdjustableThighSupport");
             }
 
             if (AdjustableSideSupportBack == null || AdjustableSideSupportBack.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "AdjustableSideSupportBack");
             }
 
             if (AdjustableSideSupportBottom == null || AdjustableSideSupportBottom.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "AdjustableSideSupportBottom");
             }
 
             if (LumbarAdjustment == null || LumbarAdjustment.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "LumbarAdjustment");
             }
 
             if (Heating == null || Heating.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "Heating");
             }
 
             if (Ventilation == null || Ventilation.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "Ventilation");
             }
 
             if (Massage == null || Massage.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "Massage");
             }
 
             if (Memory == null || Memory.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "Memory");
             }
 
             if (EasyAccess == null || EasyAccess.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "EasyAccess");
             }
 
             if (Footrest == null || Footrest.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "Footrest");
             }
 
             if (LegSupport == null || LegSupport.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "LegSupport");
             }
 
             if (Foldable == null || Foldable.Equals(SeatFeatureStatus.Unknown))
             {
-                score.ReduceScore(10);
+                score.ReduceScore(10, "Foldable");
             }
 
             return score;

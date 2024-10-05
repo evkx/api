@@ -138,66 +138,66 @@ namespace evdb.Models
 
             if(string.IsNullOrEmpty(Name))
             {
-                dataQualityScore.ReduceScore(1000);
+                dataQualityScore.ReduceScore(1000, "Name");
             }
 
             if(string.IsNullOrEmpty(Variant))
             {
-                dataQualityScore.ReduceScore(1000);
+                dataQualityScore.ReduceScore(1000, "Variant");
             }
 
             if (BodyType == EvBodyType.NotSet)
             {
-                dataQualityScore.ReduceScore(1000);
+                dataQualityScore.ReduceScore(1000, "BodyType");
             }
 
             if (CarSegment == null)
             {
-                dataQualityScore.ReduceScore(200);
+                dataQualityScore.ReduceScore(200, "CarSegment");
             }
 
             if(string.IsNullOrEmpty(Platform))
             {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "Platform");
             }
 
             if (PriceSegment == PriceCategory.NotSet)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "PriceSegment");
             }
 
             if (EvOnlyConstruction == null)
             {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "EvOnlyConstruction");
             }
 
             if(EvOnlyPlatform == null) {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "EvOnlyPlatform");
             }
 
             if(ModelStatus == null || ModelStatus == models.Enums.ModelStatus.NotSet)
             {
-                dataQualityScore.ReduceScore(200);
+                dataQualityScore.ReduceScore(200, "ModelStatus");
             }   
 
             if(SpecStatus == null)
             {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "SpecStatus");
             }
 
             if(WorldPremiere == null)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "WorldPremiere");
             }
 
             if(DeliveryStart == null)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "DeliveryStart");
             }
 
             if (Availability == null || Availability.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Availability");
             }
             else
             {
@@ -209,12 +209,12 @@ namespace evdb.Models
 
             if(Pricing == null || Pricing.Count == 0)
             {
-                dataQualityScore.ReduceScore(50);
+                dataQualityScore.ReduceScore(50, "Pricing");
             }
 
             if (Alternatives == null || Alternatives.Count == 0)
             {
-                dataQualityScore.ReduceScore(100);
+                dataQualityScore.ReduceScore(100, "Alternatives");
             }
             else
             {
