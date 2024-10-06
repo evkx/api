@@ -89,7 +89,7 @@ namespace evdb.models.Models
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "SteeringWheel" };
 
-            if (Standard != null)
+            if (Standard == null)
             {
                 dataQualityScore.ReduceScore(10, "Standard");
             }

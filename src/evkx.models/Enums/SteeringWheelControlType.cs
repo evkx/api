@@ -33,5 +33,8 @@ namespace evdb.models.Enums
         [EnumMember(Value = "TwinScrollWheel")]
         TwinScrollWheel = 8,
 
+        [EnumMember(Value = "PhysicalButtonsPaddleShifter")]
+        PhysicalButtonsPaddleShifter = 9,
+
     }
 }

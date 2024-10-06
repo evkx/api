@@ -79,11 +79,6 @@
                 descriptionKey += ".minsocdest";
             }
 
-            if(!string.IsNullOrEmpty(MapProvider))
-            {
-                descriptionKey += ".mapprovider";   
-            }
-
             if(string.IsNullOrEmpty(descriptionKey))
             {
                 return string.Empty;

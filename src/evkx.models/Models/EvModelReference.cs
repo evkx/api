@@ -58,17 +58,17 @@ RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant)
 
             if (string.IsNullOrWhiteSpace(Brand))
             {
-                dataQualityScore.ReduceScore(1000, "Brand");
+                dataQualityScore.ReduceScore(30, "Brand");
             }
 
             if (string.IsNullOrWhiteSpace(Model))
             {
-                dataQualityScore.ReduceScore(1000,"Model");
+                dataQualityScore.ReduceScore(30, "Model");
             }
 
             if(string.IsNullOrWhiteSpace(Variant))
             {
-                dataQualityScore.ReduceScore(1000,"Variant");
+                dataQualityScore.ReduceScore(30, "Variant");
             }
 
             if(Id == null)

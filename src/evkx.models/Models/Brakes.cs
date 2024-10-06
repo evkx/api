@@ -82,22 +82,22 @@ namespace evdb.models.Models
 
             if(Standard == null)
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "Standard");
             }
 
             if(string.IsNullOrEmpty(Name))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "Name");
             }
 
             if(FrontBrakeType == null || FrontBrakeType.Equals(BrakeType.NotSet))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "FrontBrakeType");
             }
 
             if(FrontBrakeDiscType == null || FrontBrakeDiscType.Equals(BrakeDiscType.NotSet))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "FrontBrakeDiscType");
             }
 
             if(FrontBrakeDiscDiameter == null)
