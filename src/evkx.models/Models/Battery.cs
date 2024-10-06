@@ -168,52 +168,52 @@ namespace evdb.Models
 
             if (Optional == null)
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(5, "Optional");
             }
 
             if (string.IsNullOrEmpty(Name))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(5, "Name");
             }
 
             if (!GrossCapacitykWh.HasValue)
             {
-                dataQualityScore.DataQuality -= 10;
+                dataQualityScore.ReduceScore(10, "GrossCapacitykWh");
             }
 
             if (!NetCapacitykWh.HasValue)
             {
-                dataQualityScore.DataQuality -= 10;
+                dataQualityScore.ReduceScore(10, "NetCapacitykWh");
             }
 
             if (!WeightKg.HasValue)
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "WeightKg");
             }
 
             if (string.IsNullOrEmpty(BatteryType))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "BatteryType");
             }
 
             if (string.IsNullOrEmpty(Modules))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "Modules");
             }
 
             if(string.IsNullOrEmpty(CellPerModule))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "CellPerModule");
             }
 
             if(string.IsNullOrEmpty(PackConfiguration))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1,"PackConfiguration");
             }
 
             if(CellInfo == null)
             {
-                dataQualityScore.DataQuality -=13;
+                dataQualityScore.ReduceScore(13, "CellInfo");
             }
             else
             {
@@ -222,27 +222,27 @@ namespace evdb.Models
 
             if(!NominalVoltage.HasValue)
             {
-                dataQualityScore.DataQuality -= 5;
+                dataQualityScore.ReduceScore(5, "NominalVoltage");
             }
 
             if(!BatteryCapacityAh.HasValue)
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1,"BatteryCapacityAh");
             }
 
             if(!MaxDCChargeSpeed.HasValue)
             {
-                dataQualityScore.DataQuality -= 10;
+                dataQualityScore.ReduceScore(50, "MaxDCChargeSpeed");
             }
            
             if(ChargingConfiguration == null)
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "ChargingConfiguration");
             }
 
             if(!MaxDCChargeSpeedLowVoltage.HasValue)
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "MaxDCChargeSpeedLowVoltage");
             }
 
             return dataQualityScore;
