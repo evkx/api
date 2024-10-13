@@ -1,5 +1,7 @@
-﻿using System;
+﻿using evdb.Models;
+using System;
 using System.IO;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace evdb.models.Models
@@ -13,24 +15,30 @@ namespace evdb.models.Models
 RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
         /// <summary>
+        /// The ID of the referenced model.
+        /// </summary>
+        public Guid? Id { get; set; }
+
+        /// <summary>
         /// The brand of the referenced model.
         /// </summary>
-        public string? Brand { get; set; }
+        public required string Brand { get; set; }
 
         /// <summary>
         /// The model of the referenced model.
         /// </summary>
-        public string? Model { get; set; }
+        public required string Model { get; set; }
 
         /// <summary>
         /// The variant of the referenced model.
         /// </summary>
-        public string? Variant { get; set; }
+        public required string Variant { get; set; }
 
         /// <summary>
-        /// The ID of the referenced model.
+        /// Legacy version of the model if discontinued and replaced by new
         /// </summary>
-        public Guid? Id { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? LegacyVersion { get; set; }
 
         public string GetFullModelName()
         {
@@ -39,6 +47,11 @@ RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant)
 
         public string GetEvPath()
         {
+            if (!string.IsNullOrEmpty(LegacyVersion))
+            {
+                return ("/models/" + SanitizedFileName(Brand?.ToLower()) + "/" + SanitizedFileName(Model.ToLower()) + "/" + SanitizedFileName(Variant) + "_" + SanitizedFileName(LegacyVersion) + "/").ToLower();
+            }
+
             return ("/models/" + SanitizedFileName(Brand.ToLower()) + "/" + SanitizedFileName(Model.ToLower()) + "/" + SanitizedFileName(Variant) + "/").ToLower();
         }
 

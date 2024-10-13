@@ -14,7 +14,7 @@ namespace evdb.models.Enums
         RightRearDoor,
         SecondRowCenterConsol,
         SecondRowArmrest,
-        Dash,
+        DashPassengerSide,
         Trunk,
     }
 }

@@ -18,7 +18,7 @@ namespace evdb.Models
             SeatLayout = [];
             SeatLayout.Add(new SeatLayout());
             InteriorDesigns = [new InteriorDesign()];
-            InteriorLights = [new InteriorLight()];
+            InteriorLights = new InteriorLight();
             InteriorStorage = new InteriorStorage();
         }
 
@@ -75,9 +75,11 @@ namespace evdb.Models
         /// <summary>
         /// Defines the interior lights of the EV.
         /// </summary>
-        public List<InteriorLight> InteriorLights { get; set; }
+        public InteriorLight InteriorLights { get; set; }
 
-
+        /// <summary>
+        /// Defines the interior storage of the EV.
+        /// </summary>
         public InteriorStorage InteriorStorage { get; set; }
 
 
@@ -234,10 +236,7 @@ namespace evdb.Models
 
             if(InteriorLights != null)
             {
-                foreach(InteriorLight light in InteriorLights)
-                {
-                    dataQualityScore.AddSubScore(light.CalculateDataQuality());
-                }
+              dataQualityScore.AddSubScore(InteriorLights.CalculateDataQuality());
             }
             else
             {

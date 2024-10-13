@@ -30,6 +30,10 @@ namespace evdb.Models
             TransportCapabilities = new TransportCapabilities();
             ModelPictures = new List<CloudMedia>();
             Infotainment = new Infotainment();
+            Security = new Security();
+            MobileApp = new MobileApp();
+            Safety = new Safety();
+            UIAndControls = new UIAndControls();
         }
 
 
@@ -82,7 +86,7 @@ namespace evdb.Models
         /// <summary>
         /// Defines the user interface and controls of the EV
         /// </summary>
-        public UIAndControls? UIAndControls { get; set; }
+        public UIAndControls UIAndControls { get; set; }
 
         /// <summary>
         /// Defines the interior of the EV
@@ -108,6 +112,11 @@ namespace evdb.Models
         /// Defines the security features of the EV
         /// </summary>
         public Security Security { get; set; }
+
+        /// <summary>
+        /// Defines the safety features of the EV
+        /// </summary>
+        public Safety Safety { get; set; }
 
         /// <summary>
         /// Defines the MobileApp features of the EV
@@ -845,6 +854,15 @@ namespace evdb.Models
             else
             {
                 dataQuality.AddSubScore(MobileApp.CalculateDataQuality());
+            }
+
+            if(Safety == null)
+            {
+                dataQuality.ReduceScore(1000, "Safety");
+            }
+            else
+            {
+                dataQuality.AddSubScore(Safety.CalculateDataQualityScore());
             }
 
             return dataQuality;

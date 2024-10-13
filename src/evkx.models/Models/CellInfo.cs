@@ -22,17 +22,17 @@ namespace evdb.Models
 
             if(string.IsNullOrEmpty(CellProducer))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "CellProducer");
             }
 
             if(string.IsNullOrEmpty(CellType))
             {
-                dataQualityScore.DataQuality--;
+                dataQualityScore.ReduceScore(1, "CellType");
             }
             
             if(string.IsNullOrEmpty(CellChemistry))
             {
-                dataQualityScore.DataQuality -= 10;
+                dataQualityScore.ReduceScore(50, "CellChemistry");
             }
 
             return dataQualityScore;

@@ -4,12 +4,12 @@ using System.Text.Json.Serialization;
 namespace evdb.models.Enums
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum InteriorStorageCategory: int
+    public enum InteriorStorageCategory
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
+        Limited,
+        Various,
+        LargeRange,
 
-        [EnumMember(Value = "LimitedStorage")]
-        LimitedStorage = 1,
     }
 }

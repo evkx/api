@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace evdb.models.Models
 {
@@ -12,11 +13,14 @@ namespace evdb.models.Models
 
         public string? EvId { get; set; }
 
-        public string? Brand { get; set; }
+        public required string Brand { get; set; }
 
-        public string? Model { get; set; }
+        public required string Model { get; set; }
 
         public string? Variant { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? LegacyVersion { get; set; }
 
         public DateTime? Added { get; set; }
 

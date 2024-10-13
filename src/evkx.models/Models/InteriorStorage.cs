@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace evdb.models.Models
 {
+    /// <summary>
+    /// Describes the interior storage of an EV.
+    /// </summary>
     public class InteriorStorage
     {
         public InteriorStorage()
@@ -11,8 +14,14 @@ namespace evdb.models.Models
             StorageUnits = new List<InteriorStorageUnit>();
         }
 
+        /// <summary>
+        /// Defines the category of the interior storage.
+        /// </summary>
         public InteriorStorageCategory Category { get; set; }
 
+        /// <summary>
+        /// List of storage units in the interior.
+        /// </summary>
         public List<InteriorStorageUnit> StorageUnits { get; set; }
 
         internal DataQualityScore CalculateDataQuality()
