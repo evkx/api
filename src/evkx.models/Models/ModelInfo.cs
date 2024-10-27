@@ -197,7 +197,10 @@ namespace evdb.Models
 
             if (Availability == null || Availability.Count == 0)
             {
-                dataQualityScore.ReduceScore(100, "Availability");
+                if (ModelStatus != models.Enums.ModelStatus.Discontinued)
+                {
+                    dataQualityScore.ReduceScore(100, "Availability");
+                }
             }
             else
             {
@@ -207,14 +210,20 @@ namespace evdb.Models
                 }
             }
 
-            if(Pricing == null || Pricing.Count == 0)
+            if (Pricing == null || Pricing.Count == 0)
             {
-                dataQualityScore.ReduceScore(50, "Pricing");
+                if(ModelStatus != models.Enums.ModelStatus.Discontinued)
+                {
+                    dataQualityScore.ReduceScore(100, "Pricing");
+                }
             }
 
             if (Alternatives == null || Alternatives.Count == 0)
             {
-                dataQualityScore.ReduceScore(100, "Alternatives");
+                if (ModelStatus != models.Enums.ModelStatus.Discontinued)
+                {
+                    dataQualityScore.ReduceScore(100, "Alternatives");
+                }
             }
             else
             {

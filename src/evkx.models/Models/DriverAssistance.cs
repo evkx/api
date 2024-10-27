@@ -27,7 +27,6 @@ namespace evdb.Models
             HillStartAssist = new EVFeature();
             AntiLockBrakingSystem = new EVFeature();
             AutomaticEmergencyBraking = new EVFeature();
-            BrakeAssist = new EVFeature();
             TractionControl = new EVFeature();
             LeftTurnCrashAvoidance = new EVFeature();
             ForwardCollisionWarning = new EVFeature();  
@@ -49,10 +48,30 @@ namespace evdb.Models
         public SensorsAndCameras? SensorsAndCameras { get; set; }
 
         /// <summary>
-        /// Defines if the vehicle has night vision.
+        /// Defines if the vehicle has electronic stability control.
         /// </summary>
-        public EVFeature? NightVision { get; set; }
-        
+        public EVFeature? ElectronicStabilityControl { get; set; }
+
+        /// <summary>
+        /// Defines if the vehicle has anti lock braking system.
+        /// </summary>
+        public EVFeature? AntiLockBrakingSystem { get; set; }
+
+        /// <summary>
+        /// Defines if the vehicle has traction control.
+        /// </summary>
+        public EVFeature? TractionControl { get; set; }
+
+        /// <summary>
+        /// Defines if the vehicle has automatic emergency braking.
+        /// </summary>
+        public EVFeature? AutomaticEmergencyBraking { get; set; }
+
+        /// <summary>
+        /// Defines if the vehicle has forward collision warning.
+        /// </summary>
+        public EVFeature? ForwardCollisionWarning { get; set; }
+
         /// <summary>
         /// defines if the vehicle has lane keeping.
         /// </summary>
@@ -69,6 +88,11 @@ namespace evdb.Models
         public EVFeature? DrowsinessAlert { get; set; }
 
         /// <summary>
+        /// Defines if the vehicle has night vision.
+        /// </summary>
+        public EVFeature? NightVision { get; set; }
+        
+        /// <summary>
         /// Defines if the vehicle has a reversing camera.
         /// </summary>
         public EVFeature? ReversingCamera { get; set; }
@@ -77,6 +101,11 @@ namespace evdb.Models
         /// Defines if the vehicle has a 360 camera.
         /// </summary>
         public EVFeature? Camera360 { get; set; }
+
+        /// <summary>
+        /// Defines if the vehicle has cross traffic assist.
+        /// </summary>
+        public EVFeature? CrossTrafficAssist { get; set; }
 
         /// <summary>
         /// Defines if the vehicle has rear cross traffic alert.
@@ -119,50 +148,14 @@ namespace evdb.Models
         public EVFeature? HillStartAssist { get; set; }
 
         /// <summary>
-        /// Defines if the vehicle has anti lock braking system.
-        /// </summary>
-        public EVFeature? AntiLockBrakingSystem { get; set; }
-
-        /// <summary>
-        /// Defines if the vehicle has automatic emergency braking.
-        /// </summary>
-        public EVFeature? AutomaticEmergencyBraking { get; set; }
-
-
-        /// <summary>
-        /// Defines if the vehicle has brake assist.
-        /// </summary>
-        public EVFeature? BrakeAssist { get; set; }
-
-        /// <summary>
-        /// Defines if the vehicle has traction control.
-        /// </summary>
-        public EVFeature? TractionControl { get; set; }
-
-        /// <summary>
         /// Defines if the vehicle has left turn crash avoidance.
         /// </summary>
         public EVFeature? LeftTurnCrashAvoidance { get; set; }
 
         /// <summary>
-        /// Defines if the vehicle has forward collision warning.
-        /// </summary>
-        public EVFeature? ForwardCollisionWarning { get; set; }
-
-        /// <summary>
-        /// Defines if the vehicle has electronic stability control.
-        /// </summary>
-        public EVFeature? ElectronicStabilityControl { get; set; }
-
-        /// <summary>
         /// Defines if the vehicle has temperature warning.
         /// </summary>
         public EVFeature? TemperatureWarning { get; set; }
-
-        /// <summary>
-        /// Defines if the vehicle has cross traffic assist.
-        /// </summary>
-        public EVFeature? CrossTrafficAssist { get; set; }
 
         /// <summary>
         /// Defines if the vehicle has automatic emergency steering.
@@ -275,11 +268,6 @@ namespace evdb.Models
             if(AutomaticEmergencyBraking == null || AutomaticEmergencyBraking.FeatureStatus == FeatureStatus.Unknown)
             {
                 dataQualityScore.ReduceScore(10, "AutomaticEmergencyBraking");
-            }
-
-            if(BrakeAssist == null || BrakeAssist.FeatureStatus == FeatureStatus.Unknown)
-            {
-                dataQualityScore.ReduceScore(10, "BrakeAssist");
             }
 
             if(TractionControl == null || TractionControl.FeatureStatus == FeatureStatus.Unknown)

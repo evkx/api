@@ -11,9 +11,13 @@ namespace evdb.Models
     {
         public Charging() 
         {
-
+            Chargeports = [new Chargeport()];
             ManualTriggerHeating = new EVFeature();
             HeatingWhenNavigateToCharger = new EVFeature();
+            V2L = new EVFeature();
+            V2G = new EVFeature();
+            V2H = new EVFeature();
+            V2XPorts = new List<V2XPort>();
         }
 
         /// <summary>

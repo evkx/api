@@ -6,8 +6,16 @@ using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines a paint color option for a car
+    /// </summary>
     public class PaintColor
     {
+        public PaintColor()
+        {
+            Name = new Dictionary<string, string>();
+        }
+
         /// <summary>
         /// Color familiy
         /// </summary>

@@ -10,6 +10,7 @@ namespace evdb.Models
     /// </summary>
     public class Chargeport
     {
+
         /// <summary>
         /// Defines if this chargeport is standard
         /// </summary>

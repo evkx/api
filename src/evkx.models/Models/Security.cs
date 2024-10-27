@@ -7,6 +7,17 @@ namespace evdb.models.Models
     /// </summary>
     public class Security
     {
+        public Security()
+        {
+            KeylessEntry = new EVFeature();
+            KeylessGo = new EVFeature();    
+            PhoneAsKey = new EVFeature();
+            AlarmSystem = new EVFeature();
+            DashCam = new EVFeature();
+            ParkingSurveillance = new EVFeature();
+        }
+
+
         /// <summary>
         /// Defines if the EV has keyless go
         /// </summary>

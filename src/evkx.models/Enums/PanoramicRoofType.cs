@@ -1,52 +1,27 @@
-﻿using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    /// <summary>
+    /// Defines what kind of panoramic roof the car has
+    /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PanoramicRoofType: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
-
-        [EnumMember(Value = "FullFixed")]
-        FullFixed = 1,
-
-        [EnumMember(Value = "TwoPartsFullFixed")]
-        TwoPartsFullFixed = 2,
-
-        [EnumMember(Value = "PartialOpenFront")]
-        PartialOpenFront = 3,
-
-        [EnumMember(Value = "TwoPartsFullOpenFront")]
-        TwoPartsFullOpenFront = 4,
-
-        [EnumMember(Value = "OnlyFrontOpen")]
-        OnlyFrontOpen = 5,
-
-        [EnumMember(Value = "PartialFixed")]
-        PartialFixed = 6,
-
-        [EnumMember(Value = "FourSeperateRemovableGlassPanels")]
-        FourSeperateRemovableGlassPanels = 7,
-
-        [EnumMember(Value = "FrontAndGlassPanelInGullwingDoors")]
-        FrontAndGlassPanelInGullwingDoors = 8,
-
-        [EnumMember(Value = "TwoPartPartialFixed")]
-        TwoPartPartialFixed = 9,
-
-        [EnumMember(Value = "PanoramicWindshieldAndRearSkylight")]
-        PanoramicWindshieldAndRearSkylight = 10,
-
-        [EnumMember(Value = "TwoSeperatePartPartialFixed")]
-        TwoSeperatePartPartialFixed = 11,
-
-        [EnumMember(Value = "PanoramicWindshieldAndRearGlass")]
-        PanoramicWindshieldAndRearGlass = 12,
-
-        [EnumMember(Value = "TwoSeperatePartPartialFrontOpen")]
-        TwoSeperatePartPartialFrontOpen = 13
-
+        NotSet,
+        FullFixed,
+        TwoPartsFullFixed,
+        PartialOpenFront,
+        TwoPartsFullOpenFront,
+        OnlyFrontOpen,
+        PartialFixed,
+        FourSeperateRemovableGlassPanels,
+        FrontAndGlassPanelInGullwingDoors,
+        TwoPartPartialFixed,
+        PanoramicWindshieldAndRearSkylight,
+        TwoSeperatePartPartialFixed,
+        PanoramicWindshieldAndRearGlass,
+        TwoSeperatePartPartialFrontOpen,
+        TwoSeperatePartPartialBothOpen
     }
 }

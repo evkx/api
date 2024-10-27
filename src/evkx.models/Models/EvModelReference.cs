@@ -62,7 +62,7 @@ RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant)
                 return null;
             }
 
-            return removeInvalidChars.Replace(fileName, replacement).Replace(" ", "_").Replace("+", "plus").Replace("#", "hash");
+            return removeInvalidChars.Replace(fileName, replacement).Replace(" ", "_").Replace("+", "plus").Replace("#", "hash").Replace("&", "and");
         }
 
         internal DataQualityScore CalculateDataQuality()
