@@ -68,6 +68,11 @@ namespace evdb.Models
         public EVFeature RearWheelSteering { get; set; }
 
         /// <summary>
+        /// Defines if the EV has crab walk
+        /// </summary>
+        public EVFeature CrabWalk { get; set; }
+
+        /// <summary>
         /// Defines if the EV has torque vectoring
         /// </summary>
         public EVFeature TorqueVectoring { get; set; }

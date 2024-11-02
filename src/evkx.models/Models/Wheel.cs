@@ -5,6 +5,9 @@ using System.Text.Json.Serialization;
 
 namespace evdb.Models
 {
+    /// <summary>
+    /// Defines a wheel option for an EV
+    /// </summary>
     public class Wheel
     {
         public string? TireDimensionFront { get; set; }
@@ -17,11 +20,13 @@ namespace evdb.Models
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int? WheelSizeRear { get; set; }
 
-        public double WheelWidth { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public double? WheelWidth { get; set; }
 
         public Dictionary<string,string>? Name { get; set; }
 
-        public int WheelOffset { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public int? WheelOffset { get; set; }
 
         public string? GetWheelCategory()
         {
