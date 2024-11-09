@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationInsightsResourceId>/subscriptions/a8595f86-7b1f-4f10-8fef-2aff1ece1a58/resourceGroups/evkx/providers/microsoft.insights/components/evkx</ApplicationInsightsResourceId>
-    <UserSecretsId>1cac878c-75e9-4288-840b-33834d7b1289</UserSecretsId>
+    <UserSecretsId>f058d14a-a5f5-4f50-b6e6-11109e48b039</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

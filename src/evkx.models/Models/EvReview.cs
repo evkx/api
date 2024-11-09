@@ -8,8 +8,6 @@ namespace evdb.models.Models
     {
         public string? MediaId { get; set; }
 
-        public string? Url { get; set; }
-
         public string? Reviewer { get; set; }
 
         public string? Title { get; set; }
@@ -21,6 +19,7 @@ namespace evdb.models.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ReviewPlatform? ReviewPlatform { get; set; }
 
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public EvSummary? EvSummary { get; set; }
 
     }

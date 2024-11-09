@@ -645,6 +645,44 @@ namespace evdb.Models
             return wheelbase;
         }
 
+        public decimal AvergageCRating()
+        {
+            decimal averageCRate = 0;
+            if (Calculations != null && Calculations.Any())
+            {
+                foreach (EvCalculations c in Calculations)
+                {
+                    if (c.AverageCRating.HasValue && c.AverageCRating.Value > averageCRate)
+                    {
+                        averageCRate = c.AverageCRating.Value;
+                    }
+                }
+
+            }
+
+            return averageCRate;
+        }
+
+
+        public decimal MaxCRating()
+        {
+            decimal maxCRating = 0;
+            if (Calculations != null && Calculations.Any())
+            {
+                foreach (EvCalculations c in Calculations)
+                {
+                    if (c.MaxCRating.HasValue && c.MaxCRating.Value > maxCRating)
+                    {
+                        maxCRating = c.MaxCRating.Value;
+                    }
+                }
+
+            }
+
+            return maxCRating;
+        }
+
+
         public decimal WeightUnladenDINKg()
         {
             decimal weightUnladenDINKg = 0;

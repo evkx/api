@@ -183,11 +183,11 @@ namespace evdb
             }
             else if (evSearch.SortOrder.Equals(SortOrder.MaxCRating))
             {
-                evList = evList.OrderByDescending(ev => ev.Calculations.OrderByDescending(ev2 => ev2.MaxCRating).ToList()[0].MaxCRating).ToList();
+                evList = evList.OrderByDescending(ev => ev.MaxCRating()).ToList();
             }
             else if (evSearch.SortOrder.Equals(SortOrder.AverageCRating))
             {
-                evList = evList.OrderByDescending(ev => ev.Calculations.OrderByDescending(ev2 => ev2.AverageCRating).ToList()[0].AverageCRating).ToList();
+                evList = evList.OrderByDescending(ev => ev.AvergageCRating()).ToList();
             }
             else
             {
