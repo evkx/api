@@ -21,6 +21,7 @@ namespace evdb.Models
             Apps = [];
             InCarNavigation = new EVFeature();
             PortAndConnections = [new PortAndConnection()];
+            InductiveChargers = [new InductiveCharger()];
             NavigationSystem = new NavigationSystem();
         }
 
@@ -68,6 +69,11 @@ namespace evdb.Models
         /// Defines the ports and connections available on the infotainment system
         /// </summary>
         public List<PortAndConnection>? PortAndConnections { get; set; }
+
+        /// <summary>
+        /// Defines the inductive chargers available in the EV
+        /// </summary>
+        public List<InductiveCharger>? InductiveChargers { get; set; }
 
         /// <summary>
         /// Calculates the data quality score for the infotainment system
