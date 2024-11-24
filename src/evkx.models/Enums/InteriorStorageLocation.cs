@@ -16,5 +16,7 @@ namespace evdb.models.Enums
         SecondRowArmrest,
         DashPassengerSide,
         Trunk,
+        ThirdRowRightSide,
+        ThirdRowLeftSide,
     }
 }

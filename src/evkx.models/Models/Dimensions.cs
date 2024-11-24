@@ -53,12 +53,12 @@
         /// <summary>
         /// Defines the overhange angle front
         /// </summary>
-        public decimal? OverhangAngleFront { get;  set; }
+        public decimal? ApproachAngle { get;  set; }
 
         /// <summary>
         /// Defines the overhange angle rear
         /// </summary>
-        public decimal? OverhangAngleRear { get; set; }
+        public decimal? DepartureAngle { get; set; }
 
         /// <summary>
         /// Defines the turning circle of the EV
@@ -115,12 +115,12 @@
                 dataQualityScore.ReduceScore(5, "FrontalArea");
             }
 
-            if (OverhangAngleFront == null || OverhangAngleFront == 0)
+            if (ApproachAngle == null || ApproachAngle == 0)
             {
                 dataQualityScore.ReduceScore(5, "OverhangAngleFront");
             }
 
-            if (OverhangAngleRear == null || OverhangAngleRear == 0)
+            if (DepartureAngle == null || DepartureAngle == 0)
             {
                 dataQualityScore.ReduceScore(5, "OverhangAngleRear");
             }
