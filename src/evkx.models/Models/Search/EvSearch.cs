@@ -1,5 +1,4 @@
 ﻿using evdb.models.Enums;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -7,7 +6,6 @@ namespace evkx.models.Models.Search
 {
     public class EvSearch
     {
-        [ValidateNever]
         public string? MinimumWltpRange { get; set; }
 
         public int? MinimumGrossBattery { get; set; }

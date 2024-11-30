@@ -70,7 +70,7 @@ namespace evdb
             }
             else if (evSearch.SortOrder.Equals(SortOrder.TravelSpeed120kmhDesc))
             {
-                evList = evList.OrderByDescending(ev => ev.Calculations[0].TravelSpeed120kmh).ToList();
+                evList = evList.Where(r => r.Calculations != null && r.Calculations.Any() && r.Calculations[0].TravelSpeed120kmh != 0).OrderByDescending(ev => ev.Calculations[0].TravelSpeed120kmh).ToList();
             }
             else if (evSearch.SortOrder.Equals(SortOrder.TrunkSizeDesc))
             {
