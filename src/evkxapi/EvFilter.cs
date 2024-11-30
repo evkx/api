@@ -110,13 +110,22 @@ namespace evdb
             if (searchFilter.SeatConfiguration != null && searchFilter.SeatConfiguration.Any())
             {
                 List<EV> tempList = new List<EV>();
+                Dictionary<string, EV> tempDictionary = new Dictionary<string, EV>();
 
                 foreach (string config in searchFilter.SeatConfiguration)
                 {
                     tempList.AddRange(evlist.Where(ev => ev.Interior != null && ev.Interior.SeatLayout != null && ev.Interior.SeatLayout.FirstOrDefault(s => s.NumberOfSeats != null && s.NumberOfSeats.ToString().Equals(config)) != null).ToList());
                 }
 
-                evlist = tempList;
+                foreach(EV ev in tempList)
+                {
+                    if (!tempDictionary.ContainsKey(ev.Id.Value.ToString()))
+                    {
+                        tempDictionary.Add(ev.Id.Value.ToString(), ev);
+                    }
+                }
+
+                evlist = tempDictionary.Values.ToList();
             }
 
             if (searchFilter.Colors != null && searchFilter.Colors.Any())

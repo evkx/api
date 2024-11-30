@@ -6,16 +6,14 @@ namespace evdb.models.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum ChargingConfiguration : int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "SplitBattery")]
-        SplitBattery = 1,
+        SplitBattery,
 
-        [EnumMember(Value = "CombineBattery")]
-        CombineBattery = 2,
+        CombineBattery,
 
-        [EnumMember(Value = "VoltageConversion")]
-        VoltageConversion = 3,
+        VoltageConversion,
+
+        ChargerMatching,
     }
 }

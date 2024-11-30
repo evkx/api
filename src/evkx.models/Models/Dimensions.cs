@@ -117,12 +117,12 @@
 
             if (ApproachAngle == null || ApproachAngle == 0)
             {
-                dataQualityScore.ReduceScore(5, "OverhangAngleFront");
+                dataQualityScore.ReduceScore(5, "ApproachAngle");
             }
 
             if (DepartureAngle == null || DepartureAngle == 0)
             {
-                dataQualityScore.ReduceScore(5, "OverhangAngleRear");
+                dataQualityScore.ReduceScore(5, "DepartureAngle");
             }
 
             if (TurningCircle == null || TurningCircle == 0)

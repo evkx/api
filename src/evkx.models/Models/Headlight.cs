@@ -109,8 +109,12 @@ namespace evdb.models.Models
             {
                 descriptionKey += ".leddigitalmatrix";
             }
+            else if (LightTechnology == Enums.LightTechnology.Halogen)
+            {
+                descriptionKey += ".halogen";
+            }
 
-            if(CorneringLight != null && CorneringLight.Available())
+            if (CorneringLight != null && CorneringLight.Available())
             {
                 descriptionKey += ".corneringlight";
             }

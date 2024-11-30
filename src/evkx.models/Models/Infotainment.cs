@@ -115,7 +115,7 @@ namespace evdb.Models
             {
                 dataQualityScore.ReduceScore(10, "NavigationSystem");
             }
-            else
+            else if(InCarNavigation == null || InCarNavigation.FeatureStatus != FeatureStatus.NotAvailable)
             {
                 dataQualityScore.AddSubScore(NavigationSystem.CalculateDataQuality());
             }

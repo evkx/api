@@ -1,9 +1,7 @@
 ﻿using evdb.models.Enums;
 using evdb.models.Models;
-using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace evdb.Models

@@ -108,7 +108,12 @@ namespace evdb.models.Models
             {
                 dataQualityScore.ReduceScore(20, "SteeringWheelDesign");
             }
-           
+
+            if(SteeringWheelControlType.NotSet == ControlType)
+            {
+                dataQualityScore.ReduceScore(20, "ControlType");
+            }
+
             return dataQualityScore;
         }
     }

@@ -241,8 +241,8 @@ namespace evdb.Models
                         }
               
                 }
-                else if (featureStatusList.ContainsKey(SeatFeatureStatus.StandardElectric.ToString()) && featureStatusList.ContainsKey(SeatFeatureStatus.Standard.ToString())
-                    && (featureStatusList[SeatFeatureStatus.StandardElectric.ToString()].Count == 1 && featureStatusList[SeatFeatureStatus.Standard.ToString()].Count == 1))
+                else if (featureStatusList.ContainsKey(SeatFeatureStatus.StandardElectric.ToString()) && featureStatusList.ContainsKey(SeatFeatureStatus.StandardManual.ToString())
+                    && (featureStatusList[SeatFeatureStatus.StandardElectric.ToString()].Count == 1 && featureStatusList[SeatFeatureStatus.StandardManual.ToString()].Count == 1))
                 {
                   
                         // Two different seat location on this row where feature is available on only one of them. 
@@ -251,6 +251,18 @@ namespace evdb.Models
                         {
                             return SeatRowFeatureStatus.StandardElectricDriverStandardManualPassenger;
                         }
+
+                }
+                else if (featureStatusList.ContainsKey(SeatFeatureStatus.StandardElectric.ToString()) && featureStatusList.ContainsKey(SeatFeatureStatus.Standard.ToString())
+                && (featureStatusList[SeatFeatureStatus.StandardElectric.ToString()].Count == 1 && featureStatusList[SeatFeatureStatus.Standard.ToString()].Count == 1))
+                {
+
+                    // Two different seat location on this row where feature is available on only one of them. 
+
+                    if (isFirstRow)
+                    {
+                        return SeatRowFeatureStatus.StandardElectricDriverStandardManualPassenger;
+                    }
 
                 }
                 else if (featureStatusList.ContainsKey(SeatFeatureStatus.Standard.ToString()) && featureStatusList.ContainsKey(SeatFeatureStatus.NotAvailable.ToString())
