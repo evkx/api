@@ -6,25 +6,20 @@ namespace evdb.models.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum SensorSetup : int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "CameraOnly")]
-        Camera = 1,
+        Camera,
 
-        [EnumMember(Value = "CameraRadar")]
-        CameraRadar = 2,
+        CameraRadar,
 
-        [EnumMember(Value = "CameraRadarLidar")]
-        CameraRadarLidar = 3,
+        CameraUltrasonic,
 
-        [EnumMember(Value = "CameraRadarUltrasonic")]
-        CameraRadarUltrasonic = 4,
+        CameraRadarLidar,
 
-        [EnumMember(Value = "CameraRadarLidarUltrasonic")]
-        CameraRadarLidarUltrasonic = 5,
+        CameraRadarUltrasonic,
 
-        [EnumMember(Value = "CameraLidarUltrasonic")]
-        CameraLidarUltrasonic = 6,
+        CameraRadarLidarUltrasonic,
+
+        CameraLidarUltrasonic,
     }
 }

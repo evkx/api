@@ -6,22 +6,18 @@ namespace evdb.models.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum Region: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "Africa")]
-        Africa = 1,
+        Africa,
 
-        [EnumMember(Value = "Americas")]
-        Americas = 2,
+        Americas,
 
-        [EnumMember(Value = "Asia")]
-        Asia = 3,
+        Asia,
 
-        [EnumMember(Value = "Europe")]
-        Europe = 4,
+        Europe,
 
-        [EnumMember(Value = "Oceania")]
-        Oceania = 5,
+        Oceania,
+
+        World
     }
 }

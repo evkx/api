@@ -36,11 +36,6 @@ namespace evdb.models.Models
         public decimal? FrontBrakeDiscDiameter { get; set; }
 
         /// <summary>
-        /// The thickness of the front brake discs
-        /// </summary>
-        public decimal? FrontBrakeDiscThickness { get; set; }
-
-        /// <summary>
         /// The number of pistons of the front brakes
         /// </summary>
         public int? FrontBrakePistons { get; set; }
@@ -61,11 +56,6 @@ namespace evdb.models.Models
         /// The diameter of the rear brake discs
         /// </summary>
         public decimal? RearBrakeDiscDiameter { get; set; }
-
-        /// <summary>
-        /// The thickness of the rear brake discs
-        /// </summary>
-        public decimal? RearBrakeDiscThickness { get; set; }
 
         /// <summary>
         /// The number of pistons of the rear brakes
@@ -105,11 +95,6 @@ namespace evdb.models.Models
                 dataQualityScore.ReduceScore(2,"FrontBrakeDiscDiamater");
             }
 
-            if(FrontBrakeDiscThickness == null)
-            {
-                dataQualityScore.ReduceScore(1, "FrontBrakeDiscThickness");
-            }
-
             if(FrontBrakePistons == null)
             {
                 dataQualityScore.ReduceScore(2, "FrontBrakePistons");
@@ -128,11 +113,6 @@ namespace evdb.models.Models
             if(RearBrakeDiscDiameter == null && RearBrakeType != BrakeType.Drum)
             {
                 dataQualityScore.ReduceScore(2, "RearBrakeDiscDiameter");
-            }
-
-            if(RearBrakeDiscThickness == null && RearBrakeType != BrakeType.Drum)
-            {
-                dataQualityScore.ReduceScore(1, "RearBrakeDiscThickness");
             }
 
             if (RearBrakePistons == null && RearBrakeType != BrakeType.Drum)

@@ -78,6 +78,11 @@ namespace evdb.models.Models
                 }
             }
 
+            if(Colors == null || Colors.Count == 0)
+            {
+                dataQualityScore.ReduceScore(13, "Colors");
+            }
+
             return dataQualityScore;
 
         }

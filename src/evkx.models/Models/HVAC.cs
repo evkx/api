@@ -74,7 +74,12 @@ namespace evdb.models.Models
             if(PetMode == null || PetMode.FeatureStatus == FeatureStatus.Unknown)
             {
                 dataQualityScore.ReduceScore(10, "PetMode");
-            }   
+            }
+            
+            if (CampMode == null || CampMode.FeatureStatus == FeatureStatus.Unknown)
+            {
+                dataQualityScore.ReduceScore(10, "CampMode");
+            }
 
             return dataQualityScore;
         }

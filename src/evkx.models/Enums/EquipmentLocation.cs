@@ -6,98 +6,67 @@ namespace evdb.models.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum EquipmentLocation: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "LeftFrontCorner")]
-        LeftFrontCorner = 1,
+        LeftFrontCorner ,
 
-        [EnumMember(Value = "RightFrontCorner")]
-        RightFrontCorner = 2,
+        RightFrontCorner,
 
-        [EnumMember(Value = "LeftRearCorner")]
-        LeftRearCorner = 3,
+        LeftRearCorner,
 
-        [EnumMember(Value = "RightRearCorner")]
-        RightRearCorner = 4,
+        RightRearCorner,
 
-        [EnumMember(Value = "LeftFrontSide")]
-        LeftFrontSide = 5,
+        LeftFrontSide,
 
-        [EnumMember(Value = "RightFrontSide")]
-        RightFrontSide = 6,
+        RightFrontSide,
 
-        [EnumMember(Value = "LeftRearSide")]
-        LeftRearSide = 7,
+        LeftRearSide,
 
-        [EnumMember(Value = "RightRearSide")]
-        RightRearSide = 8,
+        RightRearSide,
 
-        [EnumMember(Value = "Front")]
-        Front = 9,
+        Front,
 
-        [EnumMember(Value = "TopCenterWindshield")]
-        TopCenterWindshield = 10,
+        TopCenterWindshield,
 
-        [EnumMember(Value = "OnLeftWingMirror")]
-        OnLeftWingMirror = 11,
+        OnLeftWingMirror,
 
-        [EnumMember(Value = "OnRightWingMirror")]
-        OnRightWingMirror = 12,
+        OnRightWingMirror,
 
-        [EnumMember(Value = "OnBumberRearLeftSide")]
-        OnBumberRearLeftSide = 13,
+        OnBumberRearLeftSide,
 
-        [EnumMember(Value = "OnBumberRearRightSide")]
-        OnBumberRearRightSide = 14,
+        OnBumberRearRightSide,
 
-        [EnumMember(Value = "OnBumberRearLeftCorner")]
-        OnBumberRearLeftCorner = 15,
+        OnBumberRearLeftCorner,
 
-        [EnumMember(Value = "OnBumberRearRightCorner")]
-        OnBumberRearRightCorner = 16,
+        OnBumberRearRightCorner,
 
-        [EnumMember(Value = "OnBumberRear")]
-        OnBumberRear = 17,
+        OnBumberRear,
 
-        [EnumMember(Value = "OnBumberFrontLeftSide")]
-        OnBumberFrontLeftSide = 18,
+        OnBumberFrontLeftSide,
 
-        [EnumMember(Value = "OnBumberFrontRightSide")]
-        OnBumberFrontRightSide = 19,
+        OnBumberFrontRightSide,
 
-        [EnumMember(Value = "OnBumberFrontLeftCorner")]
-        OnBumberFrontLeftCorner = 20,
+        OnBumberFrontLeftCorner,
 
-        [EnumMember(Value = "OnBumberFrontRightCorner")]
-        OnBumberFrontRightCorner = 21,
+        OnBumberFrontRightCorner,
 
-        [EnumMember(Value = "OnBumberFront")]
-        OnBumberFront = 22,
+        OnBumberFront,
 
-        [EnumMember(Value = "RearCenter")]
-        RearCenter = 23,
+        RearCenter,
 
-        [EnumMember(Value = "LeftBPillar")]
-        LeftBPillar = 24,
+        LeftBPillar,
 
-        [EnumMember(Value = "RightBPillar")]
-        RightBPillar = 25,
+        RightBPillar,
 
-        [EnumMember(Value = "CenterRoofOverWindshield")]
-        CenterRoofOverWindshield = 26,
+        CenterRoofOverWindshield,
 
-        [EnumMember(Value = "CenterRoofOverRearWindow")]
-        CenterRoofOverRearWindow = 27,
+        CenterRoofOverRearWindow,
 
-        [EnumMember(Value = "OverheadConsole")]
-        OverheadConsole = 28,
+        OverheadConsole,
 
-        [EnumMember(Value = "LeftRoofOverWindshield")]
-        LeftRoofOverWindshield = 29,
+        LeftRoofOverWindshield,
 
-        [EnumMember(Value = "RightRoofOverWindshield")]
-        RightRoofOverWindshield = 30,
+        RightRoofOverWindshield,
 
     }
 }

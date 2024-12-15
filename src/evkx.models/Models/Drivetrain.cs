@@ -34,6 +34,7 @@ namespace evdb.Models
             DriveModes = new List<DriveMode>();
             SelectableDriveModes = new EVFeature();
             Charging = new Charging();
+            CrabWalk = new EVFeature();
         }
 
         /// <summary>

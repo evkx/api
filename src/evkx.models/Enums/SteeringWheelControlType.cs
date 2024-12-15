@@ -6,35 +6,29 @@ namespace evdb.models.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum SteeringWheelControlType: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "PhysicalButtons")]
-        PhysicalButtons = 1,
+        PhysicalButtons,
 
-        [EnumMember(Value = "PhysicalButtonsScrollWheels")]
-        PhysicalButtonsScrollWheels = 2,
+        PhysicalButtonsPaddleShifter,
 
-        [EnumMember(Value = "PhysicalButtonsScrollWheelPaddleShifter")]
-        PhysicalButtonsScrollWheelPaddleShifter = 3,
+        PhysicalButtonsScrollWheels,
 
-        [EnumMember(Value = "HapticButtonsPaddleShifter")]
-        HapticButtonsPaddleShifter = 4,
+        PhysicalButtonsScrollWheelPaddleShifter,
 
-        [EnumMember(Value = "HapticButtons")]
-        HapticButtons = 5,
+        PhysicalButtonsToggleSwitchPaddleShifter,
 
-        [EnumMember(Value = "CapactiveButtonsPaddleShifter")]
-        CapactiveButtonsPaddleShifter = 6,
+        PhysicalButtonsToggleSwitch,
 
-        [EnumMember(Value = "CapactiveButtons")]
-        CapactiveButtons = 7,
+        HapticButtonsPaddleShifter,
 
-        [EnumMember(Value = "TwinScrollWheel")]
-        TwinScrollWheel = 8,
+        HapticButtons,
 
-        [EnumMember(Value = "PhysicalButtonsPaddleShifter")]
-        PhysicalButtonsPaddleShifter = 9,
+        CapactiveButtonsPaddleShifter,
+
+        CapactiveButtons,
+
+        TwinScrollWheel,
 
     }
 }

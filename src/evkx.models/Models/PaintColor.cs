@@ -2,6 +2,7 @@
 using evdb.models.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace evdb.Models
@@ -19,7 +20,7 @@ namespace evdb.Models
         /// <summary>
         /// Color familiy
         /// </summary>
-        public string? Color { get; set; }
+        public Color? Color { get; set; }
 
         /// <summary>
         /// Paint name. Language support
@@ -52,11 +53,36 @@ namespace evdb.Models
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public string? SpecialColor { get; set; }
 
+        public string GetName(string language)
+        {
+            if(Name == null)
+            {
+                return string.Empty;
+            }
+
+            if (Name.ContainsKey(language))
+            {
+                return Name[language];
+            }
+
+            if (Name.ContainsKey("en"))
+            {
+                return Name["en"];
+            }
+
+            if (Name.Count > 0)
+            {
+                return Name.Values.First();
+            }
+
+            return string.Empty;
+        }
+
         internal DataQualityScore CalculateDataQuality()
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "PaintColor" };
 
-            if (string.IsNullOrWhiteSpace(Color))
+            if (Color == null || Color == models.Enums.Color.NotSet)
             {
                 dataQualityScore.ReduceScore(30,"Color");
             }

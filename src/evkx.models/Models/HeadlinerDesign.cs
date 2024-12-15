@@ -24,16 +24,16 @@ namespace evdb.Models
         /// </summary>
         public  InteriorMaterialType? Material { get; set; }
 
-        internal DataQualityScore CalculateDataQuality()
+        public DataQualityScore CalculateDataQuality()
         {
             DataQualityScore dataQualityScore = new DataQualityScore() { DataArea = "HeadlinerDesign" };
 
-            if (Color == models.Enums.Color.NotSet)
+            if (Color == null || Color == models.Enums.Color.NotSet)
             {
                 dataQualityScore.ReduceScore(5, "Color");
             }
 
-            if(Material == models.Enums.InteriorMaterialType.None)
+            if(Material == null || Material == models.Enums.InteriorMaterialType.None)
             {
                 dataQualityScore.ReduceScore(5, "Material");
             }

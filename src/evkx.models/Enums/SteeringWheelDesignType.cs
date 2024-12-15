@@ -3,25 +3,22 @@ using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    /// <summary>
+    /// The design of the steering wheel
+    /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum SteeringWheelDesignType: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "Circular")]
-        Circular = 1,
+        Circular,
 
-        [EnumMember(Value = "CircularFlatBottom")]
-        CircularFlatBottom = 2,
+        CircularFlatBottom,
 
-        [EnumMember(Value = "CircularFlatBottomTop")]
-        CircularFlatBottomTop = 3,
+        CircularFlatBottomTop,
 
-        [EnumMember(Value = "Yoke")]
-        Yoke = 4,
+        Yoke,
 
-        [EnumMember(Value = "Oval")]
-        Oval = 5,
+        Oval,
     }
 }

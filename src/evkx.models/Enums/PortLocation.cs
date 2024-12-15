@@ -6,73 +6,50 @@ namespace evdb.models.Enums
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PortLocation: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "FirstRowCenterConsol")]
-        FirstRowCenterConsol = 1,
+        FirstRowCenterConsol,
 
-        [EnumMember(Value = "FirstRowArmRest")]
-        FirstRowArmRest = 2,
+        FirstRowArmRest,
 
-        [EnumMember(Value = "SecondRowCenterConsol")]
-        SecondRowCenterConsol = 3,
+        SecondRowCenterConsol,
 
-        [EnumMember(Value = "FirstRowSeatBack")]
-        FirstRowSeatBack = 4,
+        FirstRowSeatBack,
 
-        [EnumMember(Value = "ThirdRowLeftSide")]
-        ThirdRowLeftSide = 5,
+        ThirdRowLeftSide,
 
-        [EnumMember(Value = "ThirdRowRightSide")]
-        ThirdRowRightSide = 6,
+        ThirdRowRightSide,
 
-        [EnumMember(Value = "TrunkLeftSide")]
-        TrunkLeftSide = 7,
+        TrunkLeftSide,
 
-        [EnumMember(Value = "TrunkRightSide")]
-        TrunkRightSide = 8,
+        TrunkRightSide,
 
-        [EnumMember(Value = "BackOfDriverSeat")]
-        BackOfDriverSeat = 9,
+        BackOfDriverSeat,
 
-        [EnumMember(Value = "BackOfPassengerSeat")]
-        BackOfPassengerSeat = 10,
+        BackOfPassengerSeat,
 
-        [EnumMember(Value = "PassengerDoor")]
-        PassengerDoor = 11,
+        PassengerDoor,
 
-        [EnumMember(Value = "Dashboard")]
-        Dashboard = 12,
+        Dashboard,
 
-        [EnumMember(Value = "LeftSecondRowDoor")]
-        LeftSecondRowDoor = 13,
+        LeftSecondRowDoor,
 
-        [EnumMember(Value = "RightSecondRowDoor")]
-        RightSecondRowDoor = 14,
+        RightSecondRowDoor,
 
-        [EnumMember(Value = "SecondRowArmRest")]
-        SecondRowArmRest = 15,
+        SecondRowArmRest,
 
-        [EnumMember(Value = "ThirdRowArmRest")]
-        ThirdRowArmRest = 16,
+        ThirdRowArmRest,
 
-        [EnumMember(Value = "BelowSecondRowSeat")]
-        BelowSecondRowSeat = 17,
+        BelowSecondRowSeat,
 
-        [EnumMember(Value = "Glowbox")]
-        Glowbox = 18,
+        Glowbox,
 
-        [EnumMember(Value = "BedLeftSide")]
-        BedLeftSide = 19,
+        BedLeftSide,
 
-        [EnumMember(Value = "BedRightSide")]
-        BedRightSide = 20,
+        BedRightSide,
 
-        [EnumMember(Value = "FrunkLeftSide")]
-        FrunkLeftSide = 21,
+        FrunkLeftSide,
 
-        [EnumMember(Value = "FrunkRightSide")]
-        FrunkRightSide = 22,
+        FrunkRightSide,
     }
 }

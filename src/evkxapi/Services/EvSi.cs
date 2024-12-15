@@ -641,9 +641,9 @@ namespace evdb.Services
                     {
                         foreach (PaintColor color in ev.Exterior.PaintColors)
                         {
-                            if (!string.IsNullOrEmpty(color.Color) && !colors.Exists(s=> s.Equals(color.Color)))
+                            if (color.Color != null && color.Color != Color.NotSet && !colors.Exists(s=> s.Equals(color.Color.ToString())))
                             {
-                                colors.Add(color.Color);
+                                colors.Add(color.Color.ToString());
                             }
                         }
 

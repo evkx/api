@@ -3,43 +3,34 @@ using System.Text.Json.Serialization;
 
 namespace evdb.models.Enums
 {
+    /// <summary>
+    /// Defines the type of paint
+    /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PaintType: int
     {
-        [EnumMember(Value = "NotSet")]
-        NotSet = 0,
+        NotSet,
 
-        [EnumMember(Value = "Solid")]
-        Solid = 1,
+        Solid,
 
-        [EnumMember(Value = "Metallic")]
-        Metallic = 2,
+        Metallic,
 
-        [EnumMember(Value = "Pearlescent")]
-        Pearlescent = 3,
+        Pearlescent,
 
-        [EnumMember(Value = "Matte")]
-        Matte = 4,
+        Matte,
 
-        [EnumMember(Value = "Candy")]
-        Candy = 5,
+        Candy,
 
-        [EnumMember(Value = "Wrap")]
-        Wrap = 6,
+        Wrap,
 
-        [EnumMember(Value = "MultiCoat")]   
-        MultiCoat = 7,
+        MultiCoat,
 
-        [EnumMember(Value = "CrystalEffect")]
-        CrystalEffect = 8,
+        CrystalEffect,
 
-        [EnumMember(Value = "Uni")]
-        Uni = 9,
+        Uni,
 
-        [EnumMember(Value = "TriCoat")]
-        TriCoat = 10,
+        TriCoat,
 
-        [EnumMember(Value = "Satin")]
-        Satin = 11,
+        Satin,
     }
 }

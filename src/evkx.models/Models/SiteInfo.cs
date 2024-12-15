@@ -10,10 +10,11 @@ namespace evdb.models.Models
             LanguageHash = new Dictionary<string, string>();
         }
 
+        public Dictionary<string, string> LanguageHash { get; set; }
+
+        public bool? ForceGeneration { get; set; }
+
         public List<EvSummary> AllModels { get; set; }
 
-        public Dictionary<string,string> LanguageHash { get; set; } 
-
-        public bool? ForceGeneration { get; set; }  
     }
 }

@@ -16,6 +16,8 @@ namespace evdb.models.Models
 
         public string? Language { get; set; }
 
+        public string? Url { get; set; }
+
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ReviewPlatform? ReviewPlatform { get; set; }
 

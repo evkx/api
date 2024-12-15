@@ -17,6 +17,7 @@ RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant)
         /// <summary>
         /// The ID of the referenced model.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public Guid? Id { get; set; }
 
         /// <summary>
@@ -32,7 +33,8 @@ RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant)
         /// <summary>
         /// The variant of the referenced model.
         /// </summary>
-        public required string Variant { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public string? Variant { get; set; }
 
         /// <summary>
         /// Legacy version of the model if discontinued and replaced by new
@@ -44,6 +46,16 @@ RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.CultureInvariant)
         {
             return Brand + " " + Variant;
         }
+
+        /// <summary>
+        /// Returns the path to the model's folder
+        /// </summary>
+        /// <returns></returns>
+        public string GetEvModelPath()
+        {
+            return ("/models/" + SanitizedFileName(Brand.ToLower()) + "/" + SanitizedFileName(Model.ToLower()) + "/").ToLower();
+        }
+
 
         public string GetEvPath()
         {
