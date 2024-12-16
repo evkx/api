@@ -188,7 +188,7 @@ namespace evdbtests
             HttpClient client = SetupUtil.GetTestClient(_factory);
 
             EvSearch search = new EvSearch();
-            search.SortOrder = evdb.models.Enums.SortOrder.TravelSpeed120kmhDesc;
+            search.SortOrder = evdb.models.Enums.SortOrder.DrivingDistance120kmhCharged10Percent15Min;
             string requestUri = "/api/Ev/";
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
             {
